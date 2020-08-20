@@ -36,9 +36,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.txtNodoTexto = new System.Windows.Forms.TextBox();
-            this.txtNodoHijo = new System.Windows.Forms.TextBox();
-            this.txtNodoPadre = new System.Windows.Forms.TextBox();
+            this.txtCuenta = new System.Windows.Forms.TextBox();
+            this.txtCodigo1 = new System.Windows.Forms.TextBox();
+            this.txtCodigoPadre = new System.Windows.Forms.TextBox();
+            this.txtCodigo2 = new System.Windows.Forms.TextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -54,7 +60,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(87, 81);
+            this.btnAgregar.Location = new System.Drawing.Point(12, 189);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 1;
@@ -76,13 +82,19 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.checkBox4);
+            this.panel2.Controls.Add(this.checkBox3);
+            this.panel2.Controls.Add(this.checkBox2);
+            this.panel2.Controls.Add(this.checkBox1);
+            this.panel2.Controls.Add(this.txtCodigo2);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.btnEliminar);
-            this.panel2.Controls.Add(this.txtNodoTexto);
-            this.panel2.Controls.Add(this.txtNodoHijo);
-            this.panel2.Controls.Add(this.txtNodoPadre);
+            this.panel2.Controls.Add(this.txtCuenta);
+            this.panel2.Controls.Add(this.txtCodigo1);
+            this.panel2.Controls.Add(this.txtCodigoPadre);
             this.panel2.Controls.Add(this.btnAgregar);
             this.panel2.Location = new System.Drawing.Point(4, 3);
             this.panel2.Name = "panel2";
@@ -101,11 +113,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 32);
+            this.label2.Location = new System.Drawing.Point(41, 32);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 7;
-            this.label2.Text = "N° Cuenta";
+            this.label2.Text = "Código";
             // 
             // label1
             // 
@@ -118,33 +130,93 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(189, 81);
+            this.btnEliminar.Location = new System.Drawing.Point(12, 218);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 5;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             // 
-            // txtNodoTexto
+            // txtCuenta
             // 
-            this.txtNodoTexto.Location = new System.Drawing.Point(87, 55);
-            this.txtNodoTexto.Name = "txtNodoTexto";
-            this.txtNodoTexto.Size = new System.Drawing.Size(177, 20);
-            this.txtNodoTexto.TabIndex = 4;
+            this.txtCuenta.Location = new System.Drawing.Point(87, 55);
+            this.txtCuenta.Name = "txtCuenta";
+            this.txtCuenta.Size = new System.Drawing.Size(177, 20);
+            this.txtCuenta.TabIndex = 4;
             // 
-            // txtNodoHijo
+            // txtCodigo1
             // 
-            this.txtNodoHijo.Location = new System.Drawing.Point(87, 29);
-            this.txtNodoHijo.Name = "txtNodoHijo";
-            this.txtNodoHijo.Size = new System.Drawing.Size(177, 20);
-            this.txtNodoHijo.TabIndex = 3;
+            this.txtCodigo1.Location = new System.Drawing.Point(87, 29);
+            this.txtCodigo1.Name = "txtCodigo1";
+            this.txtCodigo1.ReadOnly = true;
+            this.txtCodigo1.Size = new System.Drawing.Size(92, 20);
+            this.txtCodigo1.TabIndex = 3;
             // 
-            // txtNodoPadre
+            // txtCodigoPadre
             // 
-            this.txtNodoPadre.Location = new System.Drawing.Point(87, 3);
-            this.txtNodoPadre.Name = "txtNodoPadre";
-            this.txtNodoPadre.Size = new System.Drawing.Size(177, 20);
-            this.txtNodoPadre.TabIndex = 2;
+            this.txtCodigoPadre.Location = new System.Drawing.Point(87, 3);
+            this.txtCodigoPadre.Name = "txtCodigoPadre";
+            this.txtCodigoPadre.ReadOnly = true;
+            this.txtCodigoPadre.Size = new System.Drawing.Size(177, 20);
+            this.txtCodigoPadre.TabIndex = 2;
+            // 
+            // txtCodigo2
+            // 
+            this.txtCodigo2.Location = new System.Drawing.Point(185, 29);
+            this.txtCodigo2.Name = "txtCodigo2";
+            this.txtCodigo2.Size = new System.Drawing.Size(79, 20);
+            this.txtCodigo2.TabIndex = 9;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(87, 86);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(49, 17);
+            this.checkBox1.TabIndex = 10;
+            this.checkBox1.Text = "USO";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(87, 109);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(114, 17);
+            this.checkBox2.TabIndex = 12;
+            this.checkBox2.Text = "Cuenta Naturaleza";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(87, 132);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(103, 17);
+            this.checkBox3.TabIndex = 13;
+            this.checkBox3.Text = "Cuenta de Pago";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(87, 155);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(114, 17);
+            this.checkBox4.TabIndex = 14;
+            this.checkBox4.Text = "Cuenta de Destino";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(93, 189);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Guardar";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // FrmPlanContable
             // 
@@ -169,12 +241,18 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox txtNodoTexto;
-        private System.Windows.Forms.TextBox txtNodoHijo;
-        private System.Windows.Forms.TextBox txtNodoPadre;
+        private System.Windows.Forms.TextBox txtCuenta;
+        private System.Windows.Forms.TextBox txtCodigo1;
+        private System.Windows.Forms.TextBox txtCodigoPadre;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtCodigo2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

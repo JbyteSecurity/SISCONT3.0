@@ -29,9 +29,9 @@ namespace Presentacion
 
         private void Clear()
         {
-            txtNodoPadre.Text = null;
-            txtNodoHijo.Text = null;
-            txtNodoTexto.Text = null;
+            txtCodigoPadre.Text = null;
+            txtCodigo1.Text = null;
+            txtCuenta.Text = null;
             edit = false;
         }
 
@@ -76,8 +76,8 @@ namespace Presentacion
 
         private void tvPlanContable_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            txtNodoPadre.Text = e.Node.Text;
-            txtNodoHijo.Text = e.Node.Name;
+            txtCodigoPadre.Text = e.Node.Text;
+            txtCodigo1.Text = e.Node.Name;
         }
     }
 }

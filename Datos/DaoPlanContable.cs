@@ -85,18 +85,19 @@ namespace Datos
         //    return dataTable;
         //}
 
-        public bool Insert(string usuario, string contrasenia, string nombre, string correo, string telefono, int rolId)
+        public bool Insert(int codigo, string cuenta, bool uso, bool naturaleza, bool pago, bool destino, int codigo_padre)
         {
             sqlCommand.Connection = conexion.OpenConnection();
-            sqlCommand.CommandText = "sp_insert_user";
+            sqlCommand.CommandText = "sp_insert_plan";
             sqlCommand.CommandType = CommandType.StoredProcedure;
 
-            sqlCommand.Parameters.AddWithValue("@Usuario", usuario);
-            sqlCommand.Parameters.AddWithValue("@Contrasenia", contrasenia);
-            sqlCommand.Parameters.AddWithValue("@Nombre", nombre);
-            sqlCommand.Parameters.AddWithValue("@Correo", correo);
-            sqlCommand.Parameters.AddWithValue("@Telefono", telefono);
-            sqlCommand.Parameters.AddWithValue("@RolId", rolId);
+            sqlCommand.Parameters.AddWithValue("@codigo", codigo);
+            sqlCommand.Parameters.AddWithValue("@cuenta", cuenta);
+            sqlCommand.Parameters.AddWithValue("@uso", uso);
+            sqlCommand.Parameters.AddWithValue("@naturaleza", naturaleza);
+            sqlCommand.Parameters.AddWithValue("@pago", pago);
+            sqlCommand.Parameters.AddWithValue("@destino", destino);
+            sqlCommand.Parameters.AddWithValue("@codigo_pago", codigo_padre);
 
             if (sqlCommand.ExecuteNonQuery() > 0)
             {
@@ -108,19 +109,20 @@ namespace Datos
                 return false;
         }
 
-        public bool Update(int id, string usuario, string contrasenia, string nombre, string correo, string telefono, int rolId)
+        public bool Update(int id, int codigo, string cuenta, bool uso, bool naturaleza, bool pago, bool destino, int codigo_padre)
         {
             sqlCommand.Connection = conexion.OpenConnection();
-            sqlCommand.CommandText = "sp_update_user";
+            sqlCommand.CommandText = "sp_update_plan";
             sqlCommand.CommandType = CommandType.StoredProcedure;
 
-            sqlCommand.Parameters.AddWithValue("@idUsuario", id);
-            sqlCommand.Parameters.AddWithValue("@Usuario", usuario);
-            sqlCommand.Parameters.AddWithValue("@Contrasenia", contrasenia);
-            sqlCommand.Parameters.AddWithValue("@Nombre", nombre);
-            sqlCommand.Parameters.AddWithValue("@Correo", correo);
-            sqlCommand.Parameters.AddWithValue("@Telefono", telefono);
-            sqlCommand.Parameters.AddWithValue("@RolId", rolId);
+            sqlCommand.Parameters.AddWithValue("@id", id);
+            sqlCommand.Parameters.AddWithValue("@codigo", codigo);
+            sqlCommand.Parameters.AddWithValue("@cuenta", cuenta);
+            sqlCommand.Parameters.AddWithValue("@uso", uso);
+            sqlCommand.Parameters.AddWithValue("@naturaleza", naturaleza);
+            sqlCommand.Parameters.AddWithValue("@pago", pago);
+            sqlCommand.Parameters.AddWithValue("@destino", destino);
+            sqlCommand.Parameters.AddWithValue("@codigo_pago", codigo_padre);
 
             if (sqlCommand.ExecuteNonQuery() > 0)
             {
@@ -135,10 +137,10 @@ namespace Datos
         public bool Destroy(int id)
         {
             sqlCommand.Connection = conexion.OpenConnection();
-            sqlCommand.CommandText = "sp_delete_user";
+            sqlCommand.CommandText = "sp_delete_plan";
             sqlCommand.CommandType = CommandType.StoredProcedure;
 
-            sqlCommand.Parameters.AddWithValue("@idUsuario", id);
+            sqlCommand.Parameters.AddWithValue("@id", id);
 
             if (sqlCommand.ExecuteNonQuery() > 0)
             {
