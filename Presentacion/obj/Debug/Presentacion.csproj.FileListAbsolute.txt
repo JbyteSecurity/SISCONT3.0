@@ -59,6 +59,7 @@ C:\Users\Developers\Desktop\SISCONT2.0\SISCONT\Presentacion\bin\Debug\ru\Advance
 C:\Users\Developers\Desktop\SISCONT2.0\SISCONT\Presentacion\obj\Debug\Presentacion.csprojAssemblyReference.cache
 C:\Users\Developers\Desktop\SISCONT2.0\SISCONT\Presentacion\obj\Debug\Presentacion.FrmDetraccion.resources
 C:\Users\Developers\Desktop\SISCONT2.0\SISCONT\Presentacion\obj\Debug\Presentacion.FrmLogin.resources
+C:\Users\Developers\Desktop\SISCONT2.0\SISCONT\Presentacion\obj\Debug\Presentacion.FrmPlanContable.resources
 C:\Users\Developers\Desktop\SISCONT2.0\SISCONT\Presentacion\obj\Debug\Presentacion.FrmPrincipal.resources
 C:\Users\Developers\Desktop\SISCONT2.0\SISCONT\Presentacion\obj\Debug\Presentacion.FrmProgramaLibrosElectronicos.resources
 C:\Users\Developers\Desktop\SISCONT2.0\SISCONT\Presentacion\obj\Debug\Presentacion.FrmProveedor.resources
@@ -71,4 +72,3 @@ C:\Users\Developers\Desktop\SISCONT2.0\SISCONT\Presentacion\obj\Debug\Presentaci
 C:\Users\Developers\Desktop\SISCONT2.0\SISCONT\Presentacion\obj\Debug\Presentacion.csproj.CopyComplete
 C:\Users\Developers\Desktop\SISCONT2.0\SISCONT\Presentacion\obj\Debug\Presentacion.exe
 C:\Users\Developers\Desktop\SISCONT2.0\SISCONT\Presentacion\obj\Debug\Presentacion.pdb
-C:\Users\Developers\Desktop\SISCONT2.0\SISCONT\Presentacion\obj\Debug\Presentacion.FrmPlanContable.resources

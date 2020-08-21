@@ -9,7 +9,7 @@ namespace Negocios
 
         public string GetAcount(string codigo) { return daoPlanContable.ShowAcount(codigo); }
 
-        public DataTable ShowAcountFilter(string clasificacion) { return daoPlanContable.ShowAcountFilter(clasificacion); }
+        public DataTable ShowAcountFilter(bool naturaleza, bool pago, bool destino) { return daoPlanContable.ShowAcountFilter(naturaleza, pago, destino); }
 
         public DataTable All() { return daoPlanContable.All(); }
 

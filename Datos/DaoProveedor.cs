@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 
 namespace Datos
 {
@@ -12,7 +13,7 @@ namespace Datos
         public string Show(string ruc)
         {
             SqlDataReader sqlDataReaderProvider;
-            DataTable dataTableProvider = new DataTable("tblProveedores");
+            DataTable dataTableProvider = new DataTable();
 
             sqlCommand.Connection = conexion.OpenConnection();
             sqlCommand.CommandText = "sp_show_name_proveedor";
@@ -47,14 +48,19 @@ namespace Datos
 
         }
 
-        public bool Insert(string ruc, string razonSocial)
+        public bool Insert(string ruc, string razonSocial, string nombre, string correo, string direccion, string telefono, string web)
         {
             sqlCommand.Connection = conexion.OpenConnection();
             sqlCommand.CommandText = "sp_insert_proveedor";
             sqlCommand.CommandType = CommandType.StoredProcedure;
 
-            sqlCommand.Parameters.AddWithValue("@Ruc", ruc);
-            sqlCommand.Parameters.AddWithValue("@RazonSocial", razonSocial);
+            sqlCommand.Parameters.AddWithValue("@ruc", ruc);
+            sqlCommand.Parameters.AddWithValue("@razon_social", razonSocial);
+            sqlCommand.Parameters.AddWithValue("@nombre", nombre);
+            sqlCommand.Parameters.AddWithValue("@mail", correo);
+            sqlCommand.Parameters.AddWithValue("@direccion", direccion);
+            sqlCommand.Parameters.AddWithValue("@telefono", telefono);
+            sqlCommand.Parameters.AddWithValue("@web", web);
 
             if (sqlCommand.ExecuteNonQuery() > 0)
             {
@@ -66,15 +72,20 @@ namespace Datos
 
         }
 
-        public bool Update(int id, string ruc, string razonSocial)
+        public bool Update(int id, string ruc, string razonSocial, string nombre, string correo, string direccion, string telefono, string web)
         {
             sqlCommand.Connection = conexion.OpenConnection();
             sqlCommand.CommandText = "sp_update_proveedor";
             sqlCommand.CommandType = CommandType.StoredProcedure;
 
-            sqlCommand.Parameters.AddWithValue("@Id", id);
-            sqlCommand.Parameters.AddWithValue("@Ruc", ruc);
-            sqlCommand.Parameters.AddWithValue("@RazonSocial", razonSocial);
+            sqlCommand.Parameters.AddWithValue("@id", id);
+            sqlCommand.Parameters.AddWithValue("@ruc", ruc);
+            sqlCommand.Parameters.AddWithValue("@razon_social", razonSocial);
+            sqlCommand.Parameters.AddWithValue("@nombre", nombre);
+            sqlCommand.Parameters.AddWithValue("@mail", correo);
+            sqlCommand.Parameters.AddWithValue("@direccion", direccion);
+            sqlCommand.Parameters.AddWithValue("@telefono", telefono);
+            sqlCommand.Parameters.AddWithValue("@web", web);
 
             if (sqlCommand.ExecuteNonQuery() > 0)
             {

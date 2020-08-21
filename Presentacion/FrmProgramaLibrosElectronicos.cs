@@ -1,5 +1,6 @@
 ﻿using Negocios;
 using System;
+using System.Collections;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -41,7 +42,7 @@ namespace Presentacion
             FillDataGridViewVentas();
 
             FillComboTipoComprobante();
-            FillComboCuentaDestino();
+            FillComboCuentas();
 
             //FillComboCodigo();
 
@@ -247,9 +248,9 @@ namespace Presentacion
                         double comprasTipoCambio = row.Cells["comprasTipoCambio"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["comprasTipoCambio"].Value) : 0;
 
                         double comprasPercepcion = row.Cells["comprasPercepcion"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["comprasPercepcion"].Value) : 0;
-                        string comprasDestino = row.Cells["comprasDestino"].Value != DBNull.Value ? Convert.ToString(row.Cells["comprasDestino"].Value) : "";
+                        string comprasDestino = row.Cells["comprasCuentaDestino"].Value != DBNull.Value ? Convert.ToString(row.Cells["comprasCuentaDestino"].Value) : "";
                         string comprasDescripcionDestino = row.Cells["comprasDescripcionDestino"].Value != DBNull.Value ? Convert.ToString(row.Cells["comprasDescripcionDestino"].Value) : "";
-                        string comprasCuentaDestino = row.Cells["comprasCuentaDestino"].Value != DBNull.Value ? Convert.ToString(row.Cells["comprasCuentaDestino"].Value) : "";
+                        string comprasCuentaDestino = row.Cells["comprasCuentaPago"].Value != DBNull.Value ? Convert.ToString(row.Cells["comprasCuentaPago"].Value) : "";
                         //string comprasPago = row.Cells["comprasPago"].Value != DBNull.Value ? Convert.ToString(row.Cells["comprasPago"].Value) : "";
                         string comprasCodigo = row.Cells["comprasCodigo"].Value != DBNull.Value ? Convert.ToString(row.Cells["comprasCodigo"].Value) : "";
                         string comprasConstanciaNumero = row.Cells["comprasConstanciaNumero"].Value != DBNull.Value ? Convert.ToString(row.Cells["comprasConstanciaNumero"].Value) : "";
@@ -403,12 +404,19 @@ namespace Presentacion
             ventasCdpTipo.DataSource = comprobantePago.GetAllCpdTypes();
         }
 
-        private void FillComboCuentaDestino()
+        private void FillComboCuentas()
         {
+            comprasCuenta.DisplayMember = "Detail";
+            comprasCuenta.ValueMember = "Codigo";
+            comprasCuenta.DataSource = planContable.ShowAcountFilter(true, false, false);
+
+            comprasCuentaPago.DisplayMember = "Detail";
+            comprasCuentaPago.ValueMember = "Codigo";
+            comprasCuentaPago.DataSource = planContable.ShowAcountFilter(false, true, false);
+
             comprasCuentaDestino.DisplayMember = "Detail";
             comprasCuentaDestino.ValueMember = "Codigo";
-            comprasCuentaDestino.DataSource = planContable.ShowAcountFilter("dest");
-
+            comprasCuentaDestino.DataSource = planContable.ShowAcountFilter(false, false, true);
         }
 
         private void FillComboCodigo()
@@ -517,7 +525,7 @@ namespace Presentacion
                                 razonSocial = proveedor.GetSupplierName(ruc);
                                 if (razonSocial == null)
                                 {
-                                    string razonSocialSunat = sunat.buscarRuc(ruc);
+                                    ArrayList razonSocialSunat = sunat.buscarRuc(ruc);
 
                                     if (razonSocialSunat == null)
                                     {
@@ -526,7 +534,7 @@ namespace Presentacion
                                     if (razonSocialSunat != null)
                                     {
                                         dgvRegistroCompras.Rows[e.RowIndex].Cells["comprasProveedorRazonSocial"].Value = razonSocialSunat;
-                                        proveedor.Insert(ruc, razonSocialSunat);
+                                        //proveedor.Insert(ruc, razonSocialSunat);
                                     }
                                     else MessageBox.Show("No se encontro al proveedor con ruc: " + ruc, "Compras .::. Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -630,25 +638,25 @@ namespace Presentacion
                     }
                     catch (Exception Ex) { }
                     break;
-                case 10:
-                case 21:
-                    try
-                    {
-                        if (dgvRegistroCompras.Rows[e.RowIndex].Cells[e.RowIndex].Value != DBNull.Value)
-                        {
-                            if (!String.IsNullOrEmpty(dgvRegistroCompras.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString()))
-                            {
-                                string codigo = dgvRegistroCompras.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-                                string cuenta = planContable.GetAcount(codigo);
-                                if (cuenta == null)
-                                    MessageBox.Show("No se encontro una cuenta con código: " + codigo, "Compras .::. Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                else
-                                    dgvRegistroCompras.Rows[e.RowIndex].Cells[e.ColumnIndex + 1].Value = cuenta;
-                            }
-                        }
-                    }
-                    catch (Exception Ex) { }
-                    break;
+                //case 10:
+                //case 21:
+                //    try
+                //    {
+                //        if (dgvRegistroCompras.Rows[e.RowIndex].Cells[e.RowIndex].Value != DBNull.Value)
+                //        {
+                //            if (!String.IsNullOrEmpty(dgvRegistroCompras.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString()))
+                //            {
+                //                string codigo = dgvRegistroCompras.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+                //                string cuenta = planContable.GetAcount(codigo);
+                //                if (cuenta == null)
+                //                    MessageBox.Show("No se encontro una cuenta con código: " + codigo, "Compras .::. Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //                else
+                //                    dgvRegistroCompras.Rows[e.RowIndex].Cells[e.ColumnIndex + 1].Value = cuenta;
+                //            }
+                //        }
+                //    }
+                //    catch (Exception Ex) { }
+                //    break;
                 case 24: // Codigo
                     try
                     {
@@ -758,7 +766,7 @@ namespace Presentacion
 
                                 if (razonSocial == null)
                                 {
-                                    string razonSocialSunat = sunat.buscarRuc(ruc);
+                                    ArrayList razonSocialSunat = sunat.buscarRuc(ruc);
 
                                     if (razonSocialSunat == null)
                                     {
@@ -767,7 +775,7 @@ namespace Presentacion
                                     if (razonSocialSunat != null)
                                     {
                                         dgvRegistroVentas.Rows[e.RowIndex].Cells[e.ColumnIndex + 1].Value = razonSocialSunat;
-                                        proveedor.Insert(ruc, razonSocialSunat);
+                                        //proveedor.Insert(ruc, razonSocialSunat);
                                     }
                                     else MessageBox.Show("No se encontro al proveedor con ruc: " + ruc, "Compras .::. Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 }

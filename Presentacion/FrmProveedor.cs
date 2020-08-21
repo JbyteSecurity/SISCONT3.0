@@ -1,5 +1,6 @@
 ﻿using Negocios;
 using System;
+using System.Collections;
 using System.Windows.Forms;
 
 namespace Presentacion
@@ -41,13 +42,19 @@ namespace Presentacion
 
         private void Save()
         {
-            string ruc, razonSocial;
+            string ruc, razonSocial, nombre, correo, direccion, telefono, web;
             ruc = txtRuc.Text;
             razonSocial = txtRazonSocial.Text;
+            nombre = txtNombreComercial.Text;
+            correo = txtCorreo.Text;
+            direccion = txtDireccion.Text;
+            telefono = txtTelefono.Text;
+            web = txtSitioWeb.Text;
+
             if (edit)
             {
                 int id = Convert.ToInt32(dgvSuppliers.CurrentRow.Cells["ID"].Value);
-                if (proveedor.Update(id, ruc, razonSocial))
+                if (proveedor.Update(id, ruc, razonSocial, nombre, correo, direccion, telefono, web))
                 {
                     MessageBox.Show("Proveedor Editado", "Proveedor .::. Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearTextBox();
@@ -58,7 +65,7 @@ namespace Presentacion
             }
             else
             {
-                if (proveedor.Insert(ruc, razonSocial))
+                if (proveedor.Insert(ruc, razonSocial, nombre, correo, direccion, telefono, web))
                 {
                     MessageBox.Show("Proveedor Agregado", "Proveedor .::. Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearTextBox();
@@ -118,8 +125,10 @@ namespace Presentacion
 
         private void btnBuscarSunat_Click(object sender, EventArgs e)
         {
-            string rz = sunat.buscarRuc(txtRuc.Text);
-            txtRazonSocial.Text = rz;
+            ArrayList rz = sunat.buscarRuc(txtRuc.Text);
+            txtRazonSocial.Text = rz.ToArray()[0].ToString();
+            txtNombreComercial.Text = rz.ToArray()[2].ToString();
+            txtDireccion.Text = rz.ToArray()[6].ToString();
         }
 
         

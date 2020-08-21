@@ -30,11 +30,13 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.txtContrasenia = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.btnIngresar = new System.Windows.Forms.Button();
             this.lblServerConnectStatus = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtRucEmpresa = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnIngresar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,16 +58,6 @@
             this.txtContrasenia.TabIndex = 10;
             this.txtContrasenia.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtContraseniaKeyDown);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Presentacion.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(-2, -9);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1280, 141);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -83,31 +75,63 @@
             this.txtUsuario.TabIndex = 7;
             this.txtUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsuarioKeyDown);
             // 
-            // btnIngresar
-            // 
-            this.btnIngresar.Location = new System.Drawing.Point(220, 162);
-            this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(80, 46);
-            this.btnIngresar.TabIndex = 6;
-            this.btnIngresar.Text = "Ingresar";
-            this.btnIngresar.UseVisualStyleBackColor = true;
-            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
-            this.btnIngresar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EnterClick);
-            // 
             // lblServerConnectStatus
             // 
             this.lblServerConnectStatus.AutoSize = true;
-            this.lblServerConnectStatus.Location = new System.Drawing.Point(163, 235);
+            this.lblServerConnectStatus.Location = new System.Drawing.Point(162, 248);
             this.lblServerConnectStatus.Name = "lblServerConnectStatus";
             this.lblServerConnectStatus.Size = new System.Drawing.Size(0, 13);
             this.lblServerConnectStatus.TabIndex = 12;
             this.lblServerConnectStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(78, 217);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(30, 13);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "RUC";
+            // 
+            // txtRucEmpresa
+            // 
+            this.txtRucEmpresa.Location = new System.Drawing.Point(114, 214);
+            this.txtRucEmpresa.Name = "txtRucEmpresa";
+            this.txtRucEmpresa.PasswordChar = '*';
+            this.txtRucEmpresa.Size = new System.Drawing.Size(100, 20);
+            this.txtRucEmpresa.TabIndex = 13;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Presentacion.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(-2, -9);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1280, 141);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnIngresar
+            // 
+            this.btnIngresar.Image = global::Presentacion.Properties.Resources.login;
+            this.btnIngresar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnIngresar.Location = new System.Drawing.Point(220, 162);
+            this.btnIngresar.Name = "btnIngresar";
+            this.btnIngresar.Size = new System.Drawing.Size(63, 72);
+            this.btnIngresar.TabIndex = 6;
+            this.btnIngresar.Text = "Ingresar";
+            this.btnIngresar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnIngresar.UseVisualStyleBackColor = true;
+            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
+            this.btnIngresar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EnterClick);
             // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(353, 282);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtRucEmpresa);
             this.Controls.Add(this.lblServerConnectStatus);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtContrasenia);
@@ -136,5 +160,7 @@
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.Label lblServerConnectStatus;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtRucEmpresa;
     }
 }

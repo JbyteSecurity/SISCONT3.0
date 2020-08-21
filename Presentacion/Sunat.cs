@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Threading;
+using System.Collections;
 
 namespace Presentacion
 {
@@ -43,13 +44,13 @@ namespace Presentacion
             }
         }
 
-        public string buscarRuc(string ruc)
+        public ArrayList buscarRuc(string ruc)
         {
             try
             {
                 genCaptcha();
 
-                string rznSocial = null;
+                ArrayList datosProveedor = new ArrayList();
 
                 string myurl = @"http://www.sunat.gob.pe/cl-ti-itmrconsruc/jcrS00Alias?accion=consPorRuc&nroRuc=" + ruc.Trim() + "&codigo=" + captcha.Trim().ToUpper() + "&tipdoc=1";
                 HttpWebRequest myWebRequest = (HttpWebRequest)WebRequest.Create(myurl);
@@ -67,35 +68,36 @@ namespace Presentacion
 
                     switch (pos)
                     {
-                        //case 144:
-                        //    txtTipoContribuyente.Text = getDatafromXML(xDat, 25);
-                        //    break;
-                        case 140:
-                            rznSocial = getDatafromXML(xDat, 40);
+                        
+                        case 140: //Razón Social
+                            datosProveedor.Add(getDatafromXML(xDat, 40));
                             break;
-                            //case 154:
-                            //    txtFechaInscripcion.Text = getDatafromXML(xDat, 25);
-                            //    break;
-                            //case 156:
-                            //    txtFechaInicioActividad.Text = getDatafromXML(xDat, 25);
-                            //    break;
-                            //case 160:
-                            //    txtEstadoContribuyente.Text = getDatafromXML(xDat, 25);
-                            //    break;
-                            //case 170:
-                            //    txtCondicionContribuyente.Text = getDatafromXML(xDat, 0);
-                            //    break;
-                            //case 179:
-                            //    txtDireccion.Text = getDatafromXML(xDat, 25);
-                            //    break;
-                            //case 186:
-                            //    txtAvtividadComercioEx.Text = getDatafromXML(xDat, 25);
-                            //    break;
+                        case 144: //Tipo de Contribuyente
+                            datosProveedor.Add(getDatafromXML(xDat, 25));
+                            break;
+                        case 149: // Nombre Comercial
+                            datosProveedor.Add(getDatafromXML(xDat, 25));
+                            break;
+                        case 154: //Fecha de Inscripción
+                            datosProveedor.Add(getDatafromXML(xDat, 25));
+                            break;
+                        case 160: // Estado
+                            datosProveedor.Add(getDatafromXML(xDat, 25));
+                            break;
+                        case 170: //Condicion
+                            datosProveedor.Add(getDatafromXML(xDat, 0));
+                            break;
+                        case 179: // Direccion
+                            datosProveedor.Add(getDatafromXML(xDat, 25));
+                            break;
+                        case 186: //Actividades de Comercio Exterior
+                            datosProveedor.Add(getDatafromXML(xDat, 25));
+                            break;
                     }
 
                 }
                 Thread.Sleep(1000);
-                return rznSocial;
+                return datosProveedor;
             }
             catch (Exception Ex)
             {

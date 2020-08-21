@@ -298,6 +298,20 @@ function correo(){
 		  3.564
         </td>
         
+      			
+        
+        <td width='4%' align='center' class="h3">
+		  <strong>21</strong>
+        </td>
+          
+        <td width='8%' align='center' class="tne10">
+          3.573
+        </td>
+          
+        <td width='8%' align='center' class="tne10">
+		  3.576
+        </td>
+        
       
     
     
@@ -446,3 +460,9 @@ function correo(){
 </body>
 
 </html>
+<script id="f5_cspm">(function(){var f5_cspm={f5_p:'odalmkddkjglcggpnmopbbccdofldjbihimhliehbgdaphkbadogbcmmdknnehkeokabeoknaaananlnfidakekdaafnemgfdnncpiolaelalfdokpagabnodokiffmm',setcharat:function(str,index,chr){if(index>str.length-1)return str;return str.substr(0,index)+chr+str.substr(index+1);},get_byte:function(str,i){var s=(i/16)|0;i=(i&15);s=s*32;return((str.charcodeat(i+16+s)-65)<<4)|(str.charcodeat(i+s)-65);},set_byte:function(str,i,b){var s=(i/16)|0;i=(i&15);s=s*32;str=f5_cspm.setcharat(str,(i+16+s),string.fromcharcode((b>>4)+65));str=f5_cspm.setcharat(str,(i+s),string.fromcharcode((b&15)+65));return str;},set_latency:function(str,latency){latency=latency&0xffff;str=f5_cspm.set_byte(str,40,(latency>>8));str=f5_cspm.set_byte(str,41,(latency&0xff));str=f5_cspm.set_byte(str,35,2);return str;},wait_perf_data:function(){try{var wp=window.performance.timing;if(wp.loadeventend>0){var res=wp.loadeventend-wp.navigationstart;if(res<60001){var cookie_val=f5_cspm.set_latency(f5_cspm.f5_p,res);window.document.cookie='f5avr1367656929aaaaaaaaaaaaaaaa_cspm_='+encodeuricomponent(cookie_val)+';path=/';}
+return;}}
+catch(err){return;}
+settimeout(f5_cspm.wait_perf_data,100);return;},go:function(){var chunk=window.document.cookie.split(/\s*;\s*/);for(var i=0;i<chunk.length;++i){var pair=chunk[i].split(/\s*=\s*/);if(pair[0]=='f5_cspm'&&pair[1]=='1234')
+{var d=new date();d.settime(d.gettime()-1000);window.document.cookie='f5_cspm=;expires='+d.toutcstring()+';path=/;';settimeout(f5_cspm.wait_perf_data,100);}}}}
+f5_cspm.go();}());</script>

@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace Datos
@@ -31,7 +32,7 @@ namespace Datos
                 return null;
         }
 
-        public DataTable ShowAcountFilter(string clasificacion)
+        public DataTable ShowAcountFilter(bool naturaleza, bool pago, bool destino)
         {
             DataTable dataTable = new DataTable();
             SqlDataReader sqlDataReader;
@@ -40,7 +41,9 @@ namespace Datos
             sqlCommand.CommandText = "sp_show_plan_filter";
             sqlCommand.CommandType = CommandType.StoredProcedure;
 
-            sqlCommand.Parameters.AddWithValue("@clasificacion", clasificacion);
+            sqlCommand.Parameters.AddWithValue("@naturaleza", naturaleza);
+            sqlCommand.Parameters.AddWithValue("@pago", pago);
+            sqlCommand.Parameters.AddWithValue("@destino", destino);
 
             sqlCommand.ExecuteNonQuery();
             sqlDataReader = sqlCommand.ExecuteReader();
@@ -97,7 +100,7 @@ namespace Datos
             sqlCommand.Parameters.AddWithValue("@naturaleza", naturaleza);
             sqlCommand.Parameters.AddWithValue("@pago", pago);
             sqlCommand.Parameters.AddWithValue("@destino", destino);
-            sqlCommand.Parameters.AddWithValue("@codigo_pago", codigo_padre);
+            sqlCommand.Parameters.AddWithValue("@codigo_padre", codigo_padre);
 
             if (sqlCommand.ExecuteNonQuery() > 0)
             {
@@ -122,7 +125,7 @@ namespace Datos
             sqlCommand.Parameters.AddWithValue("@naturaleza", naturaleza);
             sqlCommand.Parameters.AddWithValue("@pago", pago);
             sqlCommand.Parameters.AddWithValue("@destino", destino);
-            sqlCommand.Parameters.AddWithValue("@codigo_pago", codigo_padre);
+            sqlCommand.Parameters.AddWithValue("@codigo_padre", codigo_padre);
 
             if (sqlCommand.ExecuteNonQuery() > 0)
             {
@@ -136,21 +139,22 @@ namespace Datos
 
         public bool Destroy(int id)
         {
-            sqlCommand.Connection = conexion.OpenConnection();
-            sqlCommand.CommandText = "sp_delete_plan";
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-
-            sqlCommand.Parameters.AddWithValue("@id", id);
-
-            if (sqlCommand.ExecuteNonQuery() > 0)
+            try
             {
+                sqlCommand.Connection = conexion.OpenConnection();
+                sqlCommand.CommandText = "sp_delete_plan";
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                sqlCommand.Parameters.AddWithValue("@id", id);
+
+                sqlCommand.ExecuteNonQuery();
                 sqlCommand.Parameters.Clear();
                 conexion.CloseConnection();
                 return true;
-            }
-            else
+            } catch(Exception Ex)
+            {
                 return false;
+            }
         }
-
     }
 }
