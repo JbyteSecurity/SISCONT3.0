@@ -14,7 +14,7 @@ namespace Negocios
         //public DataTable AllByMonthFilter(int anio, int mes) { return daoCompras.AllByMonthFilter(anio, mes); }
         public DataSet AllByMonthFilter(int anio, int mes) { return daoCompras.AllByMonthFilter(anio, mes); }
 
-        public DataTable GetForTXT(int anio, int mes) { return daoCompras.GetForTXT(anio, mes); }
+        public DataTable GetForTXT(int anio, int mes, string ruc) { return daoCompras.GetForTXT(anio, mes, ruc); }
 
         public bool Insert(
             /*int mes,*/ string nReg, string fechaEmision, string fechaPago, string cTipo, string cSeire, string cnDocumento,
@@ -22,7 +22,7 @@ namespace Negocios
             double igv, double noGravada, double descuento, double importeTotal, double dolares, double tipoCambio, double percepcion, string destino,
             string descripcionDestino, string cuentaDestino, /*string pago,*/ string codigo, string constanciaNumero, string constanciaFechapago,
             double constanciaMonto, string constanciaReferencia, string bancarizacionFecha, string bancarizacionBco, int bancarizacionOperacion, string referenciaFecha,
-            string referenciaTipo, string referenciaSerie, string referenciaNumero, string usuario, double comprasConversionDolares, string observacion
+            string referenciaTipo, string referenciaSerie, string referenciaNumero, string usuario, double comprasConversionDolares, string observacion, string rucEmpresa
             )
         {
             return daoCompras.Insert(
@@ -31,7 +31,7 @@ namespace Negocios
                 igv, noGravada, descuento, importeTotal, dolares, tipoCambio, percepcion, destino,
                 descripcionDestino, cuentaDestino, /*pago,*/ codigo, constanciaNumero, constanciaFechapago,
                 constanciaMonto, constanciaReferencia, bancarizacionFecha, bancarizacionBco, bancarizacionOperacion, referenciaFecha,
-                referenciaTipo, referenciaSerie, referenciaNumero, usuario, comprasConversionDolares, observacion
+                referenciaTipo, referenciaSerie, referenciaNumero, usuario, comprasConversionDolares, observacion, rucEmpresa
                 );
         }
 

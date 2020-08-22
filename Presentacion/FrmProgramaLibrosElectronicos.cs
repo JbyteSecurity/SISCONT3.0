@@ -27,6 +27,7 @@ namespace Presentacion
         DataTable dataTableCompras = new DataTable();
 
         public string username;
+        public DataTable empresa = new DataTable();
 
         Sunat sunat = new Sunat();
         public FrmProgramaLibrosElectronicos()
@@ -36,6 +37,10 @@ namespace Presentacion
 
         private void FrmProgramaLibrosElectronicos_Load(object sender, EventArgs e)
         {
+            txtNombreAnio.Text = DateTime.UtcNow.ToString("yyyy");
+            txtNombreMes.Text = DateTime.UtcNow.ToString("MM");
+            txtNombreRuc.Text = empresa.Rows[0]["ruc"].ToString();
+
             // TODO: esta línea de código carga datos en la tabla 'dSDetracciones.sp_all_combo_detracciones' Puede moverla o quitarla según sea necesario.
             this.TADetraccionesTableAdapter.Fill(this.dSDetracciones.sp_all_combo_detracciones);
             FillDataGridViewCompras();
@@ -51,8 +56,8 @@ namespace Presentacion
 
             //this.dgvRegistroCompras.DataSource = this.BSComprasBindingSource;
 
-            txtNombreAnio.Text = DateTime.UtcNow.ToString("yyyy");
-            txtNombreMes.Text = DateTime.UtcNow.ToString("MM");
+
+            GetRoute();
 
             dgvRegistroCompras.RowHeadersVisible = false;
             dgvRegistroCompras.DefaultCellStyle.Font = new Font("Tahoma", 8, FontStyle.Regular);
@@ -62,7 +67,9 @@ namespace Presentacion
             dgvRegistroVentas.DefaultCellStyle.Font = new Font("Tahoma", 8, FontStyle.Regular);
             dgvRegistroVentas.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 8, FontStyle.Regular);
             lblPeriodoActual.Text = "Periodo Actual: " + DateTime.UtcNow.ToString("MMMM") + " " + DateTime.UtcNow.ToString("yyyy");
+            lblRazonSocial.Text = "Empresa: " + empresa.Rows[0]["razon_social"].ToString();
             //lblPeriodoActual.Text = username;
+
         }
 
         private void cellContentClickEvent(object sender, DataGridViewCellEventArgs e)
@@ -82,6 +89,11 @@ namespace Presentacion
             SaveVentas();
         }
 
+        private void GetRoute()
+        {
+            txtRutaTXT.Text = "D:\\SISCONT\\" + txtNombreRuc.Text + "\\" + txtNombreAnio.Text + "\\" + txtNombreMes.Text.PadLeft(2, '0') + "\\";
+        }
+
         private void FillDataGridViewCompras(bool filter = false)
         {
             if (filter)
@@ -89,7 +101,7 @@ namespace Presentacion
                 int filtroMes = Convert.ToInt32(txtNombreMes.Text);
                 int filtroAnio = Convert.ToInt32(txtNombreAnio.Text);
 
-                this.TAComprasTableAdapter.FillByYearAndMonth(this.dSCompras.tblRegistroCompras, filtroMes, filtroAnio);
+                this.TAComprasTableAdapter.FillByYearAndMonth(this.dSCompras.tblRegistroCompras, filtroMes, filtroAnio, txtNombreRuc.Text);
                 if (Convert.ToString(filtroMes) != DateTime.UtcNow.ToString("MM"))
                     dgvRegistroCompras.ReadOnly = true;
 
@@ -97,7 +109,7 @@ namespace Presentacion
             }
             else
             {
-                this.TAComprasTableAdapter.FillCurrentMonth(this.dSCompras.tblRegistroCompras);
+                this.TAComprasTableAdapter.FillCurrentMonth(this.dSCompras.tblRegistroCompras, txtNombreRuc.Text);
                 dgvRegistroCompras.ReadOnly = false;
             }
             #region FillData other option
@@ -159,12 +171,12 @@ namespace Presentacion
                 int filtroMes = Convert.ToInt32(txtNombreMes.Text);
                 int filtroAnio = Convert.ToInt32(txtNombreAnio.Text);
                 //dataTable = ventas.AllByMonthFilter(filtroAnio, filtroMes);
-                this.TAVentasTableAdapter.FillByYearAndMonth(this.dSVentas.tblRegistroVentas, filtroMes, filtroAnio);
+                this.TAVentasTableAdapter.FillByYearAndMonth(this.dSVentas.tblRegistroVentas, filtroMes, filtroAnio, txtNombreRuc.Text);
                 dgvRegistroVentas.ReadOnly = true;
             }
             else
             {
-                this.TAVentasTableAdapter.FillCurrentMonth(this.dSVentas.tblRegistroVentas);
+                this.TAVentasTableAdapter.FillCurrentMonth(this.dSVentas.tblRegistroVentas, txtNombreRuc.Text);
                 dgvRegistroVentas.ReadOnly = false;
             }
             #region Other option FIll Data
@@ -269,7 +281,7 @@ namespace Presentacion
                         string ReferenciaNumero = row.Cells["comprasReferenciaNumero"].Value != DBNull.Value ? Convert.ToString(row.Cells["comprasReferenciaNumero"].Value) : "";
                         string comprasObservacion = row.Cells["comprasObservacion"].Value != DBNull.Value ? Convert.ToString(row.Cells["comprasObservacion"].Value) : "";
 
-
+                        string rucEmpresa = txtNombreRuc.Text;
                         string Usuario = username;
 
                         if (id < 0)
@@ -282,7 +294,7 @@ namespace Presentacion
                                 comprasTipoCambio, comprasPercepcion, comprasDestino, comprasDescripcionDestino, comprasCuentaDestino, /*comprasPago,*/
                                 comprasCodigo, comprasConstanciaNumero, comprasConstanciaFechaPago, comprasConstanciaMonto, comprasConstanciaReferencia,
                                 BancarizacionFecha, BancarizacionBco, BancarizacionOperacion, ReferenciaFecha, ReferenciaTipo, ReferenciaSerie, ReferenciaNumero,
-                                Usuario, comprasConversionDolares, comprasObservacion
+                                Usuario, comprasConversionDolares, comprasObservacion, rucEmpresa
                             );
                         }
                         else
@@ -356,6 +368,7 @@ namespace Presentacion
                         string ventasReferencia = row.Cells["ventasReferencia"].Value != DBNull.Value ? Convert.ToString(row.Cells["ventasReferencia"].Value) : "";
                         string ventasObservacion = row.Cells["ventasObservacion"].Value != DBNull.Value ? Convert.ToString(row.Cells["ventasObservacion"].Value) : "";
                         string ventasUSuario = username;
+                        string rucEmpresa = txtNombreRuc.Text;
 
                         if (ventasId < 0)
                         {
@@ -365,7 +378,7 @@ namespace Presentacion
                                 ventasImporteTotalExonerada, ventasImporteTotalInafecta, ventasIgv, ventasImporteTotal, ventasTipoCambio, ventasDolares,
                                 ventasIgvRetencion, ventasCuentaDestino, ventasCuentaDestinoDescripcion, ventasReferenciaFecha, ventasReferenciaTipo, ventasReferenciaSerie,
                                 ventasReferenciaNumero, ventasCodigo, ventasConstanciaNumero, ventasConstanciaFechaPago, ventasDetraccionSoles, ventasReferencia,
-                                ventasObservacion, ventasUSuario
+                                ventasObservacion, ventasUSuario, rucEmpresa
                                 );
                         }
                         else
@@ -406,17 +419,27 @@ namespace Presentacion
 
         private void FillComboCuentas()
         {
+            //Compras
             comprasCuenta.DisplayMember = "Detail";
             comprasCuenta.ValueMember = "Codigo";
-            comprasCuenta.DataSource = planContable.ShowAcountFilter(true, false, false);
+            comprasCuenta.DataSource = planContable.ShowNaturaleza();
 
             comprasCuentaPago.DisplayMember = "Detail";
             comprasCuentaPago.ValueMember = "Codigo";
-            comprasCuentaPago.DataSource = planContable.ShowAcountFilter(false, true, false);
+            comprasCuentaPago.DataSource = planContable.ShowPago();
 
             comprasCuentaDestino.DisplayMember = "Detail";
             comprasCuentaDestino.ValueMember = "Codigo";
-            comprasCuentaDestino.DataSource = planContable.ShowAcountFilter(false, false, true);
+            comprasCuentaDestino.DataSource = planContable.ShowDestino();
+
+            //Ventas
+            ventasCuenta.DisplayMember = "Detail";
+            ventasCuenta.ValueMember = "Codigo";
+            ventasCuenta.DataSource = planContable.ShowNaturalezaV();
+
+            ventasCuentaDestino.DisplayMember = "Detail";
+            ventasCuentaDestino.ValueMember = "Codigo";
+            ventasCuentaDestino.DataSource = planContable.ShowCobrar();
         }
 
         private void FillComboCodigo()
@@ -520,9 +543,9 @@ namespace Presentacion
                             if (!String.IsNullOrEmpty(dgvRegistroCompras.Rows[e.RowIndex].Cells["comprasProveedorNumeroDocumento"].Value.ToString() as string))
                             {
                                 string ruc;
-                                string razonSocial;
+                                DataTable razonSocial = new DataTable();
                                 ruc = dgvRegistroCompras.Rows[e.RowIndex].Cells["comprasProveedorNumeroDocumento"].Value.ToString();
-                                razonSocial = proveedor.GetSupplierName(ruc);
+                                razonSocial = proveedor.Show(ruc);
                                 if (razonSocial == null)
                                 {
                                     ArrayList razonSocialSunat = sunat.buscarRuc(ruc);
@@ -540,16 +563,18 @@ namespace Presentacion
 
                                 }
                                 else
-                                    dgvRegistroCompras.Rows[e.RowIndex].Cells["comprasProveedorRazonSocial"].Value = razonSocial;
+                                    dgvRegistroCompras.Rows[e.RowIndex].Cells["comprasProveedorRazonSocial"].Value = razonSocial.Rows[0]["razon_social"].ToString();
                             }
                         }
-                    } catch (Exception Ex) { }
+                    }
+                    catch (Exception Ex) { }
                     break;
                 case 12:
                 case 14:
                 case 15:
                     //Calculos de No BaseInmponible
-                    try {
+                    try
+                    {
                         if (dgvRegistroCompras.Rows[e.RowIndex].Cells["comprasBaseImponible"].Value != DBNull.Value)
                         {
                             double baseImponible = 0, descuento = 0, igv = 0, noGravada = 0, negativo = 1, importe_total;
@@ -599,7 +624,8 @@ namespace Presentacion
 
                             }
                         }
-                    } catch (Exception Ex) { }
+                    }
+                    catch (Exception Ex) { }
                     break;
                 case 17: // Dolares
                     try
@@ -634,6 +660,26 @@ namespace Presentacion
                             dgvRegistroCompras.Rows[e.RowIndex].Cells["comprasIgv"].Value = Math.Round(igv * negativo, 2).ToString("F");
 
                             dgvRegistroCompras.Rows[e.RowIndex].Cells["comprasImporteTotal"].Value = Math.Round((doBaseImponible + descuento + igv + noGravada) * negativo, 2).ToString("F");
+
+                            if (dolares >= 1000)
+                            {
+                                if (String.IsNullOrEmpty(dgvRegistroCompras.Rows[e.RowIndex].Cells["BancarizacionFecha"].Value as String) || String.IsNullOrEmpty(dgvRegistroCompras.Rows[e.RowIndex].Cells["BancarizacionBco"].Value as String) || String.IsNullOrEmpty(dgvRegistroCompras.Rows[e.RowIndex].Cells["BancarizacionOperacion"].Value as String))
+                                {
+                                    //MessageBox.Show("Ingrese Bancarización");
+                                    //dgvRegistroCompras.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Teal;
+                                    dgvRegistroCompras.Rows[e.RowIndex].Cells["BancarizacionFecha"].Style.BackColor = Color.Red;
+                                    dgvRegistroCompras.Rows[e.RowIndex].Cells["BancarizacionBco"].Style.BackColor = Color.Red;
+                                    dgvRegistroCompras.Rows[e.RowIndex].Cells["BancarizacionOperacion"].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    //dgvRegistroCompras.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+                                    dgvRegistroCompras.Rows[e.RowIndex].Cells["BancarizacionFecha"].Style.BackColor = Color.White;
+                                    dgvRegistroCompras.Rows[e.RowIndex].Cells["BancarizacionBco"].Style.BackColor = Color.White;
+                                    dgvRegistroCompras.Rows[e.RowIndex].Cells["BancarizacionOperacion"].Style.BackColor = Color.White;
+                                }
+
+                            }
                         }
                     }
                     catch (Exception Ex) { }
@@ -750,7 +796,7 @@ namespace Presentacion
                             }
                         }
                     }
-                    catch (Exception Ex) {}
+                    catch (Exception Ex) { }
                     break;
                 case 8:
                     try
@@ -760,9 +806,9 @@ namespace Presentacion
                             if (!String.IsNullOrEmpty(dgvRegistroVentas.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() as String))
                             {
                                 string ruc;
-                                string razonSocial;
+                                DataTable razonSocial = new DataTable();
                                 ruc = dgvRegistroVentas.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-                                razonSocial = proveedor.GetSupplierName(ruc);
+                                razonSocial = proveedor.Show(ruc);
 
                                 if (razonSocial == null)
                                 {
@@ -780,10 +826,11 @@ namespace Presentacion
                                     else MessageBox.Show("No se encontro al proveedor con ruc: " + ruc, "Compras .::. Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 }
                                 else
-                                    dgvRegistroVentas.Rows[e.RowIndex].Cells[e.ColumnIndex + 1].Value = razonSocial;
+                                    dgvRegistroVentas.Rows[e.RowIndex].Cells[e.ColumnIndex + 1].Value = razonSocial.Rows[0]["razon_social"].ToString();
                             }
                         }
-                    } catch(Exception Ex) { }
+                    }
+                    catch (Exception Ex) { }
                     break;
                 case 17: // BaseImponible
                     try
@@ -939,7 +986,8 @@ namespace Presentacion
                                 }
                             }
                         }
-                    } catch(Exception Ex) { }
+                    }
+                    catch (Exception Ex) { }
                     break;
             }
         }
@@ -1019,7 +1067,7 @@ namespace Presentacion
         private void GenerateComprasTXT()
         {
             DataTable dataTable = new DataTable();
-            dataTable = compras.GetForTXT(Convert.ToInt32(txtNombreAnio.Text), Convert.ToInt32(txtNombreMes.Text));
+            dataTable = compras.GetForTXT(Convert.ToInt32(txtNombreAnio.Text), Convert.ToInt32(txtNombreMes.Text), txtNombreRuc.Text);
             if (dataTable.Rows.Count > 0)
             {
 
@@ -1045,7 +1093,7 @@ namespace Presentacion
         private void GenerateVentasTXT()
         {
             DataTable dataTable = new DataTable();
-            dataTable = ventas.GetForTXT(Convert.ToInt32(txtNombreAnio.Text), Convert.ToInt32(txtNombreMes.Text));
+            dataTable = ventas.GetForTXT(Convert.ToInt32(txtNombreAnio.Text), Convert.ToInt32(txtNombreMes.Text), txtNombreRuc.Text);
             if (dataTable.Rows.Count > 0)
             {
                 string filename;
@@ -1104,7 +1152,8 @@ namespace Presentacion
                     if (!Directory.Exists(fileRoute)) Directory.CreateDirectory(fileRoute);
                 }
                 return filename;
-            } catch (Exception Ex)
+            }
+            catch (Exception Ex)
             {
                 MessageBox.Show("No se pudo acceder a la carpeta o ruta: " + Ex);
                 return null;
@@ -1211,7 +1260,8 @@ namespace Presentacion
                 }
                 fichero.Close();
                 MessageBox.Show("Archivo txt (Compras 8.1) generado");
-            } catch(Exception Ex) { }
+            }
+            catch (Exception Ex) { }
         }
 
         private void CreateVentasTXT(string filename, DataTable dataTable)
@@ -1301,7 +1351,8 @@ namespace Presentacion
                 }
                 fichero.Close();
                 MessageBox.Show("Archivo txt (Ventas 14.1) generado");
-            } catch (Exception Ex) { }
+            }
+            catch (Exception Ex) { }
         }
 
         private void CreateCompras82TXT(string filename)
@@ -1312,7 +1363,8 @@ namespace Presentacion
                 fichero = File.CreateText(filename);
                 //fichero.WriteLine();
                 fichero.Close();
-            } catch (Exception Ex) { }
+            }
+            catch (Exception Ex) { }
         }
 
         private void btnCargarCarpeta_Click(object sender, EventArgs e)
@@ -1322,7 +1374,7 @@ namespace Presentacion
 
             if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
             {
-                TXTRoute = fbd.SelectedPath + "\\";
+                TXTRoute = fbd.SelectedPath + "\\" + txtNombreRuc.Text + "\\" + txtNombreAnio.Text + "\\" + txtNombreMes.Text.PadLeft(2, '0') + "\\";
                 txtRutaTXT.Text = TXTRoute;
             }
         }
@@ -1331,6 +1383,7 @@ namespace Presentacion
         {
             if (txtNombreMes.Text != "" && txtNombreAnio.Text != "")
             {
+                GetRoute();
                 FillDataGridViewCompras(true);
                 FillDataGridViewVentas(true);
             }
@@ -1446,7 +1499,7 @@ namespace Presentacion
         {
             try
             {
-                this.TAComprasTableAdapter.FillCurrentMonth(this.dSCompras.tblRegistroCompras);
+                this.TAComprasTableAdapter.FillCurrentMonth(this.dSCompras.tblRegistroCompras, txtNombreRuc.Text);
             }
             catch (System.Exception ex)
             {
@@ -1459,6 +1512,11 @@ namespace Presentacion
         {
             FillDataGridViewCompras();
             FillDataGridViewVentas();
+
+            txtNombreAnio.Text = DateTime.UtcNow.ToString("yyyy");
+            txtNombreMes.Text = DateTime.UtcNow.ToString("MM");
+
+            GetRoute();
         }
 
         private void dgvRegistroCompras_KeyDown(object sender, KeyEventArgs e)

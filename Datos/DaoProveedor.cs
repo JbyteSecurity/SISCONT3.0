@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
 
@@ -10,29 +11,35 @@ namespace Datos
         private Conexion conexion = new Conexion();
         SqlCommand sqlCommand = new SqlCommand();
 
-        public string Show(string ruc)
+        public DataTable Show(string ruc)
         {
-            SqlDataReader sqlDataReaderProvider;
-            DataTable dataTableProvider = new DataTable();
+            try
+            {
+                SqlDataReader sqlDataReaderProvider;
+                DataTable dataTableProvider = new DataTable();
 
-            sqlCommand.Connection = conexion.OpenConnection();
-            sqlCommand.CommandText = "sp_show_name_proveedor";
-            sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Connection = conexion.OpenConnection();
+                sqlCommand.CommandText = "sp_show_proveedor";
+                sqlCommand.CommandType = CommandType.StoredProcedure;
 
-            sqlCommand.Parameters.AddWithValue("@ruc", ruc);
+                sqlCommand.Parameters.AddWithValue("@ruc", ruc);
 
-            sqlCommand.ExecuteNonQuery();
-            sqlDataReaderProvider = sqlCommand.ExecuteReader();
-            dataTableProvider.Load(sqlDataReaderProvider);
-            sqlCommand.Parameters.Clear();
+                sqlCommand.ExecuteNonQuery();
+                sqlDataReaderProvider = sqlCommand.ExecuteReader();
+                dataTableProvider.Load(sqlDataReaderProvider);
+                sqlCommand.Parameters.Clear();
 
-            conexion.CloseConnection();
+                conexion.CloseConnection();
 
-            if (dataTableProvider.Rows.Count > 0)
-                return dataTableProvider.Rows[0]["RazonSocial"].ToString();
-            else
+                if (dataTableProvider.Rows.Count > 0)
+                    return dataTableProvider;
+                else return null;
+            } catch(Exception Ex) {
+                Console.WriteLine(Ex);
                 return null;
+            }
         }
+
 
         public DataTable All()
         {

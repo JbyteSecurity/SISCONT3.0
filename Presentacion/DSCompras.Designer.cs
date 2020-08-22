@@ -2875,50 +2875,13 @@ namespace Presentacion.DSComprasTableAdapters {
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Mes", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Anio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ruc", global::System.Data.SqlDbType.VarChar, 11, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT
-	idLibroCompras,
-	Mes,
-	NReg,
-	FechaEmision,
-	FechaPago,
-	CTipo,
-	CSerie,
-	CNDocumento,
-	PTipo,
-	PNumero,
-	PDocumento,
-	PNombreRazonSocial,
-	Cuenta,
-	Descripcion,
-	BaseImponible,
-	IGV,
-	NoGravada,
-	Descuentos,
-	ImporteTotal, 
-    IIF(Dolares = 0.00, NULL, Dolares) AS Dolares,
-	IIF(ConversionDolar = 0.00, NULL, ConversionDolar) AS ConversionDolar,
-	TipoCambio, IIF(Percepcion = 0.00, NULL, Percepcion) AS Percepcion,
-	Destino, DescripcionDestino, CuentaDestino, Pgo, Codigo,
-	ConstanciaNumero,
-	IIF(ConstanciaFechaPago = '1900-01-01', NULL, ConstanciaFechaPago) AS ConstanciaFechaPago,
-	ConstanciaMonto,
-	ConstanciaReferencia,
-	IIF(BancarizacionFecha = '1900-01-01', NULL, BancarizacionFecha) AS BancarizacionFecha, 
-    BancarizacionBco,
-	IIF(BancarizacionOperacion = 0, NULL, BancarizacionOperacion) AS BancarizacionOperacion,
-	IIF(ReferenciaFecha = '1900-01-01', NULL, ReferenciaFecha) AS ReferenciaFecha,
-	ReferenciaTipo,
-	ReferenciaSerie,
-	ReferenciaNumero,
-	Usuario,
-	FechaRegistro,
-	FechaModificacion,
-	Observacion
-FROM tblRegistroCompras
-WHERE (Mes = MONTH(GETDATE()))";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].CommandText = "dbo.sp_all_current_month_compras";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ruc", global::System.Data.SqlDbType.VarChar, 11, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2949,7 +2912,7 @@ WHERE (Mes = MONTH(GETDATE()))";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByYearAndMonth(DSCompras.tblRegistroComprasDataTable dataTable, global::System.Nullable<int> Mes, global::System.Nullable<int> Anio) {
+        public virtual int FillByYearAndMonth(DSCompras.tblRegistroComprasDataTable dataTable, global::System.Nullable<int> Mes, global::System.Nullable<int> Anio, string ruc) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((Mes.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Mes.Value));
@@ -2962,6 +2925,12 @@ WHERE (Mes = MONTH(GETDATE()))";
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((ruc == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(ruc));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2974,7 +2943,7 @@ WHERE (Mes = MONTH(GETDATE()))";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual DSCompras.tblRegistroComprasDataTable GetDataByYearAndMonth(global::System.Nullable<int> Mes, global::System.Nullable<int> Anio) {
+        public virtual DSCompras.tblRegistroComprasDataTable GetDataByYearAndMonth(global::System.Nullable<int> Mes, global::System.Nullable<int> Anio, string ruc) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((Mes.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Mes.Value));
@@ -2988,6 +2957,12 @@ WHERE (Mes = MONTH(GETDATE()))";
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
+            if ((ruc == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(ruc));
+            }
             DSCompras.tblRegistroComprasDataTable dataTable = new DSCompras.tblRegistroComprasDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -2997,13 +2972,36 @@ WHERE (Mes = MONTH(GETDATE()))";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillCurrentMonth(DSCompras.tblRegistroComprasDataTable dataTable) {
+        public virtual int FillCurrentMonth(DSCompras.tblRegistroComprasDataTable dataTable, string ruc) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((ruc == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(ruc));
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
             int returnValue = this.Adapter.Fill(dataTable);
             return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DSCompras.tblRegistroComprasDataTable GetDataCurrentMonth(string ruc) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((ruc == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(ruc));
+            }
+            DSCompras.tblRegistroComprasDataTable dataTable = new DSCompras.tblRegistroComprasDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

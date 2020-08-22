@@ -14,7 +14,10 @@ namespace Presentacion
     {
         TipoCambio tipoCambio = new TipoCambio();
 
+        Proveedor proveedor = new Proveedor();
+
         public string username, nombreUsuario;
+        public DataTable empresa = new DataTable();
         public FrmPrincipal()
         {
             InitializeComponent();
@@ -42,6 +45,7 @@ namespace Presentacion
             frmProgramaLibrosElectronicos.MdiParent = this;
             frmProgramaLibrosElectronicos.Dock = DockStyle.Fill;
             ///frmProgramaLibrosElectronicos.Text = "SISCONT - " + this.MdiChildren;
+            frmProgramaLibrosElectronicos.empresa = empresa;
             frmProgramaLibrosElectronicos.username = username;
             frmProgramaLibrosElectronicos.Show();
         }

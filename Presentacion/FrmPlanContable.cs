@@ -1,12 +1,7 @@
 ﻿using Negocios;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Presentacion
@@ -18,6 +13,7 @@ namespace Presentacion
 
         PlanContable planContable = new PlanContable();
         DataTable dataTable = new DataTable();
+        DataTable dataTableShowById = new DataTable();
         public FrmPlanContable()
         {
             InitializeComponent();
@@ -25,7 +21,6 @@ namespace Presentacion
 
         private void FrmPlanContable_Load(object sender, EventArgs e)
         {
-            
             All();
         }
 
@@ -35,10 +30,12 @@ namespace Presentacion
             txtCodigoPadre.Text = null;
             txtCodigoHijo.Text = null;
             txtCuentaHijo.Text = null;
-            chbUso.Checked = true;
+            chbUso.Checked = false;
             chbCuentaNaturaleza.Checked = false;
             chbCuentaPorPagar.Checked = false;
             chbCuentaDestino.Checked = false;
+            chbCuentaVentaNaturaleza.Checked = false;
+            chbCuentaPorCobrar.Checked = false;
             edit = false;
             newParent = false;
         }
@@ -50,7 +47,7 @@ namespace Presentacion
             AddNodes(1, null);
         }
 
-        
+
 
         private void AddNodes(int id, TreeNode parentNode)
         {
@@ -64,7 +61,7 @@ namespace Presentacion
                     t.Text = dr["Cuenta"].ToString();
                     t.Name = dr["Codigo"].ToString();
                     t.Tag = dr["id"].ToString();
-                    
+
                     //t.Tag = dataTable.Rows.IndexOf(dr);
 
                     if (parentNode == null)
@@ -80,7 +77,8 @@ namespace Presentacion
 
                     AddNodes(Convert.ToInt32(dr["Codigo"].ToString()), childremNone);
                 }
-            } catch (Exception Ex) { }
+            }
+            catch (Exception Ex) { }
 
         }
 
@@ -92,7 +90,8 @@ namespace Presentacion
             txtCuentaHijo.Text = string.Join(" ", txtCuentaPadre.Text.Split(' ').Skip(2).Take(txtCuentaPadre.Text.Length).ToArray());
             txtCodigoPadre.Text = Convert.ToString(Convert.ToInt32(txtCodigoPadre.Text.Length) <= 2 ? "1" : txtCodigoPadre.Text.Substring(0, txtCodigoPadre.Text.Length - 1));
         }
-        private void Destroy() {
+        private void Destroy()
+        {
             int id = Convert.ToInt32(txtCuentaId.Text);
             DialogResult dialogResult = MessageBox.Show("¿Estás seguro que quieres eliuminar esta cuenta?", "SISCONT .::. Plan Contable", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             if (dialogResult == DialogResult.Yes)
@@ -110,7 +109,26 @@ namespace Presentacion
             txtCuentaPadre.Text = e.Node.Text;
             txtCodigoPadre.Text = e.Node.Name;
             txtCuentaId.Text = e.Node.Tag.ToString();
-            chbUso.Checked = true;
+
+            dataTableShowById = planContable.ShowById(Convert.ToInt32(e.Node.Tag));
+
+            if (Convert.ToBoolean(dataTableShowById.Rows[0]["uso"].ToString())) chbUso.Checked = true;
+            else chbUso.Checked = false;
+
+            if (Convert.ToBoolean(dataTableShowById.Rows[0]["naturaleza"].ToString())) chbCuentaNaturaleza.Checked = true;
+            else chbCuentaNaturaleza.Checked = false;
+
+            if (Convert.ToBoolean(dataTableShowById.Rows[0]["pago"].ToString())) chbCuentaPorPagar.Checked = true;
+            else chbCuentaPorPagar.Checked = false;
+
+            if (Convert.ToBoolean(dataTableShowById.Rows[0]["destino"].ToString())) chbCuentaDestino.Checked = true;
+            else chbCuentaDestino.Checked = false;
+
+            if (Convert.ToBoolean(dataTableShowById.Rows[0]["vnaturaleza"].ToString())) chbCuentaVentaNaturaleza.Checked = true;
+            else chbCuentaVentaNaturaleza.Checked = false;
+
+            if (Convert.ToBoolean(dataTableShowById.Rows[0]["vcobrar"].ToString())) chbCuentaPorCobrar.Checked = true;
+            else chbCuentaPorCobrar.Checked = false;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -118,7 +136,7 @@ namespace Presentacion
             try
             {
                 int codigoPadre, codigoHijo, id;
-                bool uso = false, naturaleza = false, pago = false, destino = false;
+                bool uso = false, naturaleza = false, pago = false, destino = false, vnaturaleza = false, vcobrar = false;
                 string cuenta;
 
                 int codigoHijoFinal = Convert.ToInt32(txtCodigoPadre.Text + txtCodigoHijo.Text);
@@ -131,6 +149,8 @@ namespace Presentacion
                 if (chbCuentaNaturaleza.Checked) naturaleza = true;
                 if (chbCuentaPorPagar.Checked) pago = true;
                 if (chbCuentaDestino.Checked) destino = true;
+                if (chbCuentaVentaNaturaleza.Checked) vnaturaleza = true;
+                if (chbCuentaPorCobrar.Checked) vcobrar = true;
 
                 cuenta = txtCuentaHijo.Text;
 
@@ -150,7 +170,7 @@ namespace Presentacion
                         if (newParent | codigoPadre == 1) codigoHijoFinal = codigoHijo;
                         if (edit)
                         {
-                            if (planContable.Update(id, codigoHijoFinal, cuenta, uso, naturaleza, pago, destino, codigoPadre))
+                            if (planContable.Update(id, codigoHijoFinal, cuenta, uso, naturaleza, pago, destino, vnaturaleza, vcobrar, codigoPadre))
                             {
                                 All();
                                 Clear();
@@ -159,7 +179,7 @@ namespace Presentacion
                         }
                         else
                         {
-                            if (planContable.Insert(codigoHijoFinal, cuenta, uso, naturaleza, pago, destino, codigoPadre))
+                            if (planContable.Insert(codigoHijoFinal, cuenta, uso, naturaleza, pago, destino, vnaturaleza, vcobrar, codigoPadre))
                             {
                                 All();
                                 Clear();
@@ -168,7 +188,8 @@ namespace Presentacion
                         }
                     }
                 }
-            } catch (Exception Ex) { }
+            }
+            catch (Exception Ex) { MessageBox.Show("No se pudo guardar y/o actualizar la cuenta: " + Ex, "SISCONT .::. Plan Contable", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)

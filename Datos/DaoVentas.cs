@@ -43,7 +43,7 @@ namespace Datos
             return dataTable;
         }
 
-        public DataTable GetForTXT(int anio, int mes)
+        public DataTable GetForTXT(int anio, int mes, string ruc)
         {
             SqlDataReader sqlDataReader;
             DataTable dataTable = new DataTable();
@@ -53,6 +53,7 @@ namespace Datos
 
             sqlCommand.Parameters.AddWithValue("@Anio", anio);
             sqlCommand.Parameters.AddWithValue("@Mes", mes);
+            sqlCommand.Parameters.AddWithValue("@ruc", ruc);
 
             sqlCommand.ExecuteNonQuery();
             sqlDataReader = sqlCommand.ExecuteReader();
@@ -69,7 +70,7 @@ namespace Datos
             string cuenta, string descripcion, double valorExportacion, double baseImponible, double importeTotalExonerada,
             double importeTotalInafecta, double igv, double importeTotal, double tipoCambio, double dolares, double igvRetencion,
             string cuentaDestino, string cuentaDestinoDescripcion, string referenciaFecha, string referenciaTipo, string referenciaSerie, string referenciaNumeroDocumento,
-            string codigo, string constanciaNumero, string constanciaFechaPago, double detraccionSoles, string referencia, string observacion, string usuario
+            string codigo, string constanciaNumero, string constanciaFechaPago, double detraccionSoles, string referencia, string observacion, string usuario, string rucEmpresa
             )
         {
             sqlCommand.Connection = conexion.OpenConnection();
@@ -110,6 +111,7 @@ namespace Datos
             sqlCommand.Parameters.AddWithValue("@Referencia", referencia);
             sqlCommand.Parameters.AddWithValue("@Observacion", observacion);
             sqlCommand.Parameters.AddWithValue("@Usuario", usuario);
+            sqlCommand.Parameters.AddWithValue("@rucEmpresa", rucEmpresa);
 
             if (sqlCommand.ExecuteNonQuery() > 0)
             {

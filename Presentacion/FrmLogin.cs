@@ -8,6 +8,8 @@ namespace Presentacion
     public partial class FrmLogin : Form
     {
         private Usuario usuario = new Usuario();
+
+        private Proveedor proveedor = new Proveedor();
         public FrmLogin()
         {
             InitializeComponent();
@@ -36,11 +38,15 @@ namespace Presentacion
         {
             string user = txtUsuario.Text.ToLower();
             string contrasenia = txtContrasenia.Text;
+            string ruc = txtRucEmpresa.Text;
 
-            if (user != "" && contrasenia != "")
+            if (user != "" && contrasenia != "" && ruc != "")
             {
 
                 DataTable dataTableLogin = new DataTable();
+                DataTable empresa = new DataTable();
+
+                empresa = proveedor.Show(ruc);
 
                 contrasenia = usuario.GetSHA1(contrasenia);
 
@@ -48,25 +54,29 @@ namespace Presentacion
 
                 if (dataTableLogin != null)
                 {
-                    string userDB = dataTableLogin.Rows[0]["Usuario"].ToString();
-                    string passDB = dataTableLogin.Rows[0]["Contrasenia"].ToString();
-                    string nombreDB = dataTableLogin.Rows[0]["Nombre"].ToString();
-
-                    if (user.Equals(userDB) && contrasenia.Equals(passDB))
+                    if (empresa != null)
                     {
-                        FrmPrincipal frmPrincipal = new FrmPrincipal();
-                        frmPrincipal.username = userDB;
-                        frmPrincipal.nombreUsuario = nombreDB;
-                        frmPrincipal.Show();
+                        string userDB = dataTableLogin.Rows[0]["Usuario"].ToString();
+                        string passDB = dataTableLogin.Rows[0]["Contrasenia"].ToString();
+                        string nombreDB = dataTableLogin.Rows[0]["Nombre"].ToString();
 
-                        this.Hide();
-                    }
+                        if (user.Equals(userDB) && contrasenia.Equals(passDB))
+                        {
+                            FrmPrincipal frmPrincipal = new FrmPrincipal();
+                            frmPrincipal.username = userDB;
+                            frmPrincipal.nombreUsuario = nombreDB;
+                            frmPrincipal.empresa = empresa;
+                            frmPrincipal.Show();
+
+                            this.Hide();
+                        }
+                    } else MessageBox.Show("Ruc invalido", "Inicio de Sesion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                     MessageBox.Show("Usuario o Contraseña Incorrecto", "Inicio de Sesion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
-                MessageBox.Show("Usuario y Contraseña son Obligarotios", "Inicio de Sesion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Usuario, Contraseña y Ruc son Obligarotios", "Inicio de Sesion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void txtUsuarioKeyDown(object sender, KeyEventArgs e)
@@ -76,10 +86,15 @@ namespace Presentacion
                 if (txtUsuario.Text != "")
                 {
                     if (txtContrasenia.Text != "")
-                        Login();
+                    {
+                        if (txtRucEmpresa.Text != "")
+                            Login();
+                        else txtRucEmpresa.Focus();
+                    }
                     else
                         txtContrasenia.Focus();
                 }
+                else txtUsuario.Focus();
             }
         }
 
@@ -87,8 +102,37 @@ namespace Presentacion
         {
             if (e.KeyCode.Equals(Keys.Enter))
             {
-                if (txtUsuario.Text != "" && txtContrasenia.Text != "")
-                    Login();
+                if (txtUsuario.Text != "")
+                {
+                    if (txtContrasenia.Text != "")
+                    {
+                        if (txtRucEmpresa.Text != "")
+                            Login();
+                        else txtRucEmpresa.Focus();
+                    }
+                    else
+                        txtContrasenia.Focus();
+                }
+                else txtUsuario.Focus();
+            }
+        }
+        
+        private void txtRucEmpresa_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.Equals(Keys.Enter))
+            {
+                if (txtUsuario.Text != "")
+                {
+                    if (txtContrasenia.Text != "")
+                    {
+                        if (txtRucEmpresa.Text != "")
+                            Login();
+                        else txtRucEmpresa.Focus();
+                    }
+                    else
+                        txtContrasenia.Focus();
+                }
+                else txtUsuario.Focus();
             }
         }
 
@@ -112,5 +156,6 @@ namespace Presentacion
             lblServerConnectStatus.Text = Estado;
             WebRequest = null;
         }
+
     }
 }

@@ -11,7 +11,7 @@ namespace Negocios
 
         public DataTable AllByMonthFilter(int anio, int mes) { return daoVentas.AllByMonthFilter(anio, mes); }
 
-        public DataTable GetForTXT(int anio, int mes) { return daoVentas.GetForTXT(anio, mes); }
+        public DataTable GetForTXT(int anio, int mes, string ruc) { return daoVentas.GetForTXT(anio, mes, ruc); }
 
         public bool Insert(
             string numeroRegistro, string fechaEmision, string fechaPago, string cdpTipo, string cdpSerie,
@@ -19,7 +19,7 @@ namespace Negocios
             string cuenta, string descripcion, double valorExportacion, double baseImponible, double importeTotalExonerada,
             double importeTotalInafecta, double igv, double importeTotal, double tipoCambio, double dolares, double igvRetencion,
             string cuentaDestino, string cuentaDestinoDescripcion, string referenciaFecha, string referenciaTipo, string referenciaSerie, string referenciaNumeroDocumento,
-            string codigo, string constanciaNumero, string constanciaFechaPago, double detraccionSoles, string referencia, string observacion, string usuario
+            string codigo, string constanciaNumero, string constanciaFechaPago, double detraccionSoles, string referencia, string observacion, string usuario, string rucEmpresa
             )
         {
             return daoVentas.Insert(
@@ -27,7 +27,7 @@ namespace Negocios
                 proveedorTipo, proveedorNumero, proveedorNombreRazonSocial, cuenta, descripcion, valorExportacion, baseImponible,
                 importeTotalExonerada, importeTotalInafecta, igv, importeTotal, tipoCambio, dolares, igvRetencion, cuentaDestino,
                 cuentaDestinoDescripcion, referenciaFecha, referenciaTipo, referenciaSerie, referenciaNumeroDocumento, codigo, constanciaNumero,
-                constanciaFechaPago, detraccionSoles, referencia, observacion, usuario
+                constanciaFechaPago, detraccionSoles, referencia, observacion, usuario, rucEmpresa
                 );
         }
 

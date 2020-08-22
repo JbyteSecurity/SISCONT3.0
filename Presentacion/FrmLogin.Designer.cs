@@ -87,19 +87,19 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(78, 217);
+            this.label3.Location = new System.Drawing.Point(34, 217);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 13);
+            this.label3.Size = new System.Drawing.Size(74, 13);
             this.label3.TabIndex = 14;
-            this.label3.Text = "RUC";
+            this.label3.Text = "RUC Empresa";
             // 
             // txtRucEmpresa
             // 
             this.txtRucEmpresa.Location = new System.Drawing.Point(114, 214);
             this.txtRucEmpresa.Name = "txtRucEmpresa";
-            this.txtRucEmpresa.PasswordChar = '*';
             this.txtRucEmpresa.Size = new System.Drawing.Size(100, 20);
             this.txtRucEmpresa.TabIndex = 13;
+            this.txtRucEmpresa.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRucEmpresa_KeyDown);
             // 
             // pictureBox1
             // 

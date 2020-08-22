@@ -6,11 +6,9 @@ namespace Negocios
     public class Proveedor
     {
         private DaoProveedor daoProveedor = new DaoProveedor();
-        public string GetSupplierName(string ruc)
+        public DataTable Show(string ruc)
         {
-            string razonSocial;
-            razonSocial = daoProveedor.Show(ruc);
-            return razonSocial;
+            return daoProveedor.Show(ruc);
         }
 
         public DataTable All()
