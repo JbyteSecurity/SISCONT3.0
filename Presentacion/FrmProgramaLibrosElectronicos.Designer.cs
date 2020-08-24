@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblRazonSocial = new System.Windows.Forms.Label();
             this.btnGuardarCompras = new System.Windows.Forms.Button();
@@ -217,6 +217,47 @@
             this.TAVentasTableAdapter = new Presentacion.DSVentasTableAdapters.tblRegistroVentasTableAdapter();
             this.TAComprasTableAdapter = new Presentacion.DSComprasTableAdapters.tblRegistroComprasTableAdapter();
             this.TADetraccionesTableAdapter = new Presentacion.DSDetraccionesTableAdapters.sp_all_combo_detraccionesTableAdapter();
+            this.dSPdt = new Presentacion.DSPdt();
+            this.BSpdt = new System.Windows.Forms.BindingSource(this.components);
+            this.TApdt = new Presentacion.DSPdtTableAdapters.sp_pdtTableAdapter();
+            this.egresoMesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ingresoExportaciónDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ingresoGravadasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ingresoExoneradaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ingresoInafectaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ingresoIGVDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ingresoImporteTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.egresoBaseImponibleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.egresoIGVDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.egresoNoGravadaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.egresoImporteTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ficalIgvImpouestoResultanteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ficalIgvCreditoDebitoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ficalIgvSaldoFavorPagarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.exportadorSFMBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.percepcionesIgvDelMesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.percepcionesIgvMesAnteriorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.percepcionesIgvAplicadaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.percepcionesIgvComposicionProcedenteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.percepcionesIgvPorAplicarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.retencionesIgvDelMesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.retencionesIgvMesAnteriorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.retencionesIgvAplicadaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.retencionesIgvComposicionProcedenteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.retencionesIgvPorAplicarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.igvPagoAPagarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.igvPagoPagadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.impuestoAlaRentaOtrosIngresoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.impuestoAlaRentaBaseImponibleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.impuestoAlaRentaCoeficienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.impuestoAlaRentaImpuestoResultanteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.impuestoAlaRentaPagadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.impuestoAlaRentaCompensacionSFADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.impuestoAlaRentaCompensacionSFMBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.impuestoAlaRentaCompensacionITANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.impuestoAlaRentaCompensacionPercepcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.impuestoAlaRentaImputacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.impuestoAlaRentaPorPagarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabRegistros.SuspendLayout();
@@ -232,6 +273,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dSVentas)).BeginInit();
             this.tabPDT.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvPDT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSPdt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BSpdt)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -258,7 +301,7 @@
             // lblRazonSocial
             // 
             this.lblRazonSocial.AutoSize = true;
-            this.lblRazonSocial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.lblRazonSocial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblRazonSocial.Location = new System.Drawing.Point(458, 6);
             this.lblRazonSocial.Name = "lblRazonSocial";
             this.lblRazonSocial.Size = new System.Drawing.Size(73, 13);
@@ -282,7 +325,7 @@
             // lblPeriodoActual
             // 
             this.lblPeriodoActual.AutoSize = true;
-            this.lblPeriodoActual.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.lblPeriodoActual.ForeColor = System.Drawing.Color.Black;
             this.lblPeriodoActual.Location = new System.Drawing.Point(458, 24);
             this.lblPeriodoActual.Name = "lblPeriodoActual";
             this.lblPeriodoActual.Size = new System.Drawing.Size(82, 13);
@@ -642,8 +685,8 @@
             // comprasCuenta
             // 
             this.comprasCuenta.DataPropertyName = "Cuenta";
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Aqua;
-            this.comprasCuenta.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.Aqua;
+            this.comprasCuenta.DefaultCellStyle = dataGridViewCellStyle13;
             this.comprasCuenta.HeaderText = "Cuenta";
             this.comprasCuenta.MinimumWidth = 22;
             this.comprasCuenta.Name = "comprasCuenta";
@@ -654,8 +697,8 @@
             // comprasDescripcion
             // 
             this.comprasDescripcion.DataPropertyName = "Descripcion";
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Aqua;
-            this.comprasDescripcion.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.Aqua;
+            this.comprasDescripcion.DefaultCellStyle = dataGridViewCellStyle14;
             this.comprasDescripcion.HeaderText = "Descripción";
             this.comprasDescripcion.MinimumWidth = 22;
             this.comprasDescripcion.Name = "comprasDescripcion";
@@ -731,8 +774,8 @@
             // comprasConversionDolares
             // 
             this.comprasConversionDolares.DataPropertyName = "ConversionDolar";
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Aqua;
-            this.comprasConversionDolares.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.Aqua;
+            this.comprasConversionDolares.DefaultCellStyle = dataGridViewCellStyle15;
             this.comprasConversionDolares.HeaderText = "Conversión Dólares (S/.)";
             this.comprasConversionDolares.MinimumWidth = 22;
             this.comprasConversionDolares.Name = "comprasConversionDolares";
@@ -753,8 +796,8 @@
             // comprasCuentaPago
             // 
             this.comprasCuentaPago.DataPropertyName = "Destino";
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Aqua;
-            this.comprasCuentaPago.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.Aqua;
+            this.comprasCuentaPago.DefaultCellStyle = dataGridViewCellStyle16;
             this.comprasCuentaPago.HeaderText = "Cuenta Pago";
             this.comprasCuentaPago.MinimumWidth = 22;
             this.comprasCuentaPago.Name = "comprasCuentaPago";
@@ -765,8 +808,8 @@
             // comprasDescripcionDestino
             // 
             this.comprasDescripcionDestino.DataPropertyName = "DescripcionDestino";
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Aqua;
-            this.comprasDescripcionDestino.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.Aqua;
+            this.comprasDescripcionDestino.DefaultCellStyle = dataGridViewCellStyle17;
             this.comprasDescripcionDestino.HeaderText = "Cuenta Pago Descripción";
             this.comprasDescripcionDestino.MinimumWidth = 22;
             this.comprasDescripcionDestino.Name = "comprasDescripcionDestino";
@@ -788,8 +831,8 @@
             // 
             this.comprasCodigo.DataPropertyName = "Codigo";
             this.comprasCodigo.DataSource = this.BSDetraccionesBindingSource;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Aqua;
-            this.comprasCodigo.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.Aqua;
+            this.comprasCodigo.DefaultCellStyle = dataGridViewCellStyle18;
             this.comprasCodigo.DisplayMember = "Combo";
             this.comprasCodigo.HeaderText = "Código";
             this.comprasCodigo.MinimumWidth = 22;
@@ -1258,7 +1301,7 @@
             this.tabVentas.Location = new System.Drawing.Point(4, 22);
             this.tabVentas.Name = "tabVentas";
             this.tabVentas.Padding = new System.Windows.Forms.Padding(3);
-            this.tabVentas.Size = new System.Drawing.Size(1402, 619);
+            this.tabVentas.Size = new System.Drawing.Size(1417, 632);
             this.tabVentas.TabIndex = 1;
             this.tabVentas.Text = "Ventas";
             this.tabVentas.UseVisualStyleBackColor = true;
@@ -1346,7 +1389,7 @@
             this.dgvRegistroVentas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgvRegistroVentas.Location = new System.Drawing.Point(3, 3);
             this.dgvRegistroVentas.Name = "dgvRegistroVentas";
-            this.dgvRegistroVentas.Size = new System.Drawing.Size(1396, 613);
+            this.dgvRegistroVentas.Size = new System.Drawing.Size(1411, 626);
             this.dgvRegistroVentas.TabIndex = 2;
             this.dgvRegistroVentas.TimeFilter = false;
             this.dgvRegistroVentas.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistroVentas_CellEndEdit);
@@ -1981,20 +2024,61 @@
             this.tabPDT.Location = new System.Drawing.Point(4, 22);
             this.tabPDT.Name = "tabPDT";
             this.tabPDT.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPDT.Size = new System.Drawing.Size(1402, 619);
+            this.tabPDT.Size = new System.Drawing.Size(1417, 632);
             this.tabPDT.TabIndex = 2;
             this.tabPDT.Text = "PDT";
             this.tabPDT.UseVisualStyleBackColor = true;
             // 
             // DgvPDT
             // 
+            this.DgvPDT.AutoGenerateColumns = false;
             this.DgvPDT.AutoGenerateContextFilters = true;
             this.DgvPDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvPDT.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.egresoMesDataGridViewTextBoxColumn,
+            this.ingresoExportaciónDataGridViewTextBoxColumn,
+            this.ingresoGravadasDataGridViewTextBoxColumn,
+            this.ingresoExoneradaDataGridViewTextBoxColumn,
+            this.ingresoInafectaDataGridViewTextBoxColumn,
+            this.ingresoIGVDataGridViewTextBoxColumn,
+            this.ingresoImporteTotalDataGridViewTextBoxColumn,
+            this.egresoBaseImponibleDataGridViewTextBoxColumn,
+            this.egresoIGVDataGridViewTextBoxColumn,
+            this.egresoNoGravadaDataGridViewTextBoxColumn,
+            this.egresoImporteTotalDataGridViewTextBoxColumn,
+            this.ficalIgvImpouestoResultanteDataGridViewTextBoxColumn,
+            this.ficalIgvCreditoDebitoDataGridViewTextBoxColumn,
+            this.ficalIgvSaldoFavorPagarDataGridViewTextBoxColumn,
+            this.exportadorSFMBDataGridViewTextBoxColumn,
+            this.percepcionesIgvDelMesDataGridViewTextBoxColumn,
+            this.percepcionesIgvMesAnteriorDataGridViewTextBoxColumn,
+            this.percepcionesIgvAplicadaDataGridViewTextBoxColumn,
+            this.percepcionesIgvComposicionProcedenteDataGridViewTextBoxColumn,
+            this.percepcionesIgvPorAplicarDataGridViewTextBoxColumn,
+            this.retencionesIgvDelMesDataGridViewTextBoxColumn,
+            this.retencionesIgvMesAnteriorDataGridViewTextBoxColumn,
+            this.retencionesIgvAplicadaDataGridViewTextBoxColumn,
+            this.retencionesIgvComposicionProcedenteDataGridViewTextBoxColumn,
+            this.retencionesIgvPorAplicarDataGridViewTextBoxColumn,
+            this.igvPagoAPagarDataGridViewTextBoxColumn,
+            this.igvPagoPagadoDataGridViewTextBoxColumn,
+            this.impuestoAlaRentaOtrosIngresoDataGridViewTextBoxColumn,
+            this.impuestoAlaRentaBaseImponibleDataGridViewTextBoxColumn,
+            this.impuestoAlaRentaCoeficienteDataGridViewTextBoxColumn,
+            this.impuestoAlaRentaImpuestoResultanteDataGridViewTextBoxColumn,
+            this.impuestoAlaRentaPagadoDataGridViewTextBoxColumn,
+            this.impuestoAlaRentaCompensacionSFADataGridViewTextBoxColumn,
+            this.impuestoAlaRentaCompensacionSFMBDataGridViewTextBoxColumn,
+            this.impuestoAlaRentaCompensacionITANDataGridViewTextBoxColumn,
+            this.impuestoAlaRentaCompensacionPercepcionDataGridViewTextBoxColumn,
+            this.impuestoAlaRentaImputacionDataGridViewTextBoxColumn,
+            this.impuestoAlaRentaPorPagarDataGridViewTextBoxColumn});
+            this.DgvPDT.DataSource = this.BSpdt;
             this.DgvPDT.DateWithTime = false;
             this.DgvPDT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgvPDT.Location = new System.Drawing.Point(3, 3);
             this.DgvPDT.Name = "DgvPDT";
-            this.DgvPDT.Size = new System.Drawing.Size(1396, 613);
+            this.DgvPDT.Size = new System.Drawing.Size(1411, 626);
             this.DgvPDT.TabIndex = 0;
             this.DgvPDT.TimeFilter = false;
             // 
@@ -2009,6 +2093,361 @@
             // TADetraccionesTableAdapter
             // 
             this.TADetraccionesTableAdapter.ClearBeforeFill = true;
+            // 
+            // dSPdt
+            // 
+            this.dSPdt.DataSetName = "DSPdt";
+            this.dSPdt.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // BSpdt
+            // 
+            this.BSpdt.DataMember = "sp_pdt";
+            this.BSpdt.DataSource = this.dSPdt;
+            // 
+            // TApdt
+            // 
+            this.TApdt.ClearBeforeFill = true;
+            // 
+            // egresoMesDataGridViewTextBoxColumn
+            // 
+            this.egresoMesDataGridViewTextBoxColumn.DataPropertyName = "egresoMes";
+            this.egresoMesDataGridViewTextBoxColumn.HeaderText = "Mes";
+            this.egresoMesDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.egresoMesDataGridViewTextBoxColumn.Name = "egresoMesDataGridViewTextBoxColumn";
+            this.egresoMesDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // ingresoExportaciónDataGridViewTextBoxColumn
+            // 
+            this.ingresoExportaciónDataGridViewTextBoxColumn.DataPropertyName = "ingresoExportación";
+            this.ingresoExportaciónDataGridViewTextBoxColumn.HeaderText = "Ingreso Exportación";
+            this.ingresoExportaciónDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.ingresoExportaciónDataGridViewTextBoxColumn.Name = "ingresoExportaciónDataGridViewTextBoxColumn";
+            this.ingresoExportaciónDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ingresoExportaciónDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // ingresoGravadasDataGridViewTextBoxColumn
+            // 
+            this.ingresoGravadasDataGridViewTextBoxColumn.DataPropertyName = "ingresoGravadas";
+            this.ingresoGravadasDataGridViewTextBoxColumn.HeaderText = "Ingreso Gravadas";
+            this.ingresoGravadasDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.ingresoGravadasDataGridViewTextBoxColumn.Name = "ingresoGravadasDataGridViewTextBoxColumn";
+            this.ingresoGravadasDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ingresoGravadasDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // ingresoExoneradaDataGridViewTextBoxColumn
+            // 
+            this.ingresoExoneradaDataGridViewTextBoxColumn.DataPropertyName = "ingresoExonerada";
+            this.ingresoExoneradaDataGridViewTextBoxColumn.HeaderText = "Ingreso Exonerada";
+            this.ingresoExoneradaDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.ingresoExoneradaDataGridViewTextBoxColumn.Name = "ingresoExoneradaDataGridViewTextBoxColumn";
+            this.ingresoExoneradaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ingresoExoneradaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // ingresoInafectaDataGridViewTextBoxColumn
+            // 
+            this.ingresoInafectaDataGridViewTextBoxColumn.DataPropertyName = "ingresoInafecta";
+            this.ingresoInafectaDataGridViewTextBoxColumn.HeaderText = "Ingreso Inafecta";
+            this.ingresoInafectaDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.ingresoInafectaDataGridViewTextBoxColumn.Name = "ingresoInafectaDataGridViewTextBoxColumn";
+            this.ingresoInafectaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ingresoInafectaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // ingresoIGVDataGridViewTextBoxColumn
+            // 
+            this.ingresoIGVDataGridViewTextBoxColumn.DataPropertyName = "ingresoIGV";
+            this.ingresoIGVDataGridViewTextBoxColumn.HeaderText = "Ingreso IGV";
+            this.ingresoIGVDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.ingresoIGVDataGridViewTextBoxColumn.Name = "ingresoIGVDataGridViewTextBoxColumn";
+            this.ingresoIGVDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ingresoIGVDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // ingresoImporteTotalDataGridViewTextBoxColumn
+            // 
+            this.ingresoImporteTotalDataGridViewTextBoxColumn.DataPropertyName = "ingresoImporteTotal";
+            this.ingresoImporteTotalDataGridViewTextBoxColumn.HeaderText = "Ingreso Importe Total";
+            this.ingresoImporteTotalDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.ingresoImporteTotalDataGridViewTextBoxColumn.Name = "ingresoImporteTotalDataGridViewTextBoxColumn";
+            this.ingresoImporteTotalDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ingresoImporteTotalDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // egresoBaseImponibleDataGridViewTextBoxColumn
+            // 
+            this.egresoBaseImponibleDataGridViewTextBoxColumn.DataPropertyName = "egresoBaseImponible";
+            this.egresoBaseImponibleDataGridViewTextBoxColumn.HeaderText = "Egreso Base Imponible";
+            this.egresoBaseImponibleDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.egresoBaseImponibleDataGridViewTextBoxColumn.Name = "egresoBaseImponibleDataGridViewTextBoxColumn";
+            this.egresoBaseImponibleDataGridViewTextBoxColumn.ReadOnly = true;
+            this.egresoBaseImponibleDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // egresoIGVDataGridViewTextBoxColumn
+            // 
+            this.egresoIGVDataGridViewTextBoxColumn.DataPropertyName = "egresoIGV";
+            this.egresoIGVDataGridViewTextBoxColumn.HeaderText = "Egreso IGV";
+            this.egresoIGVDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.egresoIGVDataGridViewTextBoxColumn.Name = "egresoIGVDataGridViewTextBoxColumn";
+            this.egresoIGVDataGridViewTextBoxColumn.ReadOnly = true;
+            this.egresoIGVDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // egresoNoGravadaDataGridViewTextBoxColumn
+            // 
+            this.egresoNoGravadaDataGridViewTextBoxColumn.DataPropertyName = "egresoNoGravada";
+            this.egresoNoGravadaDataGridViewTextBoxColumn.HeaderText = "Egreso No Gravada";
+            this.egresoNoGravadaDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.egresoNoGravadaDataGridViewTextBoxColumn.Name = "egresoNoGravadaDataGridViewTextBoxColumn";
+            this.egresoNoGravadaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.egresoNoGravadaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // egresoImporteTotalDataGridViewTextBoxColumn
+            // 
+            this.egresoImporteTotalDataGridViewTextBoxColumn.DataPropertyName = "egresoImporteTotal";
+            this.egresoImporteTotalDataGridViewTextBoxColumn.HeaderText = "Egreso Importe Total";
+            this.egresoImporteTotalDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.egresoImporteTotalDataGridViewTextBoxColumn.Name = "egresoImporteTotalDataGridViewTextBoxColumn";
+            this.egresoImporteTotalDataGridViewTextBoxColumn.ReadOnly = true;
+            this.egresoImporteTotalDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // ficalIgvImpouestoResultanteDataGridViewTextBoxColumn
+            // 
+            this.ficalIgvImpouestoResultanteDataGridViewTextBoxColumn.DataPropertyName = "ficalIgvImpouestoResultante";
+            this.ficalIgvImpouestoResultanteDataGridViewTextBoxColumn.HeaderText = "Credito/Debito Fiscal IGV Impouesto Resultante";
+            this.ficalIgvImpouestoResultanteDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.ficalIgvImpouestoResultanteDataGridViewTextBoxColumn.Name = "ficalIgvImpouestoResultanteDataGridViewTextBoxColumn";
+            this.ficalIgvImpouestoResultanteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ficalIgvImpouestoResultanteDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // ficalIgvCreditoDebitoDataGridViewTextBoxColumn
+            // 
+            this.ficalIgvCreditoDebitoDataGridViewTextBoxColumn.DataPropertyName = "ficalIgvCreditoDebito";
+            this.ficalIgvCreditoDebitoDataGridViewTextBoxColumn.HeaderText = "Credito/Debito Fiscal IGV Credito y/o Debito";
+            this.ficalIgvCreditoDebitoDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.ficalIgvCreditoDebitoDataGridViewTextBoxColumn.Name = "ficalIgvCreditoDebitoDataGridViewTextBoxColumn";
+            this.ficalIgvCreditoDebitoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ficalIgvCreditoDebitoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // ficalIgvSaldoFavorPagarDataGridViewTextBoxColumn
+            // 
+            this.ficalIgvSaldoFavorPagarDataGridViewTextBoxColumn.DataPropertyName = "ficalIgvSaldoFavorPagar";
+            this.ficalIgvSaldoFavorPagarDataGridViewTextBoxColumn.HeaderText = "Credito/Debito Fiscal IGV Saldo a Favor/Pagar";
+            this.ficalIgvSaldoFavorPagarDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.ficalIgvSaldoFavorPagarDataGridViewTextBoxColumn.Name = "ficalIgvSaldoFavorPagarDataGridViewTextBoxColumn";
+            this.ficalIgvSaldoFavorPagarDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ficalIgvSaldoFavorPagarDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // exportadorSFMBDataGridViewTextBoxColumn
+            // 
+            this.exportadorSFMBDataGridViewTextBoxColumn.DataPropertyName = "exportadorSFMB";
+            this.exportadorSFMBDataGridViewTextBoxColumn.HeaderText = "Exportador SFMB";
+            this.exportadorSFMBDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.exportadorSFMBDataGridViewTextBoxColumn.Name = "exportadorSFMBDataGridViewTextBoxColumn";
+            this.exportadorSFMBDataGridViewTextBoxColumn.ReadOnly = true;
+            this.exportadorSFMBDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // percepcionesIgvDelMesDataGridViewTextBoxColumn
+            // 
+            this.percepcionesIgvDelMesDataGridViewTextBoxColumn.DataPropertyName = "percepcionesIgvDelMes";
+            this.percepcionesIgvDelMesDataGridViewTextBoxColumn.HeaderText = "Percepciones IGV Del Mes";
+            this.percepcionesIgvDelMesDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.percepcionesIgvDelMesDataGridViewTextBoxColumn.Name = "percepcionesIgvDelMesDataGridViewTextBoxColumn";
+            this.percepcionesIgvDelMesDataGridViewTextBoxColumn.ReadOnly = true;
+            this.percepcionesIgvDelMesDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // percepcionesIgvMesAnteriorDataGridViewTextBoxColumn
+            // 
+            this.percepcionesIgvMesAnteriorDataGridViewTextBoxColumn.DataPropertyName = "percepcionesIgvMesAnterior";
+            this.percepcionesIgvMesAnteriorDataGridViewTextBoxColumn.HeaderText = "Percepciones IGV Mes Anterior";
+            this.percepcionesIgvMesAnteriorDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.percepcionesIgvMesAnteriorDataGridViewTextBoxColumn.Name = "percepcionesIgvMesAnteriorDataGridViewTextBoxColumn";
+            this.percepcionesIgvMesAnteriorDataGridViewTextBoxColumn.ReadOnly = true;
+            this.percepcionesIgvMesAnteriorDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // percepcionesIgvAplicadaDataGridViewTextBoxColumn
+            // 
+            this.percepcionesIgvAplicadaDataGridViewTextBoxColumn.DataPropertyName = "percepcionesIgvAplicada";
+            this.percepcionesIgvAplicadaDataGridViewTextBoxColumn.HeaderText = "Percepciones IGV Aplicada";
+            this.percepcionesIgvAplicadaDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.percepcionesIgvAplicadaDataGridViewTextBoxColumn.Name = "percepcionesIgvAplicadaDataGridViewTextBoxColumn";
+            this.percepcionesIgvAplicadaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.percepcionesIgvAplicadaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // percepcionesIgvComposicionProcedenteDataGridViewTextBoxColumn
+            // 
+            this.percepcionesIgvComposicionProcedenteDataGridViewTextBoxColumn.DataPropertyName = "percepcionesIgvComposicionProcedente";
+            this.percepcionesIgvComposicionProcedenteDataGridViewTextBoxColumn.HeaderText = "Percepciones IGV Composicion Procedente";
+            this.percepcionesIgvComposicionProcedenteDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.percepcionesIgvComposicionProcedenteDataGridViewTextBoxColumn.Name = "percepcionesIgvComposicionProcedenteDataGridViewTextBoxColumn";
+            this.percepcionesIgvComposicionProcedenteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.percepcionesIgvComposicionProcedenteDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // percepcionesIgvPorAplicarDataGridViewTextBoxColumn
+            // 
+            this.percepcionesIgvPorAplicarDataGridViewTextBoxColumn.DataPropertyName = "percepcionesIgvPorAplicar";
+            this.percepcionesIgvPorAplicarDataGridViewTextBoxColumn.HeaderText = "Percepciones IGV Por Aplicar";
+            this.percepcionesIgvPorAplicarDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.percepcionesIgvPorAplicarDataGridViewTextBoxColumn.Name = "percepcionesIgvPorAplicarDataGridViewTextBoxColumn";
+            this.percepcionesIgvPorAplicarDataGridViewTextBoxColumn.ReadOnly = true;
+            this.percepcionesIgvPorAplicarDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // retencionesIgvDelMesDataGridViewTextBoxColumn
+            // 
+            this.retencionesIgvDelMesDataGridViewTextBoxColumn.DataPropertyName = "retencionesIgvDelMes";
+            this.retencionesIgvDelMesDataGridViewTextBoxColumn.HeaderText = "Retenciones IGV Del Mes";
+            this.retencionesIgvDelMesDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.retencionesIgvDelMesDataGridViewTextBoxColumn.Name = "retencionesIgvDelMesDataGridViewTextBoxColumn";
+            this.retencionesIgvDelMesDataGridViewTextBoxColumn.ReadOnly = true;
+            this.retencionesIgvDelMesDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // retencionesIgvMesAnteriorDataGridViewTextBoxColumn
+            // 
+            this.retencionesIgvMesAnteriorDataGridViewTextBoxColumn.DataPropertyName = "retencionesIgvMesAnterior";
+            this.retencionesIgvMesAnteriorDataGridViewTextBoxColumn.HeaderText = "Retenciones IGV Mes Anterior";
+            this.retencionesIgvMesAnteriorDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.retencionesIgvMesAnteriorDataGridViewTextBoxColumn.Name = "retencionesIgvMesAnteriorDataGridViewTextBoxColumn";
+            this.retencionesIgvMesAnteriorDataGridViewTextBoxColumn.ReadOnly = true;
+            this.retencionesIgvMesAnteriorDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // retencionesIgvAplicadaDataGridViewTextBoxColumn
+            // 
+            this.retencionesIgvAplicadaDataGridViewTextBoxColumn.DataPropertyName = "retencionesIgvAplicada";
+            this.retencionesIgvAplicadaDataGridViewTextBoxColumn.HeaderText = "Retenciones IGV  Aplicada";
+            this.retencionesIgvAplicadaDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.retencionesIgvAplicadaDataGridViewTextBoxColumn.Name = "retencionesIgvAplicadaDataGridViewTextBoxColumn";
+            this.retencionesIgvAplicadaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.retencionesIgvAplicadaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // retencionesIgvComposicionProcedenteDataGridViewTextBoxColumn
+            // 
+            this.retencionesIgvComposicionProcedenteDataGridViewTextBoxColumn.DataPropertyName = "retencionesIgvComposicionProcedente";
+            this.retencionesIgvComposicionProcedenteDataGridViewTextBoxColumn.HeaderText = "Retenciones IGV  Composicion Procedente";
+            this.retencionesIgvComposicionProcedenteDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.retencionesIgvComposicionProcedenteDataGridViewTextBoxColumn.Name = "retencionesIgvComposicionProcedenteDataGridViewTextBoxColumn";
+            this.retencionesIgvComposicionProcedenteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.retencionesIgvComposicionProcedenteDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // retencionesIgvPorAplicarDataGridViewTextBoxColumn
+            // 
+            this.retencionesIgvPorAplicarDataGridViewTextBoxColumn.DataPropertyName = "retencionesIgvPorAplicar";
+            this.retencionesIgvPorAplicarDataGridViewTextBoxColumn.HeaderText = "Retenciones IGV Por Aplicar";
+            this.retencionesIgvPorAplicarDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.retencionesIgvPorAplicarDataGridViewTextBoxColumn.Name = "retencionesIgvPorAplicarDataGridViewTextBoxColumn";
+            this.retencionesIgvPorAplicarDataGridViewTextBoxColumn.ReadOnly = true;
+            this.retencionesIgvPorAplicarDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // igvPagoAPagarDataGridViewTextBoxColumn
+            // 
+            this.igvPagoAPagarDataGridViewTextBoxColumn.DataPropertyName = "igvPagoAPagar";
+            this.igvPagoAPagarDataGridViewTextBoxColumn.HeaderText = "IGV/Pago A Pagar";
+            this.igvPagoAPagarDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.igvPagoAPagarDataGridViewTextBoxColumn.Name = "igvPagoAPagarDataGridViewTextBoxColumn";
+            this.igvPagoAPagarDataGridViewTextBoxColumn.ReadOnly = true;
+            this.igvPagoAPagarDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // igvPagoPagadoDataGridViewTextBoxColumn
+            // 
+            this.igvPagoPagadoDataGridViewTextBoxColumn.DataPropertyName = "igvPagoPagado";
+            this.igvPagoPagadoDataGridViewTextBoxColumn.HeaderText = "IGV/Pago Pagado";
+            this.igvPagoPagadoDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.igvPagoPagadoDataGridViewTextBoxColumn.Name = "igvPagoPagadoDataGridViewTextBoxColumn";
+            this.igvPagoPagadoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.igvPagoPagadoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // impuestoAlaRentaOtrosIngresoDataGridViewTextBoxColumn
+            // 
+            this.impuestoAlaRentaOtrosIngresoDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaOtrosIngreso";
+            this.impuestoAlaRentaOtrosIngresoDataGridViewTextBoxColumn.HeaderText = "Impuesto A la Renta Otros Ingreso";
+            this.impuestoAlaRentaOtrosIngresoDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.impuestoAlaRentaOtrosIngresoDataGridViewTextBoxColumn.Name = "impuestoAlaRentaOtrosIngresoDataGridViewTextBoxColumn";
+            this.impuestoAlaRentaOtrosIngresoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.impuestoAlaRentaOtrosIngresoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // impuestoAlaRentaBaseImponibleDataGridViewTextBoxColumn
+            // 
+            this.impuestoAlaRentaBaseImponibleDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaBaseImponible";
+            this.impuestoAlaRentaBaseImponibleDataGridViewTextBoxColumn.HeaderText = "Impuesto A la Renta Base Imponible";
+            this.impuestoAlaRentaBaseImponibleDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.impuestoAlaRentaBaseImponibleDataGridViewTextBoxColumn.Name = "impuestoAlaRentaBaseImponibleDataGridViewTextBoxColumn";
+            this.impuestoAlaRentaBaseImponibleDataGridViewTextBoxColumn.ReadOnly = true;
+            this.impuestoAlaRentaBaseImponibleDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // impuestoAlaRentaCoeficienteDataGridViewTextBoxColumn
+            // 
+            this.impuestoAlaRentaCoeficienteDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaCoeficiente";
+            this.impuestoAlaRentaCoeficienteDataGridViewTextBoxColumn.HeaderText = "Impuesto A la Renta Coeficiente";
+            this.impuestoAlaRentaCoeficienteDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.impuestoAlaRentaCoeficienteDataGridViewTextBoxColumn.Name = "impuestoAlaRentaCoeficienteDataGridViewTextBoxColumn";
+            this.impuestoAlaRentaCoeficienteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.impuestoAlaRentaCoeficienteDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // impuestoAlaRentaImpuestoResultanteDataGridViewTextBoxColumn
+            // 
+            this.impuestoAlaRentaImpuestoResultanteDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaImpuestoResultante";
+            this.impuestoAlaRentaImpuestoResultanteDataGridViewTextBoxColumn.HeaderText = "Impuesto A la Renta Impuesto Resultante";
+            this.impuestoAlaRentaImpuestoResultanteDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.impuestoAlaRentaImpuestoResultanteDataGridViewTextBoxColumn.Name = "impuestoAlaRentaImpuestoResultanteDataGridViewTextBoxColumn";
+            this.impuestoAlaRentaImpuestoResultanteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.impuestoAlaRentaImpuestoResultanteDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // impuestoAlaRentaPagadoDataGridViewTextBoxColumn
+            // 
+            this.impuestoAlaRentaPagadoDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaPagado";
+            this.impuestoAlaRentaPagadoDataGridViewTextBoxColumn.HeaderText = "Impuesto A la Renta Pagado";
+            this.impuestoAlaRentaPagadoDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.impuestoAlaRentaPagadoDataGridViewTextBoxColumn.Name = "impuestoAlaRentaPagadoDataGridViewTextBoxColumn";
+            this.impuestoAlaRentaPagadoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.impuestoAlaRentaPagadoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // impuestoAlaRentaCompensacionSFADataGridViewTextBoxColumn
+            // 
+            this.impuestoAlaRentaCompensacionSFADataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaCompensacionSFA";
+            this.impuestoAlaRentaCompensacionSFADataGridViewTextBoxColumn.HeaderText = "Impuesto A la Renta Compensacion SFA";
+            this.impuestoAlaRentaCompensacionSFADataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.impuestoAlaRentaCompensacionSFADataGridViewTextBoxColumn.Name = "impuestoAlaRentaCompensacionSFADataGridViewTextBoxColumn";
+            this.impuestoAlaRentaCompensacionSFADataGridViewTextBoxColumn.ReadOnly = true;
+            this.impuestoAlaRentaCompensacionSFADataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // impuestoAlaRentaCompensacionSFMBDataGridViewTextBoxColumn
+            // 
+            this.impuestoAlaRentaCompensacionSFMBDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaCompensacionSFMB";
+            this.impuestoAlaRentaCompensacionSFMBDataGridViewTextBoxColumn.HeaderText = "Impuesto A la Renta Compensacion SFMB";
+            this.impuestoAlaRentaCompensacionSFMBDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.impuestoAlaRentaCompensacionSFMBDataGridViewTextBoxColumn.Name = "impuestoAlaRentaCompensacionSFMBDataGridViewTextBoxColumn";
+            this.impuestoAlaRentaCompensacionSFMBDataGridViewTextBoxColumn.ReadOnly = true;
+            this.impuestoAlaRentaCompensacionSFMBDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // impuestoAlaRentaCompensacionITANDataGridViewTextBoxColumn
+            // 
+            this.impuestoAlaRentaCompensacionITANDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaCompensacionITAN";
+            this.impuestoAlaRentaCompensacionITANDataGridViewTextBoxColumn.HeaderText = "Impuesto A la Renta Compensacion ITAN";
+            this.impuestoAlaRentaCompensacionITANDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.impuestoAlaRentaCompensacionITANDataGridViewTextBoxColumn.Name = "impuestoAlaRentaCompensacionITANDataGridViewTextBoxColumn";
+            this.impuestoAlaRentaCompensacionITANDataGridViewTextBoxColumn.ReadOnly = true;
+            this.impuestoAlaRentaCompensacionITANDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // impuestoAlaRentaCompensacionPercepcionDataGridViewTextBoxColumn
+            // 
+            this.impuestoAlaRentaCompensacionPercepcionDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaCompensacionPercepcion";
+            this.impuestoAlaRentaCompensacionPercepcionDataGridViewTextBoxColumn.HeaderText = "Impuesto A la Renta Compensacion Percepcion y/o Retención";
+            this.impuestoAlaRentaCompensacionPercepcionDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.impuestoAlaRentaCompensacionPercepcionDataGridViewTextBoxColumn.Name = "impuestoAlaRentaCompensacionPercepcionDataGridViewTextBoxColumn";
+            this.impuestoAlaRentaCompensacionPercepcionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.impuestoAlaRentaCompensacionPercepcionDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // impuestoAlaRentaImputacionDataGridViewTextBoxColumn
+            // 
+            this.impuestoAlaRentaImputacionDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaImputacion";
+            this.impuestoAlaRentaImputacionDataGridViewTextBoxColumn.HeaderText = "Impuesto A la Renta Imputacion";
+            this.impuestoAlaRentaImputacionDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.impuestoAlaRentaImputacionDataGridViewTextBoxColumn.Name = "impuestoAlaRentaImputacionDataGridViewTextBoxColumn";
+            this.impuestoAlaRentaImputacionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.impuestoAlaRentaImputacionDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // impuestoAlaRentaPorPagarDataGridViewTextBoxColumn
+            // 
+            this.impuestoAlaRentaPorPagarDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaPorPagar";
+            this.impuestoAlaRentaPorPagarDataGridViewTextBoxColumn.HeaderText = "Impuesto A la Renta Por Pagar";
+            this.impuestoAlaRentaPorPagarDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.impuestoAlaRentaPorPagarDataGridViewTextBoxColumn.Name = "impuestoAlaRentaPorPagarDataGridViewTextBoxColumn";
+            this.impuestoAlaRentaPorPagarDataGridViewTextBoxColumn.ReadOnly = true;
+            this.impuestoAlaRentaPorPagarDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // FrmProgramaLibrosElectronicos
             // 
@@ -2039,6 +2478,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dSVentas)).EndInit();
             this.tabPDT.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DgvPDT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSPdt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BSpdt)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2231,5 +2672,46 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaModificacionDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn cuentaDestinoDescripcionDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label lblRazonSocial;
+        private System.Windows.Forms.BindingSource BSpdt;
+        private DSPdt dSPdt;
+        private DSPdtTableAdapters.sp_pdtTableAdapter TApdt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn egresoMesDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ingresoExportaciónDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ingresoGravadasDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ingresoExoneradaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ingresoInafectaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ingresoIGVDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ingresoImporteTotalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn egresoBaseImponibleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn egresoIGVDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn egresoNoGravadaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn egresoImporteTotalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ficalIgvImpouestoResultanteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ficalIgvCreditoDebitoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ficalIgvSaldoFavorPagarDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn exportadorSFMBDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn percepcionesIgvDelMesDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn percepcionesIgvMesAnteriorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn percepcionesIgvAplicadaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn percepcionesIgvComposicionProcedenteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn percepcionesIgvPorAplicarDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn retencionesIgvDelMesDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn retencionesIgvMesAnteriorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn retencionesIgvAplicadaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn retencionesIgvComposicionProcedenteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn retencionesIgvPorAplicarDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn igvPagoAPagarDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn igvPagoPagadoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn impuestoAlaRentaOtrosIngresoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn impuestoAlaRentaBaseImponibleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn impuestoAlaRentaCoeficienteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn impuestoAlaRentaImpuestoResultanteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn impuestoAlaRentaPagadoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn impuestoAlaRentaCompensacionSFADataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn impuestoAlaRentaCompensacionSFMBDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn impuestoAlaRentaCompensacionITANDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn impuestoAlaRentaCompensacionPercepcionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn impuestoAlaRentaImputacionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn impuestoAlaRentaPorPagarDataGridViewTextBoxColumn;
     }
 }

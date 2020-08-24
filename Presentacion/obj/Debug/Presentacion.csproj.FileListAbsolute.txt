@@ -72,3 +72,5 @@ C:\Users\Developers\Desktop\SISCONT2.0\SISCONT\Presentacion\obj\Debug\Presentaci
 C:\Users\Developers\Desktop\SISCONT2.0\SISCONT\Presentacion\obj\Debug\Presentacion.csproj.CopyComplete
 C:\Users\Developers\Desktop\SISCONT2.0\SISCONT\Presentacion\obj\Debug\Presentacion.exe
 C:\Users\Developers\Desktop\SISCONT2.0\SISCONT\Presentacion\obj\Debug\Presentacion.pdb
+C:\Users\Developers\source\repos\SISCONT2.0\SISCONT\Presentacion\bin\Debug\tessnet2_32.dll
+C:\Users\Developers\source\repos\SISCONT2.0\SISCONT\Presentacion\obj\Debug\Presentacion.FrmPlanContable.resources

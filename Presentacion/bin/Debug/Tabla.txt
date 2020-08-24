@@ -240,6 +240,20 @@
 		  3.576
         </td>
         
+      			
+        
+        <td width='4%' align='center' class="h3">
+		  <strong>22</strong>
+        </td>
+          
+        <td width='8%' align='center' class="tne10">
+          3.579
+        </td>
+          
+        <td width='8%' align='center' class="tne10">
+		  3.584
+        </td>
+        
       
     
     

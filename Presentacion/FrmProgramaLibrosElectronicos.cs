@@ -43,6 +43,9 @@ namespace Presentacion
 
             // TODO: esta línea de código carga datos en la tabla 'dSDetracciones.sp_all_combo_detracciones' Puede moverla o quitarla según sea necesario.
             this.TADetraccionesTableAdapter.Fill(this.dSDetracciones.sp_all_combo_detracciones);
+
+            FillPDT();
+
             FillDataGridViewCompras();
             FillDataGridViewVentas();
 
@@ -70,6 +73,11 @@ namespace Presentacion
             lblRazonSocial.Text = "Empresa: " + empresa.Rows[0]["razon_social"].ToString();
             //lblPeriodoActual.Text = username;
 
+        }
+
+        private void FillPDT()
+        {
+            this.TApdt.Fill(dSPdt.sp_pdt, txtNombreRuc.Text, Convert.ToInt32(txtNombreAnio.Text));
         }
 
         private void cellContentClickEvent(object sender, DataGridViewCellEventArgs e)
@@ -1386,6 +1394,7 @@ namespace Presentacion
                 GetRoute();
                 FillDataGridViewCompras(true);
                 FillDataGridViewVentas(true);
+                FillPDT();
             }
             else
                 MessageBox.Show("Ingrese un Año y un Mes para realizar el filtrado");
@@ -1517,6 +1526,7 @@ namespace Presentacion
             txtNombreMes.Text = DateTime.UtcNow.ToString("MM");
 
             GetRoute();
+            FillPDT();
         }
 
         private void dgvRegistroCompras_KeyDown(object sender, KeyEventArgs e)

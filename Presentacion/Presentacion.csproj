@@ -82,6 +82,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSDetracciones.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DSPdt.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSPdt.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DSVentas.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -202,6 +207,17 @@
     </None>
     <None Include="DSDetracciones.xss">
       <DependentUpon>DSDetracciones.xsd</DependentUpon>
+    </None>
+    <None Include="DSPdt.xsc">
+      <DependentUpon>DSPdt.xsd</DependentUpon>
+    </None>
+    <None Include="DSPdt.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSPdt.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DSPdt.xss">
+      <DependentUpon>DSPdt.xsd</DependentUpon>
     </None>
     <None Include="DSVentas.xsc">
       <DependentUpon>DSVentas.xsd</DependentUpon>
