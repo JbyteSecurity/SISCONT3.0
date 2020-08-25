@@ -17,6 +17,7 @@ namespace Presentacion
         Proveedor proveedor = new Proveedor();
 
         public string username, nombreUsuario;
+        public int idUsuario;
         public DataTable empresa = new DataTable();
         public FrmPrincipal()
         {
@@ -47,6 +48,7 @@ namespace Presentacion
             ///frmProgramaLibrosElectronicos.Text = "SISCONT - " + this.MdiChildren;
             frmProgramaLibrosElectronicos.empresa = empresa;
             frmProgramaLibrosElectronicos.username = username;
+            frmProgramaLibrosElectronicos.idUsuario = idUsuario;
             frmProgramaLibrosElectronicos.Show();
         }
         private void tipoDeCambioToolStripMenuItem_Click(object sender, EventArgs e)
@@ -65,58 +67,58 @@ namespace Presentacion
 
         private void getDolarTypeChange()
         {
-            HttpClient cliente = new HttpClient();
-            cliente.BaseAddress = new Uri("http://www.sunat.gob.pe/");
-            HttpResponseMessage rpta = cliente.GetAsync("cl-at-ittipcam/tcS01Alias").Result;
-            if (rpta != null && rpta.IsSuccessStatusCode)
+            DataTable dataTableFecha = new DataTable();
+            dataTableFecha = tipoCambio.Show(DateTime.UtcNow.ToString("dd/MM/yyyy"));
+
+            if (dataTableFecha.Rows.Count <= 0)
             {
-                string contenido = "";
-                using (MemoryStream ms = (MemoryStream)
-                rpta.Content.ReadAsStreamAsync().Result)
+                HttpClient cliente = new HttpClient();
+                cliente.BaseAddress = new Uri("http://www.sunat.gob.pe/");
+                HttpResponseMessage rpta = cliente.GetAsync("cl-at-ittipcam/tcS01Alias").Result;
+                if (rpta != null && rpta.IsSuccessStatusCode)
                 {
-                    byte[] buffer = ms.ToArray();
-                    contenido = Encoding.UTF8.GetString(buffer);
-                    contenido = contenido.ToLower();
-                }
-                if (contenido.Length > 0)
-                {
-                    File.WriteAllText("Sunat.txt", contenido);
-                    int posInicioT1 = contenido.IndexOf("<table");
-                    int posFinT1 = contenido.IndexOf("</table");
-                    if (posInicioT1 > -1 && posFinT1 > -1)
+                    string contenido = "";
+                    using (MemoryStream ms = (MemoryStream)
+                    rpta.Content.ReadAsStreamAsync().Result)
                     {
-                        int posInicioT2 = contenido.IndexOf("<table", posInicioT1 + 1);
-                        int posFinT2 = contenido.IndexOf("</table", posFinT1 + 1);
-                        string tabla = contenido.Substring(posInicioT2, posFinT2 - posInicioT2 + 8);
-                        File.WriteAllText("Tabla.txt", tabla);
-                        posInicioT1 = 0;
-                        tabla = tabla.Replace("</strong>", "");
-                        List<string> valores = new List<string>();
-                        for (int i = 1; i < 4; i++)
+                        byte[] buffer = ms.ToArray();
+                        contenido = Encoding.UTF8.GetString(buffer);
+                        contenido = contenido.ToLower();
+                    }
+                    if (contenido.Length > 0)
+                    {
+                        File.WriteAllText("Sunat.txt", contenido);
+                        int posInicioT1 = contenido.IndexOf("<table");
+                        int posFinT1 = contenido.IndexOf("</table");
+                        if (posInicioT1 > -1 && posFinT1 > -1)
                         {
-                            posInicioT1 = tabla.LastIndexOf("</td");
-                            if (posInicioT1 > -1)
+                            int posInicioT2 = contenido.IndexOf("<table", posInicioT1 + 1);
+                            int posFinT2 = contenido.IndexOf("</table", posFinT1 + 1);
+                            string tabla = contenido.Substring(posInicioT2, posFinT2 - posInicioT2 + 8);
+                            File.WriteAllText("Tabla.txt", tabla);
+                            posInicioT1 = 0;
+                            tabla = tabla.Replace("</strong>", "");
+                            List<string> valores = new List<string>();
+                            for (int i = 1; i < 4; i++)
                             {
-                                tabla = tabla.Substring(0, posInicioT1).Trim();
-                                posFinT1 = tabla.LastIndexOf(">");
-                                if (posFinT1 > -1)
+                                posInicioT1 = tabla.LastIndexOf("</td");
+                                if (posInicioT1 > -1)
                                 {
-                                    valores.Add(tabla.Substring(posFinT1 + 1,
-                                    tabla.Length - posFinT1 - 1).Trim());
+                                    tabla = tabla.Substring(0, posInicioT1).Trim();
+                                    posFinT1 = tabla.LastIndexOf(">");
+                                    if (posFinT1 > -1)
+                                    {
+                                        valores.Add(tabla.Substring(posFinT1 + 1,
+                                        tabla.Length - posFinT1 - 1).Trim());
+                                    }
                                 }
                             }
-                        }
-                        if (valores.Count > 0)
-                        {
-                            double venta = Convert.ToDouble(valores[0]);
-                            double compra = Convert.ToDouble(valores[1]);
-                            //txtFecha.Text = valores[2];
-
-                            DataTable dataTableFecha = new DataTable();
-                            dataTableFecha = tipoCambio.Show(DateTime.UtcNow.ToString("dd/MM/yyyy"));
-
-                            if (dataTableFecha.Rows.Count <= 0)
+                            if (valores.Count > 0)
                             {
+                                double venta = Convert.ToDouble(valores[0]);
+                                double compra = Convert.ToDouble(valores[1]);
+                                //txtFecha.Text = valores[2];
+
                                 if (tipoCambio.Insert(DateTime.UtcNow.ToString("dd/MM/yyyy"), compra, venta))
                                     MessageBox.Show("Tipo de Cambio actualizado con fecha: " + DateTime.UtcNow.ToString("dd/MM/yyyy"), "Tipo de Cambio .::. Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }

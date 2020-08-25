@@ -30,7 +30,7 @@ namespace Presentacion
 
                 var image = new Bitmap(responseStream);
                 var ocr = new Tesseract();
-                ocr.Init(@"C:\Users\Developers\Desktop\SISCONT2.0\SISCONT\Presentacion\Content\tessdata", "eng", false);
+                ocr.Init(@"C:\Users\Developers\Source\Repos\SISCONT2.0\SISCONT\Presentacion\Content\tessdata", "eng", false);
 
                 var result = ocr.DoOCR(image, Rectangle.Empty);
                 foreach (Word word in result)

@@ -11,6 +11,7 @@ namespace Presentacion
         private Proveedor proveedor = new Proveedor();
         private bool edit = false;
 
+        Ruc RucC = new Ruc();
         public FrmProveedor()
         {
             InitializeComponent();
@@ -80,6 +81,11 @@ namespace Presentacion
         {
             txtRuc.Text = null;
             txtRazonSocial.Text = null;
+            txtNombreComercial.Text = null;
+            txtCorreo.Text = null;
+            txtDireccion.Text = null;
+            txtTelefono.Text = null;
+            txtSitioWeb.Text = null;
             this.ActiveControl = txtRuc;
             edit = false;
         }
@@ -125,10 +131,10 @@ namespace Presentacion
 
         private void btnBuscarSunat_Click(object sender, EventArgs e)
         {
-            ArrayList rz = sunat.buscarRuc(txtRuc.Text);
+            //ArrayList rz = sunat.buscarRuc(txtRuc.Text);
+            ArrayList rz = RucC.GetData(txtRuc.Text);
             txtRazonSocial.Text = rz.ToArray()[0].ToString();
-            txtNombreComercial.Text = rz.ToArray()[2].ToString();
-            txtDireccion.Text = rz.ToArray()[6].ToString();
+            txtDireccion.Text = rz.ToArray()[1].ToString();
         }
 
         

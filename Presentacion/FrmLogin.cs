@@ -59,12 +59,14 @@ namespace Presentacion
                         string userDB = dataTableLogin.Rows[0]["Usuario"].ToString();
                         string passDB = dataTableLogin.Rows[0]["Contrasenia"].ToString();
                         string nombreDB = dataTableLogin.Rows[0]["Nombre"].ToString();
+                        int userIdDB = Convert.ToInt32(dataTableLogin.Rows[0]["IdUsuario"].ToString());
 
                         if (user.Equals(userDB) && contrasenia.Equals(passDB))
                         {
                             FrmPrincipal frmPrincipal = new FrmPrincipal();
                             frmPrincipal.username = userDB;
                             frmPrincipal.nombreUsuario = nombreDB;
+                            frmPrincipal.idUsuario = userIdDB;
                             frmPrincipal.empresa = empresa;
                             frmPrincipal.Show();
 
