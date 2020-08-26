@@ -355,6 +355,8 @@ namespace Presentacion {
             
             private global::System.Data.DataColumn columnimpuestoAlaRentaPorPagar;
             
+            private global::System.Data.DataColumn columningresoExportacion;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public sp_pdtDataTable() {
@@ -694,6 +696,14 @@ namespace Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ingresoExportacionColumn {
+                get {
+                    return this.columningresoExportacion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -767,7 +777,8 @@ namespace Presentacion {
                         int impuestoAlaRentaCompensacionITAN, 
                         int impuestoAlaRentaCompensacionPercepcion, 
                         int impuestoAlaRentaImputacion, 
-                        int impuestoAlaRentaPorPagar) {
+                        int impuestoAlaRentaPorPagar, 
+                        decimal ingresoExportacion) {
                 sp_pdtRow rowsp_pdtRow = ((sp_pdtRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ingresoExportación,
@@ -807,7 +818,8 @@ namespace Presentacion {
                         impuestoAlaRentaCompensacionITAN,
                         impuestoAlaRentaCompensacionPercepcion,
                         impuestoAlaRentaImputacion,
-                        impuestoAlaRentaPorPagar};
+                        impuestoAlaRentaPorPagar,
+                        ingresoExportacion};
                 rowsp_pdtRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_pdtRow);
                 return rowsp_pdtRow;
@@ -868,6 +880,7 @@ namespace Presentacion {
                 this.columnimpuestoAlaRentaCompensacionPercepcion = base.Columns["impuestoAlaRentaCompensacionPercepcion"];
                 this.columnimpuestoAlaRentaImputacion = base.Columns["impuestoAlaRentaImputacion"];
                 this.columnimpuestoAlaRentaPorPagar = base.Columns["impuestoAlaRentaPorPagar"];
+                this.columningresoExportacion = base.Columns["ingresoExportacion"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -949,6 +962,8 @@ namespace Presentacion {
                 base.Columns.Add(this.columnimpuestoAlaRentaImputacion);
                 this.columnimpuestoAlaRentaPorPagar = new global::System.Data.DataColumn("impuestoAlaRentaPorPagar", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnimpuestoAlaRentaPorPagar);
+                this.columningresoExportacion = new global::System.Data.DataColumn("ingresoExportacion", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columningresoExportacion);
                 this.columningresoExportación.ReadOnly = true;
                 this.columningresoGravadas.ReadOnly = true;
                 this.columningresoExonerada.ReadOnly = true;
@@ -986,6 +1001,7 @@ namespace Presentacion {
                 this.columnimpuestoAlaRentaCompensacionPercepcion.ReadOnly = true;
                 this.columnimpuestoAlaRentaImputacion.ReadOnly = true;
                 this.columnimpuestoAlaRentaPorPagar.ReadOnly = true;
+                this.columningresoExportacion.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1753,6 +1769,22 @@ namespace Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal ingresoExportacion {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablesp_pdt.ingresoExportacionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ingresoExportacion\' de la tabla \'sp_pdt\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_pdt.ingresoExportacionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsingresoExportaciónNull() {
                 return this.IsNull(this.tablesp_pdt.ingresoExportaciónColumn);
             }
@@ -2206,6 +2238,18 @@ namespace Presentacion {
             public void SetimpuestoAlaRentaPorPagarNull() {
                 this[this.tablesp_pdt.impuestoAlaRentaPorPagarColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsingresoExportacionNull() {
+                return this.IsNull(this.tablesp_pdt.ingresoExportacionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetingresoExportacionNull() {
+                this[this.tablesp_pdt.ingresoExportacionColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -2405,6 +2449,7 @@ namespace Presentacion.DSPdtTableAdapters {
             tableMapping.ColumnMappings.Add("impuestoAlaRentaCompensacionPercepcion", "impuestoAlaRentaCompensacionPercepcion");
             tableMapping.ColumnMappings.Add("impuestoAlaRentaImputacion", "impuestoAlaRentaImputacion");
             tableMapping.ColumnMappings.Add("impuestoAlaRentaPorPagar", "impuestoAlaRentaPorPagar");
+            tableMapping.ColumnMappings.Add("ingresoExportacion", "ingresoExportacion");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -2418,7 +2463,7 @@ namespace Presentacion.DSPdtTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "dbo.sp_pdt";
@@ -2426,13 +2471,22 @@ namespace Presentacion.DSPdtTableAdapters {
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ruc", global::System.Data.SqlDbType.VarChar, 11, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@anio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usuario", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "dbo.sp_show_ruc_pdt";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ruc", global::System.Data.SqlDbType.VarChar, 11, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@anio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usuario", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DSPdt.sp_pdtDataTable dataTable, string ruc, global::System.Nullable<int> anio) {
+        public virtual int Fill(DSPdt.sp_pdtDataTable dataTable, string ruc, global::System.Nullable<int> anio, global::System.Nullable<int> usuario) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((ruc == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -2445,6 +2499,12 @@ namespace Presentacion.DSPdtTableAdapters {
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((usuario.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((int)(usuario.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2457,7 +2517,7 @@ namespace Presentacion.DSPdtTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DSPdt.sp_pdtDataTable GetData(string ruc, global::System.Nullable<int> anio) {
+        public virtual DSPdt.sp_pdtDataTable GetData(string ruc, global::System.Nullable<int> anio, global::System.Nullable<int> usuario) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((ruc == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -2470,6 +2530,72 @@ namespace Presentacion.DSPdtTableAdapters {
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((usuario.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((int)(usuario.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            DSPdt.sp_pdtDataTable dataTable = new DSPdt.sp_pdtDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByRucAnioMesUsuario(DSPdt.sp_pdtDataTable dataTable, string ruc, global::System.Nullable<int> anio, global::System.Nullable<int> usuario) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((ruc == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(ruc));
+            }
+            if ((anio.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(anio.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((usuario.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((int)(usuario.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DSPdt.sp_pdtDataTable GetDataByRucAnioMesUsuario(string ruc, global::System.Nullable<int> anio, global::System.Nullable<int> usuario) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((ruc == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(ruc));
+            }
+            if ((anio.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(anio.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((usuario.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((int)(usuario.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             DSPdt.sp_pdtDataTable dataTable = new DSPdt.sp_pdtDataTable();
             this.Adapter.Fill(dataTable);

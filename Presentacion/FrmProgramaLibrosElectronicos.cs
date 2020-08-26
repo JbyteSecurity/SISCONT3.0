@@ -33,6 +33,8 @@ namespace Presentacion
         Sunat sunat = new Sunat();
 
         Ruc RucS = new Ruc();
+
+        Pdt pdt = new Pdt();
         public FrmProgramaLibrosElectronicos()
         {
             InitializeComponent();
@@ -75,12 +77,22 @@ namespace Presentacion
             lblPeriodoActual.Text = "Periodo Actual: " + DateTime.UtcNow.ToString("MMMM") + " " + DateTime.UtcNow.ToString("yyyy");
             lblRazonSocial.Text = "Empresa: " + empresa.Rows[0]["razon_social"].ToString();
             //lblPeriodoActual.Text = username;
+            dgvRegistroCompras.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvRegistroVentas.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            
 
         }
 
         private void FillPDT()
         {
-            this.TApdt.Fill(dSPdt.sp_pdt, txtNombreRuc.Text, Convert.ToInt32(txtNombreAnio.Text));
+            DataTable dataPDT = new DataTable();
+            dataPDT = pdt.Show(txtNombreRuc.Text, Convert.ToInt32(txtNombreAnio.Text), idUsuario);
+            if (dataPDT.Rows.Count > 0)
+                this.TApdt.FillByRucAnioMesUsuario(dSPdt.sp_pdt, txtNombreRuc.Text, Convert.ToInt32(txtNombreAnio.Text), idUsuario);
+            else
+                this.TApdt.Fill(dSPdt.sp_pdt, txtNombreRuc.Text, Convert.ToInt32(txtNombreAnio.Text), idUsuario);
+            SumPDT();
         }
 
         private void cellContentClickEvent(object sender, DataGridViewCellEventArgs e)
@@ -98,6 +110,7 @@ namespace Presentacion
         {
             SaveCompras();
             SaveVentas();
+            SavePDT();
             FillPDT();
         }
 
@@ -1608,6 +1621,102 @@ namespace Presentacion
         private void dgvRegistroCompras_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
 
+        }
+
+        #region PDT
+        private void SumPDT()
+        {
+            //int sum = 0;
+            //for (int i = 0; i < DgvPDT.Rows.Count - 3; ++i)
+            //{
+            //    sum += Convert.ToInt32(DgvPDT.Rows[i].Cells[2].Value);
+            //}
+            //this.TApdt.Fill(dSPdt.sp_pdt, txtNombreRuc.Text, Convert.ToInt32(txtNombreAnio.Text), idUsuario);
+            DataTable table = dSPdt.Tables["sp_pdt"];
+
+            object sumObject;
+            sumObject = table.Compute("Sum(ingresoGravadas)", string.Empty);
+
+            DgvPDT.Rows[DgvPDT.Rows.Count - 1].Cells[2].Value = sumObject.ToString();
+        }
+
+        private void SavePDT()
+        {
+            string ruc = txtNombreRuc.Text;
+            int anio = Convert.ToInt32(txtNombreAnio.Text);
+
+            foreach (DataGridViewRow row in DgvPDT.Rows)
+            {
+                if (row.Cells["PdtMes"].Value != null)
+                {
+                    int PdtID = row.Cells["PdtID"].Value != DBNull.Value ? Convert.ToInt32(row.Cells["PdtID"].Value) : 0;
+                    int PdtMes = row.Cells["PdtMes"].Value != DBNull.Value ? Convert.ToInt32(row.Cells["PdtMes"].Value) : 0;
+                    double PdtIngresoExportacion = row.Cells["PdtIngresoExportacion"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtIngresoExportacion"].Value) : 0;
+                    double PdtIngresoGravadas = row.Cells["PdtIngresoGravadas"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtIngresoGravadas"].Value) : 0;
+                    double PdtIngresoExonerada = row.Cells["PdtIngresoExonerada"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtIngresoExonerada"].Value) : 0;
+                    double PdtIngresoInafecta = row.Cells["PdtIngresoInafecta"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtIngresoInafecta"].Value) : 0;
+                    double PdtIngresoIGV = row.Cells["PdtIngresoIGV"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtIngresoIGV"].Value) : 0;
+                    double PdtIngresoImporteTotal = row.Cells["PdtIngresoImporteTotal"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtIngresoImporteTotal"].Value) : 0;
+                    double PdtEgresoBaseImponible = row.Cells["PdtEgresoBaseImponible"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtEgresoBaseImponible"].Value) : 0;
+                    double PdtEgresoIGV = row.Cells["PdtEgresoIGV"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtEgresoIGV"].Value) : 0;
+                    double PdtEgresoNoGravada = row.Cells["PdtEgresoNoGravada"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtEgresoNoGravada"].Value) : 0;
+                    double PdtEgresoImporteTotal = row.Cells["PdtEgresoImporteTotal"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtEgresoImporteTotal"].Value) : 0;
+                    double PdtFicalIgvImpouestoResultante = row.Cells["PdtFicalIgvImpouestoResultante"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtFicalIgvImpouestoResultante"].Value) : 0;
+                    double PdtFicalIgvCreditoDebito = row.Cells["PdtFicalIgvCreditoDebito"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtFicalIgvCreditoDebito"].Value) : 0;
+                    double PdtFicalIgvSaldoFavorPagar = row.Cells["PdtFicalIgvSaldoFavorPagar"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtFicalIgvSaldoFavorPagar"].Value) : 0;
+                    double PdtExportadorSFMB = row.Cells["PdtExportadorSFMB"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtExportadorSFMB"].Value) : 0;
+                    double PdtPercepcionesIgvDelMes = row.Cells["PdtPercepcionesIgvDelMes"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtPercepcionesIgvDelMes"].Value) : 0;
+                    double PdtPercepcionesIgvMesAnterior = row.Cells["PdtPercepcionesIgvMesAnterior"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtPercepcionesIgvMesAnterior"].Value) : 0;
+                    double PdtPercepcionesIgvAplicada = row.Cells["PdtPercepcionesIgvAplicada"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtPercepcionesIgvAplicada"].Value) : 0;
+                    double PdtPercepcionesIgvComposicionProcedente = row.Cells["PdtPercepcionesIgvComposicionProcedente"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtPercepcionesIgvComposicionProcedente"].Value) : 0;
+                    double PdtPercepcionesIgvPorAplicar = row.Cells["PdtPercepcionesIgvPorAplicar"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtPercepcionesIgvPorAplicar"].Value) : 0;
+                    double PdtRetencionesIgvDelMes = row.Cells["PdtRetencionesIgvDelMes"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtRetencionesIgvDelMes"].Value) : 0;
+                    double PdtRetencionesIgvMesAnterior = row.Cells["PdtRetencionesIgvMesAnterior"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtRetencionesIgvMesAnterior"].Value) : 0;
+                    double PdtRetencionesIgvAplicada = row.Cells["PdtRetencionesIgvAplicada"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtRetencionesIgvAplicada"].Value) : 0;
+                    double PdtRetencionesIgvComposicionProcedente = row.Cells["PdtRetencionesIgvComposicionProcedente"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtRetencionesIgvComposicionProcedente"].Value) : 0;
+                    double PdtRetencionesIgvPorAplicar = row.Cells["PdtRetencionesIgvPorAplicar"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtRetencionesIgvPorAplicar"].Value) : 0;
+                    double PdtIgvPagoAPagar = row.Cells["PdtIgvPagoAPagar"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtIgvPagoAPagar"].Value) : 0;
+                    double PdtIgvPagoPagado = row.Cells["PdtIgvPagoPagado"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtIgvPagoPagado"].Value) : 0;
+                    double PdtImpuestoAlaRentaOtrosIngreso = row.Cells["PdtImpuestoAlaRentaOtrosIngreso"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtImpuestoAlaRentaOtrosIngreso"].Value) : 0;
+                    double PdtImpuestoAlaRentaBaseImponible = row.Cells["PdtImpuestoAlaRentaBaseImponible"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtImpuestoAlaRentaBaseImponible"].Value) : 0;
+                    double PdtImpuestoAlaRentaCoeficiente = row.Cells["PdtImpuestoAlaRentaCoeficiente"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtImpuestoAlaRentaCoeficiente"].Value) : 0;
+                    double PdtImpuestoAlaRentaImpuestoResultante = row.Cells["PdtImpuestoAlaRentaImpuestoResultante"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtImpuestoAlaRentaImpuestoResultante"].Value) : 0;
+                    double PdtImpuestoAlaRentaPagado = row.Cells["PdtImpuestoAlaRentaPagado"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtImpuestoAlaRentaPagado"].Value) : 0;
+                    double PdtImpuestoAlaRentaCompensacionSFA = row.Cells["PdtImpuestoAlaRentaCompensacionSFA"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtImpuestoAlaRentaCompensacionSFA"].Value) : 0;
+                    double PdtImpuestoAlaRentaCompensacionSFMB = row.Cells["PdtImpuestoAlaRentaCompensacionSFMB"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtImpuestoAlaRentaCompensacionSFMB"].Value) : 0;
+                    double PdtImpuestoAlaRentaCompensacionITAN = row.Cells["PdtImpuestoAlaRentaCompensacionITAN"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtImpuestoAlaRentaCompensacionITAN"].Value) : 0;
+                    double PdtImpuestoAlaRentaCompensacionPercepcion = row.Cells["PdtImpuestoAlaRentaCompensacionPercepcion"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtImpuestoAlaRentaCompensacionPercepcion"].Value) : 0;
+                    double PdtImpuestoAlaRentaImputacion = row.Cells["PdtImpuestoAlaRentaImputacion"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtImpuestoAlaRentaImputacion"].Value) : 0;
+                    double PdtImpuestoAlaRentaPorPagar = row.Cells["PdtImpuestoAlaRentaPorPagar"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtImpuestoAlaRentaPorPagar"].Value) : 0;
+
+                    if (PdtID < 1)
+                    {
+                        pdt.Insert(anio, PdtMes, ruc, PdtIngresoExportacion, PdtIngresoGravadas, PdtIngresoExonerada, PdtIngresoInafecta, PdtIngresoIGV, PdtIngresoImporteTotal, PdtEgresoBaseImponible,
+                            PdtEgresoIGV, PdtEgresoNoGravada, PdtEgresoImporteTotal, PdtFicalIgvImpouestoResultante, PdtFicalIgvCreditoDebito, PdtFicalIgvSaldoFavorPagar, PdtExportadorSFMB,
+                            PdtPercepcionesIgvDelMes, PdtPercepcionesIgvMesAnterior, PdtPercepcionesIgvAplicada, PdtPercepcionesIgvComposicionProcedente, PdtPercepcionesIgvPorAplicar,
+                            PdtRetencionesIgvDelMes, PdtRetencionesIgvMesAnterior, PdtRetencionesIgvAplicada, PdtRetencionesIgvComposicionProcedente, PdtRetencionesIgvPorAplicar,
+                            PdtIgvPagoAPagar, PdtIgvPagoPagado, PdtImpuestoAlaRentaOtrosIngreso, PdtImpuestoAlaRentaBaseImponible, PdtImpuestoAlaRentaCoeficiente, PdtImpuestoAlaRentaImpuestoResultante,
+                            PdtImpuestoAlaRentaPagado, PdtImpuestoAlaRentaCompensacionSFA, PdtImpuestoAlaRentaCompensacionSFMB, PdtImpuestoAlaRentaCompensacionITAN, PdtImpuestoAlaRentaCompensacionPercepcion,
+                            PdtImpuestoAlaRentaImputacion, PdtImpuestoAlaRentaPorPagar, idUsuario);
+                    } else
+                    {
+                        pdt.Update(PdtID, PdtIngresoExportacion, PdtIngresoGravadas, PdtIngresoExonerada, PdtIngresoInafecta, PdtIngresoIGV, PdtIngresoImporteTotal, PdtEgresoBaseImponible,
+                            PdtEgresoIGV, PdtEgresoNoGravada, PdtEgresoImporteTotal, PdtFicalIgvImpouestoResultante, PdtFicalIgvCreditoDebito, PdtFicalIgvSaldoFavorPagar, PdtExportadorSFMB,
+                            PdtPercepcionesIgvDelMes, PdtPercepcionesIgvMesAnterior, PdtPercepcionesIgvAplicada, PdtPercepcionesIgvComposicionProcedente, PdtPercepcionesIgvPorAplicar,
+                            PdtRetencionesIgvDelMes, PdtRetencionesIgvMesAnterior, PdtRetencionesIgvAplicada, PdtRetencionesIgvComposicionProcedente, PdtRetencionesIgvPorAplicar,
+                            PdtIgvPagoAPagar, PdtIgvPagoPagado, PdtImpuestoAlaRentaOtrosIngreso, PdtImpuestoAlaRentaBaseImponible, PdtImpuestoAlaRentaCoeficiente, PdtImpuestoAlaRentaImpuestoResultante,
+                            PdtImpuestoAlaRentaPagado, PdtImpuestoAlaRentaCompensacionSFA, PdtImpuestoAlaRentaCompensacionSFMB, PdtImpuestoAlaRentaCompensacionITAN, PdtImpuestoAlaRentaCompensacionPercepcion,
+                            PdtImpuestoAlaRentaImputacion, PdtImpuestoAlaRentaPorPagar);
+                    }
+                }
+            }
+            MessageBox.Show("PDT guardado correctamente", "SISCONT .::. PDT");
+        }
+        #endregion
+
+        private void DgvPDT_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
+        {
+            e.Row.Cells["PdtID"].Value = GenerateID();
         }
     }
 }
