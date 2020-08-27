@@ -63,6 +63,7 @@
               <Mapping SourceColumn="impuestoAlaRentaImputacion" DataSetColumn="impuestoAlaRentaImputacion" />
               <Mapping SourceColumn="impuestoAlaRentaPorPagar" DataSetColumn="impuestoAlaRentaPorPagar" />
               <Mapping SourceColumn="ingresoExportacion" DataSetColumn="ingresoExportacion" />
+              <Mapping SourceColumn="mes" DataSetColumn="mes" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="SISCONTConnectionString (Settings)" DbObjectName="SISCONT.dbo.sp_show_ruc_pdt" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="FillByRucAnioMesUsuario" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByRucAnioMesUsuario" GeneratorSourceName="FillByRucAnioMesUsuario" GetMethodModifier="Public" GetMethodName="GetDataByRucAnioMesUsuario" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByRucAnioMesUsuario" UserSourceName="FillByRucAnioMesUsuario">
@@ -88,7 +89,7 @@
   <xs:element name="DSPdt" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DSPdt" msprop:Generator_UserDSName="DSPdt">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="sp_pdt" msprop:Generator_TableClassName="sp_pdtDataTable" msprop:Generator_TableVarName="tablesp_pdt" msprop:Generator_RowChangedName="sp_pdtRowChanged" msprop:Generator_TablePropName="sp_pdt" msprop:Generator_RowDeletingName="sp_pdtRowDeleting" msprop:Generator_RowChangingName="sp_pdtRowChanging" msprop:Generator_RowEvHandlerName="sp_pdtRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_pdtRowDeleted" msprop:Generator_RowClassName="sp_pdtRow" msprop:Generator_UserTableName="sp_pdt" msprop:Generator_RowEvArgName="sp_pdtRowChangeEvent">
+        <xs:element name="sp_pdt" msprop:Generator_TableClassName="sp_pdtDataTable" msprop:Generator_TableVarName="tablesp_pdt" msprop:Generator_TablePropName="sp_pdt" msprop:Generator_RowDeletingName="sp_pdtRowDeleting" msprop:Generator_RowChangingName="sp_pdtRowChanging" msprop:Generator_RowEvHandlerName="sp_pdtRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_pdtRowDeleted" msprop:Generator_UserTableName="sp_pdt" msprop:Generator_RowChangedName="sp_pdtRowChanged" msprop:Generator_RowEvArgName="sp_pdtRowChangeEvent" msprop:Generator_RowClassName="sp_pdtRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ingresoExportación" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columningresoExportación" msprop:Generator_ColumnPropNameInRow="ingresoExportación" msprop:Generator_ColumnPropNameInTable="ingresoExportaciónColumn" msprop:Generator_UserColumnName="ingresoExportación" type="xs:decimal" minOccurs="0" />
@@ -130,6 +131,7 @@
               <xs:element name="impuestoAlaRentaImputacion" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnimpuestoAlaRentaImputacion" msprop:Generator_ColumnPropNameInRow="impuestoAlaRentaImputacion" msprop:Generator_ColumnPropNameInTable="impuestoAlaRentaImputacionColumn" msprop:Generator_UserColumnName="impuestoAlaRentaImputacion" type="xs:int" minOccurs="0" />
               <xs:element name="impuestoAlaRentaPorPagar" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnimpuestoAlaRentaPorPagar" msprop:Generator_ColumnPropNameInRow="impuestoAlaRentaPorPagar" msprop:Generator_ColumnPropNameInTable="impuestoAlaRentaPorPagarColumn" msprop:Generator_UserColumnName="impuestoAlaRentaPorPagar" type="xs:int" minOccurs="0" />
               <xs:element name="ingresoExportacion" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columningresoExportacion" msprop:Generator_ColumnPropNameInRow="ingresoExportacion" msprop:Generator_ColumnPropNameInTable="ingresoExportacionColumn" msprop:Generator_UserColumnName="ingresoExportacion" type="xs:decimal" minOccurs="0" />
+              <xs:element name="mes" msprop:Generator_ColumnVarNameInTable="columnmes" msprop:Generator_ColumnPropNameInRow="mes" msprop:Generator_ColumnPropNameInTable="mesColumn" msprop:Generator_UserColumnName="mes" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

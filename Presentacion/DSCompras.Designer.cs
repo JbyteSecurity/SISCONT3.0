@@ -1031,11 +1031,9 @@ namespace Presentacion {
                 this.columnPNumero.MaxLength = 2147483647;
                 this.columnPDocumento.MaxLength = 2147483647;
                 this.columnPNombreRazonSocial.MaxLength = 2147483647;
-                this.columnCuenta.MaxLength = 2147483647;
                 this.columnDescripcion.MaxLength = 2147483647;
                 this.columnDestino.MaxLength = 2147483647;
                 this.columnDescripcionDestino.MaxLength = 2147483647;
-                this.columnCuentaDestino.MaxLength = 2147483647;
                 this.columnPgo.MaxLength = 2147483647;
                 this.columnCodigo.MaxLength = 2147483647;
                 this.columnConstanciaNumero.MaxLength = 2147483647;

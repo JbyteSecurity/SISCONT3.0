@@ -78,7 +78,6 @@ namespace Datos
             sqlCommand.Connection = conexion.OpenConnection();
             sqlCommand.CommandText = "sp_insert_ventas";
             sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Parameters.Clear();
 
             sqlCommand.Parameters.AddWithValue("@NReg", numeroRegistro);
             sqlCommand.Parameters.AddWithValue("@FechaEmision", fechaEmision);
@@ -136,7 +135,6 @@ namespace Datos
             sqlCommand.Connection = conexion.OpenConnection();
             sqlCommand.CommandText = "sp_update_ventas";
             sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Parameters.Clear();
 
             sqlCommand.Parameters.AddWithValue("@id", id);
             sqlCommand.Parameters.AddWithValue("@NReg", numeroRegistro);
@@ -185,7 +183,6 @@ namespace Datos
             sqlCommand.Connection = conexion.OpenConnection();
             sqlCommand.CommandText = "sp_delete_ventas";
             sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Parameters.Clear();
             sqlCommand.Parameters.AddWithValue("@id", id);
             if (sqlCommand.ExecuteNonQuery() > 0)
             {

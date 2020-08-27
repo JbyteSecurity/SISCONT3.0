@@ -357,6 +357,8 @@ namespace Presentacion {
             
             private global::System.Data.DataColumn columningresoExportacion;
             
+            private global::System.Data.DataColumn columnmes;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public sp_pdtDataTable() {
@@ -704,6 +706,14 @@ namespace Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn mesColumn {
+                get {
+                    return this.columnmes;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -778,7 +788,8 @@ namespace Presentacion {
                         int impuestoAlaRentaCompensacionPercepcion, 
                         int impuestoAlaRentaImputacion, 
                         int impuestoAlaRentaPorPagar, 
-                        decimal ingresoExportacion) {
+                        decimal ingresoExportacion, 
+                        int mes) {
                 sp_pdtRow rowsp_pdtRow = ((sp_pdtRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ingresoExportación,
@@ -819,7 +830,8 @@ namespace Presentacion {
                         impuestoAlaRentaCompensacionPercepcion,
                         impuestoAlaRentaImputacion,
                         impuestoAlaRentaPorPagar,
-                        ingresoExportacion};
+                        ingresoExportacion,
+                        mes};
                 rowsp_pdtRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_pdtRow);
                 return rowsp_pdtRow;
@@ -881,6 +893,7 @@ namespace Presentacion {
                 this.columnimpuestoAlaRentaImputacion = base.Columns["impuestoAlaRentaImputacion"];
                 this.columnimpuestoAlaRentaPorPagar = base.Columns["impuestoAlaRentaPorPagar"];
                 this.columningresoExportacion = base.Columns["ingresoExportacion"];
+                this.columnmes = base.Columns["mes"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -964,44 +977,46 @@ namespace Presentacion {
                 base.Columns.Add(this.columnimpuestoAlaRentaPorPagar);
                 this.columningresoExportacion = new global::System.Data.DataColumn("ingresoExportacion", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columningresoExportacion);
-                this.columningresoExportación.ReadOnly = true;
-                this.columningresoGravadas.ReadOnly = true;
-                this.columningresoExonerada.ReadOnly = true;
-                this.columningresoInafecta.ReadOnly = true;
-                this.columningresoIGV.ReadOnly = true;
-                this.columningresoImporteTotal.ReadOnly = true;
-                this.columnegresoBaseImponible.ReadOnly = true;
-                this.columnegresoIGV.ReadOnly = true;
-                this.columnegresoNoGravada.ReadOnly = true;
-                this.columnegresoImporteTotal.ReadOnly = true;
-                this.columnficalIgvImpouestoResultante.ReadOnly = true;
-                this.columnficalIgvCreditoDebito.ReadOnly = true;
-                this.columnficalIgvSaldoFavorPagar.ReadOnly = true;
-                this.columnexportadorSFMB.ReadOnly = true;
-                this.columnpercepcionesIgvDelMes.ReadOnly = true;
-                this.columnpercepcionesIgvMesAnterior.ReadOnly = true;
-                this.columnpercepcionesIgvAplicada.ReadOnly = true;
-                this.columnpercepcionesIgvComposicionProcedente.ReadOnly = true;
-                this.columnpercepcionesIgvPorAplicar.ReadOnly = true;
-                this.columnretencionesIgvDelMes.ReadOnly = true;
-                this.columnretencionesIgvMesAnterior.ReadOnly = true;
-                this.columnretencionesIgvAplicada.ReadOnly = true;
-                this.columnretencionesIgvComposicionProcedente.ReadOnly = true;
-                this.columnretencionesIgvPorAplicar.ReadOnly = true;
-                this.columnigvPagoAPagar.ReadOnly = true;
-                this.columnigvPagoPagado.ReadOnly = true;
-                this.columnimpuestoAlaRentaOtrosIngreso.ReadOnly = true;
-                this.columnimpuestoAlaRentaBaseImponible.ReadOnly = true;
-                this.columnimpuestoAlaRentaCoeficiente.ReadOnly = true;
-                this.columnimpuestoAlaRentaImpuestoResultante.ReadOnly = true;
-                this.columnimpuestoAlaRentaPagado.ReadOnly = true;
-                this.columnimpuestoAlaRentaCompensacionSFA.ReadOnly = true;
-                this.columnimpuestoAlaRentaCompensacionSFMB.ReadOnly = true;
-                this.columnimpuestoAlaRentaCompensacionITAN.ReadOnly = true;
-                this.columnimpuestoAlaRentaCompensacionPercepcion.ReadOnly = true;
-                this.columnimpuestoAlaRentaImputacion.ReadOnly = true;
-                this.columnimpuestoAlaRentaPorPagar.ReadOnly = true;
-                this.columningresoExportacion.ReadOnly = true;
+                this.columnmes = new global::System.Data.DataColumn("mes", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmes);
+                //this.columningresoExportación.ReadOnly = true;
+                //this.columningresoGravadas.ReadOnly = true;
+                //this.columningresoExonerada.ReadOnly = true;
+                //this.columningresoInafecta.ReadOnly = true;
+                //this.columningresoIGV.ReadOnly = true;
+                //this.columningresoImporteTotal.ReadOnly = true;
+                //this.columnegresoBaseImponible.ReadOnly = true;
+                //this.columnegresoIGV.ReadOnly = true;
+                //this.columnegresoNoGravada.ReadOnly = true;
+                //this.columnegresoImporteTotal.ReadOnly = true;
+                //this.columnficalIgvImpouestoResultante.ReadOnly = true;
+                //this.columnficalIgvCreditoDebito.ReadOnly = true;
+                //this.columnficalIgvSaldoFavorPagar.ReadOnly = true;
+                //this.columnexportadorSFMB.ReadOnly = true;
+                //this.columnpercepcionesIgvDelMes.ReadOnly = true;
+                //this.columnpercepcionesIgvMesAnterior.ReadOnly = true;
+                //this.columnpercepcionesIgvAplicada.ReadOnly = true;
+                //this.columnpercepcionesIgvComposicionProcedente.ReadOnly = true;
+                //this.columnpercepcionesIgvPorAplicar.ReadOnly = true;
+                //this.columnretencionesIgvDelMes.ReadOnly = true;
+                //this.columnretencionesIgvMesAnterior.ReadOnly = true;
+                //this.columnretencionesIgvAplicada.ReadOnly = true;
+                //this.columnretencionesIgvComposicionProcedente.ReadOnly = true;
+                //this.columnretencionesIgvPorAplicar.ReadOnly = true;
+                //this.columnigvPagoAPagar.ReadOnly = true;
+                //this.columnigvPagoPagado.ReadOnly = true;
+                //this.columnimpuestoAlaRentaOtrosIngreso.ReadOnly = true;
+                //this.columnimpuestoAlaRentaBaseImponible.ReadOnly = true;
+                //this.columnimpuestoAlaRentaCoeficiente.ReadOnly = true;
+                //this.columnimpuestoAlaRentaImpuestoResultante.ReadOnly = true;
+                //this.columnimpuestoAlaRentaPagado.ReadOnly = true;
+                //this.columnimpuestoAlaRentaCompensacionSFA.ReadOnly = true;
+                //this.columnimpuestoAlaRentaCompensacionSFMB.ReadOnly = true;
+                //this.columnimpuestoAlaRentaCompensacionITAN.ReadOnly = true;
+                //this.columnimpuestoAlaRentaCompensacionPercepcion.ReadOnly = true;
+                //this.columnimpuestoAlaRentaImputacion.ReadOnly = true;
+                //this.columnimpuestoAlaRentaPorPagar.ReadOnly = true;
+                //this.columningresoExportacion.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1785,6 +1800,22 @@ namespace Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int mes {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_pdt.mesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'mes\' de la tabla \'sp_pdt\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_pdt.mesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsingresoExportaciónNull() {
                 return this.IsNull(this.tablesp_pdt.ingresoExportaciónColumn);
             }
@@ -2250,6 +2281,18 @@ namespace Presentacion {
             public void SetingresoExportacionNull() {
                 this[this.tablesp_pdt.ingresoExportacionColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsmesNull() {
+                return this.IsNull(this.tablesp_pdt.mesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetmesNull() {
+                this[this.tablesp_pdt.mesColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -2450,6 +2493,7 @@ namespace Presentacion.DSPdtTableAdapters {
             tableMapping.ColumnMappings.Add("impuestoAlaRentaImputacion", "impuestoAlaRentaImputacion");
             tableMapping.ColumnMappings.Add("impuestoAlaRentaPorPagar", "impuestoAlaRentaPorPagar");
             tableMapping.ColumnMappings.Add("ingresoExportacion", "ingresoExportacion");
+            tableMapping.ColumnMappings.Add("mes", "mes");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

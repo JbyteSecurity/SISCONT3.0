@@ -61,6 +61,7 @@ namespace Presentacion
 
             removeColumnsCompras();
             removeColumnsVentas();
+            RemoveColumnPDT();
 
             //this.dgvRegistroCompras.DataSource = this.BSComprasBindingSource;
 
@@ -80,19 +81,8 @@ namespace Presentacion
             dgvRegistroCompras.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvRegistroVentas.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-            
-
-        }
-
-        private void FillPDT()
-        {
-            DataTable dataPDT = new DataTable();
-            dataPDT = pdt.Show(txtNombreRuc.Text, Convert.ToInt32(txtNombreAnio.Text), idUsuario);
-            if (dataPDT.Rows.Count > 0)
-                this.TApdt.FillByRucAnioMesUsuario(dSPdt.sp_pdt, txtNombreRuc.Text, Convert.ToInt32(txtNombreAnio.Text), idUsuario);
-            else
-                this.TApdt.Fill(dSPdt.sp_pdt, txtNombreRuc.Text, Convert.ToInt32(txtNombreAnio.Text), idUsuario);
-            SumPDT();
+            DgvPDT.Rows[0].Cells["PdtFicalIgvCreditoDebito"].Style.BackColor = Color.AntiqueWhite;
+            DgvPDT.Rows[0].Cells["PdtFicalIgvCreditoDebito"].Value = "cc";
         }
 
         private void cellContentClickEvent(object sender, DataGridViewCellEventArgs e)
@@ -1447,6 +1437,51 @@ namespace Presentacion
             dgvRegistroVentas.Columns.Remove("fechaModificacionDataGridViewTextBoxColumn1");
             dgvRegistroVentas.Columns.Remove("cuentaDestinoDescripcionDataGridViewTextBoxColumn");
         }
+
+        private void RemoveColumnPDT()
+        {
+
+            DgvPDT.Columns.Remove("ingresoExportaciónDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("ingresoGravadasDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("ingresoExoneradaDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("ingresoInafectaDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("ingresoIGVDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("ingresoImporteTotalDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("egresoMesDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("egresoBaseImponibleDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("egresoIGVDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("egresoNoGravadaDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("egresoImporteTotalDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("ficalIgvImpouestoResultanteDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("ficalIgvCreditoDebitoDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("ficalIgvSaldoFavorPagarDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("exportadorSFMBDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("percepcionesIgvDelMesDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("percepcionesIgvMesAnteriorDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("percepcionesIgvAplicadaDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("percepcionesIgvComposicionProcedenteDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("percepcionesIgvPorAplicarDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("retencionesIgvDelMesDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("retencionesIgvMesAnteriorDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("retencionesIgvAplicadaDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("retencionesIgvComposicionProcedenteDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("retencionesIgvPorAplicarDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("igvPagoAPagarDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("igvPagoPagadoDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("impuestoAlaRentaOtrosIngresoDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("impuestoAlaRentaBaseImponibleDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("impuestoAlaRentaCoeficienteDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("impuestoAlaRentaImpuestoResultanteDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("impuestoAlaRentaPagadoDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("impuestoAlaRentaCompensacionSFADataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("impuestoAlaRentaCompensacionSFMBDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("impuestoAlaRentaCompensacionITANDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("impuestoAlaRentaCompensacionPercepcionDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("impuestoAlaRentaImputacionDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("impuestoAlaRentaPorPagarDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("ingresoExportacionDataGridViewTextBoxColumn");
+            DgvPDT.Columns.Remove("dataGridViewTextBoxColumn8");
+        }
         private void fillCurrentMonthToolStripButton_Click(object sender, EventArgs e)
         {
             try
@@ -1624,20 +1659,28 @@ namespace Presentacion
         }
 
         #region PDT
-        private void SumPDT()
+        //private void SumPDT()
+        //{
+        //    //int sum = 0;
+        //    //for (int i = 0; i < DgvPDT.Rows.Count - 3; ++i)
+        //    //{
+        //    //    sum += Convert.ToInt32(DgvPDT.Rows[i].Cells[2].Value);
+        //    //}
+        //    //this.TApdt.Fill(dSPdt.sp_pdt, txtNombreRuc.Text, Convert.ToInt32(txtNombreAnio.Text), idUsuario);
+        //    DataTable table = dSPdt.Tables["sp_pdt"];
+
+        //    object sumObject;
+        //    sumObject = table.Compute("Sum(ingresoGravadas)", string.Empty);
+
+        //    //DgvPDT.Rows[DgvPDT.Rows.Count - 1].Cells[2].Value = sumObject.ToString();
+        //    lblSumGravadas.Text = sumObject.ToString();
+        //}
+
+
+        private void FillPDT()
         {
-            //int sum = 0;
-            //for (int i = 0; i < DgvPDT.Rows.Count - 3; ++i)
-            //{
-            //    sum += Convert.ToInt32(DgvPDT.Rows[i].Cells[2].Value);
-            //}
-            //this.TApdt.Fill(dSPdt.sp_pdt, txtNombreRuc.Text, Convert.ToInt32(txtNombreAnio.Text), idUsuario);
-            DataTable table = dSPdt.Tables["sp_pdt"];
-
-            object sumObject;
-            sumObject = table.Compute("Sum(ingresoGravadas)", string.Empty);
-
-            DgvPDT.Rows[DgvPDT.Rows.Count - 1].Cells[2].Value = sumObject.ToString();
+            this.TApdt.Fill(dSPdt.sp_pdt, txtNombreRuc.Text, Convert.ToInt32(txtNombreAnio.Text), idUsuario);
+            CalcPDT();
         }
 
         private void SavePDT()
@@ -1647,10 +1690,10 @@ namespace Presentacion
 
             foreach (DataGridViewRow row in DgvPDT.Rows)
             {
-                if (row.Cells["PdtMes"].Value != null)
+                if (row.Cells["PdMes"].Value != null)
                 {
                     int PdtID = row.Cells["PdtID"].Value != DBNull.Value ? Convert.ToInt32(row.Cells["PdtID"].Value) : 0;
-                    int PdtMes = row.Cells["PdtMes"].Value != DBNull.Value ? Convert.ToInt32(row.Cells["PdtMes"].Value) : 0;
+                    int PdtMes = row.Cells["PdMes"].Value != DBNull.Value ? Convert.ToInt32(row.Cells["PdMes"].Value) : 0;
                     double PdtIngresoExportacion = row.Cells["PdtIngresoExportacion"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtIngresoExportacion"].Value) : 0;
                     double PdtIngresoGravadas = row.Cells["PdtIngresoGravadas"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtIngresoGravadas"].Value) : 0;
                     double PdtIngresoExonerada = row.Cells["PdtIngresoExonerada"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtIngresoExonerada"].Value) : 0;
@@ -1698,7 +1741,8 @@ namespace Presentacion
                             PdtIgvPagoAPagar, PdtIgvPagoPagado, PdtImpuestoAlaRentaOtrosIngreso, PdtImpuestoAlaRentaBaseImponible, PdtImpuestoAlaRentaCoeficiente, PdtImpuestoAlaRentaImpuestoResultante,
                             PdtImpuestoAlaRentaPagado, PdtImpuestoAlaRentaCompensacionSFA, PdtImpuestoAlaRentaCompensacionSFMB, PdtImpuestoAlaRentaCompensacionITAN, PdtImpuestoAlaRentaCompensacionPercepcion,
                             PdtImpuestoAlaRentaImputacion, PdtImpuestoAlaRentaPorPagar, idUsuario);
-                    } else
+                    }
+                    else
                     {
                         pdt.Update(PdtID, PdtIngresoExportacion, PdtIngresoGravadas, PdtIngresoExonerada, PdtIngresoInafecta, PdtIngresoIGV, PdtIngresoImporteTotal, PdtEgresoBaseImponible,
                             PdtEgresoIGV, PdtEgresoNoGravada, PdtEgresoImporteTotal, PdtFicalIgvImpouestoResultante, PdtFicalIgvCreditoDebito, PdtFicalIgvSaldoFavorPagar, PdtExportadorSFMB,
@@ -1712,11 +1756,35 @@ namespace Presentacion
             }
             MessageBox.Show("PDT guardado correctamente", "SISCONT .::. PDT");
         }
-        #endregion
 
         private void DgvPDT_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
         {
             e.Row.Cells["PdtID"].Value = GenerateID();
+        }
+        #endregion
+
+        private void DgvPDT_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+
+        }
+
+        private void CalcPDT()
+        {
+            try
+            {
+                double ImpuesteResultante = 0, CreditoDebito = 0, SaldoFavor = 0;
+                for (int i = 0; i < DgvPDT.Rows.Count - 1; i++)
+                {
+                    if (DgvPDT.Rows[i].Cells["PdtFicalIgvImpouestoResultante"].Value != DBNull.Value | !String.IsNullOrEmpty(DgvPDT.Rows[i].Cells["PdtFicalIgvImpouestoResultante"].Value.ToString() as String))
+                        ImpuesteResultante = Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtFicalIgvImpouestoResultante"].Value.ToString());
+
+                    if (DgvPDT.Rows[i].Cells["PdtFicalIgvCreditoDebito"].Value != DBNull.Value | String.IsNullOrEmpty(DgvPDT.Rows[i].Cells["PdtFicalIgvCreditoDebito"].Value.ToString() as String))
+                        CreditoDebito = Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtFicalIgvCreditoDebito"].Value.ToString());
+
+                    SaldoFavor = Math.Round(ImpuesteResultante - CreditoDebito, 2);
+                    DgvPDT.Rows[i].Cells["PdtFicalIgvSaldoFavorPagar"].Value = SaldoFavor;
+                }
+            } catch(Exception Ex) { MessageBox.Show("Error: " + Ex); }
         }
     }
 }
