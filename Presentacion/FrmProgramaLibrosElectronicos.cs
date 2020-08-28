@@ -1,4 +1,5 @@
-﻿using Negocios;
+﻿using DevExpress.Utils.ScrollAnnotations;
+using Negocios;
 using System;
 using System.Collections;
 using System.Data;
@@ -35,9 +36,17 @@ namespace Presentacion
         Ruc RucS = new Ruc();
 
         Pdt pdt = new Pdt();
-        public FrmProgramaLibrosElectronicos()
+        private FrmProgramaLibrosElectronicos()
         {
             InitializeComponent();
+        }
+
+        private static FrmProgramaLibrosElectronicos Instancia = null;
+
+        public static FrmProgramaLibrosElectronicos GetForm()
+        {
+            if (Instancia == null) Instancia = new FrmProgramaLibrosElectronicos();
+            return Instancia;
         }
 
         private void FrmProgramaLibrosElectronicos_Load(object sender, EventArgs e)
@@ -45,6 +54,11 @@ namespace Presentacion
             txtNombreAnio.Text = DateTime.UtcNow.ToString("yyyy");
             txtNombreMes.Text = DateTime.UtcNow.ToString("MM");
             txtNombreRuc.Text = empresa.Rows[0]["ruc"].ToString();
+
+            for (int i = 2; i < DgvPDT.Rows.Count; i++)
+            {
+                DgvPDT.Columns[i].DefaultCellStyle.Format = "0.00##";
+            }
 
             // TODO: esta línea de código carga datos en la tabla 'dSDetracciones.sp_all_combo_detracciones' Puede moverla o quitarla según sea necesario.
             this.TADetraccionesTableAdapter.Fill(this.dSDetracciones.sp_all_combo_detracciones);
@@ -81,8 +95,8 @@ namespace Presentacion
             dgvRegistroCompras.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvRegistroVentas.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-            DgvPDT.Rows[0].Cells["PdtFicalIgvCreditoDebito"].Style.BackColor = Color.AntiqueWhite;
-            DgvPDT.Rows[0].Cells["PdtFicalIgvCreditoDebito"].Value = "cc";
+            CalcPDT();
+            ReadOnlyPDT();
         }
 
         private void cellContentClickEvent(object sender, DataGridViewCellEventArgs e)
@@ -100,7 +114,6 @@ namespace Presentacion
         {
             SaveCompras();
             SaveVentas();
-            SavePDT();
             FillPDT();
         }
 
@@ -1680,7 +1693,7 @@ namespace Presentacion
         private void FillPDT()
         {
             this.TApdt.Fill(dSPdt.sp_pdt, txtNombreRuc.Text, Convert.ToInt32(txtNombreAnio.Text), idUsuario);
-            CalcPDT();
+            
         }
 
         private void SavePDT()
@@ -1761,7 +1774,6 @@ namespace Presentacion
         {
             e.Row.Cells["PdtID"].Value = GenerateID();
         }
-        #endregion
 
         private void DgvPDT_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
@@ -1773,18 +1785,376 @@ namespace Presentacion
             try
             {
                 double ImpuesteResultante = 0, CreditoDebito = 0, SaldoFavor = 0;
+                double PercepcionDelMes = 0, PercepcionDelMesAntorior = 0, PercepcionAPlicadas = 0, PercepcionComposicionPrecedente = 0, PercepcionAPlicadaResult = 0, PercepcionPorAplicarResult = 0;
+                double RetencionDelMes = 0, RetencionDelMesAntorior = 0, RetencionAplicadas = 0, RetencionComposicionPrecedente = 0, RetencionPorAplicar = 0, RetencionAplicadaResult = 0, ExportadorSFMB = 0; ;
+                double IgvPagoAPagar = 0;
+                double ImpuestoAlaRentaImpuestoResultante = 0, ImpuestoAlaRentaPagado = 0, ImpuestoAlaRentaCompensacionSFA = 0, ImpuestoAlaRentaCompensacionITAN = 0, ImpuestoAlaRentaCompensacionPercepcion = 0, ImpuestoAlaRentaPorPagar = 0;
                 for (int i = 0; i < DgvPDT.Rows.Count - 1; i++)
                 {
-                    if (DgvPDT.Rows[i].Cells["PdtFicalIgvImpouestoResultante"].Value != DBNull.Value | !String.IsNullOrEmpty(DgvPDT.Rows[i].Cells["PdtFicalIgvImpouestoResultante"].Value.ToString() as String))
+                    //CREDITO/DEBITO FISCAL IGV		
+
+                    if (DgvPDT.Rows[i].Cells["PdtFicalIgvImpouestoResultante"].Value.GetType() != typeof(System.DBNull))
                         ImpuesteResultante = Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtFicalIgvImpouestoResultante"].Value.ToString());
 
-                    if (DgvPDT.Rows[i].Cells["PdtFicalIgvCreditoDebito"].Value != DBNull.Value | String.IsNullOrEmpty(DgvPDT.Rows[i].Cells["PdtFicalIgvCreditoDebito"].Value.ToString() as String))
+                    if (DgvPDT.Rows[i].Cells["PdtFicalIgvCreditoDebito"].Value.GetType() != typeof(System.DBNull))
+                    {
                         CreditoDebito = Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtFicalIgvCreditoDebito"].Value.ToString());
+                        SaldoFavor = (double)Math.Round(ImpuesteResultante + (CreditoDebito), 2);
 
-                    SaldoFavor = Math.Round(ImpuesteResultante - CreditoDebito, 2);
+                    }
+                    else SaldoFavor = (double)ImpuesteResultante;
+
                     DgvPDT.Rows[i].Cells["PdtFicalIgvSaldoFavorPagar"].Value = SaldoFavor;
+                    DgvPDT.Rows[0].Cells["PdtFicalIgvCreditoDebito"].Style.BackColor = Color.AntiqueWhite;
+
+                    //PERCEPCIONES IGV
+                    if (DgvPDT.Rows[i].Cells["PdtPercepcionesIgvDelMes"].Value.GetType() != typeof(System.DBNull))
+                        PercepcionDelMes = Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtPercepcionesIgvDelMes"].Value.ToString());
+
+                    if (DgvPDT.Rows[i].Cells["PdtPercepcionesIgvMesAnterior"].Value.GetType() != typeof(System.DBNull))
+                        PercepcionDelMesAntorior = Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtPercepcionesIgvMesAnterior"].Value.ToString());
+
+                    if (DgvPDT.Rows[i].Cells["PdtPercepcionesIgvAplicada"].Value.GetType() != typeof(System.DBNull))
+                        PercepcionAPlicadas = Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtPercepcionesIgvAplicada"].Value.ToString());
+
+                    if (DgvPDT.Rows[i].Cells["PdtPercepcionesIgvComposicionProcedente"].Value.GetType() != typeof(System.DBNull))
+                        PercepcionComposicionPrecedente = Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtPercepcionesIgvComposicionProcedente"].Value.ToString());
+
+                    if (SaldoFavor > 0)
+                        PercepcionPorAplicarResult = SaldoFavor + PercepcionDelMesAntorior;
+
+                    if (PercepcionPorAplicarResult > 0)
+                    {
+                        PercepcionPorAplicarResult = 0;
+                    } else
+                    {
+                        if (SaldoFavor > 0)
+                            PercepcionPorAplicarResult = SaldoFavor + PercepcionDelMes + PercepcionDelMesAntorior + PercepcionComposicionPrecedente;
+                        else
+                            PercepcionPorAplicarResult = PercepcionDelMes + PercepcionDelMesAntorior + PercepcionComposicionPrecedente;
+                    }
+
+                    PercepcionPorAplicarResult = Math.Round(PercepcionPorAplicarResult, 2);
+                    DgvPDT.Rows[i].Cells["PdtPercepcionesIgvPorAplicar"].Value = PercepcionPorAplicarResult;
+
+
+                    PercepcionAPlicadaResult = Math.Round(((PercepcionDelMes + PercepcionDelMesAntorior) - PercepcionPorAplicarResult) * (-1), 2);
+                    DgvPDT.Rows[i].Cells["PdtPercepcionesIgvAplicada"].Value = PercepcionAPlicadaResult;
+
+                    //RETENCIONES IGV
+                    if (DgvPDT.Rows[i].Cells["PdtRetencionesIgvDelMes"].Value.GetType() != typeof(System.DBNull))
+                        RetencionDelMes = Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtRetencionesIgvDelMes"].Value.ToString());
+
+                    if (DgvPDT.Rows[i].Cells["PdtRetencionesIgvDelMesAnterior"].Value.GetType() != typeof(System.DBNull))
+                        RetencionDelMesAntorior = Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtRetencionesIgvDelMesAnterior"].Value.ToString());
+
+                    if (DgvPDT.Rows[i].Cells["PdtRetencionesIgvAplicada"].Value.GetType() != typeof(System.DBNull))
+                        RetencionAplicadas = Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtRetencionesIgvAplicada"].Value.ToString());
+
+                    if (DgvPDT.Rows[i].Cells["PdtRetencionesIgvComposicionProcedente"].Value.GetType() != typeof(System.DBNull))
+                        RetencionComposicionPrecedente = Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtRetencionesIgvComposicionProcedente"].Value.ToString());
+
+                    if (DgvPDT.Rows[i].Cells["PdtExportadorSFMB"].Value.GetType() != typeof(System.DBNull))
+                        ExportadorSFMB = Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtExportadorSFMB"].Value.ToString());
+
+                    RetencionPorAplicar = (SaldoFavor) + (ExportadorSFMB) + (PercepcionDelMes) + (PercepcionDelMesAntorior);
+
+                    if (RetencionPorAplicar > 0)
+                    {
+                        if (-(RetencionDelMes + RetencionDelMesAntorior) > RetencionPorAplicar)
+                        {
+                            RetencionPorAplicar = (RetencionPorAplicar) + (RetencionDelMes) + (RetencionDelMesAntorior) + (RetencionComposicionPrecedente);
+                        }
+                        else RetencionPorAplicar = 0;
+                    }
+                    else RetencionPorAplicar = (RetencionDelMes) + (RetencionDelMesAntorior) + (RetencionComposicionPrecedente);
+
+                    DgvPDT.Rows[i].Cells["PdtRetencionesIgvPorAplicar"].Value = Math.Round(RetencionPorAplicar, 2);
+
+                    RetencionAplicadaResult = Math.Round(((RetencionDelMes + RetencionDelMesAntorior) - RetencionPorAplicar) * (-1), 2);
+                    DgvPDT.Rows[i].Cells["PdtRetencionesIgvAplicada"].Value = RetencionAplicadaResult;
+
+                    //IGV / PAGO
+                    IgvPagoAPagar = (SaldoFavor) + (ExportadorSFMB) + (PercepcionDelMes) + (PercepcionDelMesAntorior) + (RetencionDelMes) + (RetencionDelMesAntorior);
+                    if (IgvPagoAPagar < 1)
+                        IgvPagoAPagar = 0;
+
+                    DgvPDT.Rows[i].Cells["PdtIgvPagoAPagar"].Value = Math.Round(IgvPagoAPagar, 2);
+
+                    //IMPUESTO A LA RENTA / PAGO
+                    if (DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaImpuestoResultante"].Value.GetType() != typeof(System.DBNull))
+                        ImpuestoAlaRentaImpuestoResultante = Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaImpuestoResultante"].Value.ToString());
+
+                    if (DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaPagado"].Value.GetType() != typeof(System.DBNull))
+                        ImpuestoAlaRentaPagado = Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaPagado"].Value.ToString());
+
+                    if (DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaCompensacionSFA"].Value.GetType() != typeof(System.DBNull))
+                        ImpuestoAlaRentaCompensacionSFA = Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaCompensacionSFA"].Value.ToString());
+
+                    // if (DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaCompensacionSFMB"].Value.GetType() != typeof(System.DBNull))
+                    //     ImpuestoAlaRentaCompensacionSFMB = Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaCompensacionSFMB"].Value.ToString());
+
+                    if (DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaCompensacionITAN"].Value.GetType() != typeof(System.DBNull))
+                        ImpuestoAlaRentaCompensacionITAN = Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaCompensacionITAN"].Value.ToString());
+
+                    if (DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaCompensacionPercepcion"].Value.GetType() != typeof(System.DBNull))
+                        ImpuestoAlaRentaCompensacionPercepcion = Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaCompensacionPercepcion"].Value.ToString());
+
+                    // if (DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaImputacion"].Value.GetType() != typeof(System.DBNull))
+                    //     ImpuestoAlaRentaImputacion = Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaImputacion"].Value.ToString());
+
+                    //if (DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaPorPagar"].Value.GetType() != typeof(System.DBNull))
+                    //    ImpuestoAlaRentaPorPagar = Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaPorPagar"].Value.ToString());
+
+                    ImpuestoAlaRentaPorPagar = (ImpuestoAlaRentaImpuestoResultante) + (ImpuestoAlaRentaPagado) + (ImpuestoAlaRentaCompensacionSFA) + (ImpuestoAlaRentaCompensacionITAN) + (ImpuestoAlaRentaCompensacionPercepcion);
+
+                    DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaPorPagar"].Value = Math.Round(ImpuestoAlaRentaPorPagar, 2);
                 }
+                CalcSumPDT();
             } catch(Exception Ex) { MessageBox.Show("Error: " + Ex); }
         }
+
+        private void DgvPDT_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            switch (this.DgvPDT.Columns[e.ColumnIndex].Name)
+            {
+                case "PdtFicalIgvCreditoDebito":
+                case "PdtPercepcionesIgvMesAnterior":
+                case "PdtPercepcionesIgvComposicionProcedente":
+
+                case "PdtRetencionesIgvDelMesAnterior":
+                case "PdtRetencionesIgvComposicionProcedente":
+                //case "PdtRetencionesIgvDelMes":
+                //case "PdtRetencionesIgvAplicada":
+                //case "PdtRetencionesIgvPorAplicar":
+                    try
+                    {
+                        for (int i = 0; i < DgvPDT.Rows.Count - 1; i++)
+                        {
+                            CalcPDT();
+                            if (i > 0)
+                            {
+                                //CREDITO/DEBITO FISCAL IGV
+                                if (Convert.ToDouble(DgvPDT.Rows[i - 1].Cells["PdtFicalIgvSaldoFavorPagar"].Value.ToString()) > 0)
+                                {
+                                    DgvPDT.Rows[i].Cells["PdtFicalIgvCreditoDebito"].Value = 0;
+                                } else
+                                {
+                                    DgvPDT.Rows[i].Cells["PdtFicalIgvCreditoDebito"].Value = Convert.ToDouble(DgvPDT.Rows[i - 1].Cells["PdtFicalIgvSaldoFavorPagar"].Value.ToString());
+                                }
+                                //PERCEPCIONES IGV
+                                DgvPDT.Rows[i].Cells["PdtPercepcionesIgvMesAnterior"].Value = DgvPDT.Rows[i - 1].Cells["PdtPercepcionesIgvPorAplicar"].Value.ToString();
+
+                                //RETENCIONES IGV
+                                DgvPDT.Rows[i].Cells["PdtRetencionesIgvDelMesAnterior"].Value = DgvPDT.Rows[i - 1].Cells["PdtRetencionesIgvPorAplicar"].Value.ToString();
+                            }
+                        }
+                    }
+                    catch (Exception Ex) { Console.WriteLine(Ex); }
+                    break;
+                case "PdtImpuestoAlaRentaPagado":
+                case "PdtImpuestoAlaRentaCompensacionSFA":
+                case "PdtImpuestoAlaRentaCompensacionSFMB":
+                case "PdtImpuestoAlaRentaCompensacionITAN":
+                case "PdtImpuestoAlaRentaCompensacionPercepcion":
+                case "PdtImpuestoAlaRentaImputacion":
+                case "PdtImpuestoAlaRentaPorPagar":
+                    try
+                    {
+                        double ImpuestoAlaRentaImpuestoResultante = 0, ImpuestoAlaRentaPagado = 0, ImpuestoAlaRentaCompensacionSFA = 0, ImpuestoAlaRentaCompensacionITAN = 0, ImpuestoAlaRentaCompensacionPercepcion = 0, ImpuestoAlaRentaPorPagar = 0;
+                      
+                        //IMPUESTO A LA RENTA / PAGO
+                        if (DgvPDT.Rows[e.RowIndex].Cells["PdtImpuestoAlaRentaImpuestoResultante"].Value.GetType() != typeof(System.DBNull))
+                            ImpuestoAlaRentaImpuestoResultante = Convert.ToDouble(DgvPDT.Rows[e.RowIndex].Cells["PdtImpuestoAlaRentaImpuestoResultante"].Value.ToString());
+
+                        if (DgvPDT.Rows[e.RowIndex].Cells["PdtImpuestoAlaRentaPagado"].Value.GetType() != typeof(System.DBNull))
+                            ImpuestoAlaRentaPagado = Convert.ToDouble(DgvPDT.Rows[e.RowIndex].Cells["PdtImpuestoAlaRentaPagado"].Value.ToString());
+
+                        if (DgvPDT.Rows[e.RowIndex].Cells["PdtImpuestoAlaRentaCompensacionSFA"].Value.GetType() != typeof(System.DBNull))
+                            ImpuestoAlaRentaCompensacionSFA = Convert.ToDouble(DgvPDT.Rows[e.RowIndex].Cells["PdtImpuestoAlaRentaCompensacionSFA"].Value.ToString());
+
+                        // if (DgvPDT.Rows[e.RowIndex].Cells["PdtImpuestoAlaRentaCompensacionSFMB"].Value.GetType() != typeof(System.DBNull))
+                        //     ImpuestoAlaRentaCompensacionSFMB = Convert.ToDouble(DgvPDT.Rows[e.RowIndex].Cells["PdtImpuestoAlaRentaCompensacionSFMB"].Value.ToString());
+
+                        if (DgvPDT.Rows[e.RowIndex].Cells["PdtImpuestoAlaRentaCompensacionITAN"].Value.GetType() != typeof(System.DBNull))
+                            ImpuestoAlaRentaCompensacionITAN = Convert.ToDouble(DgvPDT.Rows[e.RowIndex].Cells["PdtImpuestoAlaRentaCompensacionITAN"].Value.ToString());
+
+                        if (DgvPDT.Rows[e.RowIndex].Cells["PdtImpuestoAlaRentaCompensacionPercepcion"].Value.GetType() != typeof(System.DBNull))
+                            ImpuestoAlaRentaCompensacionPercepcion = Convert.ToDouble(DgvPDT.Rows[e.RowIndex].Cells["PdtImpuestoAlaRentaCompensacionPercepcion"].Value.ToString());
+
+                        // if (DgvPDT.Rows[e.RowIndex].Cells["PdtImpuestoAlaRentaImputacion"].Value.GetType() != typeof(System.DBNull))
+                        //     ImpuestoAlaRentaImputacion = Convert.ToDouble(DgvPDT.Rows[e.RowIndex].Cells["PdtImpuestoAlaRentaImputacion"].Value.ToString());
+
+                        //if (DgvPDT.Rows[e.RowIndex].Cells["PdtImpuestoAlaRentaPorPagar"].Value.GetType() != typeof(System.DBNull))
+                        //    ImpuestoAlaRentaPorPagar = Convert.ToDouble(DgvPDT.Rows[e.RowIndex].Cells["PdtImpuestoAlaRentaPorPagar"].Value.ToString());
+
+                        ImpuestoAlaRentaPorPagar = (ImpuestoAlaRentaImpuestoResultante) + (ImpuestoAlaRentaPagado) + (ImpuestoAlaRentaCompensacionSFA) + (ImpuestoAlaRentaCompensacionITAN) + (ImpuestoAlaRentaCompensacionPercepcion);
+
+                        DgvPDT.Rows[e.RowIndex].Cells["PdtImpuestoAlaRentaPorPagar"].Value = Math.Round(ImpuestoAlaRentaPorPagar, 2).ToString("F");
+                    }
+                    catch (Exception Ex) { Console.WriteLine(Ex); }
+                    break;
+            }
+            CalcSumPDT();
+        }
+
+        private void ButtonGuardarPDT_Click(object sender, EventArgs e)
+        {
+            SavePDT();
+        }
+
+        private void ButtonReportPDT_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DgvPDT_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            try
+            {
+                if (e.Value.GetType() != typeof(System.DBNull))
+                {
+                    if (Convert.ToDouble(e.Value) < 0)
+                    {
+                        e.CellStyle.ForeColor = Color.Red;
+                    }
+                }
+            }
+            catch (Exception Ex) { Console.WriteLine(Ex); }
+        }
+
+        private void ReadOnlyPDT()
+        {
+            //DgvPDT.ReadOnly = true;
+            //DgvPDT.Rows[0].Cells["PdtFicalIgvCreditoDebito"].ReadOnly = false;
+            //DgvPDT.Rows[0].Cells["PdtPercepcionesIgvMesAnterior"].ReadOnly = false;
+            //DgvPDT.Rows[0].Cells["PdtRetencionesIgvDelMesAnterior"].ReadOnly = false;
+
+            //DgvPDT.Columns["PdtExportadorSFMB"].ReadOnly = false;
+            //DgvPDT.Columns["PdtPercepcionesIgvComposicionProcedente"].ReadOnly = false;
+            //DgvPDT.Columns["PdtRetencionesIgvComposicionProcedente"].ReadOnly = false;
+            //DgvPDT.Columns["PdtIgvPagoPagado"].ReadOnly = false;
+            //DgvPDT.Columns["PdtImpuestoAlaRentaPagado"].ReadOnly = false;
+            //DgvPDT.Columns["PdtImpuestoAlaRentaCompensacionSFA"].ReadOnly = false;
+            //DgvPDT.Columns["PdtImpuestoAlaRentaCompensacionITAN"].ReadOnly = false;
+            //DgvPDT.Columns["PdtImpuestoAlaRentaCompensacionPercepcion"].ReadOnly = false;
+            //DgvPDT.Columns["PdtImpuestoAlaRentaImputacion"].ReadOnly = false;
+            //DgvPDT.Columns["PdtImpuestoAlaRentaPorPagar"].ReadOnly = false;
+        }
+
+        private void CalcSumPDT()
+        {
+            double IngresoExportación = 0, IngresoGravadas = 0, IngresoExonerada = 0, IngresoInafecta = 0, IngresoIGV = 0, IngresoImporteTotal = 0, EgresoBaseImponible = 0,
+                EgresoIGV = 0, EgresoNoGravada = 0, EgresoImporteTotal = 0, PercepcionesIgvAplicada = 0, RetencionesIgvDelMes = 0, RetencionesIgvAplicada = 0,
+                IgvPagoAPagar = 0, IgvPagoPagado = 0, ImpuestoAlaRentaOtrosIngreso = 0, ImpuestoAlaRentaBaseImponible = 0, ImpuestoAlaRentaImpuestoResultante = 0,
+                ImpuestoAlaRentaPagado = 0, ImpuestoAlaRentaCompensacionSFA = 0, ImpuestoAlaRentaCompensacionSFMB = 0,
+                ImpuestoAlaRentaCompensacionITAN = 0, ImpuestoAlaRentaCompensacionPercepcion = 0, ImpuestoAlaRentaImputacion = 0, ImpuestoAlaRentaPorPagar = 0;
+            for (int i = 0; i < DgvPDT.Rows.Count - 1; i++)
+            {
+                if (DgvPDT.Rows[i].Cells["PdtIngresoExportación"].Value.GetType() != typeof(System.DBNull))
+                    IngresoExportación += Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtIngresoExportación"].Value.ToString());
+
+                if (DgvPDT.Rows[i].Cells["PdtIngresoGravadas"].Value.GetType() != typeof(System.DBNull))
+                    IngresoGravadas += Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtIngresoGravadas"].Value.ToString());
+
+                if (DgvPDT.Rows[i].Cells["PdtIngresoExonerada"].Value.GetType() != typeof(System.DBNull))
+                    IngresoExonerada += Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtIngresoExonerada"].Value.ToString());
+
+                if (DgvPDT.Rows[i].Cells["PdtIngresoInafecta"].Value.GetType() != typeof(System.DBNull))
+                    IngresoInafecta += Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtIngresoInafecta"].Value.ToString());
+
+                if (DgvPDT.Rows[i].Cells["PdtIngresoIGV"].Value.GetType() != typeof(System.DBNull))
+                    IngresoIGV += Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtIngresoIGV"].Value.ToString());
+
+                if (DgvPDT.Rows[i].Cells["PdtIngresoImporteTotal"].Value.GetType() != typeof(System.DBNull))
+                    IngresoImporteTotal += Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtIngresoImporteTotal"].Value.ToString());
+
+                if (DgvPDT.Rows[i].Cells["PdtEgresoBaseImponible"].Value.GetType() != typeof(System.DBNull))
+                    EgresoBaseImponible += Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtEgresoBaseImponible"].Value.ToString());
+
+                if (DgvPDT.Rows[i].Cells["PdtEgresoIGV"].Value.GetType() != typeof(System.DBNull))
+                    EgresoIGV += Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtEgresoIGV"].Value.ToString());
+
+                if (DgvPDT.Rows[i].Cells["PdtEgresoNoGravada"].Value.GetType() != typeof(System.DBNull))
+                    EgresoNoGravada += Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtEgresoNoGravada"].Value.ToString());
+
+                if (DgvPDT.Rows[i].Cells["PdtEgresoImporteTotal"].Value.GetType() != typeof(System.DBNull))
+                    EgresoImporteTotal += Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtEgresoImporteTotal"].Value.ToString());
+
+                if (DgvPDT.Rows[i].Cells["PdtPercepcionesIgvAplicada"].Value.GetType() != typeof(System.DBNull))
+                    PercepcionesIgvAplicada += Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtPercepcionesIgvAplicada"].Value.ToString());
+
+                if (DgvPDT.Rows[i].Cells["PdtRetencionesIgvDelMes"].Value.GetType() != typeof(System.DBNull))
+                    RetencionesIgvDelMes += Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtRetencionesIgvDelMes"].Value.ToString());
+
+                if (DgvPDT.Rows[i].Cells["PdtRetencionesIgvAplicada"].Value.GetType() != typeof(System.DBNull))
+                    RetencionesIgvAplicada += Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtRetencionesIgvAplicada"].Value.ToString());
+
+                if (DgvPDT.Rows[i].Cells["PdtIgvPagoAPagar"].Value.GetType() != typeof(System.DBNull))
+                    IgvPagoAPagar += Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtIgvPagoAPagar"].Value.ToString());
+
+                if (DgvPDT.Rows[i].Cells["PdtIgvPagoPagado"].Value.GetType() != typeof(System.DBNull))
+                    IgvPagoPagado += Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtIgvPagoPagado"].Value.ToString());
+
+                if (DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaOtrosIngreso"].Value.GetType() != typeof(System.DBNull))
+                    ImpuestoAlaRentaOtrosIngreso += Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaOtrosIngreso"].Value.ToString());
+
+                if (DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaBaseImponible"].Value.GetType() != typeof(System.DBNull))
+                    ImpuestoAlaRentaBaseImponible += Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaBaseImponible"].Value.ToString());
+
+                if (DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaImpuestoResultante"].Value.GetType() != typeof(System.DBNull))
+                    ImpuestoAlaRentaImpuestoResultante += Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaImpuestoResultante"].Value.ToString());
+
+                if (DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaPagado"].Value.GetType() != typeof(System.DBNull))
+                    ImpuestoAlaRentaPagado += Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaPagado"].Value.ToString());
+
+                if (DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaCompensacionSFA"].Value.GetType() != typeof(System.DBNull))
+                    ImpuestoAlaRentaCompensacionSFA += Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaCompensacionSFA"].Value.ToString());
+
+                if (DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaCompensacionSFMB"].Value.GetType() != typeof(System.DBNull))
+                    ImpuestoAlaRentaCompensacionSFMB += Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaCompensacionSFMB"].Value.ToString());
+
+                if (DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaCompensacionITAN"].Value.GetType() != typeof(System.DBNull))
+                    ImpuestoAlaRentaCompensacionITAN += Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaCompensacionITAN"].Value.ToString());
+
+                if (DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaCompensacionPercepcion"].Value.GetType() != typeof(System.DBNull))
+                    ImpuestoAlaRentaCompensacionPercepcion += Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaCompensacionPercepcion"].Value.ToString());
+
+                if (DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaImputacion"].Value.GetType() != typeof(System.DBNull))
+                    ImpuestoAlaRentaImputacion += Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaImputacion"].Value.ToString());
+
+                if (DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaPorPagar"].Value.GetType() != typeof(System.DBNull))
+                    ImpuestoAlaRentaPorPagar += Convert.ToDouble(DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaPorPagar"].Value.ToString());
+            }
+            DgvPDT.Rows[DgvPDT.Rows.Count - 1].Cells["PdtIngresoExportación"].Value = IngresoExportación;
+            
+
+            DgvPDT.Rows[DgvPDT.Rows.Count - 1].Cells["PdtIngresoGravadas"].Value = IngresoGravadas;
+            DgvPDT.Rows[DgvPDT.Rows.Count - 1].Cells["PdtIngresoExonerada"].Value = IngresoExonerada;
+            DgvPDT.Rows[DgvPDT.Rows.Count - 1].Cells["PdtIngresoInafecta"].Value = IngresoInafecta;
+            DgvPDT.Rows[DgvPDT.Rows.Count - 1].Cells["PdtIngresoIGV"].Value = IngresoIGV;
+            DgvPDT.Rows[DgvPDT.Rows.Count - 1].Cells["PdtIngresoImporteTotal"].Value = IngresoImporteTotal;
+            DgvPDT.Rows[DgvPDT.Rows.Count - 1].Cells["PdtEgresoBaseImponible"].Value = EgresoBaseImponible;
+            DgvPDT.Rows[DgvPDT.Rows.Count - 1].Cells["PdtEgresoIGV"].Value = EgresoIGV;
+            DgvPDT.Rows[DgvPDT.Rows.Count - 1].Cells["PdtEgresoNoGravada"].Value = EgresoNoGravada;
+            DgvPDT.Rows[DgvPDT.Rows.Count - 1].Cells["PdtEgresoImporteTotal"].Value = EgresoImporteTotal;
+            DgvPDT.Rows[DgvPDT.Rows.Count - 1].Cells["PdtPercepcionesIgvAplicada"].Value = PercepcionesIgvAplicada;
+            DgvPDT.Rows[DgvPDT.Rows.Count - 1].Cells["PdtRetencionesIgvDelMes"].Value = RetencionesIgvDelMes;
+            DgvPDT.Rows[DgvPDT.Rows.Count - 1].Cells["PdtRetencionesIgvAplicada"].Value = RetencionesIgvAplicada;
+            DgvPDT.Rows[DgvPDT.Rows.Count - 1].Cells["PdtIgvPagoAPagar"].Value = IgvPagoAPagar;
+            DgvPDT.Rows[DgvPDT.Rows.Count - 1].Cells["PdtIgvPagoPagado"].Value = IgvPagoPagado;
+            DgvPDT.Rows[DgvPDT.Rows.Count - 1].Cells["PdtImpuestoAlaRentaOtrosIngreso"].Value = ImpuestoAlaRentaOtrosIngreso;
+            DgvPDT.Rows[DgvPDT.Rows.Count - 1].Cells["PdtImpuestoAlaRentaBaseImponible"].Value = ImpuestoAlaRentaBaseImponible;
+            DgvPDT.Rows[DgvPDT.Rows.Count - 1].Cells["PdtImpuestoAlaRentaImpuestoResultante"].Value = ImpuestoAlaRentaImpuestoResultante;
+            DgvPDT.Rows[DgvPDT.Rows.Count - 1].Cells["PdtImpuestoAlaRentaPagado"].Value = ImpuestoAlaRentaPagado;
+            DgvPDT.Rows[DgvPDT.Rows.Count - 1].Cells["PdtImpuestoAlaRentaCompensacionSFA"].Value = ImpuestoAlaRentaCompensacionSFA;
+            DgvPDT.Rows[DgvPDT.Rows.Count - 1].Cells["PdtImpuestoAlaRentaCompensacionSFMB"].Value = ImpuestoAlaRentaCompensacionSFMB;
+            DgvPDT.Rows[DgvPDT.Rows.Count - 1].Cells["PdtImpuestoAlaRentaCompensacionITAN"].Value = ImpuestoAlaRentaCompensacionITAN;
+            DgvPDT.Rows[DgvPDT.Rows.Count - 1].Cells["PdtImpuestoAlaRentaCompensacionPercepcion"].Value = ImpuestoAlaRentaCompensacionPercepcion;
+            DgvPDT.Rows[DgvPDT.Rows.Count - 1].Cells["PdtImpuestoAlaRentaImputacion"].Value = ImpuestoAlaRentaImputacion;
+            DgvPDT.Rows[DgvPDT.Rows.Count - 1].Cells["PdtImpuestoAlaRentaPorPagar"].Value = ImpuestoAlaRentaPorPagar;
+
+        }
+        #endregion
     }
 }

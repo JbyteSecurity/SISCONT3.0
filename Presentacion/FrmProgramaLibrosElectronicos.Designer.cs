@@ -29,28 +29,29 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle64 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle65 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle66 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblRazonSocial = new System.Windows.Forms.Label();
             this.btnGuardarCompras = new System.Windows.Forms.Button();
@@ -230,20 +231,9 @@
             this.dSVentas = new Presentacion.DSVentas();
             this.tabPDT = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.BSpdt = new System.Windows.Forms.BindingSource(this.components);
-            this.dSPdt = new Presentacion.DSPdt();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lblSumGravadas = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtRetencionIgvMesAnterior = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtPercepcionIgvMesAnterior = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtCreditoDebitoFiscal = new System.Windows.Forms.TextBox();
-            this.TAVentasTableAdapter = new Presentacion.DSVentasTableAdapters.tblRegistroVentasTableAdapter();
-            this.TAComprasTableAdapter = new Presentacion.DSComprasTableAdapters.tblRegistroComprasTableAdapter();
-            this.TADetraccionesTableAdapter = new Presentacion.DSDetraccionesTableAdapters.sp_all_combo_detraccionesTableAdapter();
-            this.TApdt = new Presentacion.DSPdtTableAdapters.sp_pdtTableAdapter();
+            this.ButtonReportPDT = new System.Windows.Forms.Button();
+            this.ButtonGuardarPDT = new System.Windows.Forms.Button();
             this.DgvPDT = new System.Windows.Forms.DataGridView();
             this.PdtID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PdMes = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -278,8 +268,8 @@
             this.PdtImpuestoAlaRentaCoeficiente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PdtImpuestoAlaRentaImpuestoResultante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PdtImpuestoAlaRentaPagado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.impuestoAlaRentaCompensacionSFA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PdtImpuestoAlaRentaCompensacionSFA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PdtImpuestoAlaRentaCompensacionSFMB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PdtImpuestoAlaRentaCompensacionITAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PdtImpuestoAlaRentaCompensacionPercepcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PdtImpuestoAlaRentaImputacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -324,6 +314,12 @@
             this.impuestoAlaRentaPorPagarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ingresoExportacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BSpdt = new System.Windows.Forms.BindingSource(this.components);
+            this.dSPdt = new Presentacion.DSPdt();
+            this.TAVentasTableAdapter = new Presentacion.DSVentasTableAdapters.tblRegistroVentasTableAdapter();
+            this.TAComprasTableAdapter = new Presentacion.DSComprasTableAdapters.tblRegistroComprasTableAdapter();
+            this.TADetraccionesTableAdapter = new Presentacion.DSDetraccionesTableAdapters.sp_all_combo_detraccionesTableAdapter();
+            this.TApdt = new Presentacion.DSPdtTableAdapters.sp_pdtTableAdapter();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabRegistros.SuspendLayout();
@@ -339,10 +335,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dSVentas)).BeginInit();
             this.tabPDT.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BSpdt)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSPdt)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvPDT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BSpdt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSPdt)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -380,13 +376,15 @@
             // btnGuardarCompras
             // 
             this.btnGuardarCompras.BackColor = System.Drawing.Color.Transparent;
-            this.btnGuardarCompras.BackgroundImage = global::Presentacion.Properties.Resources.save1;
             this.btnGuardarCompras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnGuardarCompras.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.btnGuardarCompras.FlatAppearance.BorderSize = 0;
+            this.btnGuardarCompras.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnGuardarCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarCompras.Image = global::Presentacion.Properties.Resources.save;
             this.btnGuardarCompras.Location = new System.Drawing.Point(4, 4);
             this.btnGuardarCompras.Name = "btnGuardarCompras";
-            this.btnGuardarCompras.Size = new System.Drawing.Size(35, 35);
-            this.btnGuardarCompras.TabIndex = 0;
+            this.btnGuardarCompras.Size = new System.Drawing.Size(32, 32);
+            this.btnGuardarCompras.TabIndex = 6;
             this.btnGuardarCompras.UseVisualStyleBackColor = false;
             this.btnGuardarCompras.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
@@ -405,24 +403,26 @@
             // btnActualizar
             // 
             this.btnActualizar.BackColor = System.Drawing.Color.Transparent;
-            this.btnActualizar.BackgroundImage = global::Presentacion.Properties.Resources.refresh;
             this.btnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnActualizar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnActualizar.Location = new System.Drawing.Point(393, 18);
+            this.btnActualizar.FlatAppearance.BorderSize = 0;
+            this.btnActualizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizar.Image = global::Presentacion.Properties.Resources.refresh;
+            this.btnActualizar.Location = new System.Drawing.Point(313, 17);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(20, 20);
-            this.btnActualizar.TabIndex = 13;
+            this.btnActualizar.TabIndex = 5;
             this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(224, 4);
+            this.label4.Location = new System.Drawing.Point(210, 4);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(27, 13);
+            this.label4.Size = new System.Drawing.Size(30, 13);
             this.label4.TabIndex = 12;
-            this.label4.Text = "Mes";
+            this.label4.Text = "MES";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel2
@@ -431,14 +431,14 @@
             this.panel2.Controls.Add(this.txtRutaTXT);
             this.panel2.Controls.Add(this.btnGenerarTXT);
             this.panel2.Controls.Add(this.btnCargarCarpeta);
-            this.panel2.Location = new System.Drawing.Point(880, 0);
+            this.panel2.Location = new System.Drawing.Point(980, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(386, 41);
+            this.panel2.Size = new System.Drawing.Size(286, 41);
             this.panel2.TabIndex = 5;
             // 
             // txtRutaTXT
             // 
-            this.txtRutaTXT.Location = new System.Drawing.Point(67, 10);
+            this.txtRutaTXT.Location = new System.Drawing.Point(40, 16);
             this.txtRutaTXT.Name = "txtRutaTXT";
             this.txtRutaTXT.ReadOnly = true;
             this.txtRutaTXT.Size = new System.Drawing.Size(211, 20);
@@ -446,16 +446,17 @@
             // 
             // btnGenerarTXT
             // 
-            this.btnGenerarTXT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnGenerarTXT.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnGenerarTXT.BackColor = System.Drawing.Color.Transparent;
+            this.btnGenerarTXT.FlatAppearance.BorderSize = 0;
+            this.btnGenerarTXT.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnGenerarTXT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGenerarTXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerarTXT.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnGenerarTXT.Location = new System.Drawing.Point(284, 9);
+            this.btnGenerarTXT.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnGenerarTXT.Image = global::Presentacion.Properties.Resources.txt;
+            this.btnGenerarTXT.Location = new System.Drawing.Point(251, 9);
             this.btnGenerarTXT.Name = "btnGenerarTXT";
-            this.btnGenerarTXT.Size = new System.Drawing.Size(92, 22);
-            this.btnGenerarTXT.TabIndex = 1;
-            this.btnGenerarTXT.Text = "Generar TXT";
+            this.btnGenerarTXT.Size = new System.Drawing.Size(32, 32);
+            this.btnGenerarTXT.TabIndex = 7;
             this.btnGenerarTXT.UseVisualStyleBackColor = false;
             this.btnGenerarTXT.Click += new System.EventHandler(this.btnGenerarTXT_Click);
             // 
@@ -468,7 +469,7 @@
             this.btnCargarCarpeta.FlatAppearance.BorderSize = 0;
             this.btnCargarCarpeta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray;
             this.btnCargarCarpeta.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCargarCarpeta.Location = new System.Drawing.Point(39, 9);
+            this.btnCargarCarpeta.Location = new System.Drawing.Point(12, 15);
             this.btnCargarCarpeta.Name = "btnCargarCarpeta";
             this.btnCargarCarpeta.Size = new System.Drawing.Size(22, 22);
             this.btnCargarCarpeta.TabIndex = 6;
@@ -479,29 +480,32 @@
             // 
             // txtNombreMes
             // 
-            this.txtNombreMes.Location = new System.Drawing.Point(227, 19);
+            this.txtNombreMes.Location = new System.Drawing.Point(213, 19);
             this.txtNombreMes.Name = "txtNombreMes";
             this.txtNombreMes.Size = new System.Drawing.Size(68, 20);
-            this.txtNombreMes.TabIndex = 11;
+            this.txtNombreMes.TabIndex = 3;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(301, 18);
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Image = global::Presentacion.Properties.Resources.filter;
+            this.btnBuscar.Location = new System.Drawing.Point(287, 18);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(86, 20);
-            this.btnBuscar.TabIndex = 3;
-            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Size = new System.Drawing.Size(20, 20);
+            this.btnBuscar.TabIndex = 4;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(150, 3);
+            this.label3.Location = new System.Drawing.Point(143, 3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 13);
+            this.label3.Size = new System.Drawing.Size(30, 13);
             this.label3.TabIndex = 10;
-            this.label3.Text = "Año";
+            this.label3.Text = "AÑO";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtNombreRuc
@@ -510,14 +514,14 @@
             this.txtNombreRuc.Name = "txtNombreRuc";
             this.txtNombreRuc.ReadOnly = true;
             this.txtNombreRuc.Size = new System.Drawing.Size(100, 20);
-            this.txtNombreRuc.TabIndex = 7;
+            this.txtNombreRuc.TabIndex = 1;
             // 
             // txtNombreAnio
             // 
-            this.txtNombreAnio.Location = new System.Drawing.Point(153, 19);
+            this.txtNombreAnio.Location = new System.Drawing.Point(146, 19);
             this.txtNombreAnio.Name = "txtNombreAnio";
             this.txtNombreAnio.Size = new System.Drawing.Size(68, 20);
-            this.txtNombreAnio.TabIndex = 9;
+            this.txtNombreAnio.TabIndex = 2;
             // 
             // label2
             // 
@@ -754,8 +758,8 @@
             // comprasCuenta
             // 
             this.comprasCuenta.DataPropertyName = "Cuenta";
-            dataGridViewCellStyle61.BackColor = System.Drawing.Color.Aqua;
-            this.comprasCuenta.DefaultCellStyle = dataGridViewCellStyle61;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Aqua;
+            this.comprasCuenta.DefaultCellStyle = dataGridViewCellStyle1;
             this.comprasCuenta.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
             this.comprasCuenta.HeaderText = "Cuenta";
             this.comprasCuenta.MinimumWidth = 22;
@@ -767,8 +771,8 @@
             // comprasDescripcion
             // 
             this.comprasDescripcion.DataPropertyName = "Descripcion";
-            dataGridViewCellStyle62.BackColor = System.Drawing.Color.Aqua;
-            this.comprasDescripcion.DefaultCellStyle = dataGridViewCellStyle62;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Aqua;
+            this.comprasDescripcion.DefaultCellStyle = dataGridViewCellStyle2;
             this.comprasDescripcion.HeaderText = "Descripción";
             this.comprasDescripcion.MinimumWidth = 22;
             this.comprasDescripcion.Name = "comprasDescripcion";
@@ -844,8 +848,8 @@
             // comprasConversionDolares
             // 
             this.comprasConversionDolares.DataPropertyName = "ConversionDolar";
-            dataGridViewCellStyle63.BackColor = System.Drawing.Color.Aqua;
-            this.comprasConversionDolares.DefaultCellStyle = dataGridViewCellStyle63;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Aqua;
+            this.comprasConversionDolares.DefaultCellStyle = dataGridViewCellStyle3;
             this.comprasConversionDolares.HeaderText = "Conversión Dólares (S/.)";
             this.comprasConversionDolares.MinimumWidth = 22;
             this.comprasConversionDolares.Name = "comprasConversionDolares";
@@ -866,8 +870,8 @@
             // comprasCuentaPago
             // 
             this.comprasCuentaPago.DataPropertyName = "Destino";
-            dataGridViewCellStyle64.BackColor = System.Drawing.Color.Aqua;
-            this.comprasCuentaPago.DefaultCellStyle = dataGridViewCellStyle64;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Aqua;
+            this.comprasCuentaPago.DefaultCellStyle = dataGridViewCellStyle4;
             this.comprasCuentaPago.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
             this.comprasCuentaPago.HeaderText = "Cuenta Pago";
             this.comprasCuentaPago.MinimumWidth = 22;
@@ -879,8 +883,8 @@
             // comprasDescripcionDestino
             // 
             this.comprasDescripcionDestino.DataPropertyName = "DescripcionDestino";
-            dataGridViewCellStyle65.BackColor = System.Drawing.Color.Aqua;
-            this.comprasDescripcionDestino.DefaultCellStyle = dataGridViewCellStyle65;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Aqua;
+            this.comprasDescripcionDestino.DefaultCellStyle = dataGridViewCellStyle5;
             this.comprasDescripcionDestino.HeaderText = "Cuenta Pago Descripción";
             this.comprasDescripcionDestino.MinimumWidth = 22;
             this.comprasDescripcionDestino.Name = "comprasDescripcionDestino";
@@ -903,8 +907,8 @@
             // 
             this.comprasCodigo.DataPropertyName = "Codigo";
             this.comprasCodigo.DataSource = this.BSDetraccionesBindingSource;
-            dataGridViewCellStyle66.BackColor = System.Drawing.Color.Aqua;
-            this.comprasCodigo.DefaultCellStyle = dataGridViewCellStyle66;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Aqua;
+            this.comprasCodigo.DefaultCellStyle = dataGridViewCellStyle6;
             this.comprasCodigo.DisplayMember = "Combo";
             this.comprasCodigo.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
             this.comprasCodigo.HeaderText = "Código";
@@ -2118,119 +2122,55 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1266, 578);
             this.tableLayoutPanel1.TabIndex = 17;
             // 
-            // BSpdt
-            // 
-            this.BSpdt.DataMember = "sp_pdt";
-            this.BSpdt.DataSource = this.dSPdt;
-            // 
-            // dSPdt
-            // 
-            this.dSPdt.DataSetName = "DSPdt";
-            this.dSPdt.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.lblSumGravadas);
-            this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.txtRetencionIgvMesAnterior);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.txtPercepcionIgvMesAnterior);
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.txtCreditoDebitoFiscal);
+            this.panel3.Controls.Add(this.ButtonReportPDT);
+            this.panel3.Controls.Add(this.ButtonGuardarPDT);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1260, 54);
+            this.panel3.Size = new System.Drawing.Size(1260, 44);
             this.panel3.TabIndex = 1;
             // 
-            // lblSumGravadas
+            // ButtonReportPDT
             // 
-            this.lblSumGravadas.AutoSize = true;
-            this.lblSumGravadas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblSumGravadas.Location = new System.Drawing.Point(489, 29);
-            this.lblSumGravadas.Name = "lblSumGravadas";
-            this.lblSumGravadas.Size = new System.Drawing.Size(93, 13);
-            this.lblSumGravadas.TabIndex = 16;
-            this.lblSumGravadas.Text = "SUM GRAVADAS";
-            this.lblSumGravadas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ButtonReportPDT.BackColor = System.Drawing.Color.Transparent;
+            this.ButtonReportPDT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonReportPDT.FlatAppearance.BorderSize = 0;
+            this.ButtonReportPDT.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
+            this.ButtonReportPDT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonReportPDT.Image = global::Presentacion.Properties.Resources.pdf;
+            this.ButtonReportPDT.Location = new System.Drawing.Point(42, 4);
+            this.ButtonReportPDT.Name = "ButtonReportPDT";
+            this.ButtonReportPDT.Size = new System.Drawing.Size(32, 32);
+            this.ButtonReportPDT.TabIndex = 2;
+            this.ButtonReportPDT.UseVisualStyleBackColor = false;
+            this.ButtonReportPDT.Click += new System.EventHandler(this.ButtonReportPDT_Click);
             // 
-            // label6
+            // ButtonGuardarPDT
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(283, 10);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(139, 13);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "Retención IGV Mes Anterior";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtRetencionIgvMesAnterior
-            // 
-            this.txtRetencionIgvMesAnterior.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.txtRetencionIgvMesAnterior.Location = new System.Drawing.Point(286, 26);
-            this.txtRetencionIgvMesAnterior.Name = "txtRetencionIgvMesAnterior";
-            this.txtRetencionIgvMesAnterior.Size = new System.Drawing.Size(136, 20);
-            this.txtRetencionIgvMesAnterior.TabIndex = 17;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(135, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 13);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Percepción IGV Mes Anterior";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtPercepcionIgvMesAnterior
-            // 
-            this.txtPercepcionIgvMesAnterior.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.txtPercepcionIgvMesAnterior.Location = new System.Drawing.Point(135, 26);
-            this.txtPercepcionIgvMesAnterior.Name = "txtPercepcionIgvMesAnterior";
-            this.txtPercepcionIgvMesAnterior.Size = new System.Drawing.Size(144, 20);
-            this.txtPercepcionIgvMesAnterior.TabIndex = 15;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 10);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(123, 13);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Crédito y/o Débito Fiscal";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtCreditoDebitoFiscal
-            // 
-            this.txtCreditoDebitoFiscal.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.txtCreditoDebitoFiscal.Location = new System.Drawing.Point(9, 26);
-            this.txtCreditoDebitoFiscal.Name = "txtCreditoDebitoFiscal";
-            this.txtCreditoDebitoFiscal.Size = new System.Drawing.Size(120, 20);
-            this.txtCreditoDebitoFiscal.TabIndex = 13;
-            // 
-            // TAVentasTableAdapter
-            // 
-            this.TAVentasTableAdapter.ClearBeforeFill = true;
-            // 
-            // TAComprasTableAdapter
-            // 
-            this.TAComprasTableAdapter.ClearBeforeFill = true;
-            // 
-            // TADetraccionesTableAdapter
-            // 
-            this.TADetraccionesTableAdapter.ClearBeforeFill = true;
-            // 
-            // TApdt
-            // 
-            this.TApdt.ClearBeforeFill = true;
+            this.ButtonGuardarPDT.BackColor = System.Drawing.Color.Transparent;
+            this.ButtonGuardarPDT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonGuardarPDT.FlatAppearance.BorderSize = 0;
+            this.ButtonGuardarPDT.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
+            this.ButtonGuardarPDT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonGuardarPDT.Image = global::Presentacion.Properties.Resources.save;
+            this.ButtonGuardarPDT.Location = new System.Drawing.Point(4, 4);
+            this.ButtonGuardarPDT.Name = "ButtonGuardarPDT";
+            this.ButtonGuardarPDT.Size = new System.Drawing.Size(32, 32);
+            this.ButtonGuardarPDT.TabIndex = 1;
+            this.ButtonGuardarPDT.UseVisualStyleBackColor = false;
+            this.ButtonGuardarPDT.Click += new System.EventHandler(this.ButtonGuardarPDT_Click);
             // 
             // DgvPDT
             // 
+            this.DgvPDT.AllowUserToAddRows = false;
+            this.DgvPDT.AllowUserToDeleteRows = false;
             this.DgvPDT.AutoGenerateColumns = false;
             this.DgvPDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvPDT.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -2267,8 +2207,8 @@
             this.PdtImpuestoAlaRentaCoeficiente,
             this.PdtImpuestoAlaRentaImpuestoResultante,
             this.PdtImpuestoAlaRentaPagado,
-            this.impuestoAlaRentaCompensacionSFA,
             this.PdtImpuestoAlaRentaCompensacionSFA,
+            this.PdtImpuestoAlaRentaCompensacionSFMB,
             this.PdtImpuestoAlaRentaCompensacionITAN,
             this.PdtImpuestoAlaRentaCompensacionPercepcion,
             this.PdtImpuestoAlaRentaImputacion,
@@ -2315,20 +2255,32 @@
             this.dataGridViewTextBoxColumn8});
             this.DgvPDT.DataSource = this.BSpdt;
             this.DgvPDT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DgvPDT.Location = new System.Drawing.Point(3, 63);
+            this.DgvPDT.Location = new System.Drawing.Point(3, 53);
             this.DgvPDT.Name = "DgvPDT";
-            this.DgvPDT.Size = new System.Drawing.Size(1260, 512);
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvPDT.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            this.DgvPDT.Size = new System.Drawing.Size(1260, 522);
             this.DgvPDT.TabIndex = 2;
+            this.DgvPDT.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvPDT_CellEndEdit);
+            this.DgvPDT.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvPDT_CellFormatting);
             this.DgvPDT.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DgvPDT_DataError);
             // 
             // PdtID
             // 
+            this.PdtID.Frozen = true;
             this.PdtID.HeaderText = "#";
             this.PdtID.Name = "PdtID";
             this.PdtID.Width = 30;
             // 
             // PdMes
             // 
+            this.PdMes.Frozen = true;
             this.PdMes.HeaderText = "Mes";
             this.PdMes.Name = "PdMes";
             this.PdMes.Width = 30;
@@ -2336,8 +2288,9 @@
             // PdtIngresoExportación
             // 
             this.PdtIngresoExportación.DataPropertyName = "ingresoExportación";
-            dataGridViewCellStyle45.BackColor = System.Drawing.Color.Lavender;
-            this.PdtIngresoExportación.DefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Lavender;
+            this.PdtIngresoExportación.DefaultCellStyle = dataGridViewCellStyle7;
+            this.PdtIngresoExportación.Frozen = true;
             this.PdtIngresoExportación.HeaderText = "Ingreso Exportación";
             this.PdtIngresoExportación.Name = "PdtIngresoExportación";
             this.PdtIngresoExportación.Width = 70;
@@ -2345,8 +2298,9 @@
             // PdtIngresoGravadas
             // 
             this.PdtIngresoGravadas.DataPropertyName = "ingresoGravadas";
-            dataGridViewCellStyle46.BackColor = System.Drawing.Color.Lavender;
-            this.PdtIngresoGravadas.DefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Lavender;
+            this.PdtIngresoGravadas.DefaultCellStyle = dataGridViewCellStyle8;
+            this.PdtIngresoGravadas.Frozen = true;
             this.PdtIngresoGravadas.HeaderText = "Ingreso Gravadas";
             this.PdtIngresoGravadas.Name = "PdtIngresoGravadas";
             this.PdtIngresoGravadas.Width = 70;
@@ -2354,8 +2308,9 @@
             // PdtIngresoExonerada
             // 
             this.PdtIngresoExonerada.DataPropertyName = "ingresoExonerada";
-            dataGridViewCellStyle47.BackColor = System.Drawing.Color.Lavender;
-            this.PdtIngresoExonerada.DefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Lavender;
+            this.PdtIngresoExonerada.DefaultCellStyle = dataGridViewCellStyle9;
+            this.PdtIngresoExonerada.Frozen = true;
             this.PdtIngresoExonerada.HeaderText = "Ingreso Exonerada";
             this.PdtIngresoExonerada.Name = "PdtIngresoExonerada";
             this.PdtIngresoExonerada.Width = 70;
@@ -2363,8 +2318,9 @@
             // PdtIngresoInafecta
             // 
             this.PdtIngresoInafecta.DataPropertyName = "ingresoInafecta";
-            dataGridViewCellStyle48.BackColor = System.Drawing.Color.Lavender;
-            this.PdtIngresoInafecta.DefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Lavender;
+            this.PdtIngresoInafecta.DefaultCellStyle = dataGridViewCellStyle10;
+            this.PdtIngresoInafecta.Frozen = true;
             this.PdtIngresoInafecta.HeaderText = "Ingreso Inafecta";
             this.PdtIngresoInafecta.Name = "PdtIngresoInafecta";
             this.PdtIngresoInafecta.Width = 70;
@@ -2372,8 +2328,9 @@
             // PdtIngresoIGV
             // 
             this.PdtIngresoIGV.DataPropertyName = "ingresoIGV";
-            dataGridViewCellStyle49.BackColor = System.Drawing.Color.Lavender;
-            this.PdtIngresoIGV.DefaultCellStyle = dataGridViewCellStyle49;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Lavender;
+            this.PdtIngresoIGV.DefaultCellStyle = dataGridViewCellStyle11;
+            this.PdtIngresoIGV.Frozen = true;
             this.PdtIngresoIGV.HeaderText = "Ingreso IGV";
             this.PdtIngresoIGV.Name = "PdtIngresoIGV";
             this.PdtIngresoIGV.Width = 70;
@@ -2381,8 +2338,9 @@
             // PdtIngresoImporteTotal
             // 
             this.PdtIngresoImporteTotal.DataPropertyName = "ingresoImporteTotal";
-            dataGridViewCellStyle50.BackColor = System.Drawing.Color.Lavender;
-            this.PdtIngresoImporteTotal.DefaultCellStyle = dataGridViewCellStyle50;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Lavender;
+            this.PdtIngresoImporteTotal.DefaultCellStyle = dataGridViewCellStyle12;
+            this.PdtIngresoImporteTotal.Frozen = true;
             this.PdtIngresoImporteTotal.HeaderText = "Ingreso Importe Total";
             this.PdtIngresoImporteTotal.Name = "PdtIngresoImporteTotal";
             this.PdtIngresoImporteTotal.Width = 70;
@@ -2390,6 +2348,7 @@
             // PdtEgresoBaseImponible
             // 
             this.PdtEgresoBaseImponible.DataPropertyName = "egresoBaseImponible";
+            this.PdtEgresoBaseImponible.Frozen = true;
             this.PdtEgresoBaseImponible.HeaderText = "Egreso Base Imponible";
             this.PdtEgresoBaseImponible.Name = "PdtEgresoBaseImponible";
             this.PdtEgresoBaseImponible.Width = 70;
@@ -2397,6 +2356,7 @@
             // PdtEgresoIGV
             // 
             this.PdtEgresoIGV.DataPropertyName = "egresoIGV";
+            this.PdtEgresoIGV.Frozen = true;
             this.PdtEgresoIGV.HeaderText = "Egreso IGV";
             this.PdtEgresoIGV.Name = "PdtEgresoIGV";
             this.PdtEgresoIGV.Width = 70;
@@ -2404,6 +2364,7 @@
             // PdtEgresoNoGravada
             // 
             this.PdtEgresoNoGravada.DataPropertyName = "egresoNoGravada";
+            this.PdtEgresoNoGravada.Frozen = true;
             this.PdtEgresoNoGravada.HeaderText = "Egreso No Gravadas";
             this.PdtEgresoNoGravada.Name = "PdtEgresoNoGravada";
             this.PdtEgresoNoGravada.Width = 70;
@@ -2411,6 +2372,7 @@
             // PdtEgresoImporteTotal
             // 
             this.PdtEgresoImporteTotal.DataPropertyName = "egresoImporteTotal";
+            this.PdtEgresoImporteTotal.Frozen = true;
             this.PdtEgresoImporteTotal.HeaderText = "Egreso Importe Total";
             this.PdtEgresoImporteTotal.Name = "PdtEgresoImporteTotal";
             this.PdtEgresoImporteTotal.Width = 70;
@@ -2418,8 +2380,8 @@
             // PdtFicalIgvImpouestoResultante
             // 
             this.PdtFicalIgvImpouestoResultante.DataPropertyName = "ficalIgvImpouestoResultante";
-            dataGridViewCellStyle51.BackColor = System.Drawing.Color.Lavender;
-            this.PdtFicalIgvImpouestoResultante.DefaultCellStyle = dataGridViewCellStyle51;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.Lavender;
+            this.PdtFicalIgvImpouestoResultante.DefaultCellStyle = dataGridViewCellStyle13;
             this.PdtFicalIgvImpouestoResultante.HeaderText = "Credito/Debito Fiscal IGV Impouesto Resultante";
             this.PdtFicalIgvImpouestoResultante.Name = "PdtFicalIgvImpouestoResultante";
             this.PdtFicalIgvImpouestoResultante.Width = 70;
@@ -2427,8 +2389,8 @@
             // PdtFicalIgvCreditoDebito
             // 
             this.PdtFicalIgvCreditoDebito.DataPropertyName = "ficalIgvCreditoDebito";
-            dataGridViewCellStyle52.BackColor = System.Drawing.Color.Lavender;
-            this.PdtFicalIgvCreditoDebito.DefaultCellStyle = dataGridViewCellStyle52;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.Lavender;
+            this.PdtFicalIgvCreditoDebito.DefaultCellStyle = dataGridViewCellStyle14;
             this.PdtFicalIgvCreditoDebito.HeaderText = "Credito/Debito Fiscal IGV";
             this.PdtFicalIgvCreditoDebito.Name = "PdtFicalIgvCreditoDebito";
             this.PdtFicalIgvCreditoDebito.Width = 70;
@@ -2436,8 +2398,8 @@
             // PdtFicalIgvSaldoFavorPagar
             // 
             this.PdtFicalIgvSaldoFavorPagar.DataPropertyName = "ficalIgvSaldoFavorPagar";
-            dataGridViewCellStyle53.BackColor = System.Drawing.Color.Lavender;
-            this.PdtFicalIgvSaldoFavorPagar.DefaultCellStyle = dataGridViewCellStyle53;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.Lavender;
+            this.PdtFicalIgvSaldoFavorPagar.DefaultCellStyle = dataGridViewCellStyle15;
             this.PdtFicalIgvSaldoFavorPagar.HeaderText = "Credito/Debito Fiscal IGV Saldo a Favor/Pagar";
             this.PdtFicalIgvSaldoFavorPagar.Name = "PdtFicalIgvSaldoFavorPagar";
             this.PdtFicalIgvSaldoFavorPagar.Width = 70;
@@ -2452,8 +2414,8 @@
             // PdtPercepcionesIgvDelMes
             // 
             this.PdtPercepcionesIgvDelMes.DataPropertyName = "percepcionesIgvDelMes";
-            dataGridViewCellStyle54.BackColor = System.Drawing.Color.Lavender;
-            this.PdtPercepcionesIgvDelMes.DefaultCellStyle = dataGridViewCellStyle54;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.Lavender;
+            this.PdtPercepcionesIgvDelMes.DefaultCellStyle = dataGridViewCellStyle16;
             this.PdtPercepcionesIgvDelMes.HeaderText = "Percepciones IGV Del Mes";
             this.PdtPercepcionesIgvDelMes.Name = "PdtPercepcionesIgvDelMes";
             this.PdtPercepcionesIgvDelMes.Width = 70;
@@ -2461,8 +2423,8 @@
             // PdtPercepcionesIgvMesAnterior
             // 
             this.PdtPercepcionesIgvMesAnterior.DataPropertyName = "percepcionesIgvMesAnterior";
-            dataGridViewCellStyle55.BackColor = System.Drawing.Color.Lavender;
-            this.PdtPercepcionesIgvMesAnterior.DefaultCellStyle = dataGridViewCellStyle55;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.Lavender;
+            this.PdtPercepcionesIgvMesAnterior.DefaultCellStyle = dataGridViewCellStyle17;
             this.PdtPercepcionesIgvMesAnterior.HeaderText = "Percepciones IGV Mes Anterior";
             this.PdtPercepcionesIgvMesAnterior.Name = "PdtPercepcionesIgvMesAnterior";
             this.PdtPercepcionesIgvMesAnterior.Width = 70;
@@ -2470,8 +2432,8 @@
             // PdtPercepcionesIgvAplicada
             // 
             this.PdtPercepcionesIgvAplicada.DataPropertyName = "percepcionesIgvAplicada";
-            dataGridViewCellStyle56.BackColor = System.Drawing.Color.Lavender;
-            this.PdtPercepcionesIgvAplicada.DefaultCellStyle = dataGridViewCellStyle56;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.Lavender;
+            this.PdtPercepcionesIgvAplicada.DefaultCellStyle = dataGridViewCellStyle18;
             this.PdtPercepcionesIgvAplicada.HeaderText = "Percepciones IGV Aplicada";
             this.PdtPercepcionesIgvAplicada.Name = "PdtPercepcionesIgvAplicada";
             this.PdtPercepcionesIgvAplicada.Width = 70;
@@ -2479,8 +2441,8 @@
             // PdtPercepcionesIgvComposicionProcedente
             // 
             this.PdtPercepcionesIgvComposicionProcedente.DataPropertyName = "percepcionesIgvComposicionProcedente";
-            dataGridViewCellStyle57.BackColor = System.Drawing.Color.Lavender;
-            this.PdtPercepcionesIgvComposicionProcedente.DefaultCellStyle = dataGridViewCellStyle57;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.Lavender;
+            this.PdtPercepcionesIgvComposicionProcedente.DefaultCellStyle = dataGridViewCellStyle19;
             this.PdtPercepcionesIgvComposicionProcedente.HeaderText = "Percepciones IGV Composicion Procedente";
             this.PdtPercepcionesIgvComposicionProcedente.Name = "PdtPercepcionesIgvComposicionProcedente";
             this.PdtPercepcionesIgvComposicionProcedente.Width = 70;
@@ -2488,8 +2450,8 @@
             // PdtPercepcionesIgvPorAplicar
             // 
             this.PdtPercepcionesIgvPorAplicar.DataPropertyName = "percepcionesIgvPorAplicar";
-            dataGridViewCellStyle58.BackColor = System.Drawing.Color.Lavender;
-            this.PdtPercepcionesIgvPorAplicar.DefaultCellStyle = dataGridViewCellStyle58;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.Lavender;
+            this.PdtPercepcionesIgvPorAplicar.DefaultCellStyle = dataGridViewCellStyle20;
             this.PdtPercepcionesIgvPorAplicar.HeaderText = "Percepciones IGV por Aplicar";
             this.PdtPercepcionesIgvPorAplicar.Name = "PdtPercepcionesIgvPorAplicar";
             this.PdtPercepcionesIgvPorAplicar.Width = 70;
@@ -2532,8 +2494,8 @@
             // PdtIgvPagoAPagar
             // 
             this.PdtIgvPagoAPagar.DataPropertyName = "igvPagoAPagar";
-            dataGridViewCellStyle59.BackColor = System.Drawing.Color.Lavender;
-            this.PdtIgvPagoAPagar.DefaultCellStyle = dataGridViewCellStyle59;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.Lavender;
+            this.PdtIgvPagoAPagar.DefaultCellStyle = dataGridViewCellStyle21;
             this.PdtIgvPagoAPagar.HeaderText = "IGV/Pago a Pagar";
             this.PdtIgvPagoAPagar.Name = "PdtIgvPagoAPagar";
             this.PdtIgvPagoAPagar.Width = 70;
@@ -2541,8 +2503,8 @@
             // PdtIgvPagoPagado
             // 
             this.PdtIgvPagoPagado.DataPropertyName = "igvPagoPagado";
-            dataGridViewCellStyle60.BackColor = System.Drawing.Color.Lavender;
-            this.PdtIgvPagoPagado.DefaultCellStyle = dataGridViewCellStyle60;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.Lavender;
+            this.PdtIgvPagoPagado.DefaultCellStyle = dataGridViewCellStyle22;
             this.PdtIgvPagoPagado.HeaderText = "IGV/Pago Pagado";
             this.PdtIgvPagoPagado.Name = "PdtIgvPagoPagado";
             this.PdtIgvPagoPagado.Width = 70;
@@ -2582,17 +2544,18 @@
             this.PdtImpuestoAlaRentaPagado.Name = "PdtImpuestoAlaRentaPagado";
             this.PdtImpuestoAlaRentaPagado.Width = 70;
             // 
-            // impuestoAlaRentaCompensacionSFA
-            // 
-            this.impuestoAlaRentaCompensacionSFA.HeaderText = "Impuesto a la Renta/Pago Compensación SFA (IR)";
-            this.impuestoAlaRentaCompensacionSFA.Name = "impuestoAlaRentaCompensacionSFA";
-            // 
             // PdtImpuestoAlaRentaCompensacionSFA
             // 
-            this.PdtImpuestoAlaRentaCompensacionSFA.DataPropertyName = "impuestoAlaRentaCompensacionSFMB";
-            this.PdtImpuestoAlaRentaCompensacionSFA.HeaderText = "Impuesto a la Renta/Pago Compensación SFMB (IR)";
+            this.PdtImpuestoAlaRentaCompensacionSFA.DataPropertyName = "impuestoAlaRentaCompensacionSFA";
+            this.PdtImpuestoAlaRentaCompensacionSFA.HeaderText = "Impuesto a la Renta/Pago Compensación SFA (IR)";
             this.PdtImpuestoAlaRentaCompensacionSFA.Name = "PdtImpuestoAlaRentaCompensacionSFA";
             this.PdtImpuestoAlaRentaCompensacionSFA.Width = 70;
+            // 
+            // PdtImpuestoAlaRentaCompensacionSFMB
+            // 
+            this.PdtImpuestoAlaRentaCompensacionSFMB.DataPropertyName = "impuestoAlaRentaCompensacionSFMB";
+            this.PdtImpuestoAlaRentaCompensacionSFMB.HeaderText = "Impuesto a la Renta/Pago Compensación SFFMB (IR)";
+            this.PdtImpuestoAlaRentaCompensacionSFMB.Name = "PdtImpuestoAlaRentaCompensacionSFMB";
             // 
             // PdtImpuestoAlaRentaCompensacionITAN
             // 
@@ -2862,6 +2825,32 @@
             this.dataGridViewTextBoxColumn8.HeaderText = "mes";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
+            // BSpdt
+            // 
+            this.BSpdt.DataMember = "sp_pdt";
+            this.BSpdt.DataSource = this.dSPdt;
+            // 
+            // dSPdt
+            // 
+            this.dSPdt.DataSetName = "DSPdt";
+            this.dSPdt.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // TAVentasTableAdapter
+            // 
+            this.TAVentasTableAdapter.ClearBeforeFill = true;
+            // 
+            // TAComprasTableAdapter
+            // 
+            this.TAComprasTableAdapter.ClearBeforeFill = true;
+            // 
+            // TADetraccionesTableAdapter
+            // 
+            this.TADetraccionesTableAdapter.ClearBeforeFill = true;
+            // 
+            // TApdt
+            // 
+            this.TApdt.ClearBeforeFill = true;
+            // 
             // FrmProgramaLibrosElectronicos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2891,11 +2880,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dSVentas)).EndInit();
             this.tabPDT.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DgvPDT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BSpdt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSPdt)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvPDT)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2935,7 +2923,6 @@
         private System.Windows.Forms.BindingSource BSDetraccionesBindingSource;
         private DSDetraccionesTableAdapters.sp_all_combo_detraccionesTableAdapter TADetraccionesTableAdapter;
         private System.Windows.Forms.Label lblPeriodoActual;
-        private System.Windows.Forms.TabPage tabPDT;
         private System.Windows.Forms.Label lblRazonSocial;
         private System.Windows.Forms.BindingSource BSpdt;
         private DSPdt dSPdt;
@@ -3091,16 +3078,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaRegistroDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaModificacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn comprasObservacion;
-        private System.Windows.Forms.Label lblSumGravadas;
+        private System.Windows.Forms.DataGridView DgvPDT;
+        private System.Windows.Forms.TabPage tabPDT;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtRetencionIgvMesAnterior;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtPercepcionIgvMesAnterior;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtCreditoDebitoFiscal;
-        private System.Windows.Forms.DataGridView DgvPDT;
+        private System.Windows.Forms.Button ButtonGuardarPDT;
+        private System.Windows.Forms.Button ButtonReportPDT;
         private System.Windows.Forms.DataGridViewTextBoxColumn PdtID;
         private System.Windows.Forms.DataGridViewTextBoxColumn PdMes;
         private System.Windows.Forms.DataGridViewTextBoxColumn PdtIngresoExportación;
@@ -3134,8 +3117,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PdtImpuestoAlaRentaCoeficiente;
         private System.Windows.Forms.DataGridViewTextBoxColumn PdtImpuestoAlaRentaImpuestoResultante;
         private System.Windows.Forms.DataGridViewTextBoxColumn PdtImpuestoAlaRentaPagado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn impuestoAlaRentaCompensacionSFA;
         private System.Windows.Forms.DataGridViewTextBoxColumn PdtImpuestoAlaRentaCompensacionSFA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PdtImpuestoAlaRentaCompensacionSFMB;
         private System.Windows.Forms.DataGridViewTextBoxColumn PdtImpuestoAlaRentaCompensacionITAN;
         private System.Windows.Forms.DataGridViewTextBoxColumn PdtImpuestoAlaRentaCompensacionPercepcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn PdtImpuestoAlaRentaImputacion;

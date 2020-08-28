@@ -8,9 +8,17 @@ namespace Presentacion
     {
         Rol rol = new Rol();
         bool edit = false;
-        public FrmRol()
+        private FrmRol()
         {
             InitializeComponent();
+        }
+
+        private static FrmRol Instancia = null;
+
+        public static FrmRol GetForm()
+        {
+            if (Instancia == null) Instancia = new FrmRol();
+            return Instancia;
         }
 
         private void FrmRol_Load(object sender, EventArgs e)

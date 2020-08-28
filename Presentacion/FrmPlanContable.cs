@@ -14,9 +14,17 @@ namespace Presentacion
         PlanContable planContable = new PlanContable();
         DataTable dataTable = new DataTable();
         DataTable dataTableShowById = new DataTable();
-        public FrmPlanContable()
+        private FrmPlanContable()
         {
             InitializeComponent();
+        }
+
+        private static FrmPlanContable Instancia = null;
+
+        public static FrmPlanContable GetForm()
+        {
+            if (Instancia == null) Instancia = new FrmPlanContable();
+            return Instancia;
         }
 
         private void FrmPlanContable_Load(object sender, EventArgs e)

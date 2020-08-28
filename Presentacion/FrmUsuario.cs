@@ -11,9 +11,17 @@ namespace Presentacion
         Rol rol = new Rol();
         bool edit = false;
 
-        public FrmUsuario()
+        private FrmUsuario()
         {
             InitializeComponent();
+        }
+
+        private static FrmUsuario Instancia = null;
+
+        public static FrmUsuario GetForm()
+        {
+            if (Instancia == null) Instancia = new FrmUsuario();
+            return Instancia;
         }
 
         private void FrmUsuario_Load(object sender, EventArgs e)

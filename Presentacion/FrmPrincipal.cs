@@ -33,36 +33,37 @@ namespace Presentacion
 
         private void menuItemProveedores_Click(object sender, EventArgs e)
         {
-            FrmProveedor frmProveedor = new FrmProveedor();
+            FrmProveedor frmProveedor = FrmProveedor.GetForm();
             frmProveedor.MdiParent = this;
-            //frmProveedor.Dock = DockStyle.Fill;
-            //frmProveedor.Text = "SISCONT - " + this.MdiChildren.Length.ToString();
             frmProveedor.Show();
+            frmProveedor.BringToFront();
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            FrmProgramaLibrosElectronicos frmProgramaLibrosElectronicos = new FrmProgramaLibrosElectronicos();
+            FrmProgramaLibrosElectronicos frmProgramaLibrosElectronicos = FrmProgramaLibrosElectronicos.GetForm();
             frmProgramaLibrosElectronicos.MdiParent = this;
             frmProgramaLibrosElectronicos.Dock = DockStyle.Fill;
-            ///frmProgramaLibrosElectronicos.Text = "SISCONT - " + this.MdiChildren;
             frmProgramaLibrosElectronicos.empresa = empresa;
             frmProgramaLibrosElectronicos.username = username;
             frmProgramaLibrosElectronicos.idUsuario = idUsuario;
             frmProgramaLibrosElectronicos.Show();
+            frmProgramaLibrosElectronicos.BringToFront();
         }
         private void tipoDeCambioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmTipoCambio frmTipoCambio = new FrmTipoCambio();
+            FrmTipoCambio frmTipoCambio = FrmTipoCambio.GetForm();
             frmTipoCambio.MdiParent = this;
             frmTipoCambio.Show();
+            frmTipoCambio.BringToFront();
         }
 
         private void detracciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmDetraccion frmDetraccion = new FrmDetraccion();
+            FrmDetraccion frmDetraccion = FrmDetraccion.GetForm();
             frmDetraccion.MdiParent = this;
             frmDetraccion.Show();
+            frmDetraccion.BringToFront();
         }
 
         private void getDolarTypeChange()
@@ -130,9 +131,10 @@ namespace Presentacion
 
         private void mantenimientoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            FrmUsuario frmUsuario = new FrmUsuario();
+            FrmUsuario frmUsuario = FrmUsuario.GetForm();
             frmUsuario.MdiParent = this;
             frmUsuario.Show();
+            frmUsuario.BringToFront();
         }
 
         private void NetworkState()
@@ -158,9 +160,10 @@ namespace Presentacion
 
         private void rolesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmRol frmRol = new FrmRol();
+            FrmRol frmRol = FrmRol.GetForm();
             frmRol.MdiParent = this;
             frmRol.Show();
+            frmRol.BringToFront();
         }
 
         private void salirToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -172,10 +175,11 @@ namespace Presentacion
 
         private void menuItemPlanContable_Click(object sender, EventArgs e)
         {
-            FrmPlanContable frmPlanContable = new FrmPlanContable();
+            FrmPlanContable frmPlanContable = FrmPlanContable.GetForm();
             frmPlanContable.MdiParent = this;
             frmPlanContable.Dock = DockStyle.Fill;
             frmPlanContable.Show();
+            frmPlanContable.BringToFront();
         }
 
         private void UsuarioToolStripMenuItem_Click(object sender, EventArgs e)

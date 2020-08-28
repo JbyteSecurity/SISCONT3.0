@@ -8,11 +8,18 @@ namespace Presentacion
     {
         Detraccion detraccion = new Detraccion();
         private bool edit = false;
-        public FrmDetraccion()
+        private FrmDetraccion()
         {
             InitializeComponent();
         }
 
+        private static FrmDetraccion Instancia = null;
+
+        public static FrmDetraccion GetForm()
+        {
+            if (Instancia == null) Instancia = new FrmDetraccion();
+            return Instancia;
+        }
         private void FrmDetraccion_Load(object sender, EventArgs e)
         {
             Index();

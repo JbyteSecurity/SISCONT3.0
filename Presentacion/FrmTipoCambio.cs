@@ -9,9 +9,17 @@ namespace Presentacion
     {
         TipoCambio tipoCambio = new TipoCambio();
         bool edit = false;
-        public FrmTipoCambio()
+        private FrmTipoCambio()
         {
             InitializeComponent();
+        }
+
+        private static FrmTipoCambio Instancia = null;
+
+        public static FrmTipoCambio GetForm()
+        {
+            if (Instancia == null) Instancia = new FrmTipoCambio();
+            return Instancia;
         }
 
         private void FrmTipoCambio_Load(object sender, EventArgs e)

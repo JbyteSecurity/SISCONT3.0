@@ -12,9 +12,17 @@ namespace Presentacion
         private bool edit = false;
 
         Ruc RucC = new Ruc();
-        public FrmProveedor()
+        private FrmProveedor()
         {
             InitializeComponent();
+        }
+
+        private static FrmProveedor Instancia = null;
+
+        public static FrmProveedor GetForm()
+        {
+            if (Instancia == null) Instancia = new FrmProveedor();
+            return Instancia;
         }
 
         private void FrmProveedor_Load(object sender, EventArgs e)
