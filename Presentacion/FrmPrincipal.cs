@@ -35,6 +35,7 @@ namespace Presentacion
         {
             FrmProveedor frmProveedor = FrmProveedor.GetForm();
             frmProveedor.MdiParent = this;
+            frmProveedor.WindowState = FormWindowState.Normal;
             frmProveedor.Show();
             frmProveedor.BringToFront();
         }
@@ -43,7 +44,8 @@ namespace Presentacion
         {
             FrmProgramaLibrosElectronicos frmProgramaLibrosElectronicos = FrmProgramaLibrosElectronicos.GetForm();
             frmProgramaLibrosElectronicos.MdiParent = this;
-            frmProgramaLibrosElectronicos.Dock = DockStyle.Fill;
+            //frmProgramaLibrosElectronicos.Dock = DockStyle.Fill;
+            frmProgramaLibrosElectronicos.WindowState = FormWindowState.Maximized;
             frmProgramaLibrosElectronicos.empresa = empresa;
             frmProgramaLibrosElectronicos.username = username;
             frmProgramaLibrosElectronicos.idUsuario = idUsuario;
@@ -54,6 +56,7 @@ namespace Presentacion
         {
             FrmTipoCambio frmTipoCambio = FrmTipoCambio.GetForm();
             frmTipoCambio.MdiParent = this;
+            frmTipoCambio.WindowState = FormWindowState.Normal;
             frmTipoCambio.Show();
             frmTipoCambio.BringToFront();
         }
@@ -62,6 +65,7 @@ namespace Presentacion
         {
             FrmDetraccion frmDetraccion = FrmDetraccion.GetForm();
             frmDetraccion.MdiParent = this;
+            frmDetraccion.WindowState = FormWindowState.Normal;
             frmDetraccion.Show();
             frmDetraccion.BringToFront();
         }
@@ -133,6 +137,7 @@ namespace Presentacion
         {
             FrmUsuario frmUsuario = FrmUsuario.GetForm();
             frmUsuario.MdiParent = this;
+            frmUsuario.WindowState = FormWindowState.Normal;
             frmUsuario.Show();
             frmUsuario.BringToFront();
         }
@@ -162,22 +167,25 @@ namespace Presentacion
         {
             FrmRol frmRol = FrmRol.GetForm();
             frmRol.MdiParent = this;
+            frmRol.WindowState = FormWindowState.Normal;
             frmRol.Show();
             frmRol.BringToFront();
         }
 
         private void salirToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            this.Close();
-            FrmLogin frmLogin = new FrmLogin();
-            frmLogin.Show();
+            //FrmLogin frmLogin = new FrmLogin();
+            //this.Close();
+            //Application.Exit();
+            //frmLogin.Show();
+            Application.Restart();
         }
 
         private void menuItemPlanContable_Click(object sender, EventArgs e)
         {
             FrmPlanContable frmPlanContable = FrmPlanContable.GetForm();
             frmPlanContable.MdiParent = this;
-            frmPlanContable.Dock = DockStyle.Fill;
+            frmPlanContable.WindowState = FormWindowState.Maximized;
             frmPlanContable.Show();
             frmPlanContable.BringToFront();
         }

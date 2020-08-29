@@ -1,5 +1,4 @@
-﻿using DevExpress.Utils.ScrollAnnotations;
-using Negocios;
+﻿using Negocios;
 using System;
 using System.Collections;
 using System.Data;
@@ -2005,7 +2004,9 @@ namespace Presentacion
 
         private void ButtonReportPDT_Click(object sender, EventArgs e)
         {
-
+            reportes.FormReportePDT FrmReportePDT = new reportes.FormReportePDT();
+            FrmReportePDT.MdiParent = FrmPrincipal.ActiveForm;
+            FrmReportePDT.Show();
         }
 
         private void DgvPDT_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
