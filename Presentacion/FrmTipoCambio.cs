@@ -18,8 +18,16 @@ namespace Presentacion
 
         public static FrmTipoCambio GetForm()
         {
-            if (Instancia == null) Instancia = new FrmTipoCambio();
+            if (Instancia == null) {
+                Instancia = new FrmTipoCambio();
+                Instancia.FormClosed += new FormClosedEventHandler(Reset);//SOLO PARA FORMULARIOS
+            }
             return Instancia;
+        }
+
+        private static void Reset(object sender, FormClosedEventArgs e)//SOLO PARA FORMULARIOS
+        {
+            Instancia = null;
         }
 
         private void FrmTipoCambio_Load(object sender, EventArgs e)

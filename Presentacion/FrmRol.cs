@@ -17,8 +17,16 @@ namespace Presentacion
 
         public static FrmRol GetForm()
         {
-            if (Instancia == null) Instancia = new FrmRol();
+            if (Instancia == null) {
+                Instancia = new FrmRol();
+                Instancia.FormClosed += new FormClosedEventHandler(Reset);//SOLO PARA FORMULARIOS
+            }
             return Instancia;
+        }
+
+        private static void Reset(object sender, FormClosedEventArgs e)//SOLO PARA FORMULARIOS
+        {
+            Instancia = null;
         }
 
         private void FrmRol_Load(object sender, EventArgs e)

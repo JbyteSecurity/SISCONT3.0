@@ -155,7 +155,7 @@ namespace Presentacion
                 Estado = "Conectado al Servidor";
                 objetoResp.Close();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Estado = "Verifique la conexión al servidor";
             }

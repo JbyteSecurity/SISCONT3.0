@@ -23,8 +23,16 @@ namespace Presentacion
 
         public static FrmPlanContable GetForm()
         {
-            if (Instancia == null) Instancia = new FrmPlanContable();
+            if (Instancia == null) {
+                Instancia = new FrmPlanContable();
+                Instancia.FormClosed += new FormClosedEventHandler(Reset);//SOLO PARA FORMULARIOS
+            }
             return Instancia;
+        }
+
+        private static void Reset(object sender, FormClosedEventArgs e)//SOLO PARA FORMULARIOS
+        {
+            Instancia = null;
         }
 
         private void FrmPlanContable_Load(object sender, EventArgs e)
@@ -86,7 +94,7 @@ namespace Presentacion
                     AddNodes(Convert.ToInt32(dr["Codigo"].ToString()), childremNone);
                 }
             }
-            catch (Exception Ex) { }
+            catch (Exception) { }
 
         }
 

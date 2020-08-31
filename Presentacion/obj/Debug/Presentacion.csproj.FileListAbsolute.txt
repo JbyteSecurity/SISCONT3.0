@@ -133,3 +133,9 @@ C:\Users\Developers\Source\Repos\SISCONT2.0\SISCONT\Presentacion\obj\Debug\RdlCo
 C:\Users\Developers\Source\Repos\SISCONT2.0\SISCONT\Presentacion\obj\Debug\Presentacion.csproj.CoreCompileInputs.cache
 C:\Users\Developers\Source\Repos\SISCONT2.0\SISCONT\Presentacion\obj\Debug\Presentacion.exe
 C:\Users\Developers\Source\Repos\SISCONT2.0\SISCONT\Presentacion\obj\Debug\Presentacion.pdb
+C:\Users\Developers\Source\Repos\SISCONT2.0\SISCONT\Presentacion\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Users\Developers\Source\Repos\SISCONT2.0\SISCONT\Presentacion\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\Developers\Source\Repos\SISCONT2.0\SISCONT\Presentacion\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Users\Developers\Source\Repos\SISCONT2.0\SISCONT\Presentacion\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\Developers\Source\Repos\SISCONT2.0\SISCONT\Presentacion\bin\Debug\Presentacion.exe.config
+C:\Users\Developers\Source\Repos\SISCONT2.0\SISCONT\Presentacion\obj\Debug\Presentacion.csproj.CopyComplete

@@ -245,7 +245,7 @@ namespace Datos
                 sqlCommand.Parameters.Clear();
                 conexion.CloseConnection();
                 return true;
-            } catch(Exception Ex)
+            } catch(Exception)
             {
                 return false;
             }

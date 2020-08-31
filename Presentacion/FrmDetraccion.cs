@@ -17,8 +17,16 @@ namespace Presentacion
 
         public static FrmDetraccion GetForm()
         {
-            if (Instancia == null) Instancia = new FrmDetraccion();
+            if (Instancia == null) {
+                Instancia = new FrmDetraccion();
+                Instancia.FormClosed += new FormClosedEventHandler(Reset);//SOLO PARA FORMULARIOS
+            }
             return Instancia;
+        }
+
+        private static void Reset(object sender, FormClosedEventArgs e)//SOLO PARA FORMULARIOS
+        {
+            Instancia = null;
         }
         private void FrmDetraccion_Load(object sender, EventArgs e)
         {

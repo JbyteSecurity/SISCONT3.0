@@ -44,8 +44,17 @@ namespace Presentacion
 
         public static FrmProgramaLibrosElectronicos GetForm()
         {
-            if (Instancia == null) Instancia = new FrmProgramaLibrosElectronicos();
+            if (Instancia == null)
+            {
+                Instancia = new FrmProgramaLibrosElectronicos();
+                Instancia.FormClosed += new FormClosedEventHandler(Reset);//SOLO PARA FORMULARIOS
+            }
             return Instancia;
+        }
+
+        private static void Reset(object sender, FormClosedEventArgs e)//SOLO PARA FORMULARIOS
+        {
+            Instancia = null;
         }
 
         private void FrmProgramaLibrosElectronicos_Load(object sender, EventArgs e)
@@ -89,7 +98,7 @@ namespace Presentacion
             dgvRegistroVentas.DefaultCellStyle.Font = new Font("Tahoma", 8, FontStyle.Regular);
             dgvRegistroVentas.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 8, FontStyle.Regular);
             lblPeriodoActual.Text = "Periodo Actual: " + DateTime.UtcNow.ToString("MMMM") + " " + DateTime.UtcNow.ToString("yyyy");
-            lblRazonSocial.Text = "Empresa: " + empresa.Rows[0]["razon_social"].ToString();
+            lblRazonSocial.Text = empresa.Rows[0]["razon_social"].ToString();
             //lblPeriodoActual.Text = username;
             dgvRegistroCompras.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvRegistroVentas.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -113,7 +122,7 @@ namespace Presentacion
         {
             SaveCompras();
             SaveVentas();
-            FillPDT();
+            FillPDT(true);
         }
 
         private void GetRoute()
@@ -261,10 +270,7 @@ namespace Presentacion
                 MessageBox.Show("Se han guardado los cambios correctamente", "Compras .::. Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 FillDataGridViewCompras();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex, "Ventas .::. Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            catch (Exception) {}
         }
 
         //GUARDAR Ventas 
@@ -462,7 +468,7 @@ namespace Presentacion
                             }
                         }
                     }
-                    catch (Exception Ex) { }
+                    catch (Exception) { }
                     break;
 
                 case 4:
@@ -478,7 +484,7 @@ namespace Presentacion
                             }
                         }
                     }
-                    catch (Exception Ex) { }
+                    catch (Exception) { }
                     break;
                 case 8: //obtener proveedor
                     try
@@ -520,7 +526,7 @@ namespace Presentacion
                             }
                         }
                     }
-                    catch (Exception Ex) { }
+                    catch (Exception) { }
                     break;
                 case 12:
                 case 14:
@@ -590,7 +596,7 @@ namespace Presentacion
                             }
                         }
                     }
-                    catch (Exception Ex) { }
+                    catch (Exception) { }
                     break;
                 case 17: // Dolares
                     try
@@ -647,7 +653,7 @@ namespace Presentacion
                             }
                         }
                     }
-                    catch (Exception Ex) { }
+                    catch (Exception) { }
                     break;
                 case 24: // Codigo
                     try
@@ -692,7 +698,7 @@ namespace Presentacion
                             }
                         }
                     }
-                    catch (Exception Ex) { }
+                    catch (Exception) { }
                     break;
             }
         }
@@ -742,7 +748,7 @@ namespace Presentacion
                             }
                         }
                     }
-                    catch (Exception Ex) { }
+                    catch (Exception) { }
                     break;
                 case 8:
                     try
@@ -783,7 +789,7 @@ namespace Presentacion
                             }
                         }
                     }
-                    catch (Exception Ex) { }
+                    catch (Exception) { }
                     break;
                 case 17: // BaseImponible
                     try
@@ -817,7 +823,7 @@ namespace Presentacion
                             dgvRegistroVentas.Rows[e.RowIndex].Cells["ventasImporteTotal"].Value = (igvImporteTotal * negativo).ToString("F");
                         }
                     }
-                    catch (Exception Ex) { }
+                    catch (Exception) { }
                     break;
                 case 10:
                 case 21:
@@ -838,7 +844,7 @@ namespace Presentacion
                             }
                         }
                     }
-                    catch (Exception Ex) { }
+                    catch (Exception) { }
                     break;
                 case 19: // Dolares
                     try
@@ -896,7 +902,7 @@ namespace Presentacion
                             dgvRegistroVentas.Rows[e.RowIndex].Cells["ventasImporteTotal"].Value = (igvImporteTotal * negativo).ToString("F");
                         }
                     }
-                    catch (Exception Ex) { }
+                    catch (Exception) { }
                     break;
                 case 27:
                     try
@@ -940,7 +946,7 @@ namespace Presentacion
                             }
                         }
                     }
-                    catch (Exception Ex) { }
+                    catch (Exception) { }
                     break;
             }
         }
@@ -1214,7 +1220,7 @@ namespace Presentacion
                 fichero.Close();
                 MessageBox.Show("Archivo txt (Compras 8.1) generado");
             }
-            catch (Exception Ex) { }
+            catch (Exception) { }
         }
 
         private void CreateVentasTXT(string filename, DataTable dataTable)
@@ -1305,7 +1311,7 @@ namespace Presentacion
                 fichero.Close();
                 MessageBox.Show("Archivo txt (Ventas 14.1) generado");
             }
-            catch (Exception Ex) { }
+            catch (Exception) { }
         }
 
         private void CreateCompras82TXT(string filename)
@@ -1317,7 +1323,7 @@ namespace Presentacion
                 //fichero.WriteLine();
                 fichero.Close();
             }
-            catch (Exception Ex) { }
+            catch (Exception) { }
         }
 
         private void btnCargarCarpeta_Click(object sender, EventArgs e)
@@ -1492,7 +1498,7 @@ namespace Presentacion
             DgvPDT.Columns.Remove("impuestoAlaRentaImputacionDataGridViewTextBoxColumn");
             DgvPDT.Columns.Remove("impuestoAlaRentaPorPagarDataGridViewTextBoxColumn");
             DgvPDT.Columns.Remove("ingresoExportacionDataGridViewTextBoxColumn");
-            DgvPDT.Columns.Remove("dataGridViewTextBoxColumn8");
+            //DgvPDT.Columns.Remove("dataGridViewTextBoxColumn8");
         }
         private void fillCurrentMonthToolStripButton_Click(object sender, EventArgs e)
         {
@@ -1500,10 +1506,7 @@ namespace Presentacion
             {
                 this.TAComprasTableAdapter.FillCurrentMonth(this.dSCompras.tblRegistroCompras, txtNombreRuc.Text, idUsuario);
             }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
+            catch (Exception) { }
 
         }
 
@@ -1516,7 +1519,7 @@ namespace Presentacion
             txtNombreMes.Text = DateTime.UtcNow.ToString("MM");
 
             GetRoute();
-            FillPDT();
+            FillPDT(true);
         }
 
         private void dgvRegistroCompras_KeyDown(object sender, KeyEventArgs e)
@@ -1536,12 +1539,12 @@ namespace Presentacion
                 dgvRegistroCompras.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", fontHeaderSize + 1, FontStyle.Bold);
                 foreach (DataGridViewColumn column in dgvRegistroCompras.Columns)
                 {
-                    column.Width = column.Width + 3;
+                    column.Width += 3;
                 }
 
                 foreach (DataGridViewRow row in dgvRegistroCompras.Rows)
                 {
-                    row.Height = row.Height + 1;
+                    row.Height += 1;
                 }
             }
             else if (e.KeyCode == Keys.Subtract)//Control con '-'
@@ -1550,12 +1553,12 @@ namespace Presentacion
                 dgvRegistroCompras.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", fontHeaderSize - 1, FontStyle.Bold);
                 foreach (DataGridViewColumn column in dgvRegistroCompras.Columns)
                 {
-                    column.Width = column.Width - 3;
+                    column.Width -= 3;
                 }
 
                 foreach (DataGridViewRow row in dgvRegistroCompras.Rows)
                 {
-                    row.Height = row.Height - 1;
+                    row.Height -= 1;
                 }
             }
         }
@@ -1571,12 +1574,12 @@ namespace Presentacion
                 dgvRegistroVentas.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", fontHeaderSize + 1, FontStyle.Bold);
                 foreach (DataGridViewColumn column in dgvRegistroVentas.Columns)
                 {
-                    column.Width = column.Width + 3;
+                    column.Width += 3;
                 }
 
                 foreach (DataGridViewRow row in dgvRegistroVentas.Rows)
                 {
-                    row.Height = row.Height + 1;
+                    row.Height += 1;
                 }
             }
             else if (e.KeyCode == Keys.Subtract)//Control con '-'
@@ -1585,12 +1588,12 @@ namespace Presentacion
                 dgvRegistroVentas.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", fontHeaderSize - 1, FontStyle.Bold);
                 foreach (DataGridViewColumn column in dgvRegistroVentas.Columns)
                 {
-                    column.Width = column.Width - 3;
+                    column.Width -= 3;
                 }
 
                 foreach (DataGridViewRow row in dgvRegistroVentas.Rows)
                 {
-                    row.Height = row.Height - 1;
+                    row.Height -= 1;
                 }
             }
         }
@@ -1689,10 +1692,15 @@ namespace Presentacion
         //}
 
 
-        private void FillPDT()
+        private void FillPDT(bool refresh = false)
         {
-            this.TApdt.Fill(dSPdt.sp_pdt, txtNombreRuc.Text, Convert.ToInt32(txtNombreAnio.Text), idUsuario);
-            
+
+            if (pdt.Show(txtNombreRuc.Text, Convert.ToInt32(txtNombreAnio.Text), idUsuario).Rows.Count > 0)
+            {
+                this.TApdt.FillByRucAnioMesUsuario(dSPdt.sp_pdt, txtNombreRuc.Text, Convert.ToInt32(txtNombreAnio.Text), idUsuario);
+                if (refresh) this.TApdt.Fill(dSPdt.sp_pdt, txtNombreRuc.Text, Convert.ToInt32(txtNombreAnio.Text), idUsuario);
+            }
+            else this.TApdt.Fill(dSPdt.sp_pdt, txtNombreRuc.Text, Convert.ToInt32(txtNombreAnio.Text), idUsuario);
         }
 
         private void SavePDT()
@@ -1702,7 +1710,7 @@ namespace Presentacion
 
             foreach (DataGridViewRow row in DgvPDT.Rows)
             {
-                if (row.Cells["PdMes"].Value != null)
+                if (row.Cells["PdMes"].Value.GetType() != typeof(DBNull) | Convert.ToInt32(row.Cells["PdMes"].Value) > 0)
                 {
                     int PdtID = row.Cells["PdtID"].Value != DBNull.Value ? Convert.ToInt32(row.Cells["PdtID"].Value) : 0;
                     int PdtMes = row.Cells["PdMes"].Value != DBNull.Value ? Convert.ToInt32(row.Cells["PdMes"].Value) : 0;
@@ -1726,7 +1734,7 @@ namespace Presentacion
                     double PdtPercepcionesIgvComposicionProcedente = row.Cells["PdtPercepcionesIgvComposicionProcedente"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtPercepcionesIgvComposicionProcedente"].Value) : 0;
                     double PdtPercepcionesIgvPorAplicar = row.Cells["PdtPercepcionesIgvPorAplicar"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtPercepcionesIgvPorAplicar"].Value) : 0;
                     double PdtRetencionesIgvDelMes = row.Cells["PdtRetencionesIgvDelMes"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtRetencionesIgvDelMes"].Value) : 0;
-                    double PdtRetencionesIgvMesAnterior = row.Cells["PdtRetencionesIgvMesAnterior"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtRetencionesIgvMesAnterior"].Value) : 0;
+                    double PdtRetencionesIgvMesAnterior = row.Cells["PdtRetencionesIgvDelMesAnterior"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtRetencionesIgvDelMesAnterior"].Value) : 0;
                     double PdtRetencionesIgvAplicada = row.Cells["PdtRetencionesIgvAplicada"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtRetencionesIgvAplicada"].Value) : 0;
                     double PdtRetencionesIgvComposicionProcedente = row.Cells["PdtRetencionesIgvComposicionProcedente"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtRetencionesIgvComposicionProcedente"].Value) : 0;
                     double PdtRetencionesIgvPorAplicar = row.Cells["PdtRetencionesIgvPorAplicar"].Value != DBNull.Value ? Convert.ToDouble(row.Cells["PdtRetencionesIgvPorAplicar"].Value) : 0;
@@ -1767,6 +1775,7 @@ namespace Presentacion
                 }
             }
             MessageBox.Show("PDT guardado correctamente", "SISCONT .::. PDT");
+            FillPDT();
         }
 
         private void DgvPDT_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
@@ -1910,7 +1919,7 @@ namespace Presentacion
                     DgvPDT.Rows[i].Cells["PdtImpuestoAlaRentaPorPagar"].Value = Math.Round(ImpuestoAlaRentaPorPagar, 2);
                 }
                 CalcSumPDT();
-            } catch(Exception Ex) { MessageBox.Show("Error: " + Ex); }
+            } catch(Exception) {}
         }
 
         private void DgvPDT_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -1949,7 +1958,7 @@ namespace Presentacion
                             }
                         }
                     }
-                    catch (Exception Ex) { Console.WriteLine(Ex); }
+                    catch (Exception) {}
                     break;
                 case "PdtImpuestoAlaRentaPagado":
                 case "PdtImpuestoAlaRentaCompensacionSFA":
@@ -1991,7 +2000,7 @@ namespace Presentacion
 
                         DgvPDT.Rows[e.RowIndex].Cells["PdtImpuestoAlaRentaPorPagar"].Value = Math.Round(ImpuestoAlaRentaPorPagar, 2).ToString("F");
                     }
-                    catch (Exception Ex) { Console.WriteLine(Ex); }
+                    catch (Exception) {}
                     break;
             }
             CalcSumPDT();
@@ -2004,8 +2013,14 @@ namespace Presentacion
 
         private void ButtonReportPDT_Click(object sender, EventArgs e)
         {
-            reportes.FormReportePDT FrmReportePDT = new reportes.FormReportePDT();
-            FrmReportePDT.MdiParent = FrmPrincipal.ActiveForm;
+            reportes.FormReportePDT FrmReportePDT = new reportes.FormReportePDT
+            {
+                MdiParent = FrmPrincipal.ActiveForm,
+                usuario = idUsuario,
+                ruc = txtNombreRuc.Text,
+                rz = lblRazonSocial.Text,
+                anio = Convert.ToInt32(txtNombreAnio.Text)
+            };
             FrmReportePDT.Show();
         }
 
@@ -2021,7 +2036,7 @@ namespace Presentacion
                     }
                 }
             }
-            catch (Exception Ex) { Console.WriteLine(Ex); }
+            catch (Exception) {}
         }
 
         private void ReadOnlyPDT()

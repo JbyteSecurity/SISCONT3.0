@@ -761,33 +761,33 @@ namespace Presentacion {
                         decimal egresoIGV, 
                         decimal egresoNoGravada, 
                         decimal egresoImporteTotal, 
-                        decimal ficalIgvImpouestoResultante,
-                        decimal ficalIgvCreditoDebito,
-                        decimal ficalIgvSaldoFavorPagar,
-                        decimal exportadorSFMB, 
-                        decimal percepcionesIgvDelMes,
-                        decimal percepcionesIgvMesAnterior,
-                        decimal percepcionesIgvAplicada,
-                        decimal percepcionesIgvComposicionProcedente,
-                        decimal percepcionesIgvPorAplicar, 
-                        decimal retencionesIgvDelMes,
-                        decimal retencionesIgvMesAnterior,
-                        decimal retencionesIgvAplicada,
-                        decimal retencionesIgvComposicionProcedente,
-                        decimal retencionesIgvPorAplicar,
-                        decimal igvPagoAPagar,
-                        decimal igvPagoPagado, 
+                        decimal ficalIgvImpouestoResultante, 
+                        int ficalIgvCreditoDebito, 
+                        int ficalIgvSaldoFavorPagar, 
+                        int exportadorSFMB, 
+                        decimal percepcionesIgvDelMes, 
+                        int percepcionesIgvMesAnterior, 
+                        int percepcionesIgvAplicada, 
+                        int percepcionesIgvComposicionProcedente, 
+                        int percepcionesIgvPorAplicar, 
+                        decimal retencionesIgvDelMes, 
+                        int retencionesIgvMesAnterior, 
+                        int retencionesIgvAplicada, 
+                        int retencionesIgvComposicionProcedente, 
+                        int retencionesIgvPorAplicar, 
+                        int igvPagoAPagar, 
+                        int igvPagoPagado, 
                         decimal impuestoAlaRentaOtrosIngreso, 
                         decimal impuestoAlaRentaBaseImponible, 
                         decimal impuestoAlaRentaCoeficiente, 
-                        int impuestoAlaRentaImpuestoResultante,
-                        decimal impuestoAlaRentaPagado,
-                        decimal impuestoAlaRentaCompensacionSFA,
-                        decimal impuestoAlaRentaCompensacionSFMB,
-                        decimal impuestoAlaRentaCompensacionITAN,
-                        decimal impuestoAlaRentaCompensacionPercepcion,
-                        decimal impuestoAlaRentaImputacion,
-                        decimal impuestoAlaRentaPorPagar, 
+                        decimal impuestoAlaRentaImpuestoResultante, 
+                        int impuestoAlaRentaPagado, 
+                        int impuestoAlaRentaCompensacionSFA, 
+                        int impuestoAlaRentaCompensacionSFMB, 
+                        int impuestoAlaRentaCompensacionITAN, 
+                        int impuestoAlaRentaCompensacionPercepcion, 
+                        int impuestoAlaRentaImputacion, 
+                        int impuestoAlaRentaPorPagar, 
                         decimal ingresoExportacion, 
                         int mes) {
                 sp_pdtRow rowsp_pdtRow = ((sp_pdtRow)(this.NewRow()));
@@ -923,35 +923,35 @@ namespace Presentacion {
                 base.Columns.Add(this.columnegresoImporteTotal);
                 this.columnficalIgvImpouestoResultante = new global::System.Data.DataColumn("ficalIgvImpouestoResultante", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnficalIgvImpouestoResultante);
-                this.columnficalIgvCreditoDebito = new global::System.Data.DataColumn("ficalIgvCreditoDebito", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnficalIgvCreditoDebito = new global::System.Data.DataColumn("ficalIgvCreditoDebito", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnficalIgvCreditoDebito);
-                this.columnficalIgvSaldoFavorPagar = new global::System.Data.DataColumn("ficalIgvSaldoFavorPagar", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnficalIgvSaldoFavorPagar = new global::System.Data.DataColumn("ficalIgvSaldoFavorPagar", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnficalIgvSaldoFavorPagar);
-                this.columnexportadorSFMB = new global::System.Data.DataColumn("exportadorSFMB", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnexportadorSFMB = new global::System.Data.DataColumn("exportadorSFMB", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnexportadorSFMB);
                 this.columnpercepcionesIgvDelMes = new global::System.Data.DataColumn("percepcionesIgvDelMes", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpercepcionesIgvDelMes);
-                this.columnpercepcionesIgvMesAnterior = new global::System.Data.DataColumn("percepcionesIgvMesAnterior", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnpercepcionesIgvMesAnterior = new global::System.Data.DataColumn("percepcionesIgvMesAnterior", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpercepcionesIgvMesAnterior);
-                this.columnpercepcionesIgvAplicada = new global::System.Data.DataColumn("percepcionesIgvAplicada", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnpercepcionesIgvAplicada = new global::System.Data.DataColumn("percepcionesIgvAplicada", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpercepcionesIgvAplicada);
-                this.columnpercepcionesIgvComposicionProcedente = new global::System.Data.DataColumn("percepcionesIgvComposicionProcedente", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnpercepcionesIgvComposicionProcedente = new global::System.Data.DataColumn("percepcionesIgvComposicionProcedente", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpercepcionesIgvComposicionProcedente);
-                this.columnpercepcionesIgvPorAplicar = new global::System.Data.DataColumn("percepcionesIgvPorAplicar", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnpercepcionesIgvPorAplicar = new global::System.Data.DataColumn("percepcionesIgvPorAplicar", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpercepcionesIgvPorAplicar);
                 this.columnretencionesIgvDelMes = new global::System.Data.DataColumn("retencionesIgvDelMes", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnretencionesIgvDelMes);
-                this.columnretencionesIgvMesAnterior = new global::System.Data.DataColumn("retencionesIgvMesAnterior", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnretencionesIgvMesAnterior = new global::System.Data.DataColumn("retencionesIgvMesAnterior", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnretencionesIgvMesAnterior);
-                this.columnretencionesIgvAplicada = new global::System.Data.DataColumn("retencionesIgvAplicada", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnretencionesIgvAplicada = new global::System.Data.DataColumn("retencionesIgvAplicada", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnretencionesIgvAplicada);
-                this.columnretencionesIgvComposicionProcedente = new global::System.Data.DataColumn("retencionesIgvComposicionProcedente", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnretencionesIgvComposicionProcedente = new global::System.Data.DataColumn("retencionesIgvComposicionProcedente", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnretencionesIgvComposicionProcedente);
-                this.columnretencionesIgvPorAplicar = new global::System.Data.DataColumn("retencionesIgvPorAplicar", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnretencionesIgvPorAplicar = new global::System.Data.DataColumn("retencionesIgvPorAplicar", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnretencionesIgvPorAplicar);
-                this.columnigvPagoAPagar = new global::System.Data.DataColumn("igvPagoAPagar", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnigvPagoAPagar = new global::System.Data.DataColumn("igvPagoAPagar", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnigvPagoAPagar);
-                this.columnigvPagoPagado = new global::System.Data.DataColumn("igvPagoPagado", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnigvPagoPagado = new global::System.Data.DataColumn("igvPagoPagado", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnigvPagoPagado);
                 this.columnimpuestoAlaRentaOtrosIngreso = new global::System.Data.DataColumn("impuestoAlaRentaOtrosIngreso", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnimpuestoAlaRentaOtrosIngreso);
@@ -959,26 +959,64 @@ namespace Presentacion {
                 base.Columns.Add(this.columnimpuestoAlaRentaBaseImponible);
                 this.columnimpuestoAlaRentaCoeficiente = new global::System.Data.DataColumn("impuestoAlaRentaCoeficiente", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnimpuestoAlaRentaCoeficiente);
-                this.columnimpuestoAlaRentaImpuestoResultante = new global::System.Data.DataColumn("impuestoAlaRentaImpuestoResultante", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnimpuestoAlaRentaImpuestoResultante = new global::System.Data.DataColumn("impuestoAlaRentaImpuestoResultante", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnimpuestoAlaRentaImpuestoResultante);
-                this.columnimpuestoAlaRentaPagado = new global::System.Data.DataColumn("impuestoAlaRentaPagado", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnimpuestoAlaRentaPagado = new global::System.Data.DataColumn("impuestoAlaRentaPagado", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnimpuestoAlaRentaPagado);
-                this.columnimpuestoAlaRentaCompensacionSFA = new global::System.Data.DataColumn("impuestoAlaRentaCompensacionSFA", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnimpuestoAlaRentaCompensacionSFA = new global::System.Data.DataColumn("impuestoAlaRentaCompensacionSFA", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnimpuestoAlaRentaCompensacionSFA);
-                this.columnimpuestoAlaRentaCompensacionSFMB = new global::System.Data.DataColumn("impuestoAlaRentaCompensacionSFMB", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnimpuestoAlaRentaCompensacionSFMB = new global::System.Data.DataColumn("impuestoAlaRentaCompensacionSFMB", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnimpuestoAlaRentaCompensacionSFMB);
-                this.columnimpuestoAlaRentaCompensacionITAN = new global::System.Data.DataColumn("impuestoAlaRentaCompensacionITAN", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnimpuestoAlaRentaCompensacionITAN = new global::System.Data.DataColumn("impuestoAlaRentaCompensacionITAN", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnimpuestoAlaRentaCompensacionITAN);
-                this.columnimpuestoAlaRentaCompensacionPercepcion = new global::System.Data.DataColumn("impuestoAlaRentaCompensacionPercepcion", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnimpuestoAlaRentaCompensacionPercepcion = new global::System.Data.DataColumn("impuestoAlaRentaCompensacionPercepcion", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnimpuestoAlaRentaCompensacionPercepcion);
-                this.columnimpuestoAlaRentaImputacion = new global::System.Data.DataColumn("impuestoAlaRentaImputacion", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnimpuestoAlaRentaImputacion = new global::System.Data.DataColumn("impuestoAlaRentaImputacion", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnimpuestoAlaRentaImputacion);
-                this.columnimpuestoAlaRentaPorPagar = new global::System.Data.DataColumn("impuestoAlaRentaPorPagar", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnimpuestoAlaRentaPorPagar = new global::System.Data.DataColumn("impuestoAlaRentaPorPagar", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnimpuestoAlaRentaPorPagar);
                 this.columningresoExportacion = new global::System.Data.DataColumn("ingresoExportacion", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columningresoExportacion);
-                this.columnmes = new global::System.Data.DataColumn("mes", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnmes = new global::System.Data.DataColumn("mes", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmes);
+                this.columningresoExportación.ReadOnly = true;
+                this.columningresoGravadas.ReadOnly = true;
+                this.columningresoExonerada.ReadOnly = true;
+                this.columningresoInafecta.ReadOnly = true;
+                this.columningresoIGV.ReadOnly = true;
+                this.columningresoImporteTotal.ReadOnly = true;
+                this.columnegresoBaseImponible.ReadOnly = true;
+                this.columnegresoIGV.ReadOnly = true;
+                this.columnegresoNoGravada.ReadOnly = true;
+                this.columnegresoImporteTotal.ReadOnly = true;
+                this.columnficalIgvImpouestoResultante.ReadOnly = true;
+                this.columnficalIgvCreditoDebito.ReadOnly = true;
+                this.columnficalIgvSaldoFavorPagar.ReadOnly = true;
+                this.columnexportadorSFMB.ReadOnly = true;
+                this.columnpercepcionesIgvDelMes.ReadOnly = true;
+                this.columnpercepcionesIgvMesAnterior.ReadOnly = true;
+                this.columnpercepcionesIgvAplicada.ReadOnly = true;
+                this.columnpercepcionesIgvComposicionProcedente.ReadOnly = true;
+                this.columnpercepcionesIgvPorAplicar.ReadOnly = true;
+                this.columnretencionesIgvDelMes.ReadOnly = true;
+                this.columnretencionesIgvMesAnterior.ReadOnly = true;
+                this.columnretencionesIgvAplicada.ReadOnly = true;
+                this.columnretencionesIgvComposicionProcedente.ReadOnly = true;
+                this.columnretencionesIgvPorAplicar.ReadOnly = true;
+                this.columnigvPagoAPagar.ReadOnly = true;
+                this.columnigvPagoPagado.ReadOnly = true;
+                this.columnimpuestoAlaRentaOtrosIngreso.ReadOnly = true;
+                this.columnimpuestoAlaRentaBaseImponible.ReadOnly = true;
+                this.columnimpuestoAlaRentaCoeficiente.ReadOnly = true;
+                this.columnimpuestoAlaRentaImpuestoResultante.ReadOnly = true;
+                this.columnimpuestoAlaRentaPagado.ReadOnly = true;
+                this.columnimpuestoAlaRentaCompensacionSFA.ReadOnly = true;
+                this.columnimpuestoAlaRentaCompensacionSFMB.ReadOnly = true;
+                this.columnimpuestoAlaRentaCompensacionITAN.ReadOnly = true;
+                this.columnimpuestoAlaRentaCompensacionPercepcion.ReadOnly = true;
+                this.columnimpuestoAlaRentaImputacion.ReadOnly = true;
+                this.columnimpuestoAlaRentaPorPagar.ReadOnly = true;
+                this.columningresoExportacion.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1314,10 +1352,10 @@ namespace Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal ficalIgvCreditoDebito {
+            public int ficalIgvCreditoDebito {
                 get {
                     try {
-                        return ((decimal)(this[this.tablesp_pdt.ficalIgvCreditoDebitoColumn]));
+                        return ((int)(this[this.tablesp_pdt.ficalIgvCreditoDebitoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'ficalIgvCreditoDebito\' de la tabla \'sp_pdt\' es DBNull.", e);
@@ -1330,10 +1368,10 @@ namespace Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal ficalIgvSaldoFavorPagar {
+            public int ficalIgvSaldoFavorPagar {
                 get {
                     try {
-                        return ((decimal)(this[this.tablesp_pdt.ficalIgvSaldoFavorPagarColumn]));
+                        return ((int)(this[this.tablesp_pdt.ficalIgvSaldoFavorPagarColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'ficalIgvSaldoFavorPagar\' de la tabla \'sp_pdt\' es DBNull.", e);
@@ -1346,10 +1384,10 @@ namespace Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal exportadorSFMB {
+            public int exportadorSFMB {
                 get {
                     try {
-                        return ((decimal)(this[this.tablesp_pdt.exportadorSFMBColumn]));
+                        return ((int)(this[this.tablesp_pdt.exportadorSFMBColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'exportadorSFMB\' de la tabla \'sp_pdt\' es DBNull.", e);
@@ -1378,10 +1416,10 @@ namespace Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal percepcionesIgvMesAnterior {
+            public int percepcionesIgvMesAnterior {
                 get {
                     try {
-                        return ((decimal)(this[this.tablesp_pdt.percepcionesIgvMesAnteriorColumn]));
+                        return ((int)(this[this.tablesp_pdt.percepcionesIgvMesAnteriorColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'percepcionesIgvMesAnterior\' de la tabla \'sp_pdt\' es DBNul" +
@@ -1395,10 +1433,10 @@ namespace Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal percepcionesIgvAplicada {
+            public int percepcionesIgvAplicada {
                 get {
                     try {
-                        return ((decimal)(this[this.tablesp_pdt.percepcionesIgvAplicadaColumn]));
+                        return ((int)(this[this.tablesp_pdt.percepcionesIgvAplicadaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'percepcionesIgvAplicada\' de la tabla \'sp_pdt\' es DBNull.", e);
@@ -1411,10 +1449,10 @@ namespace Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal percepcionesIgvComposicionProcedente {
+            public int percepcionesIgvComposicionProcedente {
                 get {
                     try {
-                        return ((decimal)(this[this.tablesp_pdt.percepcionesIgvComposicionProcedenteColumn]));
+                        return ((int)(this[this.tablesp_pdt.percepcionesIgvComposicionProcedenteColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'percepcionesIgvComposicionProcedente\' de la tabla \'sp_pdt" +
@@ -1428,10 +1466,10 @@ namespace Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal percepcionesIgvPorAplicar {
+            public int percepcionesIgvPorAplicar {
                 get {
                     try {
-                        return ((decimal)(this[this.tablesp_pdt.percepcionesIgvPorAplicarColumn]));
+                        return ((int)(this[this.tablesp_pdt.percepcionesIgvPorAplicarColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'percepcionesIgvPorAplicar\' de la tabla \'sp_pdt\' es DBNull" +
@@ -1461,10 +1499,10 @@ namespace Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal retencionesIgvMesAnterior {
+            public int retencionesIgvMesAnterior {
                 get {
                     try {
-                        return ((decimal)(this[this.tablesp_pdt.retencionesIgvMesAnteriorColumn]));
+                        return ((int)(this[this.tablesp_pdt.retencionesIgvMesAnteriorColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'retencionesIgvMesAnterior\' de la tabla \'sp_pdt\' es DBNull" +
@@ -1478,10 +1516,10 @@ namespace Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal retencionesIgvAplicada {
+            public int retencionesIgvAplicada {
                 get {
                     try {
-                        return ((decimal)(this[this.tablesp_pdt.retencionesIgvAplicadaColumn]));
+                        return ((int)(this[this.tablesp_pdt.retencionesIgvAplicadaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'retencionesIgvAplicada\' de la tabla \'sp_pdt\' es DBNull.", e);
@@ -1494,10 +1532,10 @@ namespace Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal retencionesIgvComposicionProcedente {
+            public int retencionesIgvComposicionProcedente {
                 get {
                     try {
-                        return ((decimal)(this[this.tablesp_pdt.retencionesIgvComposicionProcedenteColumn]));
+                        return ((int)(this[this.tablesp_pdt.retencionesIgvComposicionProcedenteColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'retencionesIgvComposicionProcedente\' de la tabla \'sp_pdt\'" +
@@ -1511,10 +1549,10 @@ namespace Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal retencionesIgvPorAplicar {
+            public int retencionesIgvPorAplicar {
                 get {
                     try {
-                        return ((decimal)(this[this.tablesp_pdt.retencionesIgvPorAplicarColumn]));
+                        return ((int)(this[this.tablesp_pdt.retencionesIgvPorAplicarColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'retencionesIgvPorAplicar\' de la tabla \'sp_pdt\' es DBNull." +
@@ -1528,10 +1566,10 @@ namespace Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal igvPagoAPagar {
+            public int igvPagoAPagar {
                 get {
                     try {
-                        return ((decimal)(this[this.tablesp_pdt.igvPagoAPagarColumn]));
+                        return ((int)(this[this.tablesp_pdt.igvPagoAPagarColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'igvPagoAPagar\' de la tabla \'sp_pdt\' es DBNull.", e);
@@ -1544,10 +1582,10 @@ namespace Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal igvPagoPagado {
+            public int igvPagoPagado {
                 get {
                     try {
-                        return ((decimal)(this[this.tablesp_pdt.igvPagoPagadoColumn]));
+                        return ((int)(this[this.tablesp_pdt.igvPagoPagadoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'igvPagoPagado\' de la tabla \'sp_pdt\' es DBNull.", e);
@@ -1611,10 +1649,10 @@ namespace Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int impuestoAlaRentaImpuestoResultante {
+            public decimal impuestoAlaRentaImpuestoResultante {
                 get {
                     try {
-                        return ((int)(this[this.tablesp_pdt.impuestoAlaRentaImpuestoResultanteColumn]));
+                        return ((decimal)(this[this.tablesp_pdt.impuestoAlaRentaImpuestoResultanteColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'impuestoAlaRentaImpuestoResultante\' de la tabla \'sp_pdt\' " +
@@ -1628,10 +1666,10 @@ namespace Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal impuestoAlaRentaPagado {
+            public int impuestoAlaRentaPagado {
                 get {
                     try {
-                        return ((decimal)(this[this.tablesp_pdt.impuestoAlaRentaPagadoColumn]));
+                        return ((int)(this[this.tablesp_pdt.impuestoAlaRentaPagadoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'impuestoAlaRentaPagado\' de la tabla \'sp_pdt\' es DBNull.", e);
@@ -1644,10 +1682,10 @@ namespace Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal impuestoAlaRentaCompensacionSFA {
+            public int impuestoAlaRentaCompensacionSFA {
                 get {
                     try {
-                        return ((decimal)(this[this.tablesp_pdt.impuestoAlaRentaCompensacionSFAColumn]));
+                        return ((int)(this[this.tablesp_pdt.impuestoAlaRentaCompensacionSFAColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'impuestoAlaRentaCompensacionSFA\' de la tabla \'sp_pdt\' es " +
@@ -1661,10 +1699,10 @@ namespace Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal impuestoAlaRentaCompensacionSFMB {
+            public int impuestoAlaRentaCompensacionSFMB {
                 get {
                     try {
-                        return ((decimal)(this[this.tablesp_pdt.impuestoAlaRentaCompensacionSFMBColumn]));
+                        return ((int)(this[this.tablesp_pdt.impuestoAlaRentaCompensacionSFMBColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'impuestoAlaRentaCompensacionSFMB\' de la tabla \'sp_pdt\' es" +
@@ -1678,10 +1716,10 @@ namespace Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal impuestoAlaRentaCompensacionITAN {
+            public int impuestoAlaRentaCompensacionITAN {
                 get {
                     try {
-                        return ((decimal)(this[this.tablesp_pdt.impuestoAlaRentaCompensacionITANColumn]));
+                        return ((int)(this[this.tablesp_pdt.impuestoAlaRentaCompensacionITANColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'impuestoAlaRentaCompensacionITAN\' de la tabla \'sp_pdt\' es" +
@@ -1695,10 +1733,10 @@ namespace Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal impuestoAlaRentaCompensacionPercepcion {
+            public int impuestoAlaRentaCompensacionPercepcion {
                 get {
                     try {
-                        return ((decimal)(this[this.tablesp_pdt.impuestoAlaRentaCompensacionPercepcionColumn]));
+                        return ((int)(this[this.tablesp_pdt.impuestoAlaRentaCompensacionPercepcionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'impuestoAlaRentaCompensacionPercepcion\' de la tabla \'sp_p" +
@@ -1712,10 +1750,10 @@ namespace Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal impuestoAlaRentaImputacion {
+            public int impuestoAlaRentaImputacion {
                 get {
                     try {
-                        return ((decimal)(this[this.tablesp_pdt.impuestoAlaRentaImputacionColumn]));
+                        return ((int)(this[this.tablesp_pdt.impuestoAlaRentaImputacionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'impuestoAlaRentaImputacion\' de la tabla \'sp_pdt\' es DBNul" +
@@ -1729,10 +1767,10 @@ namespace Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal impuestoAlaRentaPorPagar {
+            public int impuestoAlaRentaPorPagar {
                 get {
                     try {
-                        return ((decimal)(this[this.tablesp_pdt.impuestoAlaRentaPorPagarColumn]));
+                        return ((int)(this[this.tablesp_pdt.impuestoAlaRentaPorPagarColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'impuestoAlaRentaPorPagar\' de la tabla \'sp_pdt\' es DBNull." +

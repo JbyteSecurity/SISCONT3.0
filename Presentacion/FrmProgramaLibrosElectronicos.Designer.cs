@@ -53,6 +53,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblRazonSocial = new System.Windows.Forms.Label();
             this.btnGuardarCompras = new System.Windows.Forms.Button();
             this.lblPeriodoActual = new System.Windows.Forms.Label();
@@ -235,9 +236,15 @@
             this.ButtonReportPDT = new System.Windows.Forms.Button();
             this.ButtonGuardarPDT = new System.Windows.Forms.Button();
             this.DgvPDT = new System.Windows.Forms.DataGridView();
+            this.BSpdt = new System.Windows.Forms.BindingSource(this.components);
+            this.dSPdt = new Presentacion.DSPdt();
+            this.TAVentasTableAdapter = new Presentacion.DSVentasTableAdapters.tblRegistroVentasTableAdapter();
+            this.TAComprasTableAdapter = new Presentacion.DSComprasTableAdapters.tblRegistroComprasTableAdapter();
+            this.TADetraccionesTableAdapter = new Presentacion.DSDetraccionesTableAdapters.sp_all_combo_detraccionesTableAdapter();
+            this.TApdt = new Presentacion.DSPdtTableAdapters.sp_pdtTableAdapter();
             this.PdtID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PdMes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PdtIngresoExportación = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PdtIngresoExportacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PdtIngresoGravadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PdtIngresoExonerada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PdtIngresoInafecta = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -313,13 +320,23 @@
             this.impuestoAlaRentaImputacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.impuestoAlaRentaPorPagarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ingresoExportacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BSpdt = new System.Windows.Forms.BindingSource(this.components);
-            this.dSPdt = new Presentacion.DSPdt();
-            this.TAVentasTableAdapter = new Presentacion.DSVentasTableAdapters.tblRegistroVentasTableAdapter();
-            this.TAComprasTableAdapter = new Presentacion.DSComprasTableAdapters.tblRegistroComprasTableAdapter();
-            this.TADetraccionesTableAdapter = new Presentacion.DSDetraccionesTableAdapters.sp_all_combo_detraccionesTableAdapter();
-            this.TApdt = new Presentacion.DSPdtTableAdapters.sp_pdtTableAdapter();
+            this.mesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabLD = new System.Windows.Forms.TabPage();
+            this.advancedDataGridView1 = new ADGV.AdvancedDataGridView();
+            this.LDPLECodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LDPLECorrelativo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LDPLECorrelativoAsiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LDPLEFechaOperacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LDPLEGlosa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LDPLEReferenciaOperacionCodigoLibro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LDPLEReferenciaOperacionNumeroCorrelativo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LDPLEReferenciaOperacionNumeroDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LDPLECentroCostos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LDPLECuentaContableAsociadaOperacionCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LDPLECuentaContableAsociadaOperacionDenominacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LDPLEMovimientoDebe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LDPLEMovimientoHaber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LDPLEDiferencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabRegistros.SuspendLayout();
@@ -339,12 +356,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.DgvPDT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BSpdt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSPdt)).BeginInit();
+            this.tabLD.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.lblRazonSocial);
             this.panel1.Controls.Add(this.btnGuardarCompras);
             this.panel1.Controls.Add(this.lblPeriodoActual);
@@ -359,14 +379,25 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(1, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1266, 41);
+            this.panel1.Size = new System.Drawing.Size(1363, 41);
             this.panel1.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(458, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 13);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Razón Social:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblRazonSocial
             // 
             this.lblRazonSocial.AutoSize = true;
             this.lblRazonSocial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblRazonSocial.Location = new System.Drawing.Point(458, 6);
+            this.lblRazonSocial.Location = new System.Drawing.Point(530, 6);
             this.lblRazonSocial.Name = "lblRazonSocial";
             this.lblRazonSocial.Size = new System.Drawing.Size(73, 13);
             this.lblRazonSocial.TabIndex = 15;
@@ -408,7 +439,7 @@
             this.btnActualizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizar.Image = global::Presentacion.Properties.Resources.refresh;
-            this.btnActualizar.Location = new System.Drawing.Point(313, 17);
+            this.btnActualizar.Location = new System.Drawing.Point(349, 19);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(20, 20);
             this.btnActualizar.TabIndex = 5;
@@ -431,7 +462,7 @@
             this.panel2.Controls.Add(this.txtRutaTXT);
             this.panel2.Controls.Add(this.btnGenerarTXT);
             this.panel2.Controls.Add(this.btnCargarCarpeta);
-            this.panel2.Location = new System.Drawing.Point(980, 0);
+            this.panel2.Location = new System.Drawing.Point(1077, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(286, 41);
             this.panel2.TabIndex = 5;
@@ -491,10 +522,13 @@
             this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Image = global::Presentacion.Properties.Resources.filter;
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscar.Location = new System.Drawing.Point(287, 18);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(20, 20);
+            this.btnBuscar.Size = new System.Drawing.Size(56, 20);
             this.btnBuscar.TabIndex = 4;
+            this.btnBuscar.Text = "Filtrar";
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -541,10 +575,11 @@
             this.tabRegistros.Controls.Add(this.tabCompras);
             this.tabRegistros.Controls.Add(this.tabVentas);
             this.tabRegistros.Controls.Add(this.tabPDT);
+            this.tabRegistros.Controls.Add(this.tabLD);
             this.tabRegistros.Location = new System.Drawing.Point(-1, 42);
             this.tabRegistros.Name = "tabRegistros";
             this.tabRegistros.SelectedIndex = 0;
-            this.tabRegistros.Size = new System.Drawing.Size(1276, 610);
+            this.tabRegistros.Size = new System.Drawing.Size(1373, 610);
             this.tabRegistros.TabIndex = 3;
             // 
             // tabCompras
@@ -553,7 +588,7 @@
             this.tabCompras.Location = new System.Drawing.Point(4, 22);
             this.tabCompras.Name = "tabCompras";
             this.tabCompras.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCompras.Size = new System.Drawing.Size(1268, 584);
+            this.tabCompras.Size = new System.Drawing.Size(1365, 584);
             this.tabCompras.TabIndex = 0;
             this.tabCompras.Text = "Compras";
             this.tabCompras.UseVisualStyleBackColor = true;
@@ -563,6 +598,7 @@
             this.dgvRegistroCompras.AllowUserToDeleteRows = false;
             this.dgvRegistroCompras.AutoGenerateColumns = false;
             this.dgvRegistroCompras.AutoGenerateContextFilters = true;
+            this.dgvRegistroCompras.BackgroundColor = System.Drawing.Color.White;
             this.dgvRegistroCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRegistroCompras.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.comprasID,
@@ -649,7 +685,7 @@
             this.dgvRegistroCompras.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRegistroCompras.Location = new System.Drawing.Point(3, 3);
             this.dgvRegistroCompras.Name = "dgvRegistroCompras";
-            this.dgvRegistroCompras.Size = new System.Drawing.Size(1262, 578);
+            this.dgvRegistroCompras.Size = new System.Drawing.Size(1359, 578);
             this.dgvRegistroCompras.TabIndex = 13;
             this.dgvRegistroCompras.TimeFilter = false;
             this.dgvRegistroCompras.SortStringChanged += new System.EventHandler(this.sgvRegistroCompras_SortStringChanged);
@@ -1378,7 +1414,7 @@
             this.tabVentas.Location = new System.Drawing.Point(4, 22);
             this.tabVentas.Name = "tabVentas";
             this.tabVentas.Padding = new System.Windows.Forms.Padding(3);
-            this.tabVentas.Size = new System.Drawing.Size(1268, 584);
+            this.tabVentas.Size = new System.Drawing.Size(1365, 584);
             this.tabVentas.TabIndex = 1;
             this.tabVentas.Text = "Ventas";
             this.tabVentas.UseVisualStyleBackColor = true;
@@ -1387,6 +1423,7 @@
             // 
             this.dgvRegistroVentas.AutoGenerateColumns = false;
             this.dgvRegistroVentas.AutoGenerateContextFilters = true;
+            this.dgvRegistroVentas.BackgroundColor = System.Drawing.Color.White;
             this.dgvRegistroVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRegistroVentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ventasID,
@@ -1466,7 +1503,7 @@
             this.dgvRegistroVentas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgvRegistroVentas.Location = new System.Drawing.Point(3, 3);
             this.dgvRegistroVentas.Name = "dgvRegistroVentas";
-            this.dgvRegistroVentas.Size = new System.Drawing.Size(1262, 578);
+            this.dgvRegistroVentas.Size = new System.Drawing.Size(1359, 578);
             this.dgvRegistroVentas.TabIndex = 2;
             this.dgvRegistroVentas.TimeFilter = false;
             this.dgvRegistroVentas.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistroVentas_CellEndEdit);
@@ -2105,7 +2142,7 @@
             this.tabPDT.Location = new System.Drawing.Point(4, 22);
             this.tabPDT.Name = "tabPDT";
             this.tabPDT.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPDT.Size = new System.Drawing.Size(1268, 584);
+            this.tabPDT.Size = new System.Drawing.Size(1365, 584);
             this.tabPDT.TabIndex = 2;
             this.tabPDT.Text = "PDT";
             this.tabPDT.UseVisualStyleBackColor = true;
@@ -2124,7 +2161,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1266, 578);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1363, 578);
             this.tableLayoutPanel1.TabIndex = 17;
             // 
             // panel3
@@ -2134,7 +2171,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1260, 44);
+            this.panel3.Size = new System.Drawing.Size(1357, 44);
             this.panel3.TabIndex = 1;
             // 
             // ButtonReportPDT
@@ -2172,11 +2209,12 @@
             this.DgvPDT.AllowUserToAddRows = false;
             this.DgvPDT.AllowUserToDeleteRows = false;
             this.DgvPDT.AutoGenerateColumns = false;
+            this.DgvPDT.BackgroundColor = System.Drawing.Color.White;
             this.DgvPDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvPDT.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PdtID,
             this.PdMes,
-            this.PdtIngresoExportación,
+            this.PdtIngresoExportacion,
             this.PdtIngresoGravadas,
             this.PdtIngresoExonerada,
             this.PdtIngresoInafecta,
@@ -2252,7 +2290,7 @@
             this.impuestoAlaRentaImputacionDataGridViewTextBoxColumn,
             this.impuestoAlaRentaPorPagarDataGridViewTextBoxColumn,
             this.ingresoExportacionDataGridViewTextBoxColumn,
-            this.dataGridViewTextBoxColumn8});
+            this.mesDataGridViewTextBoxColumn});
             this.DgvPDT.DataSource = this.BSpdt;
             this.DgvPDT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgvPDT.Location = new System.Drawing.Point(3, 53);
@@ -2265,565 +2303,11 @@
             dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DgvPDT.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
-            this.DgvPDT.Size = new System.Drawing.Size(1260, 522);
+            this.DgvPDT.Size = new System.Drawing.Size(1357, 522);
             this.DgvPDT.TabIndex = 2;
             this.DgvPDT.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvPDT_CellEndEdit);
             this.DgvPDT.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvPDT_CellFormatting);
             this.DgvPDT.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DgvPDT_DataError);
-            // 
-            // PdtID
-            // 
-            this.PdtID.Frozen = true;
-            this.PdtID.HeaderText = "#";
-            this.PdtID.Name = "PdtID";
-            this.PdtID.Width = 30;
-            // 
-            // PdMes
-            // 
-            this.PdMes.Frozen = true;
-            this.PdMes.HeaderText = "Mes";
-            this.PdMes.Name = "PdMes";
-            this.PdMes.Width = 30;
-            // 
-            // PdtIngresoExportación
-            // 
-            this.PdtIngresoExportación.DataPropertyName = "ingresoExportación";
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Lavender;
-            this.PdtIngresoExportación.DefaultCellStyle = dataGridViewCellStyle7;
-            this.PdtIngresoExportación.Frozen = true;
-            this.PdtIngresoExportación.HeaderText = "Ingreso Exportación";
-            this.PdtIngresoExportación.Name = "PdtIngresoExportación";
-            this.PdtIngresoExportación.Width = 70;
-            // 
-            // PdtIngresoGravadas
-            // 
-            this.PdtIngresoGravadas.DataPropertyName = "ingresoGravadas";
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Lavender;
-            this.PdtIngresoGravadas.DefaultCellStyle = dataGridViewCellStyle8;
-            this.PdtIngresoGravadas.Frozen = true;
-            this.PdtIngresoGravadas.HeaderText = "Ingreso Gravadas";
-            this.PdtIngresoGravadas.Name = "PdtIngresoGravadas";
-            this.PdtIngresoGravadas.Width = 70;
-            // 
-            // PdtIngresoExonerada
-            // 
-            this.PdtIngresoExonerada.DataPropertyName = "ingresoExonerada";
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Lavender;
-            this.PdtIngresoExonerada.DefaultCellStyle = dataGridViewCellStyle9;
-            this.PdtIngresoExonerada.Frozen = true;
-            this.PdtIngresoExonerada.HeaderText = "Ingreso Exonerada";
-            this.PdtIngresoExonerada.Name = "PdtIngresoExonerada";
-            this.PdtIngresoExonerada.Width = 70;
-            // 
-            // PdtIngresoInafecta
-            // 
-            this.PdtIngresoInafecta.DataPropertyName = "ingresoInafecta";
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Lavender;
-            this.PdtIngresoInafecta.DefaultCellStyle = dataGridViewCellStyle10;
-            this.PdtIngresoInafecta.Frozen = true;
-            this.PdtIngresoInafecta.HeaderText = "Ingreso Inafecta";
-            this.PdtIngresoInafecta.Name = "PdtIngresoInafecta";
-            this.PdtIngresoInafecta.Width = 70;
-            // 
-            // PdtIngresoIGV
-            // 
-            this.PdtIngresoIGV.DataPropertyName = "ingresoIGV";
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Lavender;
-            this.PdtIngresoIGV.DefaultCellStyle = dataGridViewCellStyle11;
-            this.PdtIngresoIGV.Frozen = true;
-            this.PdtIngresoIGV.HeaderText = "Ingreso IGV";
-            this.PdtIngresoIGV.Name = "PdtIngresoIGV";
-            this.PdtIngresoIGV.Width = 70;
-            // 
-            // PdtIngresoImporteTotal
-            // 
-            this.PdtIngresoImporteTotal.DataPropertyName = "ingresoImporteTotal";
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Lavender;
-            this.PdtIngresoImporteTotal.DefaultCellStyle = dataGridViewCellStyle12;
-            this.PdtIngresoImporteTotal.Frozen = true;
-            this.PdtIngresoImporteTotal.HeaderText = "Ingreso Importe Total";
-            this.PdtIngresoImporteTotal.Name = "PdtIngresoImporteTotal";
-            this.PdtIngresoImporteTotal.Width = 70;
-            // 
-            // PdtEgresoBaseImponible
-            // 
-            this.PdtEgresoBaseImponible.DataPropertyName = "egresoBaseImponible";
-            this.PdtEgresoBaseImponible.Frozen = true;
-            this.PdtEgresoBaseImponible.HeaderText = "Egreso Base Imponible";
-            this.PdtEgresoBaseImponible.Name = "PdtEgresoBaseImponible";
-            this.PdtEgresoBaseImponible.Width = 70;
-            // 
-            // PdtEgresoIGV
-            // 
-            this.PdtEgresoIGV.DataPropertyName = "egresoIGV";
-            this.PdtEgresoIGV.Frozen = true;
-            this.PdtEgresoIGV.HeaderText = "Egreso IGV";
-            this.PdtEgresoIGV.Name = "PdtEgresoIGV";
-            this.PdtEgresoIGV.Width = 70;
-            // 
-            // PdtEgresoNoGravada
-            // 
-            this.PdtEgresoNoGravada.DataPropertyName = "egresoNoGravada";
-            this.PdtEgresoNoGravada.Frozen = true;
-            this.PdtEgresoNoGravada.HeaderText = "Egreso No Gravadas";
-            this.PdtEgresoNoGravada.Name = "PdtEgresoNoGravada";
-            this.PdtEgresoNoGravada.Width = 70;
-            // 
-            // PdtEgresoImporteTotal
-            // 
-            this.PdtEgresoImporteTotal.DataPropertyName = "egresoImporteTotal";
-            this.PdtEgresoImporteTotal.Frozen = true;
-            this.PdtEgresoImporteTotal.HeaderText = "Egreso Importe Total";
-            this.PdtEgresoImporteTotal.Name = "PdtEgresoImporteTotal";
-            this.PdtEgresoImporteTotal.Width = 70;
-            // 
-            // PdtFicalIgvImpouestoResultante
-            // 
-            this.PdtFicalIgvImpouestoResultante.DataPropertyName = "ficalIgvImpouestoResultante";
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.Lavender;
-            this.PdtFicalIgvImpouestoResultante.DefaultCellStyle = dataGridViewCellStyle13;
-            this.PdtFicalIgvImpouestoResultante.HeaderText = "Credito/Debito Fiscal IGV Impouesto Resultante";
-            this.PdtFicalIgvImpouestoResultante.Name = "PdtFicalIgvImpouestoResultante";
-            this.PdtFicalIgvImpouestoResultante.Width = 70;
-            // 
-            // PdtFicalIgvCreditoDebito
-            // 
-            this.PdtFicalIgvCreditoDebito.DataPropertyName = "ficalIgvCreditoDebito";
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.Lavender;
-            this.PdtFicalIgvCreditoDebito.DefaultCellStyle = dataGridViewCellStyle14;
-            this.PdtFicalIgvCreditoDebito.HeaderText = "Credito/Debito Fiscal IGV";
-            this.PdtFicalIgvCreditoDebito.Name = "PdtFicalIgvCreditoDebito";
-            this.PdtFicalIgvCreditoDebito.Width = 70;
-            // 
-            // PdtFicalIgvSaldoFavorPagar
-            // 
-            this.PdtFicalIgvSaldoFavorPagar.DataPropertyName = "ficalIgvSaldoFavorPagar";
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.Lavender;
-            this.PdtFicalIgvSaldoFavorPagar.DefaultCellStyle = dataGridViewCellStyle15;
-            this.PdtFicalIgvSaldoFavorPagar.HeaderText = "Credito/Debito Fiscal IGV Saldo a Favor/Pagar";
-            this.PdtFicalIgvSaldoFavorPagar.Name = "PdtFicalIgvSaldoFavorPagar";
-            this.PdtFicalIgvSaldoFavorPagar.Width = 70;
-            // 
-            // PdtExportadorSFMB
-            // 
-            this.PdtExportadorSFMB.DataPropertyName = "exportadorSFMB";
-            this.PdtExportadorSFMB.HeaderText = "Exportador SFMB";
-            this.PdtExportadorSFMB.Name = "PdtExportadorSFMB";
-            this.PdtExportadorSFMB.Width = 70;
-            // 
-            // PdtPercepcionesIgvDelMes
-            // 
-            this.PdtPercepcionesIgvDelMes.DataPropertyName = "percepcionesIgvDelMes";
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.Lavender;
-            this.PdtPercepcionesIgvDelMes.DefaultCellStyle = dataGridViewCellStyle16;
-            this.PdtPercepcionesIgvDelMes.HeaderText = "Percepciones IGV Del Mes";
-            this.PdtPercepcionesIgvDelMes.Name = "PdtPercepcionesIgvDelMes";
-            this.PdtPercepcionesIgvDelMes.Width = 70;
-            // 
-            // PdtPercepcionesIgvMesAnterior
-            // 
-            this.PdtPercepcionesIgvMesAnterior.DataPropertyName = "percepcionesIgvMesAnterior";
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.Lavender;
-            this.PdtPercepcionesIgvMesAnterior.DefaultCellStyle = dataGridViewCellStyle17;
-            this.PdtPercepcionesIgvMesAnterior.HeaderText = "Percepciones IGV Mes Anterior";
-            this.PdtPercepcionesIgvMesAnterior.Name = "PdtPercepcionesIgvMesAnterior";
-            this.PdtPercepcionesIgvMesAnterior.Width = 70;
-            // 
-            // PdtPercepcionesIgvAplicada
-            // 
-            this.PdtPercepcionesIgvAplicada.DataPropertyName = "percepcionesIgvAplicada";
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.Lavender;
-            this.PdtPercepcionesIgvAplicada.DefaultCellStyle = dataGridViewCellStyle18;
-            this.PdtPercepcionesIgvAplicada.HeaderText = "Percepciones IGV Aplicada";
-            this.PdtPercepcionesIgvAplicada.Name = "PdtPercepcionesIgvAplicada";
-            this.PdtPercepcionesIgvAplicada.Width = 70;
-            // 
-            // PdtPercepcionesIgvComposicionProcedente
-            // 
-            this.PdtPercepcionesIgvComposicionProcedente.DataPropertyName = "percepcionesIgvComposicionProcedente";
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.Lavender;
-            this.PdtPercepcionesIgvComposicionProcedente.DefaultCellStyle = dataGridViewCellStyle19;
-            this.PdtPercepcionesIgvComposicionProcedente.HeaderText = "Percepciones IGV Composicion Procedente";
-            this.PdtPercepcionesIgvComposicionProcedente.Name = "PdtPercepcionesIgvComposicionProcedente";
-            this.PdtPercepcionesIgvComposicionProcedente.Width = 70;
-            // 
-            // PdtPercepcionesIgvPorAplicar
-            // 
-            this.PdtPercepcionesIgvPorAplicar.DataPropertyName = "percepcionesIgvPorAplicar";
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.Lavender;
-            this.PdtPercepcionesIgvPorAplicar.DefaultCellStyle = dataGridViewCellStyle20;
-            this.PdtPercepcionesIgvPorAplicar.HeaderText = "Percepciones IGV por Aplicar";
-            this.PdtPercepcionesIgvPorAplicar.Name = "PdtPercepcionesIgvPorAplicar";
-            this.PdtPercepcionesIgvPorAplicar.Width = 70;
-            // 
-            // PdtRetencionesIgvDelMes
-            // 
-            this.PdtRetencionesIgvDelMes.DataPropertyName = "retencionesIgvDelMes";
-            this.PdtRetencionesIgvDelMes.HeaderText = "Retenciones IGV del Mes";
-            this.PdtRetencionesIgvDelMes.Name = "PdtRetencionesIgvDelMes";
-            this.PdtRetencionesIgvDelMes.Width = 70;
-            // 
-            // PdtRetencionesIgvDelMesAnterior
-            // 
-            this.PdtRetencionesIgvDelMesAnterior.DataPropertyName = "retencionesIgvMesAnterior";
-            this.PdtRetencionesIgvDelMesAnterior.HeaderText = "Retenciones IGV del Mes Anterior";
-            this.PdtRetencionesIgvDelMesAnterior.Name = "PdtRetencionesIgvDelMesAnterior";
-            this.PdtRetencionesIgvDelMesAnterior.Width = 70;
-            // 
-            // PdtRetencionesIgvAplicada
-            // 
-            this.PdtRetencionesIgvAplicada.DataPropertyName = "retencionesIgvAplicada";
-            this.PdtRetencionesIgvAplicada.HeaderText = "RetencionesIGV Aplicada";
-            this.PdtRetencionesIgvAplicada.Name = "PdtRetencionesIgvAplicada";
-            this.PdtRetencionesIgvAplicada.Width = 70;
-            // 
-            // PdtRetencionesIgvComposicionProcedente
-            // 
-            this.PdtRetencionesIgvComposicionProcedente.DataPropertyName = "retencionesIgvComposicionProcedente";
-            this.PdtRetencionesIgvComposicionProcedente.HeaderText = "Retenciones IGV Composicion Procedente";
-            this.PdtRetencionesIgvComposicionProcedente.Name = "PdtRetencionesIgvComposicionProcedente";
-            this.PdtRetencionesIgvComposicionProcedente.Width = 70;
-            // 
-            // PdtRetencionesIgvPorAplicar
-            // 
-            this.PdtRetencionesIgvPorAplicar.DataPropertyName = "retencionesIgvPorAplicar";
-            this.PdtRetencionesIgvPorAplicar.HeaderText = "Retenciones IGV Por Aplicar";
-            this.PdtRetencionesIgvPorAplicar.Name = "PdtRetencionesIgvPorAplicar";
-            this.PdtRetencionesIgvPorAplicar.Width = 70;
-            // 
-            // PdtIgvPagoAPagar
-            // 
-            this.PdtIgvPagoAPagar.DataPropertyName = "igvPagoAPagar";
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.Lavender;
-            this.PdtIgvPagoAPagar.DefaultCellStyle = dataGridViewCellStyle21;
-            this.PdtIgvPagoAPagar.HeaderText = "IGV/Pago a Pagar";
-            this.PdtIgvPagoAPagar.Name = "PdtIgvPagoAPagar";
-            this.PdtIgvPagoAPagar.Width = 70;
-            // 
-            // PdtIgvPagoPagado
-            // 
-            this.PdtIgvPagoPagado.DataPropertyName = "igvPagoPagado";
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.Lavender;
-            this.PdtIgvPagoPagado.DefaultCellStyle = dataGridViewCellStyle22;
-            this.PdtIgvPagoPagado.HeaderText = "IGV/Pago Pagado";
-            this.PdtIgvPagoPagado.Name = "PdtIgvPagoPagado";
-            this.PdtIgvPagoPagado.Width = 70;
-            // 
-            // PdtImpuestoAlaRentaOtrosIngreso
-            // 
-            this.PdtImpuestoAlaRentaOtrosIngreso.DataPropertyName = "impuestoAlaRentaOtrosIngreso";
-            this.PdtImpuestoAlaRentaOtrosIngreso.HeaderText = "Impuesto a la Renta/Pago Otros Ingreso";
-            this.PdtImpuestoAlaRentaOtrosIngreso.Name = "PdtImpuestoAlaRentaOtrosIngreso";
-            this.PdtImpuestoAlaRentaOtrosIngreso.Width = 70;
-            // 
-            // PdtImpuestoAlaRentaBaseImponible
-            // 
-            this.PdtImpuestoAlaRentaBaseImponible.DataPropertyName = "impuestoAlaRentaBaseImponible";
-            this.PdtImpuestoAlaRentaBaseImponible.HeaderText = "Impuesto a la Renta/Pago Base Imponible";
-            this.PdtImpuestoAlaRentaBaseImponible.Name = "PdtImpuestoAlaRentaBaseImponible";
-            this.PdtImpuestoAlaRentaBaseImponible.Width = 70;
-            // 
-            // PdtImpuestoAlaRentaCoeficiente
-            // 
-            this.PdtImpuestoAlaRentaCoeficiente.DataPropertyName = "impuestoAlaRentaCoeficiente";
-            this.PdtImpuestoAlaRentaCoeficiente.HeaderText = "Impuesto a la Renta/Pago Coeficiente";
-            this.PdtImpuestoAlaRentaCoeficiente.Name = "PdtImpuestoAlaRentaCoeficiente";
-            this.PdtImpuestoAlaRentaCoeficiente.Width = 70;
-            // 
-            // PdtImpuestoAlaRentaImpuestoResultante
-            // 
-            this.PdtImpuestoAlaRentaImpuestoResultante.DataPropertyName = "impuestoAlaRentaImpuestoResultante";
-            this.PdtImpuestoAlaRentaImpuestoResultante.HeaderText = "Impuesto a la Renta/Pago Impuesto Resultante (IR)";
-            this.PdtImpuestoAlaRentaImpuestoResultante.Name = "PdtImpuestoAlaRentaImpuestoResultante";
-            this.PdtImpuestoAlaRentaImpuestoResultante.Width = 70;
-            // 
-            // PdtImpuestoAlaRentaPagado
-            // 
-            this.PdtImpuestoAlaRentaPagado.DataPropertyName = "impuestoAlaRentaPagado";
-            this.PdtImpuestoAlaRentaPagado.HeaderText = "Impuesto a la Renta/Pago Pagado";
-            this.PdtImpuestoAlaRentaPagado.Name = "PdtImpuestoAlaRentaPagado";
-            this.PdtImpuestoAlaRentaPagado.Width = 70;
-            // 
-            // PdtImpuestoAlaRentaCompensacionSFA
-            // 
-            this.PdtImpuestoAlaRentaCompensacionSFA.DataPropertyName = "impuestoAlaRentaCompensacionSFA";
-            this.PdtImpuestoAlaRentaCompensacionSFA.HeaderText = "Impuesto a la Renta/Pago Compensación SFA (IR)";
-            this.PdtImpuestoAlaRentaCompensacionSFA.Name = "PdtImpuestoAlaRentaCompensacionSFA";
-            this.PdtImpuestoAlaRentaCompensacionSFA.Width = 70;
-            // 
-            // PdtImpuestoAlaRentaCompensacionSFMB
-            // 
-            this.PdtImpuestoAlaRentaCompensacionSFMB.DataPropertyName = "impuestoAlaRentaCompensacionSFMB";
-            this.PdtImpuestoAlaRentaCompensacionSFMB.HeaderText = "Impuesto a la Renta/Pago Compensación SFFMB (IR)";
-            this.PdtImpuestoAlaRentaCompensacionSFMB.Name = "PdtImpuestoAlaRentaCompensacionSFMB";
-            // 
-            // PdtImpuestoAlaRentaCompensacionITAN
-            // 
-            this.PdtImpuestoAlaRentaCompensacionITAN.DataPropertyName = "impuestoAlaRentaCompensacionITAN";
-            this.PdtImpuestoAlaRentaCompensacionITAN.HeaderText = "Impuesto a la Renta/Pago Compensacion (ITAN)";
-            this.PdtImpuestoAlaRentaCompensacionITAN.Name = "PdtImpuestoAlaRentaCompensacionITAN";
-            this.PdtImpuestoAlaRentaCompensacionITAN.Width = 70;
-            // 
-            // PdtImpuestoAlaRentaCompensacionPercepcion
-            // 
-            this.PdtImpuestoAlaRentaCompensacionPercepcion.DataPropertyName = "impuestoAlaRentaCompensacionPercepcion";
-            this.PdtImpuestoAlaRentaCompensacionPercepcion.HeaderText = "Impuesto a la Renta/Pago Compensacion Percepcion y/o Retención";
-            this.PdtImpuestoAlaRentaCompensacionPercepcion.Name = "PdtImpuestoAlaRentaCompensacionPercepcion";
-            this.PdtImpuestoAlaRentaCompensacionPercepcion.Width = 70;
-            // 
-            // PdtImpuestoAlaRentaImputacion
-            // 
-            this.PdtImpuestoAlaRentaImputacion.DataPropertyName = "impuestoAlaRentaImputacion";
-            this.PdtImpuestoAlaRentaImputacion.HeaderText = "Impuesto a la Renta/Pago Imputación";
-            this.PdtImpuestoAlaRentaImputacion.Name = "PdtImpuestoAlaRentaImputacion";
-            this.PdtImpuestoAlaRentaImputacion.Width = 70;
-            // 
-            // PdtImpuestoAlaRentaPorPagar
-            // 
-            this.PdtImpuestoAlaRentaPorPagar.DataPropertyName = "impuestoAlaRentaPorPagar";
-            this.PdtImpuestoAlaRentaPorPagar.HeaderText = "Impuesto a la Renta/Pago Por Pagar";
-            this.PdtImpuestoAlaRentaPorPagar.Name = "PdtImpuestoAlaRentaPorPagar";
-            this.PdtImpuestoAlaRentaPorPagar.Width = 70;
-            // 
-            // ingresoExportaciónDataGridViewTextBoxColumn
-            // 
-            this.ingresoExportaciónDataGridViewTextBoxColumn.DataPropertyName = "ingresoExportación";
-            this.ingresoExportaciónDataGridViewTextBoxColumn.HeaderText = "ingresoExportación";
-            this.ingresoExportaciónDataGridViewTextBoxColumn.Name = "ingresoExportaciónDataGridViewTextBoxColumn";
-            // 
-            // ingresoGravadasDataGridViewTextBoxColumn
-            // 
-            this.ingresoGravadasDataGridViewTextBoxColumn.DataPropertyName = "ingresoGravadas";
-            this.ingresoGravadasDataGridViewTextBoxColumn.HeaderText = "ingresoGravadas";
-            this.ingresoGravadasDataGridViewTextBoxColumn.Name = "ingresoGravadasDataGridViewTextBoxColumn";
-            // 
-            // ingresoExoneradaDataGridViewTextBoxColumn
-            // 
-            this.ingresoExoneradaDataGridViewTextBoxColumn.DataPropertyName = "ingresoExonerada";
-            this.ingresoExoneradaDataGridViewTextBoxColumn.HeaderText = "ingresoExonerada";
-            this.ingresoExoneradaDataGridViewTextBoxColumn.Name = "ingresoExoneradaDataGridViewTextBoxColumn";
-            // 
-            // ingresoInafectaDataGridViewTextBoxColumn
-            // 
-            this.ingresoInafectaDataGridViewTextBoxColumn.DataPropertyName = "ingresoInafecta";
-            this.ingresoInafectaDataGridViewTextBoxColumn.HeaderText = "ingresoInafecta";
-            this.ingresoInafectaDataGridViewTextBoxColumn.Name = "ingresoInafectaDataGridViewTextBoxColumn";
-            // 
-            // ingresoIGVDataGridViewTextBoxColumn
-            // 
-            this.ingresoIGVDataGridViewTextBoxColumn.DataPropertyName = "ingresoIGV";
-            this.ingresoIGVDataGridViewTextBoxColumn.HeaderText = "ingresoIGV";
-            this.ingresoIGVDataGridViewTextBoxColumn.Name = "ingresoIGVDataGridViewTextBoxColumn";
-            // 
-            // ingresoImporteTotalDataGridViewTextBoxColumn
-            // 
-            this.ingresoImporteTotalDataGridViewTextBoxColumn.DataPropertyName = "ingresoImporteTotal";
-            this.ingresoImporteTotalDataGridViewTextBoxColumn.HeaderText = "ingresoImporteTotal";
-            this.ingresoImporteTotalDataGridViewTextBoxColumn.Name = "ingresoImporteTotalDataGridViewTextBoxColumn";
-            // 
-            // egresoMesDataGridViewTextBoxColumn
-            // 
-            this.egresoMesDataGridViewTextBoxColumn.DataPropertyName = "egresoMes";
-            this.egresoMesDataGridViewTextBoxColumn.HeaderText = "egresoMes";
-            this.egresoMesDataGridViewTextBoxColumn.Name = "egresoMesDataGridViewTextBoxColumn";
-            // 
-            // egresoBaseImponibleDataGridViewTextBoxColumn
-            // 
-            this.egresoBaseImponibleDataGridViewTextBoxColumn.DataPropertyName = "egresoBaseImponible";
-            this.egresoBaseImponibleDataGridViewTextBoxColumn.HeaderText = "egresoBaseImponible";
-            this.egresoBaseImponibleDataGridViewTextBoxColumn.Name = "egresoBaseImponibleDataGridViewTextBoxColumn";
-            // 
-            // egresoIGVDataGridViewTextBoxColumn
-            // 
-            this.egresoIGVDataGridViewTextBoxColumn.DataPropertyName = "egresoIGV";
-            this.egresoIGVDataGridViewTextBoxColumn.HeaderText = "egresoIGV";
-            this.egresoIGVDataGridViewTextBoxColumn.Name = "egresoIGVDataGridViewTextBoxColumn";
-            // 
-            // egresoNoGravadaDataGridViewTextBoxColumn
-            // 
-            this.egresoNoGravadaDataGridViewTextBoxColumn.DataPropertyName = "egresoNoGravada";
-            this.egresoNoGravadaDataGridViewTextBoxColumn.HeaderText = "egresoNoGravada";
-            this.egresoNoGravadaDataGridViewTextBoxColumn.Name = "egresoNoGravadaDataGridViewTextBoxColumn";
-            // 
-            // egresoImporteTotalDataGridViewTextBoxColumn
-            // 
-            this.egresoImporteTotalDataGridViewTextBoxColumn.DataPropertyName = "egresoImporteTotal";
-            this.egresoImporteTotalDataGridViewTextBoxColumn.HeaderText = "egresoImporteTotal";
-            this.egresoImporteTotalDataGridViewTextBoxColumn.Name = "egresoImporteTotalDataGridViewTextBoxColumn";
-            // 
-            // ficalIgvImpouestoResultanteDataGridViewTextBoxColumn
-            // 
-            this.ficalIgvImpouestoResultanteDataGridViewTextBoxColumn.DataPropertyName = "ficalIgvImpouestoResultante";
-            this.ficalIgvImpouestoResultanteDataGridViewTextBoxColumn.HeaderText = "ficalIgvImpouestoResultante";
-            this.ficalIgvImpouestoResultanteDataGridViewTextBoxColumn.Name = "ficalIgvImpouestoResultanteDataGridViewTextBoxColumn";
-            // 
-            // ficalIgvCreditoDebitoDataGridViewTextBoxColumn
-            // 
-            this.ficalIgvCreditoDebitoDataGridViewTextBoxColumn.DataPropertyName = "ficalIgvCreditoDebito";
-            this.ficalIgvCreditoDebitoDataGridViewTextBoxColumn.HeaderText = "ficalIgvCreditoDebito";
-            this.ficalIgvCreditoDebitoDataGridViewTextBoxColumn.Name = "ficalIgvCreditoDebitoDataGridViewTextBoxColumn";
-            // 
-            // ficalIgvSaldoFavorPagarDataGridViewTextBoxColumn
-            // 
-            this.ficalIgvSaldoFavorPagarDataGridViewTextBoxColumn.DataPropertyName = "ficalIgvSaldoFavorPagar";
-            this.ficalIgvSaldoFavorPagarDataGridViewTextBoxColumn.HeaderText = "ficalIgvSaldoFavorPagar";
-            this.ficalIgvSaldoFavorPagarDataGridViewTextBoxColumn.Name = "ficalIgvSaldoFavorPagarDataGridViewTextBoxColumn";
-            // 
-            // exportadorSFMBDataGridViewTextBoxColumn
-            // 
-            this.exportadorSFMBDataGridViewTextBoxColumn.DataPropertyName = "exportadorSFMB";
-            this.exportadorSFMBDataGridViewTextBoxColumn.HeaderText = "exportadorSFMB";
-            this.exportadorSFMBDataGridViewTextBoxColumn.Name = "exportadorSFMBDataGridViewTextBoxColumn";
-            // 
-            // percepcionesIgvDelMesDataGridViewTextBoxColumn
-            // 
-            this.percepcionesIgvDelMesDataGridViewTextBoxColumn.DataPropertyName = "percepcionesIgvDelMes";
-            this.percepcionesIgvDelMesDataGridViewTextBoxColumn.HeaderText = "percepcionesIgvDelMes";
-            this.percepcionesIgvDelMesDataGridViewTextBoxColumn.Name = "percepcionesIgvDelMesDataGridViewTextBoxColumn";
-            // 
-            // percepcionesIgvMesAnteriorDataGridViewTextBoxColumn
-            // 
-            this.percepcionesIgvMesAnteriorDataGridViewTextBoxColumn.DataPropertyName = "percepcionesIgvMesAnterior";
-            this.percepcionesIgvMesAnteriorDataGridViewTextBoxColumn.HeaderText = "percepcionesIgvMesAnterior";
-            this.percepcionesIgvMesAnteriorDataGridViewTextBoxColumn.Name = "percepcionesIgvMesAnteriorDataGridViewTextBoxColumn";
-            // 
-            // percepcionesIgvAplicadaDataGridViewTextBoxColumn
-            // 
-            this.percepcionesIgvAplicadaDataGridViewTextBoxColumn.DataPropertyName = "percepcionesIgvAplicada";
-            this.percepcionesIgvAplicadaDataGridViewTextBoxColumn.HeaderText = "percepcionesIgvAplicada";
-            this.percepcionesIgvAplicadaDataGridViewTextBoxColumn.Name = "percepcionesIgvAplicadaDataGridViewTextBoxColumn";
-            // 
-            // percepcionesIgvComposicionProcedenteDataGridViewTextBoxColumn
-            // 
-            this.percepcionesIgvComposicionProcedenteDataGridViewTextBoxColumn.DataPropertyName = "percepcionesIgvComposicionProcedente";
-            this.percepcionesIgvComposicionProcedenteDataGridViewTextBoxColumn.HeaderText = "percepcionesIgvComposicionProcedente";
-            this.percepcionesIgvComposicionProcedenteDataGridViewTextBoxColumn.Name = "percepcionesIgvComposicionProcedenteDataGridViewTextBoxColumn";
-            // 
-            // percepcionesIgvPorAplicarDataGridViewTextBoxColumn
-            // 
-            this.percepcionesIgvPorAplicarDataGridViewTextBoxColumn.DataPropertyName = "percepcionesIgvPorAplicar";
-            this.percepcionesIgvPorAplicarDataGridViewTextBoxColumn.HeaderText = "percepcionesIgvPorAplicar";
-            this.percepcionesIgvPorAplicarDataGridViewTextBoxColumn.Name = "percepcionesIgvPorAplicarDataGridViewTextBoxColumn";
-            // 
-            // retencionesIgvDelMesDataGridViewTextBoxColumn
-            // 
-            this.retencionesIgvDelMesDataGridViewTextBoxColumn.DataPropertyName = "retencionesIgvDelMes";
-            this.retencionesIgvDelMesDataGridViewTextBoxColumn.HeaderText = "retencionesIgvDelMes";
-            this.retencionesIgvDelMesDataGridViewTextBoxColumn.Name = "retencionesIgvDelMesDataGridViewTextBoxColumn";
-            // 
-            // retencionesIgvMesAnteriorDataGridViewTextBoxColumn
-            // 
-            this.retencionesIgvMesAnteriorDataGridViewTextBoxColumn.DataPropertyName = "retencionesIgvMesAnterior";
-            this.retencionesIgvMesAnteriorDataGridViewTextBoxColumn.HeaderText = "retencionesIgvMesAnterior";
-            this.retencionesIgvMesAnteriorDataGridViewTextBoxColumn.Name = "retencionesIgvMesAnteriorDataGridViewTextBoxColumn";
-            // 
-            // retencionesIgvAplicadaDataGridViewTextBoxColumn
-            // 
-            this.retencionesIgvAplicadaDataGridViewTextBoxColumn.DataPropertyName = "retencionesIgvAplicada";
-            this.retencionesIgvAplicadaDataGridViewTextBoxColumn.HeaderText = "retencionesIgvAplicada";
-            this.retencionesIgvAplicadaDataGridViewTextBoxColumn.Name = "retencionesIgvAplicadaDataGridViewTextBoxColumn";
-            // 
-            // retencionesIgvComposicionProcedenteDataGridViewTextBoxColumn
-            // 
-            this.retencionesIgvComposicionProcedenteDataGridViewTextBoxColumn.DataPropertyName = "retencionesIgvComposicionProcedente";
-            this.retencionesIgvComposicionProcedenteDataGridViewTextBoxColumn.HeaderText = "retencionesIgvComposicionProcedente";
-            this.retencionesIgvComposicionProcedenteDataGridViewTextBoxColumn.Name = "retencionesIgvComposicionProcedenteDataGridViewTextBoxColumn";
-            // 
-            // retencionesIgvPorAplicarDataGridViewTextBoxColumn
-            // 
-            this.retencionesIgvPorAplicarDataGridViewTextBoxColumn.DataPropertyName = "retencionesIgvPorAplicar";
-            this.retencionesIgvPorAplicarDataGridViewTextBoxColumn.HeaderText = "retencionesIgvPorAplicar";
-            this.retencionesIgvPorAplicarDataGridViewTextBoxColumn.Name = "retencionesIgvPorAplicarDataGridViewTextBoxColumn";
-            // 
-            // igvPagoAPagarDataGridViewTextBoxColumn
-            // 
-            this.igvPagoAPagarDataGridViewTextBoxColumn.DataPropertyName = "igvPagoAPagar";
-            this.igvPagoAPagarDataGridViewTextBoxColumn.HeaderText = "igvPagoAPagar";
-            this.igvPagoAPagarDataGridViewTextBoxColumn.Name = "igvPagoAPagarDataGridViewTextBoxColumn";
-            // 
-            // igvPagoPagadoDataGridViewTextBoxColumn
-            // 
-            this.igvPagoPagadoDataGridViewTextBoxColumn.DataPropertyName = "igvPagoPagado";
-            this.igvPagoPagadoDataGridViewTextBoxColumn.HeaderText = "igvPagoPagado";
-            this.igvPagoPagadoDataGridViewTextBoxColumn.Name = "igvPagoPagadoDataGridViewTextBoxColumn";
-            // 
-            // impuestoAlaRentaOtrosIngresoDataGridViewTextBoxColumn
-            // 
-            this.impuestoAlaRentaOtrosIngresoDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaOtrosIngreso";
-            this.impuestoAlaRentaOtrosIngresoDataGridViewTextBoxColumn.HeaderText = "impuestoAlaRentaOtrosIngreso";
-            this.impuestoAlaRentaOtrosIngresoDataGridViewTextBoxColumn.Name = "impuestoAlaRentaOtrosIngresoDataGridViewTextBoxColumn";
-            // 
-            // impuestoAlaRentaBaseImponibleDataGridViewTextBoxColumn
-            // 
-            this.impuestoAlaRentaBaseImponibleDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaBaseImponible";
-            this.impuestoAlaRentaBaseImponibleDataGridViewTextBoxColumn.HeaderText = "impuestoAlaRentaBaseImponible";
-            this.impuestoAlaRentaBaseImponibleDataGridViewTextBoxColumn.Name = "impuestoAlaRentaBaseImponibleDataGridViewTextBoxColumn";
-            // 
-            // impuestoAlaRentaCoeficienteDataGridViewTextBoxColumn
-            // 
-            this.impuestoAlaRentaCoeficienteDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaCoeficiente";
-            this.impuestoAlaRentaCoeficienteDataGridViewTextBoxColumn.HeaderText = "impuestoAlaRentaCoeficiente";
-            this.impuestoAlaRentaCoeficienteDataGridViewTextBoxColumn.Name = "impuestoAlaRentaCoeficienteDataGridViewTextBoxColumn";
-            // 
-            // impuestoAlaRentaImpuestoResultanteDataGridViewTextBoxColumn
-            // 
-            this.impuestoAlaRentaImpuestoResultanteDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaImpuestoResultante";
-            this.impuestoAlaRentaImpuestoResultanteDataGridViewTextBoxColumn.HeaderText = "impuestoAlaRentaImpuestoResultante";
-            this.impuestoAlaRentaImpuestoResultanteDataGridViewTextBoxColumn.Name = "impuestoAlaRentaImpuestoResultanteDataGridViewTextBoxColumn";
-            // 
-            // impuestoAlaRentaPagadoDataGridViewTextBoxColumn
-            // 
-            this.impuestoAlaRentaPagadoDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaPagado";
-            this.impuestoAlaRentaPagadoDataGridViewTextBoxColumn.HeaderText = "impuestoAlaRentaPagado";
-            this.impuestoAlaRentaPagadoDataGridViewTextBoxColumn.Name = "impuestoAlaRentaPagadoDataGridViewTextBoxColumn";
-            // 
-            // impuestoAlaRentaCompensacionSFADataGridViewTextBoxColumn
-            // 
-            this.impuestoAlaRentaCompensacionSFADataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaCompensacionSFA";
-            this.impuestoAlaRentaCompensacionSFADataGridViewTextBoxColumn.HeaderText = "impuestoAlaRentaCompensacionSFA";
-            this.impuestoAlaRentaCompensacionSFADataGridViewTextBoxColumn.Name = "impuestoAlaRentaCompensacionSFADataGridViewTextBoxColumn";
-            // 
-            // impuestoAlaRentaCompensacionSFMBDataGridViewTextBoxColumn
-            // 
-            this.impuestoAlaRentaCompensacionSFMBDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaCompensacionSFMB";
-            this.impuestoAlaRentaCompensacionSFMBDataGridViewTextBoxColumn.HeaderText = "impuestoAlaRentaCompensacionSFMB";
-            this.impuestoAlaRentaCompensacionSFMBDataGridViewTextBoxColumn.Name = "impuestoAlaRentaCompensacionSFMBDataGridViewTextBoxColumn";
-            // 
-            // impuestoAlaRentaCompensacionITANDataGridViewTextBoxColumn
-            // 
-            this.impuestoAlaRentaCompensacionITANDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaCompensacionITAN";
-            this.impuestoAlaRentaCompensacionITANDataGridViewTextBoxColumn.HeaderText = "impuestoAlaRentaCompensacionITAN";
-            this.impuestoAlaRentaCompensacionITANDataGridViewTextBoxColumn.Name = "impuestoAlaRentaCompensacionITANDataGridViewTextBoxColumn";
-            // 
-            // impuestoAlaRentaCompensacionPercepcionDataGridViewTextBoxColumn
-            // 
-            this.impuestoAlaRentaCompensacionPercepcionDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaCompensacionPercepcion";
-            this.impuestoAlaRentaCompensacionPercepcionDataGridViewTextBoxColumn.HeaderText = "impuestoAlaRentaCompensacionPercepcion";
-            this.impuestoAlaRentaCompensacionPercepcionDataGridViewTextBoxColumn.Name = "impuestoAlaRentaCompensacionPercepcionDataGridViewTextBoxColumn";
-            // 
-            // impuestoAlaRentaImputacionDataGridViewTextBoxColumn
-            // 
-            this.impuestoAlaRentaImputacionDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaImputacion";
-            this.impuestoAlaRentaImputacionDataGridViewTextBoxColumn.HeaderText = "impuestoAlaRentaImputacion";
-            this.impuestoAlaRentaImputacionDataGridViewTextBoxColumn.Name = "impuestoAlaRentaImputacionDataGridViewTextBoxColumn";
-            // 
-            // impuestoAlaRentaPorPagarDataGridViewTextBoxColumn
-            // 
-            this.impuestoAlaRentaPorPagarDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaPorPagar";
-            this.impuestoAlaRentaPorPagarDataGridViewTextBoxColumn.HeaderText = "impuestoAlaRentaPorPagar";
-            this.impuestoAlaRentaPorPagarDataGridViewTextBoxColumn.Name = "impuestoAlaRentaPorPagarDataGridViewTextBoxColumn";
-            // 
-            // ingresoExportacionDataGridViewTextBoxColumn
-            // 
-            this.ingresoExportacionDataGridViewTextBoxColumn.DataPropertyName = "ingresoExportacion";
-            this.ingresoExportacionDataGridViewTextBoxColumn.HeaderText = "ingresoExportacion";
-            this.ingresoExportacionDataGridViewTextBoxColumn.Name = "ingresoExportacionDataGridViewTextBoxColumn";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "mes";
-            this.dataGridViewTextBoxColumn8.HeaderText = "mes";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
             // BSpdt
             // 
@@ -2851,11 +2335,790 @@
             // 
             this.TApdt.ClearBeforeFill = true;
             // 
+            // PdtID
+            // 
+            this.PdtID.DataPropertyName = "id";
+            this.PdtID.Frozen = true;
+            this.PdtID.HeaderText = "#";
+            this.PdtID.Name = "PdtID";
+            this.PdtID.Width = 30;
+            // 
+            // PdMes
+            // 
+            this.PdMes.DataPropertyName = "mes";
+            this.PdMes.Frozen = true;
+            this.PdMes.HeaderText = "Mes";
+            this.PdMes.Name = "PdMes";
+            this.PdMes.Width = 30;
+            // 
+            // PdtIngresoExportacion
+            // 
+            this.PdtIngresoExportacion.DataPropertyName = "ingresoExportación";
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Lavender;
+            this.PdtIngresoExportacion.DefaultCellStyle = dataGridViewCellStyle7;
+            this.PdtIngresoExportacion.Frozen = true;
+            this.PdtIngresoExportacion.HeaderText = "Ingreso Exportación";
+            this.PdtIngresoExportacion.Name = "PdtIngresoExportacion";
+            this.PdtIngresoExportacion.ReadOnly = true;
+            this.PdtIngresoExportacion.Width = 70;
+            // 
+            // PdtIngresoGravadas
+            // 
+            this.PdtIngresoGravadas.DataPropertyName = "ingresoGravadas";
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Lavender;
+            this.PdtIngresoGravadas.DefaultCellStyle = dataGridViewCellStyle8;
+            this.PdtIngresoGravadas.Frozen = true;
+            this.PdtIngresoGravadas.HeaderText = "Ingreso Gravadas";
+            this.PdtIngresoGravadas.Name = "PdtIngresoGravadas";
+            this.PdtIngresoGravadas.ReadOnly = true;
+            this.PdtIngresoGravadas.Width = 70;
+            // 
+            // PdtIngresoExonerada
+            // 
+            this.PdtIngresoExonerada.DataPropertyName = "ingresoExonerada";
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Lavender;
+            this.PdtIngresoExonerada.DefaultCellStyle = dataGridViewCellStyle9;
+            this.PdtIngresoExonerada.Frozen = true;
+            this.PdtIngresoExonerada.HeaderText = "Ingreso Exonerada";
+            this.PdtIngresoExonerada.Name = "PdtIngresoExonerada";
+            this.PdtIngresoExonerada.ReadOnly = true;
+            this.PdtIngresoExonerada.Width = 70;
+            // 
+            // PdtIngresoInafecta
+            // 
+            this.PdtIngresoInafecta.DataPropertyName = "ingresoInafecta";
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Lavender;
+            this.PdtIngresoInafecta.DefaultCellStyle = dataGridViewCellStyle10;
+            this.PdtIngresoInafecta.Frozen = true;
+            this.PdtIngresoInafecta.HeaderText = "Ingreso Inafecta";
+            this.PdtIngresoInafecta.Name = "PdtIngresoInafecta";
+            this.PdtIngresoInafecta.ReadOnly = true;
+            this.PdtIngresoInafecta.Width = 70;
+            // 
+            // PdtIngresoIGV
+            // 
+            this.PdtIngresoIGV.DataPropertyName = "ingresoIGV";
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Lavender;
+            this.PdtIngresoIGV.DefaultCellStyle = dataGridViewCellStyle11;
+            this.PdtIngresoIGV.Frozen = true;
+            this.PdtIngresoIGV.HeaderText = "Ingreso IGV";
+            this.PdtIngresoIGV.Name = "PdtIngresoIGV";
+            this.PdtIngresoIGV.ReadOnly = true;
+            this.PdtIngresoIGV.Width = 70;
+            // 
+            // PdtIngresoImporteTotal
+            // 
+            this.PdtIngresoImporteTotal.DataPropertyName = "ingresoImporteTotal";
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Lavender;
+            this.PdtIngresoImporteTotal.DefaultCellStyle = dataGridViewCellStyle12;
+            this.PdtIngresoImporteTotal.Frozen = true;
+            this.PdtIngresoImporteTotal.HeaderText = "Ingreso Importe Total";
+            this.PdtIngresoImporteTotal.Name = "PdtIngresoImporteTotal";
+            this.PdtIngresoImporteTotal.ReadOnly = true;
+            this.PdtIngresoImporteTotal.Width = 70;
+            // 
+            // PdtEgresoBaseImponible
+            // 
+            this.PdtEgresoBaseImponible.DataPropertyName = "egresoBaseImponible";
+            this.PdtEgresoBaseImponible.Frozen = true;
+            this.PdtEgresoBaseImponible.HeaderText = "Egreso Base Imponible";
+            this.PdtEgresoBaseImponible.Name = "PdtEgresoBaseImponible";
+            this.PdtEgresoBaseImponible.ReadOnly = true;
+            this.PdtEgresoBaseImponible.Width = 70;
+            // 
+            // PdtEgresoIGV
+            // 
+            this.PdtEgresoIGV.DataPropertyName = "egresoIGV";
+            this.PdtEgresoIGV.Frozen = true;
+            this.PdtEgresoIGV.HeaderText = "Egreso IGV";
+            this.PdtEgresoIGV.Name = "PdtEgresoIGV";
+            this.PdtEgresoIGV.ReadOnly = true;
+            this.PdtEgresoIGV.Width = 70;
+            // 
+            // PdtEgresoNoGravada
+            // 
+            this.PdtEgresoNoGravada.DataPropertyName = "egresoNoGravada";
+            this.PdtEgresoNoGravada.Frozen = true;
+            this.PdtEgresoNoGravada.HeaderText = "Egreso No Gravadas";
+            this.PdtEgresoNoGravada.Name = "PdtEgresoNoGravada";
+            this.PdtEgresoNoGravada.ReadOnly = true;
+            this.PdtEgresoNoGravada.Width = 70;
+            // 
+            // PdtEgresoImporteTotal
+            // 
+            this.PdtEgresoImporteTotal.DataPropertyName = "egresoImporteTotal";
+            this.PdtEgresoImporteTotal.Frozen = true;
+            this.PdtEgresoImporteTotal.HeaderText = "Egreso Importe Total";
+            this.PdtEgresoImporteTotal.Name = "PdtEgresoImporteTotal";
+            this.PdtEgresoImporteTotal.ReadOnly = true;
+            this.PdtEgresoImporteTotal.Width = 70;
+            // 
+            // PdtFicalIgvImpouestoResultante
+            // 
+            this.PdtFicalIgvImpouestoResultante.DataPropertyName = "ficalIgvImpouestoResultante";
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.Lavender;
+            this.PdtFicalIgvImpouestoResultante.DefaultCellStyle = dataGridViewCellStyle13;
+            this.PdtFicalIgvImpouestoResultante.HeaderText = "Credito/Debito Fiscal IGV Impouesto Resultante";
+            this.PdtFicalIgvImpouestoResultante.Name = "PdtFicalIgvImpouestoResultante";
+            this.PdtFicalIgvImpouestoResultante.ReadOnly = true;
+            this.PdtFicalIgvImpouestoResultante.Width = 70;
+            // 
+            // PdtFicalIgvCreditoDebito
+            // 
+            this.PdtFicalIgvCreditoDebito.DataPropertyName = "ficalIgvCreditoDebito";
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.Lavender;
+            this.PdtFicalIgvCreditoDebito.DefaultCellStyle = dataGridViewCellStyle14;
+            this.PdtFicalIgvCreditoDebito.HeaderText = "Credito/Debito Fiscal IGV";
+            this.PdtFicalIgvCreditoDebito.Name = "PdtFicalIgvCreditoDebito";
+            this.PdtFicalIgvCreditoDebito.ReadOnly = true;
+            this.PdtFicalIgvCreditoDebito.Width = 70;
+            // 
+            // PdtFicalIgvSaldoFavorPagar
+            // 
+            this.PdtFicalIgvSaldoFavorPagar.DataPropertyName = "ficalIgvSaldoFavorPagar";
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.Lavender;
+            this.PdtFicalIgvSaldoFavorPagar.DefaultCellStyle = dataGridViewCellStyle15;
+            this.PdtFicalIgvSaldoFavorPagar.HeaderText = "Credito/Debito Fiscal IGV Saldo a Favor/Pagar";
+            this.PdtFicalIgvSaldoFavorPagar.Name = "PdtFicalIgvSaldoFavorPagar";
+            this.PdtFicalIgvSaldoFavorPagar.ReadOnly = true;
+            this.PdtFicalIgvSaldoFavorPagar.Width = 70;
+            // 
+            // PdtExportadorSFMB
+            // 
+            this.PdtExportadorSFMB.DataPropertyName = "exportadorSFMB";
+            this.PdtExportadorSFMB.HeaderText = "Exportador SFMB";
+            this.PdtExportadorSFMB.Name = "PdtExportadorSFMB";
+            this.PdtExportadorSFMB.ReadOnly = true;
+            this.PdtExportadorSFMB.Width = 70;
+            // 
+            // PdtPercepcionesIgvDelMes
+            // 
+            this.PdtPercepcionesIgvDelMes.DataPropertyName = "percepcionesIgvDelMes";
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.Lavender;
+            this.PdtPercepcionesIgvDelMes.DefaultCellStyle = dataGridViewCellStyle16;
+            this.PdtPercepcionesIgvDelMes.HeaderText = "Percepciones IGV Del Mes";
+            this.PdtPercepcionesIgvDelMes.Name = "PdtPercepcionesIgvDelMes";
+            this.PdtPercepcionesIgvDelMes.ReadOnly = true;
+            this.PdtPercepcionesIgvDelMes.Width = 70;
+            // 
+            // PdtPercepcionesIgvMesAnterior
+            // 
+            this.PdtPercepcionesIgvMesAnterior.DataPropertyName = "percepcionesIgvMesAnterior";
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.Lavender;
+            this.PdtPercepcionesIgvMesAnterior.DefaultCellStyle = dataGridViewCellStyle17;
+            this.PdtPercepcionesIgvMesAnterior.HeaderText = "Percepciones IGV Mes Anterior";
+            this.PdtPercepcionesIgvMesAnterior.Name = "PdtPercepcionesIgvMesAnterior";
+            this.PdtPercepcionesIgvMesAnterior.ReadOnly = true;
+            this.PdtPercepcionesIgvMesAnterior.Width = 70;
+            // 
+            // PdtPercepcionesIgvAplicada
+            // 
+            this.PdtPercepcionesIgvAplicada.DataPropertyName = "percepcionesIgvAplicada";
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.Lavender;
+            this.PdtPercepcionesIgvAplicada.DefaultCellStyle = dataGridViewCellStyle18;
+            this.PdtPercepcionesIgvAplicada.HeaderText = "Percepciones IGV Aplicada";
+            this.PdtPercepcionesIgvAplicada.Name = "PdtPercepcionesIgvAplicada";
+            this.PdtPercepcionesIgvAplicada.ReadOnly = true;
+            this.PdtPercepcionesIgvAplicada.Width = 70;
+            // 
+            // PdtPercepcionesIgvComposicionProcedente
+            // 
+            this.PdtPercepcionesIgvComposicionProcedente.DataPropertyName = "percepcionesIgvComposicionProcedente";
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.Lavender;
+            this.PdtPercepcionesIgvComposicionProcedente.DefaultCellStyle = dataGridViewCellStyle19;
+            this.PdtPercepcionesIgvComposicionProcedente.HeaderText = "Percepciones IGV Composicion Procedente";
+            this.PdtPercepcionesIgvComposicionProcedente.Name = "PdtPercepcionesIgvComposicionProcedente";
+            this.PdtPercepcionesIgvComposicionProcedente.ReadOnly = true;
+            this.PdtPercepcionesIgvComposicionProcedente.Width = 70;
+            // 
+            // PdtPercepcionesIgvPorAplicar
+            // 
+            this.PdtPercepcionesIgvPorAplicar.DataPropertyName = "percepcionesIgvPorAplicar";
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.Lavender;
+            this.PdtPercepcionesIgvPorAplicar.DefaultCellStyle = dataGridViewCellStyle20;
+            this.PdtPercepcionesIgvPorAplicar.HeaderText = "Percepciones IGV por Aplicar";
+            this.PdtPercepcionesIgvPorAplicar.Name = "PdtPercepcionesIgvPorAplicar";
+            this.PdtPercepcionesIgvPorAplicar.ReadOnly = true;
+            this.PdtPercepcionesIgvPorAplicar.Width = 70;
+            // 
+            // PdtRetencionesIgvDelMes
+            // 
+            this.PdtRetencionesIgvDelMes.DataPropertyName = "retencionesIgvDelMes";
+            this.PdtRetencionesIgvDelMes.HeaderText = "Retenciones IGV del Mes";
+            this.PdtRetencionesIgvDelMes.Name = "PdtRetencionesIgvDelMes";
+            this.PdtRetencionesIgvDelMes.ReadOnly = true;
+            this.PdtRetencionesIgvDelMes.Width = 70;
+            // 
+            // PdtRetencionesIgvDelMesAnterior
+            // 
+            this.PdtRetencionesIgvDelMesAnterior.DataPropertyName = "retencionesIgvMesAnterior";
+            this.PdtRetencionesIgvDelMesAnterior.HeaderText = "Retenciones IGV del Mes Anterior";
+            this.PdtRetencionesIgvDelMesAnterior.Name = "PdtRetencionesIgvDelMesAnterior";
+            this.PdtRetencionesIgvDelMesAnterior.ReadOnly = true;
+            this.PdtRetencionesIgvDelMesAnterior.Width = 70;
+            // 
+            // PdtRetencionesIgvAplicada
+            // 
+            this.PdtRetencionesIgvAplicada.DataPropertyName = "retencionesIgvAplicada";
+            this.PdtRetencionesIgvAplicada.HeaderText = "RetencionesIGV Aplicada";
+            this.PdtRetencionesIgvAplicada.Name = "PdtRetencionesIgvAplicada";
+            this.PdtRetencionesIgvAplicada.ReadOnly = true;
+            this.PdtRetencionesIgvAplicada.Width = 70;
+            // 
+            // PdtRetencionesIgvComposicionProcedente
+            // 
+            this.PdtRetencionesIgvComposicionProcedente.DataPropertyName = "retencionesIgvComposicionProcedente";
+            this.PdtRetencionesIgvComposicionProcedente.HeaderText = "Retenciones IGV Composicion Procedente";
+            this.PdtRetencionesIgvComposicionProcedente.Name = "PdtRetencionesIgvComposicionProcedente";
+            this.PdtRetencionesIgvComposicionProcedente.ReadOnly = true;
+            this.PdtRetencionesIgvComposicionProcedente.Width = 70;
+            // 
+            // PdtRetencionesIgvPorAplicar
+            // 
+            this.PdtRetencionesIgvPorAplicar.DataPropertyName = "retencionesIgvPorAplicar";
+            this.PdtRetencionesIgvPorAplicar.HeaderText = "Retenciones IGV Por Aplicar";
+            this.PdtRetencionesIgvPorAplicar.Name = "PdtRetencionesIgvPorAplicar";
+            this.PdtRetencionesIgvPorAplicar.ReadOnly = true;
+            this.PdtRetencionesIgvPorAplicar.Width = 70;
+            // 
+            // PdtIgvPagoAPagar
+            // 
+            this.PdtIgvPagoAPagar.DataPropertyName = "igvPagoAPagar";
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.Lavender;
+            this.PdtIgvPagoAPagar.DefaultCellStyle = dataGridViewCellStyle21;
+            this.PdtIgvPagoAPagar.HeaderText = "IGV/Pago a Pagar";
+            this.PdtIgvPagoAPagar.Name = "PdtIgvPagoAPagar";
+            this.PdtIgvPagoAPagar.ReadOnly = true;
+            this.PdtIgvPagoAPagar.Width = 70;
+            // 
+            // PdtIgvPagoPagado
+            // 
+            this.PdtIgvPagoPagado.DataPropertyName = "igvPagoPagado";
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.Lavender;
+            this.PdtIgvPagoPagado.DefaultCellStyle = dataGridViewCellStyle22;
+            this.PdtIgvPagoPagado.HeaderText = "IGV/Pago Pagado";
+            this.PdtIgvPagoPagado.Name = "PdtIgvPagoPagado";
+            this.PdtIgvPagoPagado.ReadOnly = true;
+            this.PdtIgvPagoPagado.Width = 70;
+            // 
+            // PdtImpuestoAlaRentaOtrosIngreso
+            // 
+            this.PdtImpuestoAlaRentaOtrosIngreso.DataPropertyName = "impuestoAlaRentaOtrosIngreso";
+            this.PdtImpuestoAlaRentaOtrosIngreso.HeaderText = "Impuesto a la Renta/Pago Otros Ingreso";
+            this.PdtImpuestoAlaRentaOtrosIngreso.Name = "PdtImpuestoAlaRentaOtrosIngreso";
+            this.PdtImpuestoAlaRentaOtrosIngreso.ReadOnly = true;
+            this.PdtImpuestoAlaRentaOtrosIngreso.Width = 70;
+            // 
+            // PdtImpuestoAlaRentaBaseImponible
+            // 
+            this.PdtImpuestoAlaRentaBaseImponible.DataPropertyName = "impuestoAlaRentaBaseImponible";
+            this.PdtImpuestoAlaRentaBaseImponible.HeaderText = "Impuesto a la Renta/Pago Base Imponible";
+            this.PdtImpuestoAlaRentaBaseImponible.Name = "PdtImpuestoAlaRentaBaseImponible";
+            this.PdtImpuestoAlaRentaBaseImponible.ReadOnly = true;
+            this.PdtImpuestoAlaRentaBaseImponible.Width = 70;
+            // 
+            // PdtImpuestoAlaRentaCoeficiente
+            // 
+            this.PdtImpuestoAlaRentaCoeficiente.DataPropertyName = "impuestoAlaRentaCoeficiente";
+            this.PdtImpuestoAlaRentaCoeficiente.HeaderText = "Impuesto a la Renta/Pago Coeficiente";
+            this.PdtImpuestoAlaRentaCoeficiente.Name = "PdtImpuestoAlaRentaCoeficiente";
+            this.PdtImpuestoAlaRentaCoeficiente.ReadOnly = true;
+            this.PdtImpuestoAlaRentaCoeficiente.Width = 70;
+            // 
+            // PdtImpuestoAlaRentaImpuestoResultante
+            // 
+            this.PdtImpuestoAlaRentaImpuestoResultante.DataPropertyName = "impuestoAlaRentaImpuestoResultante";
+            this.PdtImpuestoAlaRentaImpuestoResultante.HeaderText = "Impuesto a la Renta/Pago Impuesto Resultante (IR)";
+            this.PdtImpuestoAlaRentaImpuestoResultante.Name = "PdtImpuestoAlaRentaImpuestoResultante";
+            this.PdtImpuestoAlaRentaImpuestoResultante.ReadOnly = true;
+            this.PdtImpuestoAlaRentaImpuestoResultante.Width = 70;
+            // 
+            // PdtImpuestoAlaRentaPagado
+            // 
+            this.PdtImpuestoAlaRentaPagado.DataPropertyName = "impuestoAlaRentaPagado";
+            this.PdtImpuestoAlaRentaPagado.HeaderText = "Impuesto a la Renta/Pago Pagado";
+            this.PdtImpuestoAlaRentaPagado.Name = "PdtImpuestoAlaRentaPagado";
+            this.PdtImpuestoAlaRentaPagado.ReadOnly = true;
+            this.PdtImpuestoAlaRentaPagado.Width = 70;
+            // 
+            // PdtImpuestoAlaRentaCompensacionSFA
+            // 
+            this.PdtImpuestoAlaRentaCompensacionSFA.DataPropertyName = "impuestoAlaRentaCompensacionSFA";
+            this.PdtImpuestoAlaRentaCompensacionSFA.HeaderText = "Impuesto a la Renta/Pago Compensación SFA (IR)";
+            this.PdtImpuestoAlaRentaCompensacionSFA.Name = "PdtImpuestoAlaRentaCompensacionSFA";
+            this.PdtImpuestoAlaRentaCompensacionSFA.ReadOnly = true;
+            this.PdtImpuestoAlaRentaCompensacionSFA.Width = 70;
+            // 
+            // PdtImpuestoAlaRentaCompensacionSFMB
+            // 
+            this.PdtImpuestoAlaRentaCompensacionSFMB.DataPropertyName = "impuestoAlaRentaCompensacionSFMB";
+            this.PdtImpuestoAlaRentaCompensacionSFMB.HeaderText = "Impuesto a la Renta/Pago Compensación SFFMB (IR)";
+            this.PdtImpuestoAlaRentaCompensacionSFMB.Name = "PdtImpuestoAlaRentaCompensacionSFMB";
+            this.PdtImpuestoAlaRentaCompensacionSFMB.ReadOnly = true;
+            // 
+            // PdtImpuestoAlaRentaCompensacionITAN
+            // 
+            this.PdtImpuestoAlaRentaCompensacionITAN.DataPropertyName = "impuestoAlaRentaCompensacionITAN";
+            this.PdtImpuestoAlaRentaCompensacionITAN.HeaderText = "Impuesto a la Renta/Pago Compensacion (ITAN)";
+            this.PdtImpuestoAlaRentaCompensacionITAN.Name = "PdtImpuestoAlaRentaCompensacionITAN";
+            this.PdtImpuestoAlaRentaCompensacionITAN.ReadOnly = true;
+            this.PdtImpuestoAlaRentaCompensacionITAN.Width = 70;
+            // 
+            // PdtImpuestoAlaRentaCompensacionPercepcion
+            // 
+            this.PdtImpuestoAlaRentaCompensacionPercepcion.DataPropertyName = "impuestoAlaRentaCompensacionPercepcion";
+            this.PdtImpuestoAlaRentaCompensacionPercepcion.HeaderText = "Impuesto a la Renta/Pago Compensacion Percepcion y/o Retención";
+            this.PdtImpuestoAlaRentaCompensacionPercepcion.Name = "PdtImpuestoAlaRentaCompensacionPercepcion";
+            this.PdtImpuestoAlaRentaCompensacionPercepcion.ReadOnly = true;
+            this.PdtImpuestoAlaRentaCompensacionPercepcion.Width = 70;
+            // 
+            // PdtImpuestoAlaRentaImputacion
+            // 
+            this.PdtImpuestoAlaRentaImputacion.DataPropertyName = "impuestoAlaRentaImputacion";
+            this.PdtImpuestoAlaRentaImputacion.HeaderText = "Impuesto a la Renta/Pago Imputación";
+            this.PdtImpuestoAlaRentaImputacion.Name = "PdtImpuestoAlaRentaImputacion";
+            this.PdtImpuestoAlaRentaImputacion.ReadOnly = true;
+            this.PdtImpuestoAlaRentaImputacion.Width = 70;
+            // 
+            // PdtImpuestoAlaRentaPorPagar
+            // 
+            this.PdtImpuestoAlaRentaPorPagar.DataPropertyName = "impuestoAlaRentaPorPagar";
+            this.PdtImpuestoAlaRentaPorPagar.HeaderText = "Impuesto a la Renta/Pago Por Pagar";
+            this.PdtImpuestoAlaRentaPorPagar.Name = "PdtImpuestoAlaRentaPorPagar";
+            this.PdtImpuestoAlaRentaPorPagar.ReadOnly = true;
+            this.PdtImpuestoAlaRentaPorPagar.Width = 70;
+            // 
+            // ingresoExportaciónDataGridViewTextBoxColumn
+            // 
+            this.ingresoExportaciónDataGridViewTextBoxColumn.DataPropertyName = "ingresoExportación";
+            this.ingresoExportaciónDataGridViewTextBoxColumn.HeaderText = "ingresoExportación";
+            this.ingresoExportaciónDataGridViewTextBoxColumn.Name = "ingresoExportaciónDataGridViewTextBoxColumn";
+            this.ingresoExportaciónDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ingresoGravadasDataGridViewTextBoxColumn
+            // 
+            this.ingresoGravadasDataGridViewTextBoxColumn.DataPropertyName = "ingresoGravadas";
+            this.ingresoGravadasDataGridViewTextBoxColumn.HeaderText = "ingresoGravadas";
+            this.ingresoGravadasDataGridViewTextBoxColumn.Name = "ingresoGravadasDataGridViewTextBoxColumn";
+            this.ingresoGravadasDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ingresoExoneradaDataGridViewTextBoxColumn
+            // 
+            this.ingresoExoneradaDataGridViewTextBoxColumn.DataPropertyName = "ingresoExonerada";
+            this.ingresoExoneradaDataGridViewTextBoxColumn.HeaderText = "ingresoExonerada";
+            this.ingresoExoneradaDataGridViewTextBoxColumn.Name = "ingresoExoneradaDataGridViewTextBoxColumn";
+            this.ingresoExoneradaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ingresoInafectaDataGridViewTextBoxColumn
+            // 
+            this.ingresoInafectaDataGridViewTextBoxColumn.DataPropertyName = "ingresoInafecta";
+            this.ingresoInafectaDataGridViewTextBoxColumn.HeaderText = "ingresoInafecta";
+            this.ingresoInafectaDataGridViewTextBoxColumn.Name = "ingresoInafectaDataGridViewTextBoxColumn";
+            this.ingresoInafectaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ingresoIGVDataGridViewTextBoxColumn
+            // 
+            this.ingresoIGVDataGridViewTextBoxColumn.DataPropertyName = "ingresoIGV";
+            this.ingresoIGVDataGridViewTextBoxColumn.HeaderText = "ingresoIGV";
+            this.ingresoIGVDataGridViewTextBoxColumn.Name = "ingresoIGVDataGridViewTextBoxColumn";
+            this.ingresoIGVDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ingresoImporteTotalDataGridViewTextBoxColumn
+            // 
+            this.ingresoImporteTotalDataGridViewTextBoxColumn.DataPropertyName = "ingresoImporteTotal";
+            this.ingresoImporteTotalDataGridViewTextBoxColumn.HeaderText = "ingresoImporteTotal";
+            this.ingresoImporteTotalDataGridViewTextBoxColumn.Name = "ingresoImporteTotalDataGridViewTextBoxColumn";
+            this.ingresoImporteTotalDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // egresoMesDataGridViewTextBoxColumn
+            // 
+            this.egresoMesDataGridViewTextBoxColumn.DataPropertyName = "egresoMes";
+            this.egresoMesDataGridViewTextBoxColumn.HeaderText = "egresoMes";
+            this.egresoMesDataGridViewTextBoxColumn.Name = "egresoMesDataGridViewTextBoxColumn";
+            // 
+            // egresoBaseImponibleDataGridViewTextBoxColumn
+            // 
+            this.egresoBaseImponibleDataGridViewTextBoxColumn.DataPropertyName = "egresoBaseImponible";
+            this.egresoBaseImponibleDataGridViewTextBoxColumn.HeaderText = "egresoBaseImponible";
+            this.egresoBaseImponibleDataGridViewTextBoxColumn.Name = "egresoBaseImponibleDataGridViewTextBoxColumn";
+            this.egresoBaseImponibleDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // egresoIGVDataGridViewTextBoxColumn
+            // 
+            this.egresoIGVDataGridViewTextBoxColumn.DataPropertyName = "egresoIGV";
+            this.egresoIGVDataGridViewTextBoxColumn.HeaderText = "egresoIGV";
+            this.egresoIGVDataGridViewTextBoxColumn.Name = "egresoIGVDataGridViewTextBoxColumn";
+            this.egresoIGVDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // egresoNoGravadaDataGridViewTextBoxColumn
+            // 
+            this.egresoNoGravadaDataGridViewTextBoxColumn.DataPropertyName = "egresoNoGravada";
+            this.egresoNoGravadaDataGridViewTextBoxColumn.HeaderText = "egresoNoGravada";
+            this.egresoNoGravadaDataGridViewTextBoxColumn.Name = "egresoNoGravadaDataGridViewTextBoxColumn";
+            this.egresoNoGravadaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // egresoImporteTotalDataGridViewTextBoxColumn
+            // 
+            this.egresoImporteTotalDataGridViewTextBoxColumn.DataPropertyName = "egresoImporteTotal";
+            this.egresoImporteTotalDataGridViewTextBoxColumn.HeaderText = "egresoImporteTotal";
+            this.egresoImporteTotalDataGridViewTextBoxColumn.Name = "egresoImporteTotalDataGridViewTextBoxColumn";
+            this.egresoImporteTotalDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ficalIgvImpouestoResultanteDataGridViewTextBoxColumn
+            // 
+            this.ficalIgvImpouestoResultanteDataGridViewTextBoxColumn.DataPropertyName = "ficalIgvImpouestoResultante";
+            this.ficalIgvImpouestoResultanteDataGridViewTextBoxColumn.HeaderText = "ficalIgvImpouestoResultante";
+            this.ficalIgvImpouestoResultanteDataGridViewTextBoxColumn.Name = "ficalIgvImpouestoResultanteDataGridViewTextBoxColumn";
+            this.ficalIgvImpouestoResultanteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ficalIgvCreditoDebitoDataGridViewTextBoxColumn
+            // 
+            this.ficalIgvCreditoDebitoDataGridViewTextBoxColumn.DataPropertyName = "ficalIgvCreditoDebito";
+            this.ficalIgvCreditoDebitoDataGridViewTextBoxColumn.HeaderText = "ficalIgvCreditoDebito";
+            this.ficalIgvCreditoDebitoDataGridViewTextBoxColumn.Name = "ficalIgvCreditoDebitoDataGridViewTextBoxColumn";
+            this.ficalIgvCreditoDebitoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ficalIgvSaldoFavorPagarDataGridViewTextBoxColumn
+            // 
+            this.ficalIgvSaldoFavorPagarDataGridViewTextBoxColumn.DataPropertyName = "ficalIgvSaldoFavorPagar";
+            this.ficalIgvSaldoFavorPagarDataGridViewTextBoxColumn.HeaderText = "ficalIgvSaldoFavorPagar";
+            this.ficalIgvSaldoFavorPagarDataGridViewTextBoxColumn.Name = "ficalIgvSaldoFavorPagarDataGridViewTextBoxColumn";
+            this.ficalIgvSaldoFavorPagarDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // exportadorSFMBDataGridViewTextBoxColumn
+            // 
+            this.exportadorSFMBDataGridViewTextBoxColumn.DataPropertyName = "exportadorSFMB";
+            this.exportadorSFMBDataGridViewTextBoxColumn.HeaderText = "exportadorSFMB";
+            this.exportadorSFMBDataGridViewTextBoxColumn.Name = "exportadorSFMBDataGridViewTextBoxColumn";
+            this.exportadorSFMBDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // percepcionesIgvDelMesDataGridViewTextBoxColumn
+            // 
+            this.percepcionesIgvDelMesDataGridViewTextBoxColumn.DataPropertyName = "percepcionesIgvDelMes";
+            this.percepcionesIgvDelMesDataGridViewTextBoxColumn.HeaderText = "percepcionesIgvDelMes";
+            this.percepcionesIgvDelMesDataGridViewTextBoxColumn.Name = "percepcionesIgvDelMesDataGridViewTextBoxColumn";
+            this.percepcionesIgvDelMesDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // percepcionesIgvMesAnteriorDataGridViewTextBoxColumn
+            // 
+            this.percepcionesIgvMesAnteriorDataGridViewTextBoxColumn.DataPropertyName = "percepcionesIgvMesAnterior";
+            this.percepcionesIgvMesAnteriorDataGridViewTextBoxColumn.HeaderText = "percepcionesIgvMesAnterior";
+            this.percepcionesIgvMesAnteriorDataGridViewTextBoxColumn.Name = "percepcionesIgvMesAnteriorDataGridViewTextBoxColumn";
+            this.percepcionesIgvMesAnteriorDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // percepcionesIgvAplicadaDataGridViewTextBoxColumn
+            // 
+            this.percepcionesIgvAplicadaDataGridViewTextBoxColumn.DataPropertyName = "percepcionesIgvAplicada";
+            this.percepcionesIgvAplicadaDataGridViewTextBoxColumn.HeaderText = "percepcionesIgvAplicada";
+            this.percepcionesIgvAplicadaDataGridViewTextBoxColumn.Name = "percepcionesIgvAplicadaDataGridViewTextBoxColumn";
+            this.percepcionesIgvAplicadaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // percepcionesIgvComposicionProcedenteDataGridViewTextBoxColumn
+            // 
+            this.percepcionesIgvComposicionProcedenteDataGridViewTextBoxColumn.DataPropertyName = "percepcionesIgvComposicionProcedente";
+            this.percepcionesIgvComposicionProcedenteDataGridViewTextBoxColumn.HeaderText = "percepcionesIgvComposicionProcedente";
+            this.percepcionesIgvComposicionProcedenteDataGridViewTextBoxColumn.Name = "percepcionesIgvComposicionProcedenteDataGridViewTextBoxColumn";
+            this.percepcionesIgvComposicionProcedenteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // percepcionesIgvPorAplicarDataGridViewTextBoxColumn
+            // 
+            this.percepcionesIgvPorAplicarDataGridViewTextBoxColumn.DataPropertyName = "percepcionesIgvPorAplicar";
+            this.percepcionesIgvPorAplicarDataGridViewTextBoxColumn.HeaderText = "percepcionesIgvPorAplicar";
+            this.percepcionesIgvPorAplicarDataGridViewTextBoxColumn.Name = "percepcionesIgvPorAplicarDataGridViewTextBoxColumn";
+            this.percepcionesIgvPorAplicarDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // retencionesIgvDelMesDataGridViewTextBoxColumn
+            // 
+            this.retencionesIgvDelMesDataGridViewTextBoxColumn.DataPropertyName = "retencionesIgvDelMes";
+            this.retencionesIgvDelMesDataGridViewTextBoxColumn.HeaderText = "retencionesIgvDelMes";
+            this.retencionesIgvDelMesDataGridViewTextBoxColumn.Name = "retencionesIgvDelMesDataGridViewTextBoxColumn";
+            this.retencionesIgvDelMesDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // retencionesIgvMesAnteriorDataGridViewTextBoxColumn
+            // 
+            this.retencionesIgvMesAnteriorDataGridViewTextBoxColumn.DataPropertyName = "retencionesIgvMesAnterior";
+            this.retencionesIgvMesAnteriorDataGridViewTextBoxColumn.HeaderText = "retencionesIgvMesAnterior";
+            this.retencionesIgvMesAnteriorDataGridViewTextBoxColumn.Name = "retencionesIgvMesAnteriorDataGridViewTextBoxColumn";
+            this.retencionesIgvMesAnteriorDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // retencionesIgvAplicadaDataGridViewTextBoxColumn
+            // 
+            this.retencionesIgvAplicadaDataGridViewTextBoxColumn.DataPropertyName = "retencionesIgvAplicada";
+            this.retencionesIgvAplicadaDataGridViewTextBoxColumn.HeaderText = "retencionesIgvAplicada";
+            this.retencionesIgvAplicadaDataGridViewTextBoxColumn.Name = "retencionesIgvAplicadaDataGridViewTextBoxColumn";
+            this.retencionesIgvAplicadaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // retencionesIgvComposicionProcedenteDataGridViewTextBoxColumn
+            // 
+            this.retencionesIgvComposicionProcedenteDataGridViewTextBoxColumn.DataPropertyName = "retencionesIgvComposicionProcedente";
+            this.retencionesIgvComposicionProcedenteDataGridViewTextBoxColumn.HeaderText = "retencionesIgvComposicionProcedente";
+            this.retencionesIgvComposicionProcedenteDataGridViewTextBoxColumn.Name = "retencionesIgvComposicionProcedenteDataGridViewTextBoxColumn";
+            this.retencionesIgvComposicionProcedenteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // retencionesIgvPorAplicarDataGridViewTextBoxColumn
+            // 
+            this.retencionesIgvPorAplicarDataGridViewTextBoxColumn.DataPropertyName = "retencionesIgvPorAplicar";
+            this.retencionesIgvPorAplicarDataGridViewTextBoxColumn.HeaderText = "retencionesIgvPorAplicar";
+            this.retencionesIgvPorAplicarDataGridViewTextBoxColumn.Name = "retencionesIgvPorAplicarDataGridViewTextBoxColumn";
+            this.retencionesIgvPorAplicarDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // igvPagoAPagarDataGridViewTextBoxColumn
+            // 
+            this.igvPagoAPagarDataGridViewTextBoxColumn.DataPropertyName = "igvPagoAPagar";
+            this.igvPagoAPagarDataGridViewTextBoxColumn.HeaderText = "igvPagoAPagar";
+            this.igvPagoAPagarDataGridViewTextBoxColumn.Name = "igvPagoAPagarDataGridViewTextBoxColumn";
+            this.igvPagoAPagarDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // igvPagoPagadoDataGridViewTextBoxColumn
+            // 
+            this.igvPagoPagadoDataGridViewTextBoxColumn.DataPropertyName = "igvPagoPagado";
+            this.igvPagoPagadoDataGridViewTextBoxColumn.HeaderText = "igvPagoPagado";
+            this.igvPagoPagadoDataGridViewTextBoxColumn.Name = "igvPagoPagadoDataGridViewTextBoxColumn";
+            this.igvPagoPagadoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // impuestoAlaRentaOtrosIngresoDataGridViewTextBoxColumn
+            // 
+            this.impuestoAlaRentaOtrosIngresoDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaOtrosIngreso";
+            this.impuestoAlaRentaOtrosIngresoDataGridViewTextBoxColumn.HeaderText = "impuestoAlaRentaOtrosIngreso";
+            this.impuestoAlaRentaOtrosIngresoDataGridViewTextBoxColumn.Name = "impuestoAlaRentaOtrosIngresoDataGridViewTextBoxColumn";
+            this.impuestoAlaRentaOtrosIngresoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // impuestoAlaRentaBaseImponibleDataGridViewTextBoxColumn
+            // 
+            this.impuestoAlaRentaBaseImponibleDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaBaseImponible";
+            this.impuestoAlaRentaBaseImponibleDataGridViewTextBoxColumn.HeaderText = "impuestoAlaRentaBaseImponible";
+            this.impuestoAlaRentaBaseImponibleDataGridViewTextBoxColumn.Name = "impuestoAlaRentaBaseImponibleDataGridViewTextBoxColumn";
+            this.impuestoAlaRentaBaseImponibleDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // impuestoAlaRentaCoeficienteDataGridViewTextBoxColumn
+            // 
+            this.impuestoAlaRentaCoeficienteDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaCoeficiente";
+            this.impuestoAlaRentaCoeficienteDataGridViewTextBoxColumn.HeaderText = "impuestoAlaRentaCoeficiente";
+            this.impuestoAlaRentaCoeficienteDataGridViewTextBoxColumn.Name = "impuestoAlaRentaCoeficienteDataGridViewTextBoxColumn";
+            this.impuestoAlaRentaCoeficienteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // impuestoAlaRentaImpuestoResultanteDataGridViewTextBoxColumn
+            // 
+            this.impuestoAlaRentaImpuestoResultanteDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaImpuestoResultante";
+            this.impuestoAlaRentaImpuestoResultanteDataGridViewTextBoxColumn.HeaderText = "impuestoAlaRentaImpuestoResultante";
+            this.impuestoAlaRentaImpuestoResultanteDataGridViewTextBoxColumn.Name = "impuestoAlaRentaImpuestoResultanteDataGridViewTextBoxColumn";
+            this.impuestoAlaRentaImpuestoResultanteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // impuestoAlaRentaPagadoDataGridViewTextBoxColumn
+            // 
+            this.impuestoAlaRentaPagadoDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaPagado";
+            this.impuestoAlaRentaPagadoDataGridViewTextBoxColumn.HeaderText = "impuestoAlaRentaPagado";
+            this.impuestoAlaRentaPagadoDataGridViewTextBoxColumn.Name = "impuestoAlaRentaPagadoDataGridViewTextBoxColumn";
+            this.impuestoAlaRentaPagadoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // impuestoAlaRentaCompensacionSFADataGridViewTextBoxColumn
+            // 
+            this.impuestoAlaRentaCompensacionSFADataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaCompensacionSFA";
+            this.impuestoAlaRentaCompensacionSFADataGridViewTextBoxColumn.HeaderText = "impuestoAlaRentaCompensacionSFA";
+            this.impuestoAlaRentaCompensacionSFADataGridViewTextBoxColumn.Name = "impuestoAlaRentaCompensacionSFADataGridViewTextBoxColumn";
+            this.impuestoAlaRentaCompensacionSFADataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // impuestoAlaRentaCompensacionSFMBDataGridViewTextBoxColumn
+            // 
+            this.impuestoAlaRentaCompensacionSFMBDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaCompensacionSFMB";
+            this.impuestoAlaRentaCompensacionSFMBDataGridViewTextBoxColumn.HeaderText = "impuestoAlaRentaCompensacionSFMB";
+            this.impuestoAlaRentaCompensacionSFMBDataGridViewTextBoxColumn.Name = "impuestoAlaRentaCompensacionSFMBDataGridViewTextBoxColumn";
+            this.impuestoAlaRentaCompensacionSFMBDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // impuestoAlaRentaCompensacionITANDataGridViewTextBoxColumn
+            // 
+            this.impuestoAlaRentaCompensacionITANDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaCompensacionITAN";
+            this.impuestoAlaRentaCompensacionITANDataGridViewTextBoxColumn.HeaderText = "impuestoAlaRentaCompensacionITAN";
+            this.impuestoAlaRentaCompensacionITANDataGridViewTextBoxColumn.Name = "impuestoAlaRentaCompensacionITANDataGridViewTextBoxColumn";
+            this.impuestoAlaRentaCompensacionITANDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // impuestoAlaRentaCompensacionPercepcionDataGridViewTextBoxColumn
+            // 
+            this.impuestoAlaRentaCompensacionPercepcionDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaCompensacionPercepcion";
+            this.impuestoAlaRentaCompensacionPercepcionDataGridViewTextBoxColumn.HeaderText = "impuestoAlaRentaCompensacionPercepcion";
+            this.impuestoAlaRentaCompensacionPercepcionDataGridViewTextBoxColumn.Name = "impuestoAlaRentaCompensacionPercepcionDataGridViewTextBoxColumn";
+            this.impuestoAlaRentaCompensacionPercepcionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // impuestoAlaRentaImputacionDataGridViewTextBoxColumn
+            // 
+            this.impuestoAlaRentaImputacionDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaImputacion";
+            this.impuestoAlaRentaImputacionDataGridViewTextBoxColumn.HeaderText = "impuestoAlaRentaImputacion";
+            this.impuestoAlaRentaImputacionDataGridViewTextBoxColumn.Name = "impuestoAlaRentaImputacionDataGridViewTextBoxColumn";
+            this.impuestoAlaRentaImputacionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // impuestoAlaRentaPorPagarDataGridViewTextBoxColumn
+            // 
+            this.impuestoAlaRentaPorPagarDataGridViewTextBoxColumn.DataPropertyName = "impuestoAlaRentaPorPagar";
+            this.impuestoAlaRentaPorPagarDataGridViewTextBoxColumn.HeaderText = "impuestoAlaRentaPorPagar";
+            this.impuestoAlaRentaPorPagarDataGridViewTextBoxColumn.Name = "impuestoAlaRentaPorPagarDataGridViewTextBoxColumn";
+            this.impuestoAlaRentaPorPagarDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ingresoExportacionDataGridViewTextBoxColumn
+            // 
+            this.ingresoExportacionDataGridViewTextBoxColumn.DataPropertyName = "ingresoExportacion";
+            this.ingresoExportacionDataGridViewTextBoxColumn.HeaderText = "ingresoExportacion";
+            this.ingresoExportacionDataGridViewTextBoxColumn.Name = "ingresoExportacionDataGridViewTextBoxColumn";
+            this.ingresoExportacionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // mesDataGridViewTextBoxColumn
+            // 
+            this.mesDataGridViewTextBoxColumn.DataPropertyName = "mes";
+            this.mesDataGridViewTextBoxColumn.HeaderText = "mes";
+            this.mesDataGridViewTextBoxColumn.Name = "mesDataGridViewTextBoxColumn";
+            // 
+            // tabLD
+            // 
+            this.tabLD.Controls.Add(this.advancedDataGridView1);
+            this.tabLD.Location = new System.Drawing.Point(4, 22);
+            this.tabLD.Name = "tabLD";
+            this.tabLD.Padding = new System.Windows.Forms.Padding(3);
+            this.tabLD.Size = new System.Drawing.Size(1365, 584);
+            this.tabLD.TabIndex = 3;
+            this.tabLD.Text = "LDPLE";
+            this.tabLD.UseVisualStyleBackColor = true;
+            // 
+            // advancedDataGridView1
+            // 
+            this.advancedDataGridView1.AutoGenerateContextFilters = true;
+            this.advancedDataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.advancedDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.advancedDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.LDPLECodigo,
+            this.LDPLECorrelativo,
+            this.LDPLECorrelativoAsiento,
+            this.LDPLEFechaOperacion,
+            this.LDPLEGlosa,
+            this.LDPLEReferenciaOperacionCodigoLibro,
+            this.LDPLEReferenciaOperacionNumeroCorrelativo,
+            this.LDPLEReferenciaOperacionNumeroDocumento,
+            this.LDPLECentroCostos,
+            this.LDPLECuentaContableAsociadaOperacionCodigo,
+            this.LDPLECuentaContableAsociadaOperacionDenominacion,
+            this.LDPLEMovimientoDebe,
+            this.LDPLEMovimientoHaber,
+            this.LDPLEDiferencia});
+            this.advancedDataGridView1.DateWithTime = false;
+            this.advancedDataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.advancedDataGridView1.GridColor = System.Drawing.SystemColors.AppWorkspace;
+            this.advancedDataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.advancedDataGridView1.Name = "advancedDataGridView1";
+            this.advancedDataGridView1.Size = new System.Drawing.Size(1359, 578);
+            this.advancedDataGridView1.TabIndex = 0;
+            this.advancedDataGridView1.TimeFilter = false;
+            // 
+            // LDPLECodigo
+            // 
+            this.LDPLECodigo.HeaderText = "Cód";
+            this.LDPLECodigo.MinimumWidth = 22;
+            this.LDPLECodigo.Name = "LDPLECodigo";
+            this.LDPLECodigo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.LDPLECodigo.Width = 30;
+            // 
+            // LDPLECorrelativo
+            // 
+            this.LDPLECorrelativo.HeaderText = "N° Correlativo del Diario";
+            this.LDPLECorrelativo.MinimumWidth = 22;
+            this.LDPLECorrelativo.Name = "LDPLECorrelativo";
+            this.LDPLECorrelativo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.LDPLECorrelativo.Width = 50;
+            // 
+            // LDPLECorrelativoAsiento
+            // 
+            this.LDPLECorrelativoAsiento.HeaderText = "N° Correlativo del Asiento";
+            this.LDPLECorrelativoAsiento.MinimumWidth = 22;
+            this.LDPLECorrelativoAsiento.Name = "LDPLECorrelativoAsiento";
+            this.LDPLECorrelativoAsiento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.LDPLECorrelativoAsiento.Width = 50;
+            // 
+            // LDPLEFechaOperacion
+            // 
+            this.LDPLEFechaOperacion.HeaderText = "Fecha de la Operación";
+            this.LDPLEFechaOperacion.MinimumWidth = 22;
+            this.LDPLEFechaOperacion.Name = "LDPLEFechaOperacion";
+            this.LDPLEFechaOperacion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.LDPLEFechaOperacion.Width = 70;
+            // 
+            // LDPLEGlosa
+            // 
+            this.LDPLEGlosa.HeaderText = "Glosa";
+            this.LDPLEGlosa.MinimumWidth = 22;
+            this.LDPLEGlosa.Name = "LDPLEGlosa";
+            this.LDPLEGlosa.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.LDPLEGlosa.Width = 250;
+            // 
+            // LDPLEReferenciaOperacionCodigoLibro
+            // 
+            this.LDPLEReferenciaOperacionCodigoLibro.HeaderText = "Referecia de la Operación Código del Libro";
+            this.LDPLEReferenciaOperacionCodigoLibro.MinimumWidth = 22;
+            this.LDPLEReferenciaOperacionCodigoLibro.Name = "LDPLEReferenciaOperacionCodigoLibro";
+            this.LDPLEReferenciaOperacionCodigoLibro.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // LDPLEReferenciaOperacionNumeroCorrelativo
+            // 
+            this.LDPLEReferenciaOperacionNumeroCorrelativo.HeaderText = "Referencia de la Operación N° Correlativo";
+            this.LDPLEReferenciaOperacionNumeroCorrelativo.MinimumWidth = 22;
+            this.LDPLEReferenciaOperacionNumeroCorrelativo.Name = "LDPLEReferenciaOperacionNumeroCorrelativo";
+            this.LDPLEReferenciaOperacionNumeroCorrelativo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // LDPLEReferenciaOperacionNumeroDocumento
+            // 
+            this.LDPLEReferenciaOperacionNumeroDocumento.HeaderText = "Referencia Operación N° Documento";
+            this.LDPLEReferenciaOperacionNumeroDocumento.MinimumWidth = 22;
+            this.LDPLEReferenciaOperacionNumeroDocumento.Name = "LDPLEReferenciaOperacionNumeroDocumento";
+            this.LDPLEReferenciaOperacionNumeroDocumento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // LDPLECentroCostos
+            // 
+            this.LDPLECentroCostos.HeaderText = "Centro Costos";
+            this.LDPLECentroCostos.MinimumWidth = 22;
+            this.LDPLECentroCostos.Name = "LDPLECentroCostos";
+            this.LDPLECentroCostos.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // LDPLECuentaContableAsociadaOperacionCodigo
+            // 
+            this.LDPLECuentaContableAsociadaOperacionCodigo.HeaderText = "Cuenta Contable Asociada Operacion Código";
+            this.LDPLECuentaContableAsociadaOperacionCodigo.MinimumWidth = 22;
+            this.LDPLECuentaContableAsociadaOperacionCodigo.Name = "LDPLECuentaContableAsociadaOperacionCodigo";
+            this.LDPLECuentaContableAsociadaOperacionCodigo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.LDPLECuentaContableAsociadaOperacionCodigo.Width = 70;
+            // 
+            // LDPLECuentaContableAsociadaOperacionDenominacion
+            // 
+            this.LDPLECuentaContableAsociadaOperacionDenominacion.HeaderText = "Cuenta Contable Asociada Operación Denominación";
+            this.LDPLECuentaContableAsociadaOperacionDenominacion.MinimumWidth = 22;
+            this.LDPLECuentaContableAsociadaOperacionDenominacion.Name = "LDPLECuentaContableAsociadaOperacionDenominacion";
+            this.LDPLECuentaContableAsociadaOperacionDenominacion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.LDPLECuentaContableAsociadaOperacionDenominacion.Width = 250;
+            // 
+            // LDPLEMovimientoDebe
+            // 
+            this.LDPLEMovimientoDebe.HeaderText = "Movimiento Debe";
+            this.LDPLEMovimientoDebe.MinimumWidth = 22;
+            this.LDPLEMovimientoDebe.Name = "LDPLEMovimientoDebe";
+            this.LDPLEMovimientoDebe.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.LDPLEMovimientoDebe.Width = 70;
+            // 
+            // LDPLEMovimientoHaber
+            // 
+            this.LDPLEMovimientoHaber.HeaderText = "Movimiento Haber";
+            this.LDPLEMovimientoHaber.MinimumWidth = 22;
+            this.LDPLEMovimientoHaber.Name = "LDPLEMovimientoHaber";
+            this.LDPLEMovimientoHaber.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.LDPLEMovimientoHaber.Width = 70;
+            // 
+            // LDPLEDiferencia
+            // 
+            this.LDPLEDiferencia.HeaderText = "Diferencia";
+            this.LDPLEDiferencia.MinimumWidth = 22;
+            this.LDPLEDiferencia.Name = "LDPLEDiferencia";
+            this.LDPLEDiferencia.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.LDPLEDiferencia.Width = 70;
+            // 
             // FrmProgramaLibrosElectronicos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1271, 647);
+            this.ClientSize = new System.Drawing.Size(1368, 647);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabRegistros);
             this.Name = "FrmProgramaLibrosElectronicos";
@@ -2884,6 +3147,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DgvPDT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BSpdt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSPdt)).EndInit();
+            this.tabLD.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2907,10 +3172,6 @@
         private System.Windows.Forms.TextBox txtNombreMes;
         private System.Windows.Forms.TextBox txtNombreAnio;
         private ADGV.AdvancedDataGridView dgvRegistroCompras;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idLibroComprasDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nRegDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaEmisionDataGridViewTextBoxColumn;
         private DSCompras dSCompras;
         private System.Windows.Forms.BindingSource BSComprasBindingSource;
         private DSComprasTableAdapters.tblRegistroComprasTableAdapter TAComprasTableAdapter;
@@ -2998,7 +3259,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaRegistroDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaModificacionDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn cuentaDestinoDescripcionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PdtMes;
         private System.Windows.Forms.DataGridViewTextBoxColumn comprasID;
         private System.Windows.Forms.DataGridViewTextBoxColumn comprasNumeroRegistro;
         private System.Windows.Forms.DataGridViewTextBoxColumn comprasFechaEmision;
@@ -3084,9 +3344,10 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button ButtonGuardarPDT;
         private System.Windows.Forms.Button ButtonReportPDT;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn PdtID;
         private System.Windows.Forms.DataGridViewTextBoxColumn PdMes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PdtIngresoExportación;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PdtIngresoExportacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn PdtIngresoGravadas;
         private System.Windows.Forms.DataGridViewTextBoxColumn PdtIngresoExonerada;
         private System.Windows.Forms.DataGridViewTextBoxColumn PdtIngresoInafecta;
@@ -3162,6 +3423,22 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn impuestoAlaRentaImputacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn impuestoAlaRentaPorPagarDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ingresoExportacionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mesDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TabPage tabLD;
+        private ADGV.AdvancedDataGridView advancedDataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LDPLECodigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LDPLECorrelativo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LDPLECorrelativoAsiento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LDPLEFechaOperacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LDPLEGlosa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LDPLEReferenciaOperacionCodigoLibro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LDPLEReferenciaOperacionNumeroCorrelativo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LDPLEReferenciaOperacionNumeroDocumento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LDPLECentroCostos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LDPLECuentaContableAsociadaOperacionCodigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LDPLECuentaContableAsociadaOperacionDenominacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LDPLEMovimientoDebe;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LDPLEMovimientoHaber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LDPLEDiferencia;
     }
 }

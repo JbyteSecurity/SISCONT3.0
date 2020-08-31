@@ -59,8 +59,8 @@ namespace Datos
 
             sqlCommand.ExecuteNonQuery();
             sqlDataReader = sqlCommand.ExecuteReader();
-            dataTable.Load(sqlDataReader);
             sqlCommand.Parameters.Clear();
+            dataTable.Load(sqlDataReader);
 
             conexion.CloseConnection();
             return dataTable;
