@@ -120,6 +120,12 @@
     <Compile Include="FrmDetraccion.Designer.cs">
       <DependentUpon>FrmDetraccion.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLeasing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLeasing.Designer.cs">
+      <DependentUpon>FrmLeasing.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +187,9 @@
     <Compile Include="Sunat.cs" />
     <EmbeddedResource Include="FrmDetraccion.resx">
       <DependentUpon>FrmDetraccion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLeasing.resx">
+      <DependentUpon>FrmLeasing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>

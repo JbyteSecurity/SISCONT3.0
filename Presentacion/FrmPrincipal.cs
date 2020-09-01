@@ -74,11 +74,11 @@ namespace Presentacion
         {
             DataTable dataTableFecha = new DataTable();
             dataTableFecha = tipoCambio.Show(DateTime.UtcNow.ToString("dd/MM/yyyy"));
-
-            if (dataTableFecha.Rows.Count <= 0)
+            //MessageBox.Show("Filas: " + dataTableFecha.Rows.Count);
+            if (dataTableFecha.Rows.Count < 1)
             {
                 HttpClient cliente = new HttpClient();
-                cliente.BaseAddress = new Uri("http://www.sunat.gob.pe/");
+                cliente.BaseAddress = new Uri("https://e-consulta.sunat.gob.pe/");
                 HttpResponseMessage rpta = cliente.GetAsync("cl-at-ittipcam/tcS01Alias").Result;
                 if (rpta != null && rpta.IsSuccessStatusCode)
                 {
@@ -188,6 +188,16 @@ namespace Presentacion
             frmPlanContable.WindowState = FormWindowState.Maximized;
             frmPlanContable.Show();
             frmPlanContable.BringToFront();
+        }
+
+        private void MenuItemLeasing_Click(object sender, EventArgs e)
+        {
+            FrmLeasing frmLeasing = FrmLeasing.GetForm();
+            frmLeasing.MdiParent = this;
+            frmLeasing.WindowState = FormWindowState.Maximized;
+            frmLeasing.Show();
+            frmLeasing.BringToFront();
+
         }
 
         private void UsuarioToolStripMenuItem_Click(object sender, EventArgs e)

@@ -30,21 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             this.mainMenu = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.mantenimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemProveedores = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemTipoDeCambio = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemDetracción = new System.Windows.Forms.ToolStripMenuItem();
-            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mantenimientoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.rolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.permisosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemPLE = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemMantenimiento = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuSubItemProveedores = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuSubItemTipoDeCambio = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuSubItemDetracción = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuSubItemPlanContable = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemPermisos = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuSubItemUsuario = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuSubItemRoles = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.UsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ssPrincipal = new System.Windows.Forms.StatusStrip();
             this.tssConexion = new System.Windows.Forms.ToolStripStatusLabel();
-            this.menuItemPlanContable = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemLeasing = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenu.SuspendLayout();
             this.ssPrincipal.SuspendLayout();
             this.SuspendLayout();
@@ -52,9 +52,10 @@
             // mainMenu
             // 
             this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.mantenimientoToolStripMenuItem,
-            this.usuariosToolStripMenuItem,
+            this.MenuItemPLE,
+            this.MenuItemLeasing,
+            this.MenuItemMantenimiento,
+            this.MenuItemPermisos,
             this.toolStripMenuItem2,
             this.UsuarioToolStripMenuItem});
             this.mainMenu.Location = new System.Drawing.Point(0, 0);
@@ -63,74 +64,74 @@
             this.mainMenu.TabIndex = 5;
             this.mainMenu.Text = "menuStrip1";
             // 
-            // toolStripMenuItem1
+            // MenuItemPLE
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(38, 20);
-            this.toolStripMenuItem1.Text = "PLE";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.MenuItemPLE.Name = "MenuItemPLE";
+            this.MenuItemPLE.Size = new System.Drawing.Size(38, 20);
+            this.MenuItemPLE.Text = "PLE";
+            this.MenuItemPLE.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
-            // mantenimientoToolStripMenuItem
+            // MenuItemMantenimiento
             // 
-            this.mantenimientoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuItemProveedores,
-            this.menuItemTipoDeCambio,
-            this.menuItemDetracción,
-            this.menuItemPlanContable});
-            this.mantenimientoToolStripMenuItem.Name = "mantenimientoToolStripMenuItem";
-            this.mantenimientoToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
-            this.mantenimientoToolStripMenuItem.Text = "Mantenimiento";
+            this.MenuItemMantenimiento.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuSubItemProveedores,
+            this.MenuSubItemTipoDeCambio,
+            this.MenuSubItemDetracción,
+            this.MenuSubItemPlanContable});
+            this.MenuItemMantenimiento.Name = "MenuItemMantenimiento";
+            this.MenuItemMantenimiento.Size = new System.Drawing.Size(101, 20);
+            this.MenuItemMantenimiento.Text = "Mantenimiento";
             // 
-            // menuItemProveedores
+            // MenuSubItemProveedores
             // 
-            this.menuItemProveedores.Name = "menuItemProveedores";
-            this.menuItemProveedores.Size = new System.Drawing.Size(180, 22);
-            this.menuItemProveedores.Text = "Proveedores";
-            this.menuItemProveedores.Click += new System.EventHandler(this.menuItemProveedores_Click);
+            this.MenuSubItemProveedores.Name = "MenuSubItemProveedores";
+            this.MenuSubItemProveedores.Size = new System.Drawing.Size(180, 22);
+            this.MenuSubItemProveedores.Text = "Proveedores";
+            this.MenuSubItemProveedores.Click += new System.EventHandler(this.menuItemProveedores_Click);
             // 
-            // menuItemTipoDeCambio
+            // MenuSubItemTipoDeCambio
             // 
-            this.menuItemTipoDeCambio.Name = "menuItemTipoDeCambio";
-            this.menuItemTipoDeCambio.Size = new System.Drawing.Size(180, 22);
-            this.menuItemTipoDeCambio.Text = "Tipo de Cambio";
-            this.menuItemTipoDeCambio.Click += new System.EventHandler(this.tipoDeCambioToolStripMenuItem_Click);
+            this.MenuSubItemTipoDeCambio.Name = "MenuSubItemTipoDeCambio";
+            this.MenuSubItemTipoDeCambio.Size = new System.Drawing.Size(180, 22);
+            this.MenuSubItemTipoDeCambio.Text = "Tipo de Cambio";
+            this.MenuSubItemTipoDeCambio.Click += new System.EventHandler(this.tipoDeCambioToolStripMenuItem_Click);
             // 
-            // menuItemDetracción
+            // MenuSubItemDetracción
             // 
-            this.menuItemDetracción.Name = "menuItemDetracción";
-            this.menuItemDetracción.Size = new System.Drawing.Size(180, 22);
-            this.menuItemDetracción.Text = "Detracción";
-            this.menuItemDetracción.Click += new System.EventHandler(this.detracciónToolStripMenuItem_Click);
+            this.MenuSubItemDetracción.Name = "MenuSubItemDetracción";
+            this.MenuSubItemDetracción.Size = new System.Drawing.Size(180, 22);
+            this.MenuSubItemDetracción.Text = "Detracción";
+            this.MenuSubItemDetracción.Click += new System.EventHandler(this.detracciónToolStripMenuItem_Click);
             // 
-            // usuariosToolStripMenuItem
+            // MenuSubItemPlanContable
             // 
-            this.usuariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mantenimientoToolStripMenuItem1,
-            this.rolesToolStripMenuItem,
-            this.permisosToolStripMenuItem});
-            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(148, 20);
-            this.usuariosToolStripMenuItem.Text = "Adminsitración Usuarios";
+            this.MenuSubItemPlanContable.Name = "MenuSubItemPlanContable";
+            this.MenuSubItemPlanContable.Size = new System.Drawing.Size(180, 22);
+            this.MenuSubItemPlanContable.Text = "PCGE 2020";
+            this.MenuSubItemPlanContable.Click += new System.EventHandler(this.menuItemPlanContable_Click);
             // 
-            // mantenimientoToolStripMenuItem1
+            // MenuItemPermisos
             // 
-            this.mantenimientoToolStripMenuItem1.Name = "mantenimientoToolStripMenuItem1";
-            this.mantenimientoToolStripMenuItem1.Size = new System.Drawing.Size(122, 22);
-            this.mantenimientoToolStripMenuItem1.Text = "Usuarios";
-            this.mantenimientoToolStripMenuItem1.Click += new System.EventHandler(this.mantenimientoToolStripMenuItem1_Click);
+            this.MenuItemPermisos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuSubItemUsuario,
+            this.MenuSubItemRoles});
+            this.MenuItemPermisos.Name = "MenuItemPermisos";
+            this.MenuItemPermisos.Size = new System.Drawing.Size(67, 20);
+            this.MenuItemPermisos.Text = "Permisos";
             // 
-            // rolesToolStripMenuItem
+            // MenuSubItemUsuario
             // 
-            this.rolesToolStripMenuItem.Name = "rolesToolStripMenuItem";
-            this.rolesToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.rolesToolStripMenuItem.Text = "Roles";
-            this.rolesToolStripMenuItem.Click += new System.EventHandler(this.rolesToolStripMenuItem_Click);
+            this.MenuSubItemUsuario.Name = "MenuSubItemUsuario";
+            this.MenuSubItemUsuario.Size = new System.Drawing.Size(180, 22);
+            this.MenuSubItemUsuario.Text = "Usuarios";
+            this.MenuSubItemUsuario.Click += new System.EventHandler(this.mantenimientoToolStripMenuItem1_Click);
             // 
-            // permisosToolStripMenuItem
+            // MenuSubItemRoles
             // 
-            this.permisosToolStripMenuItem.Name = "permisosToolStripMenuItem";
-            this.permisosToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.permisosToolStripMenuItem.Text = "Permisos";
+            this.MenuSubItemRoles.Name = "MenuSubItemRoles";
+            this.MenuSubItemRoles.Size = new System.Drawing.Size(180, 22);
+            this.MenuSubItemRoles.Text = "Roles";
+            this.MenuSubItemRoles.Click += new System.EventHandler(this.rolesToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -168,12 +169,12 @@
             this.tssConexion.Name = "tssConexion";
             this.tssConexion.Size = new System.Drawing.Size(0, 17);
             // 
-            // menuItemPlanContable
+            // MenuItemLeasing
             // 
-            this.menuItemPlanContable.Name = "menuItemPlanContable";
-            this.menuItemPlanContable.Size = new System.Drawing.Size(180, 22);
-            this.menuItemPlanContable.Text = "PCGE 2020";
-            this.menuItemPlanContable.Click += new System.EventHandler(this.menuItemPlanContable_Click);
+            this.MenuItemLeasing.Name = "MenuItemLeasing";
+            this.MenuItemLeasing.Size = new System.Drawing.Size(59, 20);
+            this.MenuItemLeasing.Text = "Leasing";
+            this.MenuItemLeasing.Click += new System.EventHandler(this.MenuItemLeasing_Click);
             // 
             // FrmPrincipal
             // 
@@ -201,21 +202,21 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip mainMenu;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem mantenimientoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem menuItemProveedores;
-        private System.Windows.Forms.ToolStripMenuItem menuItemTipoDeCambio;
+        private System.Windows.Forms.ToolStripMenuItem MenuItemPLE;
+        private System.Windows.Forms.ToolStripMenuItem MenuItemMantenimiento;
+        private System.Windows.Forms.ToolStripMenuItem MenuSubItemProveedores;
+        private System.Windows.Forms.ToolStripMenuItem MenuSubItemTipoDeCambio;
         private System.Windows.Forms.ToolStripMenuItem UsuarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem menuItemDetracción;
-        private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mantenimientoToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem rolesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem permisosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MenuSubItemDetracción;
+        private System.Windows.Forms.ToolStripMenuItem MenuItemPermisos;
+        private System.Windows.Forms.ToolStripMenuItem MenuSubItemUsuario;
+        private System.Windows.Forms.ToolStripMenuItem MenuSubItemRoles;
         private System.Windows.Forms.StatusStrip ssPrincipal;
         private System.Windows.Forms.ToolStripStatusLabel tssConexion;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem menuItemPlanContable;
+        private System.Windows.Forms.ToolStripMenuItem MenuSubItemPlanContable;
+        private System.Windows.Forms.ToolStripMenuItem MenuItemLeasing;
     }
 }
 

@@ -45,6 +45,7 @@
     <Compile Include="DaoCompras.cs" />
     <Compile Include="DaoComprobantePago.cs" />
     <Compile Include="DaoDetraccion.cs" />
+    <Compile Include="DaoLeasing.cs" />
     <Compile Include="DaoPlanContable.cs" />
     <Compile Include="DaoProveedor.cs" />
     <Compile Include="DaoRol.cs" />

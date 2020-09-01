@@ -29,29 +29,29 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.lblRazonSocial = new System.Windows.Forms.Label();
@@ -236,12 +236,6 @@
             this.ButtonReportPDT = new System.Windows.Forms.Button();
             this.ButtonGuardarPDT = new System.Windows.Forms.Button();
             this.DgvPDT = new System.Windows.Forms.DataGridView();
-            this.BSpdt = new System.Windows.Forms.BindingSource(this.components);
-            this.dSPdt = new Presentacion.DSPdt();
-            this.TAVentasTableAdapter = new Presentacion.DSVentasTableAdapters.tblRegistroVentasTableAdapter();
-            this.TAComprasTableAdapter = new Presentacion.DSComprasTableAdapters.tblRegistroComprasTableAdapter();
-            this.TADetraccionesTableAdapter = new Presentacion.DSDetraccionesTableAdapters.sp_all_combo_detraccionesTableAdapter();
-            this.TApdt = new Presentacion.DSPdtTableAdapters.sp_pdtTableAdapter();
             this.PdtID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PdMes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PdtIngresoExportacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -321,7 +315,12 @@
             this.impuestoAlaRentaPorPagarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ingresoExportacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabLD = new System.Windows.Forms.TabPage();
+            this.BSpdt = new System.Windows.Forms.BindingSource(this.components);
+            this.dSPdt = new Presentacion.DSPdt();
+            this.tabLeasing = new System.Windows.Forms.TabPage();
+            this.tabPrestamos = new System.Windows.Forms.TabPage();
+            this.tabGastos = new System.Windows.Forms.TabPage();
+            this.tabLDPLE = new System.Windows.Forms.TabPage();
             this.advancedDataGridView1 = new ADGV.AdvancedDataGridView();
             this.LDPLECodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LDPLECorrelativo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -337,6 +336,10 @@
             this.LDPLEMovimientoDebe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LDPLEMovimientoHaber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LDPLEDiferencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TAVentasTableAdapter = new Presentacion.DSVentasTableAdapters.tblRegistroVentasTableAdapter();
+            this.TAComprasTableAdapter = new Presentacion.DSComprasTableAdapters.tblRegistroComprasTableAdapter();
+            this.TADetraccionesTableAdapter = new Presentacion.DSDetraccionesTableAdapters.sp_all_combo_detraccionesTableAdapter();
+            this.TApdt = new Presentacion.DSPdtTableAdapters.sp_pdtTableAdapter();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabRegistros.SuspendLayout();
@@ -356,7 +359,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DgvPDT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BSpdt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSPdt)).BeginInit();
-            this.tabLD.SuspendLayout();
+            this.tabLDPLE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -484,7 +487,7 @@
             this.btnGenerarTXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenerarTXT.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnGenerarTXT.Image = global::Presentacion.Properties.Resources.txt;
-            this.btnGenerarTXT.Location = new System.Drawing.Point(251, 9);
+            this.btnGenerarTXT.Location = new System.Drawing.Point(251, 8);
             this.btnGenerarTXT.Name = "btnGenerarTXT";
             this.btnGenerarTXT.Size = new System.Drawing.Size(32, 32);
             this.btnGenerarTXT.TabIndex = 7;
@@ -575,8 +578,11 @@
             this.tabRegistros.Controls.Add(this.tabCompras);
             this.tabRegistros.Controls.Add(this.tabVentas);
             this.tabRegistros.Controls.Add(this.tabPDT);
-            this.tabRegistros.Controls.Add(this.tabLD);
-            this.tabRegistros.Location = new System.Drawing.Point(-1, 42);
+            this.tabRegistros.Controls.Add(this.tabLeasing);
+            this.tabRegistros.Controls.Add(this.tabPrestamos);
+            this.tabRegistros.Controls.Add(this.tabGastos);
+            this.tabRegistros.Controls.Add(this.tabLDPLE);
+            this.tabRegistros.Location = new System.Drawing.Point(-2, 44);
             this.tabRegistros.Name = "tabRegistros";
             this.tabRegistros.SelectedIndex = 0;
             this.tabRegistros.Size = new System.Drawing.Size(1373, 610);
@@ -794,8 +800,8 @@
             // comprasCuenta
             // 
             this.comprasCuenta.DataPropertyName = "Cuenta";
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Aqua;
-            this.comprasCuenta.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.Aqua;
+            this.comprasCuenta.DefaultCellStyle = dataGridViewCellStyle24;
             this.comprasCuenta.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
             this.comprasCuenta.HeaderText = "Cuenta";
             this.comprasCuenta.MinimumWidth = 22;
@@ -807,8 +813,8 @@
             // comprasDescripcion
             // 
             this.comprasDescripcion.DataPropertyName = "Descripcion";
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Aqua;
-            this.comprasDescripcion.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.Aqua;
+            this.comprasDescripcion.DefaultCellStyle = dataGridViewCellStyle25;
             this.comprasDescripcion.HeaderText = "Descripción";
             this.comprasDescripcion.MinimumWidth = 22;
             this.comprasDescripcion.Name = "comprasDescripcion";
@@ -884,8 +890,8 @@
             // comprasConversionDolares
             // 
             this.comprasConversionDolares.DataPropertyName = "ConversionDolar";
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Aqua;
-            this.comprasConversionDolares.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle26.BackColor = System.Drawing.Color.Aqua;
+            this.comprasConversionDolares.DefaultCellStyle = dataGridViewCellStyle26;
             this.comprasConversionDolares.HeaderText = "Conversión Dólares (S/.)";
             this.comprasConversionDolares.MinimumWidth = 22;
             this.comprasConversionDolares.Name = "comprasConversionDolares";
@@ -906,8 +912,8 @@
             // comprasCuentaPago
             // 
             this.comprasCuentaPago.DataPropertyName = "Destino";
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Aqua;
-            this.comprasCuentaPago.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle27.BackColor = System.Drawing.Color.Aqua;
+            this.comprasCuentaPago.DefaultCellStyle = dataGridViewCellStyle27;
             this.comprasCuentaPago.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
             this.comprasCuentaPago.HeaderText = "Cuenta Pago";
             this.comprasCuentaPago.MinimumWidth = 22;
@@ -919,8 +925,8 @@
             // comprasDescripcionDestino
             // 
             this.comprasDescripcionDestino.DataPropertyName = "DescripcionDestino";
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Aqua;
-            this.comprasDescripcionDestino.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle28.BackColor = System.Drawing.Color.Aqua;
+            this.comprasDescripcionDestino.DefaultCellStyle = dataGridViewCellStyle28;
             this.comprasDescripcionDestino.HeaderText = "Cuenta Pago Descripción";
             this.comprasDescripcionDestino.MinimumWidth = 22;
             this.comprasDescripcionDestino.Name = "comprasDescripcionDestino";
@@ -943,8 +949,8 @@
             // 
             this.comprasCodigo.DataPropertyName = "Codigo";
             this.comprasCodigo.DataSource = this.BSDetraccionesBindingSource;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Aqua;
-            this.comprasCodigo.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle29.BackColor = System.Drawing.Color.Aqua;
+            this.comprasCodigo.DefaultCellStyle = dataGridViewCellStyle29;
             this.comprasCodigo.DisplayMember = "Combo";
             this.comprasCodigo.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
             this.comprasCodigo.HeaderText = "Código";
@@ -2295,45 +2301,19 @@
             this.DgvPDT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgvPDT.Location = new System.Drawing.Point(3, 53);
             this.DgvPDT.Name = "DgvPDT";
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvPDT.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle46.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle46.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle46.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvPDT.RowHeadersDefaultCellStyle = dataGridViewCellStyle46;
             this.DgvPDT.Size = new System.Drawing.Size(1357, 522);
             this.DgvPDT.TabIndex = 2;
             this.DgvPDT.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvPDT_CellEndEdit);
             this.DgvPDT.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvPDT_CellFormatting);
             this.DgvPDT.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DgvPDT_DataError);
-            // 
-            // BSpdt
-            // 
-            this.BSpdt.DataMember = "sp_pdt";
-            this.BSpdt.DataSource = this.dSPdt;
-            // 
-            // dSPdt
-            // 
-            this.dSPdt.DataSetName = "DSPdt";
-            this.dSPdt.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // TAVentasTableAdapter
-            // 
-            this.TAVentasTableAdapter.ClearBeforeFill = true;
-            // 
-            // TAComprasTableAdapter
-            // 
-            this.TAComprasTableAdapter.ClearBeforeFill = true;
-            // 
-            // TADetraccionesTableAdapter
-            // 
-            this.TADetraccionesTableAdapter.ClearBeforeFill = true;
-            // 
-            // TApdt
-            // 
-            this.TApdt.ClearBeforeFill = true;
             // 
             // PdtID
             // 
@@ -2354,8 +2334,8 @@
             // PdtIngresoExportacion
             // 
             this.PdtIngresoExportacion.DataPropertyName = "ingresoExportación";
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Lavender;
-            this.PdtIngresoExportacion.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle30.BackColor = System.Drawing.Color.Lavender;
+            this.PdtIngresoExportacion.DefaultCellStyle = dataGridViewCellStyle30;
             this.PdtIngresoExportacion.Frozen = true;
             this.PdtIngresoExportacion.HeaderText = "Ingreso Exportación";
             this.PdtIngresoExportacion.Name = "PdtIngresoExportacion";
@@ -2365,8 +2345,8 @@
             // PdtIngresoGravadas
             // 
             this.PdtIngresoGravadas.DataPropertyName = "ingresoGravadas";
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Lavender;
-            this.PdtIngresoGravadas.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle31.BackColor = System.Drawing.Color.Lavender;
+            this.PdtIngresoGravadas.DefaultCellStyle = dataGridViewCellStyle31;
             this.PdtIngresoGravadas.Frozen = true;
             this.PdtIngresoGravadas.HeaderText = "Ingreso Gravadas";
             this.PdtIngresoGravadas.Name = "PdtIngresoGravadas";
@@ -2376,8 +2356,8 @@
             // PdtIngresoExonerada
             // 
             this.PdtIngresoExonerada.DataPropertyName = "ingresoExonerada";
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Lavender;
-            this.PdtIngresoExonerada.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle32.BackColor = System.Drawing.Color.Lavender;
+            this.PdtIngresoExonerada.DefaultCellStyle = dataGridViewCellStyle32;
             this.PdtIngresoExonerada.Frozen = true;
             this.PdtIngresoExonerada.HeaderText = "Ingreso Exonerada";
             this.PdtIngresoExonerada.Name = "PdtIngresoExonerada";
@@ -2387,8 +2367,8 @@
             // PdtIngresoInafecta
             // 
             this.PdtIngresoInafecta.DataPropertyName = "ingresoInafecta";
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Lavender;
-            this.PdtIngresoInafecta.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle33.BackColor = System.Drawing.Color.Lavender;
+            this.PdtIngresoInafecta.DefaultCellStyle = dataGridViewCellStyle33;
             this.PdtIngresoInafecta.Frozen = true;
             this.PdtIngresoInafecta.HeaderText = "Ingreso Inafecta";
             this.PdtIngresoInafecta.Name = "PdtIngresoInafecta";
@@ -2398,8 +2378,8 @@
             // PdtIngresoIGV
             // 
             this.PdtIngresoIGV.DataPropertyName = "ingresoIGV";
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Lavender;
-            this.PdtIngresoIGV.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle34.BackColor = System.Drawing.Color.Lavender;
+            this.PdtIngresoIGV.DefaultCellStyle = dataGridViewCellStyle34;
             this.PdtIngresoIGV.Frozen = true;
             this.PdtIngresoIGV.HeaderText = "Ingreso IGV";
             this.PdtIngresoIGV.Name = "PdtIngresoIGV";
@@ -2409,8 +2389,8 @@
             // PdtIngresoImporteTotal
             // 
             this.PdtIngresoImporteTotal.DataPropertyName = "ingresoImporteTotal";
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Lavender;
-            this.PdtIngresoImporteTotal.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle35.BackColor = System.Drawing.Color.Lavender;
+            this.PdtIngresoImporteTotal.DefaultCellStyle = dataGridViewCellStyle35;
             this.PdtIngresoImporteTotal.Frozen = true;
             this.PdtIngresoImporteTotal.HeaderText = "Ingreso Importe Total";
             this.PdtIngresoImporteTotal.Name = "PdtIngresoImporteTotal";
@@ -2456,8 +2436,8 @@
             // PdtFicalIgvImpouestoResultante
             // 
             this.PdtFicalIgvImpouestoResultante.DataPropertyName = "ficalIgvImpouestoResultante";
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.Lavender;
-            this.PdtFicalIgvImpouestoResultante.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle36.BackColor = System.Drawing.Color.Lavender;
+            this.PdtFicalIgvImpouestoResultante.DefaultCellStyle = dataGridViewCellStyle36;
             this.PdtFicalIgvImpouestoResultante.HeaderText = "Credito/Debito Fiscal IGV Impouesto Resultante";
             this.PdtFicalIgvImpouestoResultante.Name = "PdtFicalIgvImpouestoResultante";
             this.PdtFicalIgvImpouestoResultante.ReadOnly = true;
@@ -2466,8 +2446,8 @@
             // PdtFicalIgvCreditoDebito
             // 
             this.PdtFicalIgvCreditoDebito.DataPropertyName = "ficalIgvCreditoDebito";
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.Lavender;
-            this.PdtFicalIgvCreditoDebito.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle37.BackColor = System.Drawing.Color.Lavender;
+            this.PdtFicalIgvCreditoDebito.DefaultCellStyle = dataGridViewCellStyle37;
             this.PdtFicalIgvCreditoDebito.HeaderText = "Credito/Debito Fiscal IGV";
             this.PdtFicalIgvCreditoDebito.Name = "PdtFicalIgvCreditoDebito";
             this.PdtFicalIgvCreditoDebito.ReadOnly = true;
@@ -2476,8 +2456,8 @@
             // PdtFicalIgvSaldoFavorPagar
             // 
             this.PdtFicalIgvSaldoFavorPagar.DataPropertyName = "ficalIgvSaldoFavorPagar";
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.Lavender;
-            this.PdtFicalIgvSaldoFavorPagar.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle38.BackColor = System.Drawing.Color.Lavender;
+            this.PdtFicalIgvSaldoFavorPagar.DefaultCellStyle = dataGridViewCellStyle38;
             this.PdtFicalIgvSaldoFavorPagar.HeaderText = "Credito/Debito Fiscal IGV Saldo a Favor/Pagar";
             this.PdtFicalIgvSaldoFavorPagar.Name = "PdtFicalIgvSaldoFavorPagar";
             this.PdtFicalIgvSaldoFavorPagar.ReadOnly = true;
@@ -2494,8 +2474,8 @@
             // PdtPercepcionesIgvDelMes
             // 
             this.PdtPercepcionesIgvDelMes.DataPropertyName = "percepcionesIgvDelMes";
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.Lavender;
-            this.PdtPercepcionesIgvDelMes.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle39.BackColor = System.Drawing.Color.Lavender;
+            this.PdtPercepcionesIgvDelMes.DefaultCellStyle = dataGridViewCellStyle39;
             this.PdtPercepcionesIgvDelMes.HeaderText = "Percepciones IGV Del Mes";
             this.PdtPercepcionesIgvDelMes.Name = "PdtPercepcionesIgvDelMes";
             this.PdtPercepcionesIgvDelMes.ReadOnly = true;
@@ -2504,8 +2484,8 @@
             // PdtPercepcionesIgvMesAnterior
             // 
             this.PdtPercepcionesIgvMesAnterior.DataPropertyName = "percepcionesIgvMesAnterior";
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.Lavender;
-            this.PdtPercepcionesIgvMesAnterior.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle40.BackColor = System.Drawing.Color.Lavender;
+            this.PdtPercepcionesIgvMesAnterior.DefaultCellStyle = dataGridViewCellStyle40;
             this.PdtPercepcionesIgvMesAnterior.HeaderText = "Percepciones IGV Mes Anterior";
             this.PdtPercepcionesIgvMesAnterior.Name = "PdtPercepcionesIgvMesAnterior";
             this.PdtPercepcionesIgvMesAnterior.ReadOnly = true;
@@ -2514,8 +2494,8 @@
             // PdtPercepcionesIgvAplicada
             // 
             this.PdtPercepcionesIgvAplicada.DataPropertyName = "percepcionesIgvAplicada";
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.Lavender;
-            this.PdtPercepcionesIgvAplicada.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle41.BackColor = System.Drawing.Color.Lavender;
+            this.PdtPercepcionesIgvAplicada.DefaultCellStyle = dataGridViewCellStyle41;
             this.PdtPercepcionesIgvAplicada.HeaderText = "Percepciones IGV Aplicada";
             this.PdtPercepcionesIgvAplicada.Name = "PdtPercepcionesIgvAplicada";
             this.PdtPercepcionesIgvAplicada.ReadOnly = true;
@@ -2524,8 +2504,8 @@
             // PdtPercepcionesIgvComposicionProcedente
             // 
             this.PdtPercepcionesIgvComposicionProcedente.DataPropertyName = "percepcionesIgvComposicionProcedente";
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.Lavender;
-            this.PdtPercepcionesIgvComposicionProcedente.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle42.BackColor = System.Drawing.Color.Lavender;
+            this.PdtPercepcionesIgvComposicionProcedente.DefaultCellStyle = dataGridViewCellStyle42;
             this.PdtPercepcionesIgvComposicionProcedente.HeaderText = "Percepciones IGV Composicion Procedente";
             this.PdtPercepcionesIgvComposicionProcedente.Name = "PdtPercepcionesIgvComposicionProcedente";
             this.PdtPercepcionesIgvComposicionProcedente.ReadOnly = true;
@@ -2534,8 +2514,8 @@
             // PdtPercepcionesIgvPorAplicar
             // 
             this.PdtPercepcionesIgvPorAplicar.DataPropertyName = "percepcionesIgvPorAplicar";
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.Lavender;
-            this.PdtPercepcionesIgvPorAplicar.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle43.BackColor = System.Drawing.Color.Lavender;
+            this.PdtPercepcionesIgvPorAplicar.DefaultCellStyle = dataGridViewCellStyle43;
             this.PdtPercepcionesIgvPorAplicar.HeaderText = "Percepciones IGV por Aplicar";
             this.PdtPercepcionesIgvPorAplicar.Name = "PdtPercepcionesIgvPorAplicar";
             this.PdtPercepcionesIgvPorAplicar.ReadOnly = true;
@@ -2584,8 +2564,8 @@
             // PdtIgvPagoAPagar
             // 
             this.PdtIgvPagoAPagar.DataPropertyName = "igvPagoAPagar";
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.Lavender;
-            this.PdtIgvPagoAPagar.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle44.BackColor = System.Drawing.Color.Lavender;
+            this.PdtIgvPagoAPagar.DefaultCellStyle = dataGridViewCellStyle44;
             this.PdtIgvPagoAPagar.HeaderText = "IGV/Pago a Pagar";
             this.PdtIgvPagoAPagar.Name = "PdtIgvPagoAPagar";
             this.PdtIgvPagoAPagar.ReadOnly = true;
@@ -2594,8 +2574,8 @@
             // PdtIgvPagoPagado
             // 
             this.PdtIgvPagoPagado.DataPropertyName = "igvPagoPagado";
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.Lavender;
-            this.PdtIgvPagoPagado.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle45.BackColor = System.Drawing.Color.Lavender;
+            this.PdtIgvPagoPagado.DefaultCellStyle = dataGridViewCellStyle45;
             this.PdtIgvPagoPagado.HeaderText = "IGV/Pago Pagado";
             this.PdtIgvPagoPagado.Name = "PdtIgvPagoPagado";
             this.PdtIgvPagoPagado.ReadOnly = true;
@@ -2966,16 +2946,56 @@
             this.mesDataGridViewTextBoxColumn.HeaderText = "mes";
             this.mesDataGridViewTextBoxColumn.Name = "mesDataGridViewTextBoxColumn";
             // 
-            // tabLD
+            // BSpdt
             // 
-            this.tabLD.Controls.Add(this.advancedDataGridView1);
-            this.tabLD.Location = new System.Drawing.Point(4, 22);
-            this.tabLD.Name = "tabLD";
-            this.tabLD.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLD.Size = new System.Drawing.Size(1365, 584);
-            this.tabLD.TabIndex = 3;
-            this.tabLD.Text = "LDPLE";
-            this.tabLD.UseVisualStyleBackColor = true;
+            this.BSpdt.DataMember = "sp_pdt";
+            this.BSpdt.DataSource = this.dSPdt;
+            // 
+            // dSPdt
+            // 
+            this.dSPdt.DataSetName = "DSPdt";
+            this.dSPdt.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tabLeasing
+            // 
+            this.tabLeasing.Location = new System.Drawing.Point(4, 22);
+            this.tabLeasing.Name = "tabLeasing";
+            this.tabLeasing.Padding = new System.Windows.Forms.Padding(3);
+            this.tabLeasing.Size = new System.Drawing.Size(1365, 584);
+            this.tabLeasing.TabIndex = 3;
+            this.tabLeasing.Text = "LEASING";
+            this.tabLeasing.UseVisualStyleBackColor = true;
+            // 
+            // tabPrestamos
+            // 
+            this.tabPrestamos.Location = new System.Drawing.Point(4, 22);
+            this.tabPrestamos.Name = "tabPrestamos";
+            this.tabPrestamos.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPrestamos.Size = new System.Drawing.Size(1365, 584);
+            this.tabPrestamos.TabIndex = 4;
+            this.tabPrestamos.Text = "PRESTAMOS";
+            this.tabPrestamos.UseVisualStyleBackColor = true;
+            // 
+            // tabGastos
+            // 
+            this.tabGastos.Location = new System.Drawing.Point(4, 22);
+            this.tabGastos.Name = "tabGastos";
+            this.tabGastos.Padding = new System.Windows.Forms.Padding(3);
+            this.tabGastos.Size = new System.Drawing.Size(1365, 584);
+            this.tabGastos.TabIndex = 5;
+            this.tabGastos.Text = "GASTOS";
+            this.tabGastos.UseVisualStyleBackColor = true;
+            // 
+            // tabLDPLE
+            // 
+            this.tabLDPLE.Controls.Add(this.advancedDataGridView1);
+            this.tabLDPLE.Location = new System.Drawing.Point(4, 22);
+            this.tabLDPLE.Name = "tabLDPLE";
+            this.tabLDPLE.Padding = new System.Windows.Forms.Padding(3);
+            this.tabLDPLE.Size = new System.Drawing.Size(1365, 584);
+            this.tabLDPLE.TabIndex = 6;
+            this.tabLDPLE.Text = "LDPLE";
+            this.tabLDPLE.UseVisualStyleBackColor = true;
             // 
             // advancedDataGridView1
             // 
@@ -3003,7 +3023,7 @@
             this.advancedDataGridView1.Location = new System.Drawing.Point(3, 3);
             this.advancedDataGridView1.Name = "advancedDataGridView1";
             this.advancedDataGridView1.Size = new System.Drawing.Size(1359, 578);
-            this.advancedDataGridView1.TabIndex = 0;
+            this.advancedDataGridView1.TabIndex = 1;
             this.advancedDataGridView1.TimeFilter = false;
             // 
             // LDPLECodigo
@@ -3114,6 +3134,22 @@
             this.LDPLEDiferencia.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             this.LDPLEDiferencia.Width = 70;
             // 
+            // TAVentasTableAdapter
+            // 
+            this.TAVentasTableAdapter.ClearBeforeFill = true;
+            // 
+            // TAComprasTableAdapter
+            // 
+            this.TAComprasTableAdapter.ClearBeforeFill = true;
+            // 
+            // TADetraccionesTableAdapter
+            // 
+            this.TADetraccionesTableAdapter.ClearBeforeFill = true;
+            // 
+            // TApdt
+            // 
+            this.TApdt.ClearBeforeFill = true;
+            // 
             // FrmProgramaLibrosElectronicos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3147,7 +3183,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DgvPDT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BSpdt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSPdt)).EndInit();
-            this.tabLD.ResumeLayout(false);
+            this.tabLDPLE.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -3424,7 +3460,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn impuestoAlaRentaPorPagarDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ingresoExportacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn mesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.TabPage tabLD;
+        private System.Windows.Forms.TabPage tabLeasing;
+        private System.Windows.Forms.TabPage tabPrestamos;
+        private System.Windows.Forms.TabPage tabGastos;
+        private System.Windows.Forms.TabPage tabLDPLE;
         private ADGV.AdvancedDataGridView advancedDataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn LDPLECodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn LDPLECorrelativo;

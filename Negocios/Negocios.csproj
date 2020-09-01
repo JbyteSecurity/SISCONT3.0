@@ -47,6 +47,7 @@
     <Compile Include="Compras.cs" />
     <Compile Include="ComprobantePago.cs" />
     <Compile Include="Detraccion.cs" />
+    <Compile Include="Leasing.cs" />
     <Compile Include="Pdt.cs" />
     <Compile Include="PlanContable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

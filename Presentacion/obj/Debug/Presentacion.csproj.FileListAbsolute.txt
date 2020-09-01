@@ -139,3 +139,4 @@ C:\Users\Developers\Source\Repos\SISCONT2.0\SISCONT\Presentacion\bin\Debug\SqlSe
 C:\Users\Developers\Source\Repos\SISCONT2.0\SISCONT\Presentacion\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
 C:\Users\Developers\Source\Repos\SISCONT2.0\SISCONT\Presentacion\bin\Debug\Presentacion.exe.config
 C:\Users\Developers\Source\Repos\SISCONT2.0\SISCONT\Presentacion\obj\Debug\Presentacion.csproj.CopyComplete
+C:\Users\Developers\Source\Repos\SISCONT2.0\SISCONT\Presentacion\obj\Debug\Presentacion.FrmLeasing.resources
