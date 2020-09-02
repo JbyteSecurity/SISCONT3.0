@@ -32,6 +32,20 @@
 		  3.547
         </td>
         
+      			
+        
+        <td width='4%' align='center' class="h3">
+		  <strong>2</strong>
+        </td>
+          
+        <td width='8%' align='center' class="tne10">
+          3.527
+        </td>
+          
+        <td width='8%' align='center' class="tne10">
+		  3.531
+        </td>
+        
       
     
     

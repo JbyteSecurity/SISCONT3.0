@@ -80,6 +80,8 @@
             this.LeasingS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LeasingEntidadS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.TBCapital = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.TBSaldoSoles = new System.Windows.Forms.TextBox();
             this.DateTimePickerFechaFormalizacion = new System.Windows.Forms.DateTimePicker();
@@ -93,8 +95,8 @@
             this.TBSaldo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.TBCapital = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.TBSaldoSolesFechaPago = new System.Windows.Forms.TextBox();
             this.LeasingNumeroCuota = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LeasingFechaVencimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LeasingDolaresCapital = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -110,8 +112,8 @@
             this.LeasingSolesComisionSeguros = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LeasingSolesIgv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LeasingSolesTotalCuota = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LeasingFechaPagoTipoCambio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LeasingFechaPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LeasingFechaPagoTipoCambio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LeasingFechaPagoCapital = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LeasingFechaPagoInteres = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LeasingFechaPagoComisionSeguros = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -152,8 +154,8 @@
             this.LeasingSolesComisionSeguros,
             this.LeasingSolesIgv,
             this.LeasingSolesTotalCuota,
-            this.LeasingFechaPagoTipoCambio,
             this.LeasingFechaPago,
+            this.LeasingFechaPagoTipoCambio,
             this.LeasingFechaPagoCapital,
             this.LeasingFechaPagoInteres,
             this.LeasingFechaPagoComisionSeguros,
@@ -172,6 +174,8 @@
             this.DGVLeasingDolares.Size = new System.Drawing.Size(1349, 636);
             this.DGVLeasingDolares.TabIndex = 1;
             this.DGVLeasingDolares.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewLeasingDolares_CellEndEdit);
+            this.DGVLeasingDolares.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGVLeasingDolares_CellFormatting);
+            this.DGVLeasingDolares.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DGVLeasingDolares_DataError);
             // 
             // tabControlLeasing
             // 
@@ -422,6 +426,8 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.TBSaldoSolesFechaPago);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.TBCapital);
             this.panel1.Controls.Add(this.label5);
@@ -441,6 +447,23 @@
             this.panel1.Size = new System.Drawing.Size(1363, 54);
             this.panel1.TabIndex = 5;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(456, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(43, 13);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "Entidad";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // TBCapital
+            // 
+            this.TBCapital.Location = new System.Drawing.Point(459, 24);
+            this.TBCapital.Name = "TBCapital";
+            this.TBCapital.Size = new System.Drawing.Size(232, 20);
+            this.TBCapital.TabIndex = 6;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -455,8 +478,9 @@
             // 
             this.TBSaldoSoles.Location = new System.Drawing.Point(296, 24);
             this.TBSaldoSoles.Name = "TBSaldoSoles";
+            this.TBSaldoSoles.ReadOnly = true;
             this.TBSaldoSoles.Size = new System.Drawing.Size(68, 20);
-            this.TBSaldoSoles.TabIndex = 18;
+            this.TBSaldoSoles.TabIndex = 5;
             // 
             // DateTimePickerFechaFormalizacion
             // 
@@ -464,14 +488,14 @@
             this.DateTimePickerFechaFormalizacion.Location = new System.Drawing.Point(61, 24);
             this.DateTimePickerFechaFormalizacion.Name = "DateTimePickerFechaFormalizacion";
             this.DateTimePickerFechaFormalizacion.Size = new System.Drawing.Size(95, 20);
-            this.DateTimePickerFechaFormalizacion.TabIndex = 17;
+            this.DateTimePickerFechaFormalizacion.TabIndex = 2;
             this.DateTimePickerFechaFormalizacion.ValueChanged += new System.EventHandler(this.DateTimePickerFechaFormalizacion_ValueChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(759, 13);
+            this.label1.Location = new System.Drawing.Point(952, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 13);
             this.label1.TabIndex = 16;
@@ -482,7 +506,7 @@
             // 
             this.lblRazonSocial.AutoSize = true;
             this.lblRazonSocial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblRazonSocial.Location = new System.Drawing.Point(831, 13);
+            this.lblRazonSocial.Location = new System.Drawing.Point(1024, 12);
             this.lblRazonSocial.Name = "lblRazonSocial";
             this.lblRazonSocial.Size = new System.Drawing.Size(73, 13);
             this.lblRazonSocial.TabIndex = 15;
@@ -500,7 +524,7 @@
             this.btnGuardarCompras.Location = new System.Drawing.Point(8, 6);
             this.btnGuardarCompras.Name = "btnGuardarCompras";
             this.btnGuardarCompras.Size = new System.Drawing.Size(38, 38);
-            this.btnGuardarCompras.TabIndex = 6;
+            this.btnGuardarCompras.TabIndex = 1;
             this.btnGuardarCompras.UseVisualStyleBackColor = false;
             // 
             // lblPeriodoActual
@@ -508,7 +532,7 @@
             this.lblPeriodoActual.AutoSize = true;
             this.lblPeriodoActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPeriodoActual.ForeColor = System.Drawing.Color.Black;
-            this.lblPeriodoActual.Location = new System.Drawing.Point(759, 31);
+            this.lblPeriodoActual.Location = new System.Drawing.Point(952, 30);
             this.lblPeriodoActual.Name = "lblPeriodoActual";
             this.lblPeriodoActual.Size = new System.Drawing.Size(98, 13);
             this.lblPeriodoActual.TabIndex = 14;
@@ -548,7 +572,8 @@
             this.TBSaldo.Location = new System.Drawing.Point(229, 24);
             this.TBSaldo.Name = "TBSaldo";
             this.TBSaldo.Size = new System.Drawing.Size(68, 20);
-            this.TBSaldo.TabIndex = 2;
+            this.TBSaldo.TabIndex = 4;
+            this.TBSaldo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBSaldo_KeyPress);
             this.TBSaldo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBSaldo_KeyUp);
             // 
             // label2
@@ -579,22 +604,24 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1364, 731);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
-            // label6
+            // label7
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(367, 9);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 13);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "Entidad";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(360, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(75, 13);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "Saldo al 31.12";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // TBCapital
+            // TBSaldoSolesFechaPago
             // 
-            this.TBCapital.Location = new System.Drawing.Point(370, 24);
-            this.TBCapital.Name = "TBCapital";
-            this.TBCapital.Size = new System.Drawing.Size(232, 20);
-            this.TBCapital.TabIndex = 20;
+            this.TBSaldoSolesFechaPago.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.TBSaldoSolesFechaPago.Location = new System.Drawing.Point(363, 24);
+            this.TBSaldoSolesFechaPago.Name = "TBSaldoSolesFechaPago";
+            this.TBSaldoSolesFechaPago.ReadOnly = true;
+            this.TBSaldoSolesFechaPago.Size = new System.Drawing.Size(68, 20);
+            this.TBSaldoSolesFechaPago.TabIndex = 22;
             // 
             // LeasingNumeroCuota
             // 
@@ -602,6 +629,7 @@
             this.LeasingNumeroCuota.DefaultCellStyle = dataGridViewCellStyle1;
             this.LeasingNumeroCuota.HeaderText = "N° Cuotas";
             this.LeasingNumeroCuota.Name = "LeasingNumeroCuota";
+            this.LeasingNumeroCuota.Width = 40;
             // 
             // LeasingFechaVencimiento
             // 
@@ -609,6 +637,7 @@
             this.LeasingFechaVencimiento.DefaultCellStyle = dataGridViewCellStyle2;
             this.LeasingFechaVencimiento.HeaderText = "Fecha de Vencimiento";
             this.LeasingFechaVencimiento.Name = "LeasingFechaVencimiento";
+            this.LeasingFechaVencimiento.Width = 70;
             // 
             // LeasingDolaresCapital
             // 
@@ -616,6 +645,7 @@
             this.LeasingDolaresCapital.DefaultCellStyle = dataGridViewCellStyle3;
             this.LeasingDolaresCapital.HeaderText = "Dólares Capital";
             this.LeasingDolaresCapital.Name = "LeasingDolaresCapital";
+            this.LeasingDolaresCapital.Width = 70;
             // 
             // LeasingDolaresInteres
             // 
@@ -623,6 +653,7 @@
             this.LeasingDolaresInteres.DefaultCellStyle = dataGridViewCellStyle4;
             this.LeasingDolaresInteres.HeaderText = "Dólares Interés";
             this.LeasingDolaresInteres.Name = "LeasingDolaresInteres";
+            this.LeasingDolaresInteres.Width = 70;
             // 
             // LeasingDolaresComisionSeguros
             // 
@@ -630,75 +661,92 @@
             this.LeasingDolaresComisionSeguros.DefaultCellStyle = dataGridViewCellStyle5;
             this.LeasingDolaresComisionSeguros.HeaderText = "Dólares Comisión Seguros";
             this.LeasingDolaresComisionSeguros.Name = "LeasingDolaresComisionSeguros";
+            this.LeasingDolaresComisionSeguros.Width = 70;
             // 
             // LeasingDolaresValorCuota
             // 
             this.LeasingDolaresValorCuota.HeaderText = "Dólares Valor de Cuota";
             this.LeasingDolaresValorCuota.Name = "LeasingDolaresValorCuota";
+            this.LeasingDolaresValorCuota.ReadOnly = true;
+            this.LeasingDolaresValorCuota.Width = 70;
             // 
             // LeasingDolaresIgv
             // 
             this.LeasingDolaresIgv.HeaderText = "Dólares IGV";
             this.LeasingDolaresIgv.Name = "LeasingDolaresIgv";
+            this.LeasingDolaresIgv.ReadOnly = true;
+            this.LeasingDolaresIgv.Width = 70;
             // 
             // LeasingDolaresTotalCuota
             // 
             this.LeasingDolaresTotalCuota.HeaderText = "Dólares Total Cuota";
             this.LeasingDolaresTotalCuota.Name = "LeasingDolaresTotalCuota";
+            this.LeasingDolaresTotalCuota.ReadOnly = true;
+            this.LeasingDolaresTotalCuota.Width = 70;
             // 
             // LeasingDolaresSaldo
             // 
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Red;
+            this.LeasingDolaresSaldo.DefaultCellStyle = dataGridViewCellStyle6;
             this.LeasingDolaresSaldo.HeaderText = "Dólares Saldo";
             this.LeasingDolaresSaldo.Name = "LeasingDolaresSaldo";
+            this.LeasingDolaresSaldo.ReadOnly = true;
+            this.LeasingDolaresSaldo.Width = 70;
             // 
             // LeasingSolesSaldo
             // 
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.AliceBlue;
-            this.LeasingSolesSaldo.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Red;
+            this.LeasingSolesSaldo.DefaultCellStyle = dataGridViewCellStyle7;
             this.LeasingSolesSaldo.HeaderText = "Soles Saldo";
             this.LeasingSolesSaldo.Name = "LeasingSolesSaldo";
+            this.LeasingSolesSaldo.ReadOnly = true;
+            this.LeasingSolesSaldo.Width = 70;
             // 
             // LeasingSolesCapital
             // 
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.AliceBlue;
-            this.LeasingSolesCapital.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.AliceBlue;
+            this.LeasingSolesCapital.DefaultCellStyle = dataGridViewCellStyle8;
             this.LeasingSolesCapital.HeaderText = "Soles Capital";
             this.LeasingSolesCapital.Name = "LeasingSolesCapital";
+            this.LeasingSolesCapital.ReadOnly = true;
+            this.LeasingSolesCapital.Width = 70;
             // 
             // LeasingSolesInteres
             // 
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.AliceBlue;
-            this.LeasingSolesInteres.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.AliceBlue;
+            this.LeasingSolesInteres.DefaultCellStyle = dataGridViewCellStyle9;
             this.LeasingSolesInteres.HeaderText = "Soles Interés";
             this.LeasingSolesInteres.Name = "LeasingSolesInteres";
+            this.LeasingSolesInteres.ReadOnly = true;
+            this.LeasingSolesInteres.Width = 70;
             // 
             // LeasingSolesComisionSeguros
             // 
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.AliceBlue;
-            this.LeasingSolesComisionSeguros.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.AliceBlue;
+            this.LeasingSolesComisionSeguros.DefaultCellStyle = dataGridViewCellStyle10;
             this.LeasingSolesComisionSeguros.HeaderText = "Soles Comisión y Seguros";
             this.LeasingSolesComisionSeguros.Name = "LeasingSolesComisionSeguros";
+            this.LeasingSolesComisionSeguros.ReadOnly = true;
+            this.LeasingSolesComisionSeguros.Width = 70;
             // 
             // LeasingSolesIgv
             // 
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.AliceBlue;
-            this.LeasingSolesIgv.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.AliceBlue;
+            this.LeasingSolesIgv.DefaultCellStyle = dataGridViewCellStyle11;
             this.LeasingSolesIgv.HeaderText = "Soles IGV";
             this.LeasingSolesIgv.Name = "LeasingSolesIgv";
+            this.LeasingSolesIgv.ReadOnly = true;
+            this.LeasingSolesIgv.Width = 70;
             // 
             // LeasingSolesTotalCuota
             // 
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.AliceBlue;
-            this.LeasingSolesTotalCuota.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.AliceBlue;
+            this.LeasingSolesTotalCuota.DefaultCellStyle = dataGridViewCellStyle12;
             this.LeasingSolesTotalCuota.HeaderText = "Soles Total Cuota";
             this.LeasingSolesTotalCuota.Name = "LeasingSolesTotalCuota";
-            // 
-            // LeasingFechaPagoTipoCambio
-            // 
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.LeasingFechaPagoTipoCambio.DefaultCellStyle = dataGridViewCellStyle12;
-            this.LeasingFechaPagoTipoCambio.HeaderText = "F/Pag Tip/Cam";
-            this.LeasingFechaPagoTipoCambio.Name = "LeasingFechaPagoTipoCambio";
+            this.LeasingSolesTotalCuota.ReadOnly = true;
+            this.LeasingSolesTotalCuota.Width = 70;
             // 
             // LeasingFechaPago
             // 
@@ -706,61 +754,90 @@
             this.LeasingFechaPago.DefaultCellStyle = dataGridViewCellStyle13;
             this.LeasingFechaPago.HeaderText = "Fecha de Pago";
             this.LeasingFechaPago.Name = "LeasingFechaPago";
+            this.LeasingFechaPago.Width = 70;
+            // 
+            // LeasingFechaPagoTipoCambio
+            // 
+            this.LeasingFechaPagoTipoCambio.HeaderText = "F/Pag Tip/Cam";
+            this.LeasingFechaPagoTipoCambio.Name = "LeasingFechaPagoTipoCambio";
+            this.LeasingFechaPagoTipoCambio.ReadOnly = true;
+            this.LeasingFechaPagoTipoCambio.Width = 70;
             // 
             // LeasingFechaPagoCapital
             // 
             this.LeasingFechaPagoCapital.HeaderText = "Fecha de Pago Capital";
             this.LeasingFechaPagoCapital.Name = "LeasingFechaPagoCapital";
+            this.LeasingFechaPagoCapital.Width = 70;
             // 
             // LeasingFechaPagoInteres
             // 
             this.LeasingFechaPagoInteres.HeaderText = "Fecha Pago Interés";
             this.LeasingFechaPagoInteres.Name = "LeasingFechaPagoInteres";
+            this.LeasingFechaPagoInteres.ReadOnly = true;
+            this.LeasingFechaPagoInteres.Width = 70;
             // 
             // LeasingFechaPagoComisionSeguros
             // 
             this.LeasingFechaPagoComisionSeguros.HeaderText = "Fecha de Pago Comisión y Seguros";
             this.LeasingFechaPagoComisionSeguros.Name = "LeasingFechaPagoComisionSeguros";
+            this.LeasingFechaPagoComisionSeguros.ReadOnly = true;
+            this.LeasingFechaPagoComisionSeguros.Width = 70;
             // 
             // LeasingFechaPagoIgv
             // 
             this.LeasingFechaPagoIgv.HeaderText = "Fecha de Pago IGV";
             this.LeasingFechaPagoIgv.Name = "LeasingFechaPagoIgv";
+            this.LeasingFechaPagoIgv.ReadOnly = true;
+            this.LeasingFechaPagoIgv.Width = 70;
             // 
             // LeasingFechaPagoTotalCuota
             // 
             this.LeasingFechaPagoTotalCuota.HeaderText = "Fecha Pago Total Cuota";
             this.LeasingFechaPagoTotalCuota.Name = "LeasingFechaPagoTotalCuota";
+            this.LeasingFechaPagoTotalCuota.ReadOnly = true;
+            this.LeasingFechaPagoTotalCuota.Width = 70;
             // 
             // LeasingFechaPagoSaldo
             // 
             this.LeasingFechaPagoSaldo.HeaderText = "Fecha de Pago Saldo";
             this.LeasingFechaPagoSaldo.Name = "LeasingFechaPagoSaldo";
+            this.LeasingFechaPagoSaldo.ReadOnly = true;
+            this.LeasingFechaPagoSaldo.Width = 70;
             // 
             // LeasingDirefenciaCambioCapital
             // 
             this.LeasingDirefenciaCambioCapital.HeaderText = "DC Capital";
             this.LeasingDirefenciaCambioCapital.Name = "LeasingDirefenciaCambioCapital";
+            this.LeasingDirefenciaCambioCapital.ReadOnly = true;
+            this.LeasingDirefenciaCambioCapital.Width = 70;
             // 
             // LeasingDirefenciaCambioInteres
             // 
             this.LeasingDirefenciaCambioInteres.HeaderText = "DC Intereses";
             this.LeasingDirefenciaCambioInteres.Name = "LeasingDirefenciaCambioInteres";
+            this.LeasingDirefenciaCambioInteres.ReadOnly = true;
+            this.LeasingDirefenciaCambioInteres.Width = 70;
             // 
             // LeasingDirefenciaCambioIgv
             // 
             this.LeasingDirefenciaCambioIgv.HeaderText = "DC IGV";
             this.LeasingDirefenciaCambioIgv.Name = "LeasingDirefenciaCambioIgv";
+            this.LeasingDirefenciaCambioIgv.ReadOnly = true;
+            this.LeasingDirefenciaCambioIgv.Width = 70;
             // 
             // LeasingDirefenciaCambioTotal
             // 
             this.LeasingDirefenciaCambioTotal.HeaderText = "DC Total";
             this.LeasingDirefenciaCambioTotal.Name = "LeasingDirefenciaCambioTotal";
+            this.LeasingDirefenciaCambioTotal.ReadOnly = true;
+            this.LeasingDirefenciaCambioTotal.Width = 70;
             // 
             // LeasingFechaPagoMes
             // 
             this.LeasingFechaPagoMes.HeaderText = "F/Pago";
             this.LeasingFechaPagoMes.Name = "LeasingFechaPagoMes";
+            this.LeasingFechaPagoMes.ReadOnly = true;
+            this.LeasingFechaPagoMes.Width = 70;
             // 
             // FrmLeasing
             // 
@@ -839,6 +916,8 @@
         private System.Windows.Forms.TextBox TBSaldoSoles;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox TBCapital;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox TBSaldoSolesFechaPago;
         private System.Windows.Forms.DataGridViewTextBoxColumn LeasingNumeroCuota;
         private System.Windows.Forms.DataGridViewTextBoxColumn LeasingFechaVencimiento;
         private System.Windows.Forms.DataGridViewTextBoxColumn LeasingDolaresCapital;
@@ -854,8 +933,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn LeasingSolesComisionSeguros;
         private System.Windows.Forms.DataGridViewTextBoxColumn LeasingSolesIgv;
         private System.Windows.Forms.DataGridViewTextBoxColumn LeasingSolesTotalCuota;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LeasingFechaPagoTipoCambio;
         private System.Windows.Forms.DataGridViewTextBoxColumn LeasingFechaPago;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LeasingFechaPagoTipoCambio;
         private System.Windows.Forms.DataGridViewTextBoxColumn LeasingFechaPagoCapital;
         private System.Windows.Forms.DataGridViewTextBoxColumn LeasingFechaPagoInteres;
         private System.Windows.Forms.DataGridViewTextBoxColumn LeasingFechaPagoComisionSeguros;
